@@ -121,6 +121,35 @@ add_action('init', function() {
     update_option('cdl_fix_certificado_slug', true);
 }, 5);
 
+/**
+ * Cria páginas obrigatórias do tema se não existirem.
+ */
+add_action('init', function() {
+    if (get_option('cdl_pages_created')) return;
+
+    $pages = [
+        'impostometro' => [
+            'post_title'    => 'Impostômetro',
+            'page_template' => 'page-impostometro.php',
+        ],
+    ];
+
+    foreach ($pages as $slug => $data) {
+        if (!get_page_by_path($slug)) {
+            wp_insert_post([
+                'post_type'     => 'page',
+                'post_name'     => $slug,
+                'post_status'   => 'publish',
+                'post_content'  => '',
+                'post_title'    => $data['post_title'],
+                'page_template' => $data['page_template'],
+            ]);
+        }
+    }
+
+    update_option('cdl_pages_created', true);
+}, 20);
+
 // ACF JSON save/load path
 add_filter('acf/settings/save_json', function () {
     return CDL_THEME_DIR . '/acf-json';
