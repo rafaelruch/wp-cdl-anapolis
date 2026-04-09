@@ -1,5 +1,5 @@
 /* ═══ IMPOSTÔMETRO PAGE ═══ */
-.imposto-section{padding-bottom:clamp(60px,8vw,100px)}
+.imposto-section{padding-top:clamp(40px,5vw,80px);padding-bottom:clamp(60px,8vw,100px)}
 
 .imposto-grid{
   display:grid;grid-template-columns:1fr;gap:24px;
