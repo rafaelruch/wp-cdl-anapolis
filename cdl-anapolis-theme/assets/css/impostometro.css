@@ -2,8 +2,8 @@
 .imposto-section{padding-bottom:clamp(60px,8vw,100px)}
 
 .imposto-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
-  margin-top:clamp(40px,5vw,56px);
+  display:grid;grid-template-columns:1fr;gap:24px;
+  max-width:800px;margin:clamp(40px,5vw,56px) auto 0;
 }
 
 .imposto-card{
@@ -41,13 +41,15 @@
   color:var(--gray);font-size:.85rem;line-height:1.7;margin-bottom:24px;
 }
 
-/* Iframe container */
+/* Iframe container — responsive wrapper */
 .imposto-card__iframe{
   width:100%;overflow:hidden;border-radius:var(--radius-md);
   background:var(--light);border:1px solid rgba(0,0,0,.04);
+  position:relative;
 }
 .imposto-card__iframe iframe{
-  display:block;width:100%;max-width:100%;height:228px;border:0;
+  display:block;width:100%;max-width:728px;margin:0 auto;
+  height:228px;border:0;
 }
 .imposto-card:last-child .imposto-card__iframe iframe{height:258px}
 
@@ -113,11 +115,17 @@
 }
 
 /* Responsive */
-@media(max-width:900px){
-  .imposto-grid{grid-template-columns:1fr}
+@media(max-width:768px){
+  .imposto-grid{max-width:100%}
+  .imposto-card{padding:20px}
+  .imposto-card__iframe{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .imposto-card__iframe iframe{min-width:320px}
+  .imposto-cta__actions{flex-direction:column}
+  .imposto-cta__actions .btn-gold,
+  .imposto-cta__actions .btn-ghost{width:100%;justify-content:center}
 }
 @media(max-width:480px){
-  .imposto-card{padding:20px}
+  .imposto-card__title{font-size:1.1rem}
   .imposto-card__iframe iframe{height:180px}
   .imposto-card:last-child .imposto-card__iframe iframe{height:200px}
 }
