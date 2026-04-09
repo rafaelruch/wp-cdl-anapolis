@@ -58,8 +58,13 @@ get_header();
 
         <!-- CTA -->
         <div class="imposto-cta ao">
-            <p>A CDL Anápolis trabalha pela transparência fiscal e pelo fortalecimento do comércio local.</p>
-            <a href="<?php echo esc_url(home_url('/associe-se/')); ?>" class="btn btn--gold">Faça parte da CDL</a>
+            <div class="imposto-cta__tag">CDL Anápolis</div>
+            <h3 class="imposto-cta__title">Transparência fiscal é compromisso com quem empreende</h3>
+            <p class="imposto-cta__desc">A CDL Anápolis trabalha pela valorização do comércio local e pelo direito dos lojistas a uma carga tributária justa.</p>
+            <div class="imposto-cta__actions">
+                <a href="<?php echo esc_url(home_url('/associe-se/')); ?>" class="btn btn-gold">Quero fazer parte</a>
+                <a href="<?php echo esc_url(home_url('/sobre-nos/')); ?>" class="btn btn-ghost">Conheça a CDL</a>
+            </div>
         </div>
 
     </div>
