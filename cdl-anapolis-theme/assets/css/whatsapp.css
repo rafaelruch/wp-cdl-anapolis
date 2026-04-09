@@ -1,0 +1,68 @@
+/* WhatsApp Chat Widget */
+.wpp-widget{position:fixed;bottom:24px;right:24px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+
+/* Chat popup */
+.wpp-popup{
+  width:340px;background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:0 12px 48px rgba(0,0,0,.15),0 0 0 1px rgba(0,0,0,.04);
+  transform:scale(.9) translateY(20px);opacity:0;visibility:hidden;pointer-events:none;
+  transition:all .4s cubic-bezier(.16,1,.3,1);transform-origin:bottom right;
+}
+.wpp-widget.open .wpp-popup{transform:scale(1) translateY(0);opacity:1;visibility:visible;pointer-events:auto}
+.wpp-header{
+  background:#075e54;padding:18px 20px;display:flex;align-items:center;gap:12px;
+  position:relative;
+}
+.wpp-header::after{
+  content:'';position:absolute;bottom:-10px;left:0;right:0;height:10px;
+  background:linear-gradient(180deg,rgba(0,0,0,.06),transparent);pointer-events:none;
+}
+.wpp-avatar{
+  width:44px;height:44px;border-radius:50%;background:#128c7e;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.wpp-avatar svg{width:24px;height:24px;fill:#fff}
+.wpp-header-info h6{font-family:'Sora';font-size:.85rem;font-weight:600;color:#fff;margin-bottom:2px}
+.wpp-header-info span{font-size:.7rem;color:rgba(255,255,255,.6)}
+.wpp-close{
+  position:absolute;top:14px;right:14px;background:none;border:none;color:rgba(255,255,255,.5);
+  cursor:pointer;font-size:1.2rem;padding:4px;transition:.2s;line-height:1;
+}
+.wpp-close:hover{color:#fff}
+.wpp-body{
+  background:#e5ddd5;padding:20px;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.wpp-bubble{
+  background:#fff;border-radius:0 12px 12px 12px;padding:14px 16px;
+  box-shadow:0 1px 2px rgba(0,0,0,.08);max-width:85%;position:relative;
+}
+.wpp-bubble p{font-size:.82rem;color:#303030;line-height:1.55}
+.wpp-bubble strong{font-weight:600}
+.wpp-bubble .wpp-time{font-size:.62rem;color:#999;text-align:right;margin-top:6px}
+.wpp-action{padding:16px 20px;background:#fff;border-top:1px solid rgba(0,0,0,.06)}
+.wpp-action a{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:#25D366;color:#fff;border-radius:12px;padding:14px;
+  font-size:.88rem;font-weight:600;font-family:'Inter';
+  transition:all .3s;
+}
+.wpp-action a:hover{background:#1da851;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,211,102,.3)}
+.wpp-action a svg{width:20px;height:20px;fill:#fff}
+
+/* FAB button */
+.wpp-fab{
+  width:60px;height:60px;border-radius:50%;background:#25D366;border:none;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s;
+  animation:wpulse 2.5s infinite ease-in-out;
+}
+.wpp-fab:hover{transform:scale(1.08);animation:none}
+.wpp-fab svg{width:28px;height:28px;fill:#fff;transition:transform .3s}
+.wpp-widget.open .wpp-fab{animation:none;background:#e74c3c;box-shadow:0 4px 20px rgba(231,76,60,.35)}
+.wpp-widget.open .wpp-fab svg{transform:rotate(45deg)}
+@keyframes wpulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.35)}50%{box-shadow:0 4px 32px rgba(37,211,102,.55)}}
+
+@media(max-width:480px){
+  .wpp-popup{width:calc(100vw - 48px)}
+}

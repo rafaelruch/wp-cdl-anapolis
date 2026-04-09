@@ -1,0 +1,27 @@
+{
+    "key": "group_economy",
+    "title": "Homepage - Economia Local",
+    "fields": [
+        {
+            "key": "field_impostometro_url",
+            "label": "URL do Impostômetro (iframe)",
+            "name": "impostometro_iframe_url",
+            "type": "url",
+            "instructions": "URL para embed do Impostômetro. Deixe vazio para mostrar apenas o link."
+        },
+        {
+            "key": "field_gastobrasil_url",
+            "label": "URL do Gasto Brasil",
+            "name": "gastobrasil_url",
+            "type": "url",
+            "default_value": "https://gastobrasil.com.br/municipios"
+        }
+    ],
+    "location": [[{"param": "options_page", "operator": "==", "value": "cdl-config-homepage"}]],
+    "menu_order": 27,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

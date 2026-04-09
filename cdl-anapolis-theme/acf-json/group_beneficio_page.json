@@ -1,0 +1,61 @@
+{
+    "key": "group_beneficio_page",
+    "title": "Página - Benefício",
+    "fields": [
+        {
+            "key": "field_beneficio_hero_image",
+            "label": "Imagem do Hero",
+            "name": "beneficio_hero_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "wrapper": {"width": "50", "class": "", "id": ""}
+        },
+        {
+            "key": "field_beneficio_intro",
+            "label": "Texto de Introdução",
+            "name": "beneficio_intro",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
+        },
+        {
+            "key": "field_beneficio_features",
+            "label": "Vantagens / Recursos",
+            "name": "beneficio_features",
+            "type": "repeater",
+            "min": 0,
+            "max": 8,
+            "layout": "block",
+            "button_label": "Adicionar Vantagem",
+            "sub_fields": [
+                {"key": "field_bf_title", "label": "Título", "name": "title", "type": "text"},
+                {"key": "field_bf_desc", "label": "Descrição", "name": "description", "type": "textarea", "rows": 3},
+                {"key": "field_bf_icon", "label": "Ícone (opcional)", "name": "icon", "type": "image", "return_format": "array", "preview_size": "thumbnail"}
+            ]
+        },
+        {
+            "key": "field_beneficio_cta_text",
+            "label": "Texto do botão CTA",
+            "name": "beneficio_cta_text",
+            "type": "text",
+            "placeholder": "Ex: Quero fazer parte",
+            "wrapper": {"width": "50", "class": "", "id": ""}
+        },
+        {
+            "key": "field_beneficio_cta_link",
+            "label": "Link do botão CTA",
+            "name": "beneficio_cta_link",
+            "type": "url",
+            "wrapper": {"width": "50", "class": "", "id": ""}
+        }
+    ],
+    "location": [[{"param": "page_template", "operator": "==", "value": "page-beneficio.php"}]],
+    "menu_order": 24,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

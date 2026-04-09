@@ -1,0 +1,96 @@
+{
+    "key": "group_associado",
+    "title": "Dados do Associado",
+    "fields": [
+        {
+            "key": "field_assoc_cnpj",
+            "label": "CNPJ",
+            "name": "associado_cnpj",
+            "type": "text",
+            "placeholder": "00.000.000/0001-00",
+            "required": 0
+        },
+        {
+            "key": "field_assoc_endereco",
+            "label": "Endereço (Rua e Número)",
+            "name": "associado_endereco",
+            "type": "text",
+            "placeholder": "R. Manoel D'Abadia, 123",
+            "required": 1
+        },
+        {
+            "key": "field_assoc_bairro",
+            "label": "Bairro",
+            "name": "associado_bairro",
+            "type": "text",
+            "placeholder": "Centro",
+            "required": 0
+        },
+        {
+            "key": "field_assoc_cep",
+            "label": "CEP",
+            "name": "associado_cep",
+            "type": "text",
+            "placeholder": "75020-010",
+            "required": 0
+        },
+        {
+            "key": "field_assoc_cidade",
+            "label": "Cidade",
+            "name": "associado_cidade",
+            "type": "text",
+            "default_value": "Anápolis",
+            "required": 0
+        },
+        {
+            "key": "field_assoc_estado",
+            "label": "Estado",
+            "name": "associado_estado",
+            "type": "text",
+            "default_value": "GO",
+            "required": 0
+        },
+        {
+            "key": "field_assoc_telefone",
+            "label": "Telefone de Contato",
+            "name": "associado_telefone",
+            "type": "text",
+            "placeholder": "(62) 3333-4444",
+            "required": 0
+        },
+        {
+            "key": "field_assoc_latitude",
+            "label": "Latitude",
+            "name": "associado_latitude",
+            "type": "text",
+            "placeholder": "-16.3281",
+            "instructions": "Coordenada para o pin no mapa. Obtenha via Google Maps.",
+            "required": 0
+        },
+        {
+            "key": "field_assoc_longitude",
+            "label": "Longitude",
+            "name": "associado_longitude",
+            "type": "text",
+            "placeholder": "-48.9529",
+            "instructions": "Coordenada para o pin no mapa. Obtenha via Google Maps.",
+            "required": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "associado"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 1
+}

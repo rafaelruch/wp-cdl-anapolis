@@ -1,0 +1,101 @@
+{
+    "key": "group_presidentes",
+    "title": "Página - Presidentes",
+    "fields": [
+        {
+            "key": "field_presidentes_hero_image",
+            "label": "Hero - Imagem",
+            "name": "presidentes_hero_image",
+            "type": "image",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_presidentes_lista",
+            "label": "Lista de Presidentes",
+            "name": "presidentes_lista",
+            "type": "repeater",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Adicionar Presidente",
+            "sub_fields": [
+                {
+                    "key": "field_presidentes_lista_name",
+                    "label": "Nome",
+                    "name": "name",
+                    "type": "text",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_presidentes_lista_period",
+                    "label": "Período",
+                    "name": "period",
+                    "type": "text",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "Ex: 1962-1968",
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_presidentes_lista_photo",
+                    "label": "Foto",
+                    "name": "photo",
+                    "type": "image",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-presidentes.php"
+            }
+        ]
+    ],
+    "menu_order": 13,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da página Presidentes",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

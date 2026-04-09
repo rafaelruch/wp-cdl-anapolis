@@ -1,0 +1,271 @@
+{
+    "key": "group_sobre_nos",
+    "title": "Página - Sobre Nós",
+    "fields": [
+        {
+            "key": "field_sobre_hero_title",
+            "label": "Hero - Título",
+            "name": "sobre_hero_title",
+            "type": "text",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_hero_subtitle",
+            "label": "Hero - Subtítulo",
+            "name": "sobre_hero_subtitle",
+            "type": "textarea",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 3,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_hero_image",
+            "label": "Hero - Imagem",
+            "name": "sobre_hero_image",
+            "type": "image",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_historia_title",
+            "label": "História - Título",
+            "name": "sobre_historia_title",
+            "type": "text",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_historia_text",
+            "label": "História - Texto",
+            "name": "sobre_historia_text",
+            "type": "wysiwyg",
+            "required": 0,
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_historia_image",
+            "label": "História - Imagem",
+            "name": "sobre_historia_image",
+            "type": "image",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_missao",
+            "label": "Missão",
+            "name": "sobre_missao",
+            "type": "textarea",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 4,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_visao",
+            "label": "Visão",
+            "name": "sobre_visao",
+            "type": "textarea",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 4,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_valores",
+            "label": "Valores",
+            "name": "sobre_valores",
+            "type": "textarea",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 4,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_numeros",
+            "label": "Números",
+            "name": "sobre_numeros",
+            "type": "repeater",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Adicionar Número",
+            "sub_fields": [
+                {
+                    "key": "field_sobre_numeros_numero",
+                    "label": "Número",
+                    "name": "numero",
+                    "type": "text",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_sobre_numeros_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_sobre_timeline",
+            "label": "Timeline",
+            "name": "sobre_timeline",
+            "type": "repeater",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Adicionar Marco",
+            "sub_fields": [
+                {
+                    "key": "field_sobre_timeline_ano",
+                    "label": "Ano",
+                    "name": "ano",
+                    "type": "text",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_sobre_timeline_titulo",
+                    "label": "Título",
+                    "name": "titulo",
+                    "type": "text",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_sobre_timeline_descricao",
+                    "label": "Descrição",
+                    "name": "descricao",
+                    "type": "textarea",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-sobre-nos.php"
+            }
+        ]
+    ],
+    "menu_order": 11,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da página Sobre Nós",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

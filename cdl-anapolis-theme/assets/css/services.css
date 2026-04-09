@@ -1,0 +1,24 @@
+/* Services — Compact grid */
+.svc-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  margin-top:clamp(40px,5vw,56px);
+}
+.svc{
+  background:var(--light);border-radius:var(--radius-lg);
+  padding:clamp(20px,2vw,28px);display:flex;gap:14px;align-items:flex-start;
+  cursor:pointer;transition:all .5s cubic-bezier(.16,1,.3,1);
+  border-left:3px solid transparent;
+}
+.svc:hover{background:#fff;box-shadow:0 12px 36px rgba(0,0,0,.04);border-left-color:var(--gold);transform:translateX(4px)}
+.svc .ico{
+  width:40px;height:40px;border-radius:10px;background:#fff;color:var(--blue);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);transition:.4s;
+}
+.svc:hover .ico{background:var(--blue);color:#fff;box-shadow:0 6px 20px rgba(3,66,142,.2)}
+.svc h4{font-family:'Sora';font-size:.85rem;font-weight:600;margin-bottom:4px}
+.svc p{color:var(--gray);font-size:.78rem;line-height:1.55}
+
+@media(max-width:768px){
+  .svc-grid{grid-template-columns:1fr}
+}

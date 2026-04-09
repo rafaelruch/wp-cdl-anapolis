@@ -1,0 +1,214 @@
+{
+    "key": "group_hero_slider",
+    "title": "Homepage - Hero Slider",
+    "fields": [
+        {
+            "key": "field_hero_slides",
+            "label": "Hero Slides",
+            "name": "hero_slides",
+            "type": "repeater",
+            "instructions": "Configure os slides do hero da homepage. Minimo 1, maximo 5.",
+            "required": 0,
+            "min": 1,
+            "max": 5,
+            "layout": "block",
+            "button_label": "Adicionar Slide",
+            "sub_fields": [
+                {
+                    "key": "field_slide_tag",
+                    "label": "Tag (etiqueta)",
+                    "name": "slide_tag",
+                    "type": "text",
+                    "instructions": "Texto pequeno acima do titulo. Ex: Desde 1962",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "Ex: Desde 1962",
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_title_line1",
+                    "label": "Titulo - Linha 1",
+                    "name": "slide_title_line1",
+                    "type": "text",
+                    "instructions": "Primeira linha do titulo",
+                    "required": 1,
+                    "default_value": "",
+                    "placeholder": "Ex: O lugar certo",
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_title_line2",
+                    "label": "Titulo - Linha 2",
+                    "name": "slide_title_line2",
+                    "type": "text",
+                    "instructions": "Segunda linha do titulo",
+                    "required": 1,
+                    "default_value": "",
+                    "placeholder": "Ex: pra voce",
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_title_line3",
+                    "label": "Titulo - Linha 3",
+                    "name": "slide_title_line3",
+                    "type": "text",
+                    "instructions": "Terceira linha do titulo",
+                    "required": 1,
+                    "default_value": "",
+                    "placeholder": "Ex: crescer",
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_highlight",
+                    "label": "Linha com destaque",
+                    "name": "slide_highlight",
+                    "type": "select",
+                    "instructions": "Qual linha recebe o destaque visual (sublinhado dourado)",
+                    "required": 0,
+                    "choices": {
+                        "line1": "Linha 1",
+                        "line2": "Linha 2",
+                        "line3": "Linha 3"
+                    },
+                    "default_value": "line3",
+                    "return_format": "value",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_subtitle",
+                    "label": "Subtitulo",
+                    "name": "slide_subtitle",
+                    "type": "textarea",
+                    "instructions": "Paragrafo descritivo abaixo do titulo",
+                    "required": 0,
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "",
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_cta_primary_text",
+                    "label": "Botao Primario - Texto",
+                    "name": "slide_cta_primary_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "default_value": "Quero fazer parte",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_cta_primary_link",
+                    "label": "Botao Primario - Link",
+                    "name": "slide_cta_primary_link",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "https://",
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_cta_secondary_text",
+                    "label": "Botao Secundario - Texto",
+                    "name": "slide_cta_secondary_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_cta_secondary_link",
+                    "label": "Botao Secundario - Link",
+                    "name": "slide_cta_secondary_link",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "https://",
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_slide_images",
+                    "label": "Imagens do Mosaico",
+                    "name": "slide_images",
+                    "type": "gallery",
+                    "instructions": "Selecione exatamente 4 imagens para o mosaico do slide",
+                    "required": 0,
+                    "min": 4,
+                    "max": 4,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "insert": "append",
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-homepage"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos do slider hero da homepage",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

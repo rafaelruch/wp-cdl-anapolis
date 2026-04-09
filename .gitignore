@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+Thumbs.db
+
+# Claude Code / AI tooling
+.claude/
+.superpowers/
+.playwright-mcp/
+
+# Screenshots e referências de design (pesados, não versionáveis)
+*.png
+debug-*.png
+ref-*.png
+cdl-*.png
+logo-test.png
+
+# Arquivos temporários de output/preview
+output/
+preview/
+
+# Design system docs (não é código do tema)
+design-system/
+brand-guides/
+docs/
+
+# Imagens do diretório raiz
+img/
+
+# Guia de treinamento (distribuído separadamente)
+guia-treinamento-cdl.html
+
+# Node modules (caso venha a usar)
+node_modules/

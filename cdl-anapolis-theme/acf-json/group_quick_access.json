@@ -1,0 +1,28 @@
+{
+    "key": "group_quick_access",
+    "title": "Homepage - Acesso Rápido",
+    "fields": [
+        {
+            "key": "field_quick_access",
+            "label": "Itens de Acesso Rápido",
+            "name": "quick_access",
+            "type": "repeater",
+            "min": 1,
+            "max": 6,
+            "layout": "table",
+            "button_label": "Adicionar Item",
+            "sub_fields": [
+                {"key": "field_qa_title", "label": "Título", "name": "title", "type": "text"},
+                {"key": "field_qa_url", "label": "URL externa", "name": "external_url", "type": "url"},
+                {"key": "field_qa_icon", "label": "Ícone", "name": "icon", "type": "select", "choices": {"file": "Documento", "phone": "Celular", "lock": "Cadeado", "shield": "Escudo", "monitor": "Monitor", "document": "Arquivo"}, "default_value": "file"}
+            ]
+        }
+    ],
+    "location": [[{"param": "options_page", "operator": "==", "value": "cdl-config-homepage"}]],
+    "menu_order": 26,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

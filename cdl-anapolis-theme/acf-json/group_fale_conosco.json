@@ -1,0 +1,87 @@
+{
+    "key": "group_fale_conosco",
+    "title": "Página - Fale Conosco",
+    "fields": [
+        {
+            "key": "field_contato_hero_image",
+            "label": "Hero - Imagem",
+            "name": "contato_hero_image",
+            "type": "image",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_contato_intro",
+            "label": "Introdução",
+            "name": "contato_intro",
+            "type": "textarea",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 3,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_contato_maps_embed",
+            "label": "Google Maps Embed",
+            "name": "contato_maps_embed",
+            "type": "textarea",
+            "instructions": "Cole o código embed do Google Maps",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 4,
+            "new_lines": "",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_contato_horario",
+            "label": "Horário de Funcionamento",
+            "name": "contato_horario",
+            "type": "text",
+            "required": 0,
+            "default_value": "Seg a Sex, 8h às 18h",
+            "placeholder": "",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-fale-conosco.php"
+            }
+        ]
+    ],
+    "menu_order": 18,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da página Fale Conosco",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

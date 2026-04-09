@@ -1,0 +1,165 @@
+{
+    "key": "group_cdl_mulher",
+    "title": "Página - CDL Mulher",
+    "fields": [
+        {
+            "key": "field_cdl_mulher_hero_image",
+            "label": "Hero - Imagem",
+            "name": "cdl_mulher_hero_image",
+            "type": "image",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdl_mulher_intro",
+            "label": "Introdução",
+            "name": "cdl_mulher_intro",
+            "type": "wysiwyg",
+            "required": 0,
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdl_mulher_diretoria",
+            "label": "Diretoria CDL Mulher",
+            "name": "cdl_mulher_diretoria",
+            "type": "repeater",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Adicionar Membro",
+            "sub_fields": [
+                {
+                    "key": "field_cdl_mulher_diretoria_nome",
+                    "label": "Nome",
+                    "name": "nome",
+                    "type": "text",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_cdl_mulher_diretoria_cargo",
+                    "label": "Cargo",
+                    "name": "cargo",
+                    "type": "text",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_cdl_mulher_diretoria_foto",
+                    "label": "Foto",
+                    "name": "foto",
+                    "type": "image",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdl_mulher_objetivos",
+            "label": "Objetivos",
+            "name": "cdl_mulher_objetivos",
+            "type": "repeater",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Adicionar Objetivo",
+            "sub_fields": [
+                {
+                    "key": "field_cdl_mulher_objetivos_title",
+                    "label": "Título",
+                    "name": "title",
+                    "type": "text",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_cdl_mulher_objetivos_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "type": "textarea",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-cdl-mulher.php"
+            }
+        ]
+    ],
+    "menu_order": 15,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da página CDL Mulher",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

@@ -1,0 +1,85 @@
+{
+    "key": "group_cta_gold",
+    "title": "Homepage - CTA Dourado",
+    "fields": [
+        {
+            "key": "field_cta_gold_title",
+            "label": "Título",
+            "name": "cta_gold_title",
+            "type": "text",
+            "instructions": "Título principal do CTA dourado.",
+            "required": 0,
+            "default_value": "Venha para a CDL Anápolis",
+            "placeholder": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cta_gold_subtitle",
+            "label": "Subtítulo",
+            "name": "cta_gold_subtitle",
+            "type": "text",
+            "instructions": "Texto abaixo do título.",
+            "required": 0,
+            "default_value": "Junte-se a milhares de empreendedores que já fazem parte",
+            "placeholder": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cta_gold_button_text",
+            "label": "Texto do Botão",
+            "name": "cta_gold_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "default_value": "Quero fazer parte",
+            "placeholder": "",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cta_gold_button_link",
+            "label": "Link do Botão",
+            "name": "cta_gold_button_link",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "default_value": "/associe-se/",
+            "placeholder": "https://",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-homepage"
+            }
+        ]
+    ],
+    "menu_order": 6,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos do CTA dourado da homepage",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

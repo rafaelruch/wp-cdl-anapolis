@@ -1,0 +1,22 @@
+/* Footer */
+.footer{background:var(--dark);color:#fff;padding:clamp(48px,6vw,80px) 0 0}
+.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.f-logo{margin-bottom:16px}
+.f-logo a{display:inline-block}
+.f-desc{color:rgba(255,255,255,.3);font-size:.8rem;line-height:1.7}
+.f-head{font-size:.6rem;font-weight:700;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.2em;margin-bottom:16px}
+.f-links a{color:rgba(255,255,255,.4);font-size:.8rem;display:block;padding:4px 0;transition:.3s}
+.f-links a:hover{color:#fff;transform:translateX(4px)}
+.f-social{display:flex;gap:8px;justify-content:center;margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.04)}
+.f-social a{
+  width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.25);
+  transition:.3s;
+}
+.f-social a:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(3,66,142,.3)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.03);margin-top:20px;padding:14px 0;text-align:center}
+.f-bottom p{font-size:.6rem;color:rgba(255,255,255,.15)}
+
+@media(max-width:768px){
+  .f-grid{grid-template-columns:1fr}
+}

@@ -1,0 +1,24 @@
+<?php
+/**
+ * Default Template
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ */
+
+get_header(); ?>
+
+<div class="container section-padding">
+    <?php if (have_posts()): ?>
+        <?php while (have_posts()): the_post(); ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                <div><?php the_excerpt(); ?></div>
+            </article>
+        <?php endwhile; ?>
+    <?php else: ?>
+        <p>Nenhum conteudo encontrado.</p>
+    <?php endif; ?>
+</div>
+
+<?php get_footer(); ?>

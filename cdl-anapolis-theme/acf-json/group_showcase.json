@@ -1,0 +1,131 @@
+{
+    "key": "group_showcase",
+    "title": "Homepage - Showcase",
+    "fields": [
+        {
+            "key": "field_showcase_tag",
+            "label": "Tag",
+            "name": "showcase_tag",
+            "type": "text",
+            "instructions": "Etiqueta acima do título.",
+            "required": 0,
+            "default_value": "Por que a CDL",
+            "placeholder": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_showcase_title",
+            "label": "Título",
+            "name": "showcase_title",
+            "type": "text",
+            "instructions": "Título principal da seção.",
+            "required": 0,
+            "default_value": "Mais do que uma entidade, uma comunidade",
+            "placeholder": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_showcase_description",
+            "label": "Descrição",
+            "name": "showcase_description",
+            "type": "textarea",
+            "instructions": "Texto descritivo da seção.",
+            "required": 0,
+            "default_value": "Há mais de 60 anos conectando empreendedores e fortalecendo o comércio de Anápolis com serviços e relacionamentos que fazem a diferença.",
+            "rows": 3,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_showcase_image",
+            "label": "Imagem",
+            "name": "showcase_image",
+            "type": "image",
+            "instructions": "Imagem principal da seção showcase.",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_showcase_items",
+            "label": "Items",
+            "name": "showcase_items",
+            "type": "repeater",
+            "instructions": "Lista numerada de destaques.",
+            "required": 0,
+            "min": 1,
+            "max": 5,
+            "layout": "table",
+            "button_label": "Adicionar Item",
+            "sub_fields": [
+                {
+                    "key": "field_showcase_item_title",
+                    "label": "Título",
+                    "name": "item_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "default_value": "",
+                    "placeholder": "Ex: 2.000+ Empreendedores",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_showcase_item_description",
+                    "label": "Descrição",
+                    "name": "item_description",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "Ex: A maior comunidade de lojistas da região",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-homepage"
+            }
+        ]
+    ],
+    "menu_order": 3,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da seção Showcase da homepage",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

@@ -1,0 +1,71 @@
+{
+    "key": "group_cta_dark",
+    "title": "Homepage - CTA Principal",
+    "fields": [
+        {
+            "key": "field_cta_dark_title",
+            "label": "Título",
+            "name": "cta_dark_title",
+            "type": "textarea",
+            "instructions": "Título principal do CTA. Use <br> para quebras de linha.",
+            "required": 0,
+            "default_value": "Junte-se a quem faz o comércio de Anápolis acontecer",
+            "rows": 3,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cta_dark_button_text",
+            "label": "Texto do Botão",
+            "name": "cta_dark_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "default_value": "Quero fazer parte",
+            "placeholder": "",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cta_dark_button_link",
+            "label": "Link do Botão",
+            "name": "cta_dark_button_link",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "default_value": "/associe-se/",
+            "placeholder": "https://",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-homepage"
+            }
+        ]
+    ],
+    "menu_order": 4,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos do CTA principal (escuro) da homepage",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

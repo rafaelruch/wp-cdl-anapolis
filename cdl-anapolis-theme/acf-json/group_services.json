@@ -1,0 +1,147 @@
+{
+    "key": "group_services",
+    "title": "Homepage - Serviços",
+    "fields": [
+        {
+            "key": "field_services_tag",
+            "label": "Tag",
+            "name": "services_tag",
+            "type": "text",
+            "instructions": "Etiqueta acima do título.",
+            "required": 0,
+            "default_value": "O que oferecemos",
+            "placeholder": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_services_title",
+            "label": "Título",
+            "name": "services_title",
+            "type": "text",
+            "instructions": "Título principal da seção.",
+            "required": 0,
+            "default_value": "Serviços",
+            "placeholder": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_services_subtitle",
+            "label": "Subtítulo",
+            "name": "services_subtitle",
+            "type": "textarea",
+            "instructions": "Texto descritivo abaixo do título.",
+            "required": 0,
+            "default_value": "Soluções completas para o seu negócio crescer com segurança.",
+            "rows": 3,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_services_repeater",
+            "label": "Serviços",
+            "name": "services",
+            "type": "repeater",
+            "instructions": "Lista de serviços exibidos na seção.",
+            "required": 0,
+            "min": 1,
+            "max": 12,
+            "layout": "block",
+            "button_label": "Adicionar Serviço",
+            "sub_fields": [
+                {
+                    "key": "field_service_title",
+                    "label": "Título",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "default_value": "",
+                    "placeholder": "Ex: CDL Agência",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_service_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_service_icon",
+                    "label": "Ícone",
+                    "name": "icon",
+                    "type": "image",
+                    "instructions": "Ícone opcional.",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_service_link",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "url",
+                    "instructions": "Link para a página do serviço.",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "https://",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-homepage"
+            }
+        ]
+    ],
+    "menu_order": 5,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da seção Serviços da homepage",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

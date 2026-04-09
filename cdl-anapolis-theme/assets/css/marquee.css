@@ -1,0 +1,9 @@
+/* Marquee */
+.marquee-sec{padding:32px 0;overflow:hidden;background:var(--light)}
+.marquee-track{display:flex;gap:40px;animation:marquee 25s linear infinite;width:max-content}
+.marquee-track span{
+  font-family:'Sora';font-size:clamp(.95rem,1.5vw,1.15rem);font-weight:700;
+  color:rgba(3,66,142,.18);white-space:nowrap;text-transform:uppercase;letter-spacing:.08em;
+}
+.marquee-track .dot{color:rgba(3,66,142,.12);font-size:.7rem}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}

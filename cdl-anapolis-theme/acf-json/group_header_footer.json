@@ -1,0 +1,184 @@
+{
+    "key": "group_header_footer",
+    "title": "Configurações - Header & Footer",
+    "fields": [
+        {
+            "key": "field_hf_phone",
+            "label": "Telefone",
+            "name": "phone",
+            "type": "text",
+            "required": 0,
+            "default_value": "(62) 3328-0008",
+            "placeholder": "",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_whatsapp_number",
+            "label": "WhatsApp (número)",
+            "name": "whatsapp_number",
+            "type": "text",
+            "required": 0,
+            "default_value": "5562991933275",
+            "placeholder": "5562991933275",
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_whatsapp_display",
+            "label": "WhatsApp (exibição)",
+            "name": "whatsapp_display",
+            "type": "text",
+            "required": 0,
+            "default_value": "(62) 99193-3275",
+            "placeholder": "",
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_email",
+            "label": "E-mail",
+            "name": "email",
+            "type": "text",
+            "required": 0,
+            "default_value": "contato@cdlanapolis.com.br",
+            "placeholder": "",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_address",
+            "label": "Endereço",
+            "name": "address",
+            "type": "textarea",
+            "required": 0,
+            "default_value": "Rua Conde Afonso Celso, 43 - Centro, Anápolis - GO, CEP 75025-030",
+            "placeholder": "",
+            "rows": 3,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_social_instagram",
+            "label": "Instagram",
+            "name": "social_instagram",
+            "type": "url",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://instagram.com/...",
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_social_facebook",
+            "label": "Facebook",
+            "name": "social_facebook",
+            "type": "url",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://facebook.com/...",
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_social_linkedin",
+            "label": "LinkedIn",
+            "name": "social_linkedin",
+            "type": "url",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://linkedin.com/...",
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_social_youtube",
+            "label": "YouTube",
+            "name": "social_youtube",
+            "type": "url",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://youtube.com/...",
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_gmaps_key",
+            "label": "Google Maps API Key",
+            "name": "google_maps_api_key",
+            "type": "text",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "AIzaSy...",
+            "instructions": "Chave da API JavaScript do Google Maps. Necessária para o mapa de associados.",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_footer_description",
+            "label": "Descrição do Footer",
+            "name": "footer_description",
+            "type": "textarea",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 4,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-header-footer"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Configurações de contato, redes sociais e footer",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

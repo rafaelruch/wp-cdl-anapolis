@@ -1,0 +1,147 @@
+{
+    "key": "group_benefits",
+    "title": "Homepage - Benefícios",
+    "fields": [
+        {
+            "key": "field_benefits_tag",
+            "label": "Tag",
+            "name": "benefits_tag",
+            "type": "text",
+            "instructions": "Etiqueta acima do título.",
+            "required": 0,
+            "default_value": "Para quem faz parte",
+            "placeholder": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_benefits_title",
+            "label": "Título",
+            "name": "benefits_title",
+            "type": "text",
+            "instructions": "Título principal da seção.",
+            "required": 0,
+            "default_value": "Benefícios que fazem a diferença",
+            "placeholder": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_benefits_subtitle",
+            "label": "Subtítulo",
+            "name": "benefits_subtitle",
+            "type": "textarea",
+            "instructions": "Texto descritivo abaixo do título.",
+            "required": 0,
+            "default_value": "Vantagens reais que impulsionam o crescimento do seu negócio todos os dias.",
+            "rows": 3,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_benefits_repeater",
+            "label": "Benefícios",
+            "name": "benefits",
+            "type": "repeater",
+            "instructions": "Lista de benefícios exibidos na seção.",
+            "required": 0,
+            "min": 1,
+            "max": 8,
+            "layout": "block",
+            "button_label": "Adicionar Benefício",
+            "sub_fields": [
+                {
+                    "key": "field_benefit_title",
+                    "label": "Título",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "default_value": "",
+                    "placeholder": "Ex: Assessoria Jurídica",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_benefit_description",
+                    "label": "Descrição",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_benefit_icon",
+                    "label": "Ícone",
+                    "name": "icon",
+                    "type": "image",
+                    "instructions": "Ícone opcional.",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_benefit_link",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "url",
+                    "instructions": "Link para a página do benefício.",
+                    "required": 0,
+                    "default_value": "",
+                    "placeholder": "https://",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-homepage"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da seção Benefícios da homepage",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

@@ -1,0 +1,83 @@
+{
+    "key": "group_lgpd",
+    "title": "Página - LGPD",
+    "fields": [
+        {
+            "key": "field_lgpd_content",
+            "label": "Conteúdo LGPD",
+            "name": "lgpd_content",
+            "type": "wysiwyg",
+            "required": 0,
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lgpd_dpo_name",
+            "label": "Nome do DPO",
+            "name": "lgpd_dpo_name",
+            "type": "text",
+            "required": 0,
+            "default_value": "Dra. Louise Ramiro da Costa",
+            "placeholder": "",
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lgpd_dpo_email",
+            "label": "E-mail do DPO",
+            "name": "lgpd_dpo_email",
+            "type": "text",
+            "required": 0,
+            "default_value": "lgpd@cdlanapolis.com.br",
+            "placeholder": "",
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lgpd_cnpj",
+            "label": "CNPJ",
+            "name": "lgpd_cnpj",
+            "type": "text",
+            "required": 0,
+            "default_value": "01.064.674/0001-12",
+            "placeholder": "",
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-lgpd.php"
+            }
+        ]
+    ],
+    "menu_order": 17,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da página LGPD",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}

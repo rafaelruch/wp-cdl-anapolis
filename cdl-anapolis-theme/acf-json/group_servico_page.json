@@ -1,0 +1,81 @@
+{
+    "key": "group_servico_page",
+    "title": "Página - Serviço",
+    "fields": [
+        {
+            "key": "field_servico_hero_image",
+            "label": "Imagem do Hero",
+            "name": "servico_hero_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "wrapper": {"width": "50", "class": "", "id": ""}
+        },
+        {
+            "key": "field_servico_intro",
+            "label": "Texto de Introdução",
+            "name": "servico_intro",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
+        },
+        {
+            "key": "field_servico_features",
+            "label": "Recursos / Vantagens",
+            "name": "servico_features",
+            "type": "repeater",
+            "min": 0,
+            "max": 12,
+            "layout": "block",
+            "button_label": "Adicionar Recurso",
+            "sub_fields": [
+                {"key": "field_sf_title", "label": "Título", "name": "title", "type": "text"},
+                {"key": "field_sf_desc", "label": "Descrição", "name": "description", "type": "textarea", "rows": 3}
+            ]
+        },
+        {
+            "key": "field_servico_external_url",
+            "label": "URL Externa do Sistema",
+            "name": "servico_external_url",
+            "type": "url",
+            "instructions": "URL para acessar o sistema externo (ex: SPC, CDL Celular, Certificado Digital)"
+        },
+        {
+            "key": "field_servico_cta_text",
+            "label": "Texto do botão CTA",
+            "name": "servico_cta_text",
+            "type": "text",
+            "placeholder": "Ex: Fale conosco",
+            "wrapper": {"width": "50", "class": "", "id": ""}
+        },
+        {
+            "key": "field_servico_cta_link",
+            "label": "Link do botão CTA",
+            "name": "servico_cta_link",
+            "type": "url",
+            "wrapper": {"width": "50", "class": "", "id": ""}
+        },
+        {
+            "key": "field_servico_faqs",
+            "label": "Perguntas Frequentes (FAQ)",
+            "name": "servico_faqs",
+            "type": "repeater",
+            "min": 0,
+            "max": 10,
+            "layout": "block",
+            "button_label": "Adicionar Pergunta",
+            "sub_fields": [
+                {"key": "field_sfaq_q", "label": "Pergunta", "name": "question", "type": "text"},
+                {"key": "field_sfaq_a", "label": "Resposta", "name": "answer", "type": "textarea", "rows": 4}
+            ]
+        }
+    ],
+    "location": [[{"param": "page_template", "operator": "==", "value": "page-servico.php"}]],
+    "menu_order": 25,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

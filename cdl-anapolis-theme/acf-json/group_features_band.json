@@ -1,0 +1,117 @@
+{
+    "key": "group_features_band",
+    "title": "Homepage - Features Band",
+    "fields": [
+        {
+            "key": "field_features_band_title",
+            "label": "Título",
+            "name": "features_band_title",
+            "type": "text",
+            "instructions": "Título principal da seção. Use <em> para itálico.",
+            "required": 0,
+            "default_value": "Todas as vantagens, em um só lugar",
+            "placeholder": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_features_band_subtitle",
+            "label": "Subtítulo",
+            "name": "features_band_subtitle",
+            "type": "textarea",
+            "instructions": "Texto descritivo abaixo do título.",
+            "required": 0,
+            "default_value": "Serviços essenciais para quem empreende — do crédito à assessoria jurídica, tudo pensado para você focar no que importa.",
+            "rows": 3,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_features_band_items",
+            "label": "Items",
+            "name": "features_band_items",
+            "type": "repeater",
+            "instructions": "Cards de funcionalidades exibidos na seção.",
+            "required": 0,
+            "min": 1,
+            "max": 6,
+            "layout": "block",
+            "button_label": "Adicionar Item",
+            "sub_fields": [
+                {
+                    "key": "field_features_band_item_title",
+                    "label": "Título",
+                    "name": "item_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "default_value": "",
+                    "placeholder": "Ex: Proteção ao Crédito",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_features_band_item_description",
+                    "label": "Descrição",
+                    "name": "item_description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_features_band_item_icon",
+                    "label": "Ícone",
+                    "name": "item_icon",
+                    "type": "image",
+                    "instructions": "Ícone opcional para o item.",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-homepage"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da seção Features Band da homepage",
+    "show_in_rest": 0,
+    "modified": 1743292800
+}
