@@ -20,12 +20,12 @@ $gasto_url  = get_field('gastobrasil_url', 'option') ?: 'https://gastobrasil.com
                 <?php else: ?>
                     <p>Acompanhe quanto os brasileiros já pagaram em impostos neste ano.</p>
                 <?php endif; ?>
-                <a href="https://impostometro.com.br" target="_blank" rel="noopener" class="link">Acessar &rarr;</a>
+                <a href="<?php echo esc_url(home_url('/impostometro/')); ?>" class="link">Acessar &rarr;</a>
             </div>
             <div class="eco-card ao ao-d1">
                 <h4>Gastos do Município</h4>
                 <p>Dados sobre despesas públicas de Anápolis-GO.</p>
-                <a href="<?php echo esc_url($gasto_url); ?>" target="_blank" rel="noopener" class="link">Ver painel &rarr;</a>
+                <a href="<?php echo esc_url(home_url('/impostometro/')); ?>" class="link">Ver painel &rarr;</a>
             </div>
         </div>
     </div>
