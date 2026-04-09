@@ -7,12 +7,8 @@ Thumbs.db
 .superpowers/
 .playwright-mcp/
 
-# Screenshots e referências de design (pesados, não versionáveis)
-*.png
-debug-*.png
-ref-*.png
-cdl-*.png
-logo-test.png
+# Screenshots e referências de design na raiz (pesados, não versionáveis)
+/*.png
 
 # Arquivos temporários de output/preview
 output/
@@ -23,8 +19,8 @@ design-system/
 brand-guides/
 docs/
 
-# Imagens do diretório raiz
-img/
+# Imagens do diretório raiz (não o assets/img do tema)
+/img/
 
 # Guia de treinamento (distribuído separadamente)
 guia-treinamento-cdl.html
