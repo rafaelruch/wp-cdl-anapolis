@@ -42,6 +42,16 @@ function cdl_enqueue_assets() {
         );
     }
 
+    // Planos CSS (only on associe-se page)
+    if (is_page('associe-se')) {
+        wp_enqueue_style(
+            'cdl-planos',
+            CDL_THEME_URI . '/assets/css/planos.css',
+            [],
+            CDL_THEME_VERSION
+        );
+    }
+
     // Impostômetro CSS (only on impostometro page)
     if (is_page('impostometro')) {
         wp_enqueue_style(
