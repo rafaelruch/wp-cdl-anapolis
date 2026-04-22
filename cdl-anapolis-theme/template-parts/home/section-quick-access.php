@@ -6,12 +6,14 @@ $items = get_field('quick_access', 'option');
 
 if (!$items) {
     $items = [
-        ['title' => '2ª Via Boletos',     'external_url' => '#', 'icon' => 'file'],
-        ['title' => 'CDL Celular',        'external_url' => 'https://cdlcelular.com.br/home/', 'icon' => 'phone'],
-        ['title' => 'Certificado Digital', 'external_url' => 'https://www.certificadocdlanapolis.com.br/', 'icon' => 'lock'],
-        ['title' => 'SPC Brasil',          'external_url' => 'https://sistema.spc.org.br/', 'icon' => 'shield'],
+        ['title' => '2ª Via Boletos',      'external_url' => home_url('/fale-conosco/'),            'icon' => 'file'],
+        ['title' => 'CDL Celular',         'external_url' => home_url('/cdl-celular/'),             'icon' => 'phone'],
+        ['title' => 'Certificado Digital', 'external_url' => home_url('/certificado-digital-cdl/'), 'icon' => 'lock'],
+        ['title' => 'SPC Brasil',          'external_url' => home_url('/spc/'),                     'icon' => 'shield'],
     ];
 }
+
+$site_host = parse_url(home_url(), PHP_URL_HOST);
 
 $svg_map = [
     'file'   => '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>',
@@ -29,8 +31,12 @@ $delays = ['', ' ao-d1', ' ao-d2', ' ao-d3'];
             <?php foreach ($items as $i => $item):
                 $icon_key = $item['icon'] ?? array_keys($svg_map)[$i % 4];
                 $svg = $svg_map[$icon_key] ?? $svg_map['file'];
+                $url = $item['external_url'] ?? '#';
+                $url_host = parse_url($url, PHP_URL_HOST);
+                $is_external = $url_host && $url_host !== $site_host;
+                $target_attr = $is_external ? ' target="_blank" rel="noopener"' : '';
             ?>
-            <a href="<?php echo esc_url($item['external_url']); ?>" target="_blank" rel="noopener" class="qa-card ao<?php echo $delays[$i % 4]; ?>">
+            <a href="<?php echo esc_url($url); ?>"<?php echo $target_attr; ?> class="qa-card ao<?php echo $delays[$i % 4]; ?>">
                 <div class="qa-ico">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><?php echo $svg; ?></svg>
                 </div>
