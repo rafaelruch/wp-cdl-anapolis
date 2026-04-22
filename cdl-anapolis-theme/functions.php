@@ -151,12 +151,61 @@ add_action('init', function() {
  * Cria páginas obrigatórias do tema se não existirem.
  */
 add_action('init', function() {
-    if (get_option('cdl_pages_created')) return;
+    if (get_option('cdl_pages_created_v2')) return;
 
     $pages = [
         'impostometro' => [
             'post_title'    => 'Impostômetro',
             'page_template' => 'page-impostometro.php',
+        ],
+        // Novos benefícios (template page-beneficio.php)
+        'planejamento-estrategico' => [
+            'post_title'    => 'Planejamento Estratégico',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'assessoria-contabil' => [
+            'post_title'    => 'Assessoria Contábil',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'apoio-mei' => [
+            'post_title'    => 'Apoio ao MEI',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'rede-de-descontos' => [
+            'post_title'    => 'Rede de Descontos',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'espacos-corporativos' => [
+            'post_title'    => 'Espaços Corporativos',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'eventos-corporativos' => [
+            'post_title'    => 'Eventos Corporativos',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'nucleos-empresariais' => [
+            'post_title'    => 'Núcleos Empresariais',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'treinamentos' => [
+            'post_title'    => 'Treinamentos',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'midia-divulgacao' => [
+            'post_title'    => 'Mídia e Divulgação',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'recrutamento' => [
+            'post_title'    => 'Recrutamento',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'exames-admissionais' => [
+            'post_title'    => 'Exames Admissionais',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'gestao-esocial' => [
+            'post_title'    => 'Gestão E-social',
+            'page_template' => 'page-beneficio.php',
         ],
     ];
 
@@ -173,7 +222,8 @@ add_action('init', function() {
         }
     }
 
-    update_option('cdl_pages_created', true);
+    update_option('cdl_pages_created_v2', true);
+    flush_rewrite_rules(true);
 }, 20);
 
 // ACF JSON save/load path

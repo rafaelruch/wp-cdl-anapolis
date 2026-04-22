@@ -72,6 +72,11 @@
 }
 .mega-col-label p{font-size:.78rem;color:var(--gray);line-height:1.5}
 .mega-grid{flex:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;padding:0}
+.nav-drop-menu--wide .mega-grid{grid-template-columns:repeat(4,1fr);max-height:70vh;overflow-y:auto}
+.nav-drop-menu--wide .mega-inner{padding:28px clamp(20px,3vw,48px) 20px}
+@media(max-width:1200px){
+  .nav-drop-menu--wide .mega-grid{grid-template-columns:repeat(3,1fr)}
+}
 .mega-item{
   display:flex;align-items:flex-start;gap:12px;padding:14px 16px;
   border-radius:var(--radius-md);transition:all .25s;cursor:pointer;
