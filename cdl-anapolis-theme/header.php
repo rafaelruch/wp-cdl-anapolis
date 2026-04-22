@@ -82,7 +82,7 @@
         <a href="/fale-conosco/">Fale Conosco</a>
     </div>
     <div class="nav-actions">
-        <a href="/associe-se/" class="btn-nav btn-nav-fill">Quero fazer parte</a>
+        <a href="/associe-se/" class="btn-nav btn-nav-fill">Seja um associado</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -138,7 +138,7 @@
             <a href="/fale-conosco/" class="mobile-link">Fale Conosco</a>
         </div>
         <div class="mobile-section" style="margin-top:20px">
-            <a href="/associe-se/" class="btn-nav btn-nav-fill" style="width:100%;justify-content:center;text-align:center">Quero fazer parte</a>
+            <a href="/associe-se/" class="btn-nav btn-nav-fill" style="width:100%;justify-content:center;text-align:center">Seja um associado</a>
         </div>
     </div>
 </div>
