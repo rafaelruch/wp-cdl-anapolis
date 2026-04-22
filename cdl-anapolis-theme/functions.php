@@ -50,13 +50,26 @@ function cdl_handle_contact_form() {
     $assunto = sanitize_text_field($_POST['assunto'] ?? 'Contato pelo site');
     $msg     = sanitize_textarea_field($_POST['mensagem'] ?? '');
 
-    $body  = "Nome: {$nome}\n";
-    $body .= "E-mail: {$email}\n";
-    $body .= "Telefone: {$tel}\n";
-    $body .= "Assunto: {$assunto}\n\n";
-    $body .= "Mensagem:\n{$msg}";
+    $body  = '<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1d1d1f">';
+    $body .= '<h2 style="color:#03428e;border-bottom:2px solid #ffd600;padding-bottom:10px">Nova mensagem pelo site</h2>';
+    $body .= '<table style="width:100%;border-collapse:collapse;margin-top:16px">';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600;width:140px">Nome</td><td style="padding:8px">' . esc_html($nome) . '</td></tr>';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600">E-mail</td><td style="padding:8px">' . esc_html($email) . '</td></tr>';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600">Telefone</td><td style="padding:8px">' . esc_html($tel) . '</td></tr>';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600">Assunto</td><td style="padding:8px">' . esc_html($assunto) . '</td></tr>';
+    $body .= '</table>';
+    $body .= '<h3 style="color:#03428e;margin-top:24px">Mensagem:</h3>';
+    $body .= '<div style="padding:16px;background:#f5f5f7;border-left:4px solid #03428e;white-space:pre-wrap">' . esc_html($msg) . '</div>';
+    $body .= '</div>';
 
-    $headers = ['Reply-To: ' . $nome . ' <' . $email . '>'];
+    $from_name  = $nome ?: 'Contato Site CDL';
+    $from_email = $email ?: $to;
+
+    $headers = [
+        'From: ' . $from_name . ' <' . $from_email . '>',
+        'Reply-To: ' . $from_name . ' <' . $from_email . '>',
+        'Content-Type: text/html; charset=UTF-8',
+    ];
     wp_mail($to, "[CDL Site] {$assunto}", $body, $headers);
     wp_safe_redirect(home_url('/fale-conosco/?contato=enviado'));
     exit;
@@ -74,15 +87,28 @@ function cdl_handle_associe_form() {
     $tel    = sanitize_text_field($_POST['telefone'] ?? '');
     $email  = sanitize_email($_POST['email'] ?? '');
 
-    $body  = "=== Nova solicitação para fazer parte ===\n\n";
-    $body .= "Razão Social: {$razao}\n";
-    $body .= "CNPJ: {$cnpj}\n";
-    $body .= "Responsável: {$nome}\n";
-    $body .= "CPF: {$cpf}\n";
-    $body .= "Telefone/WhatsApp: {$tel}\n";
-    $body .= "E-mail: {$email}\n";
+    $body  = '<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1d1d1f">';
+    $body .= '<h2 style="color:#03428e;border-bottom:2px solid #ffd600;padding-bottom:10px">Nova solicitação de associação</h2>';
+    $body .= '<p style="color:#79797b">Um empreendedor quer fazer parte da CDL Anápolis.</p>';
+    $body .= '<table style="width:100%;border-collapse:collapse;margin-top:16px">';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600;width:160px">Razão Social</td><td style="padding:8px">' . esc_html($razao) . '</td></tr>';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600">CNPJ</td><td style="padding:8px">' . esc_html($cnpj) . '</td></tr>';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600">Responsável</td><td style="padding:8px">' . esc_html($nome) . '</td></tr>';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600">CPF</td><td style="padding:8px">' . esc_html($cpf) . '</td></tr>';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600">Telefone/WhatsApp</td><td style="padding:8px">' . esc_html($tel) . '</td></tr>';
+    $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600">E-mail</td><td style="padding:8px">' . esc_html($email) . '</td></tr>';
+    $body .= '</table>';
+    $body .= '</div>';
 
-    wp_mail($to, "[CDL Site] Quero fazer parte — {$razao}", $body);
+    $from_name  = $nome ?: ($razao ?: 'Contato Site CDL');
+    $from_email = $email ?: $to;
+
+    $headers = [
+        'From: ' . $from_name . ' <' . $from_email . '>',
+        'Reply-To: ' . $from_name . ' <' . $from_email . '>',
+        'Content-Type: text/html; charset=UTF-8',
+    ];
+    wp_mail($to, "[CDL Site] Quero fazer parte — {$razao}", $body, $headers);
     wp_safe_redirect(home_url('/associe-se/?associe=enviado'));
     exit;
 }
