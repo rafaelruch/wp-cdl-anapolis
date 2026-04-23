@@ -38,7 +38,7 @@ if (!$timeline) {
         ['ano' => '1994', 'titulo' => 'Câmara de Dirigentes Lojistas', 'descricao' => 'Em 21 de setembro de 1994, a entidade é renomeada para Câmara de Dirigentes Lojistas, refletindo sua expansão e importância crescente.'],
         ['ano' => '2005', 'titulo' => 'Mérito Empresarial', 'descricao' => 'Lançamento da premiação que se tornaria o "Oscar do Comércio" de Anápolis, reconhecendo a excelência empresarial.'],
         ['ano' => '2019', 'titulo' => 'CDL Mais Você', 'descricao' => 'Adoção do aplicativo CDL Mais Você para avaliações da comunidade, acumulando mais de 1,7 milhão de avaliações qualificadas.'],
-        ['ano' => '2025', 'titulo' => '2.000+ empreendedores', 'descricao' => 'A CDL Anápolis alcança mais de 2.000 empreendedores, consolidando-se como a maior comunidade empresarial da região.'],
+        ['ano' => '2026', 'titulo' => '2.000+ empreendedores', 'descricao' => 'A CDL Anápolis alcança mais de 2.000 empreendedores, consolidando-se como a maior comunidade empresarial da região.'],
     ];
 }
 ?>
