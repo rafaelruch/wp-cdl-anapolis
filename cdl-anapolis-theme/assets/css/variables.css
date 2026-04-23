@@ -1,6 +1,6 @@
 :root {
   /* Colors - Primary (matching preview) */
-  --dark: #1d1d1f;
+  --dark: #03428e;
   --blue: #03428e;
   --blue-light: #2567e8;
   --gold: #ffd600;
@@ -17,7 +17,7 @@
   --color-accent-hover: #ffe44d;
   --color-primary-light: #e8f0fe;
   --color-accent-light: #fff8d6;
-  --color-dark: #1d1d1f;
+  --color-dark: #03428e;
   --color-dark-soft: #2d3136;
   --color-gray-1: #6b7280;
   --color-gray-2: #9ca3af;

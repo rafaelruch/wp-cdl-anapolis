@@ -1,7 +1,7 @@
 /* Reset */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{font-family:'Inter',sans-serif;color:#1d1d1f;background:#fff;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;color:#03428e;background:#fff;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}

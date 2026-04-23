@@ -36,7 +36,7 @@
   font-family:'Sora';font-size:clamp(2rem,4vw,3.2rem);font-weight:700;
   color:#021e50;letter-spacing:-.04em;margin-bottom:12px;position:relative;line-height:1.08;
 }
-.cta-gold p{color:#1d1d1f;opacity:.5;font-size:.95rem;margin-bottom:36px;position:relative}
+.cta-gold p{color:#03428e;opacity:.7;font-size:.95rem;margin-bottom:36px;position:relative}
 
 @media(max-width:767px){
   .cta-dark{padding:80px 0}

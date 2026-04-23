@@ -50,7 +50,7 @@ function cdl_handle_contact_form() {
     $assunto = sanitize_text_field($_POST['assunto'] ?? 'Contato pelo site');
     $msg     = sanitize_textarea_field($_POST['mensagem'] ?? '');
 
-    $body  = '<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1d1d1f">';
+    $body  = '<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#03428e">';
     $body .= '<h2 style="color:#03428e;border-bottom:2px solid #ffd600;padding-bottom:10px">Nova mensagem pelo site</h2>';
     $body .= '<table style="width:100%;border-collapse:collapse;margin-top:16px">';
     $body .= '<tr><td style="padding:8px;background:#f5f5f7;font-weight:600;width:140px">Nome</td><td style="padding:8px">' . esc_html($nome) . '</td></tr>';
@@ -87,7 +87,7 @@ function cdl_handle_associe_form() {
     $tel    = sanitize_text_field($_POST['telefone'] ?? '');
     $email  = sanitize_email($_POST['email'] ?? '');
 
-    $body  = '<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1d1d1f">';
+    $body  = '<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#03428e">';
     $body .= '<h2 style="color:#03428e;border-bottom:2px solid #ffd600;padding-bottom:10px">Nova solicitação de associação</h2>';
     $body .= '<p style="color:#79797b">Um empreendedor quer fazer parte da CDL Anápolis.</p>';
     $body .= '<table style="width:100%;border-collapse:collapse;margin-top:16px">';
