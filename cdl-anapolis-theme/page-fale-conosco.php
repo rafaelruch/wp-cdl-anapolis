@@ -187,7 +187,6 @@ function cdl_render_contact_form($email) {
             <label class="contact-form__label" for="cf-assunto">Assunto</label>
             <select class="contact-form__select" id="cf-assunto" name="assunto">
                 <option value="Filiações">Filiações</option>
-                <option value="CDL Agência">CDL Agência</option>
                 <option value="CDL Celular">CDL Celular</option>
                 <option value="CDL Jovem">CDL Jovem</option>
                 <option value="CDL Mais Você">CDL Mais Você</option>

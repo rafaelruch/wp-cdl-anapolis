@@ -9,7 +9,6 @@ $services = get_field('services', 'option');
 
 if (!$services) {
     $services = [
-        ['icon' => null, 'title' => 'CDL Agência',          'description' => 'Comunicação visual e marketing digital.'],
         ['icon' => null, 'title' => 'CDL Celular',           'description' => 'Consultas e proteção para celulares.'],
         ['icon' => null, 'title' => 'Certificado Digital',    'description' => 'Certificados A1 e A3 para PF e PJ.'],
         ['icon' => null, 'title' => 'Central de Cobranças',   'description' => 'Recuperação de crédito profissional.'],

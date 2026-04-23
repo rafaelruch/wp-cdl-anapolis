@@ -148,6 +148,24 @@ add_action('init', function() {
 }, 5);
 
 /**
+ * Remove páginas descontinuadas (rodará uma vez via option flag).
+ */
+add_action('init', function() {
+    if (get_option('cdl_removed_pages_v1')) return;
+
+    $removed_slugs = ['cdl-agencia'];
+    foreach ($removed_slugs as $slug) {
+        $page = get_page_by_path($slug);
+        if ($page) {
+            wp_delete_post($page->ID, true);
+        }
+    }
+
+    update_option('cdl_removed_pages_v1', true);
+    flush_rewrite_rules(true);
+}, 15);
+
+/**
  * Cria páginas obrigatórias do tema se não existirem.
  */
 add_action('init', function() {

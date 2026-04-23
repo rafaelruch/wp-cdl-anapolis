@@ -78,7 +78,6 @@
                         <p>Soluções contratáveis para o seu negócio</p>
                     </div>
                     <div class="mega-grid">
-                        <a href="/cdl-agencia/" class="mega-item"><div class="mi-ico mi-ico-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><h5>CDL Agência</h5><p>Marketing e comunicação visual</p></div></a>
                         <a href="/cdl-celular/" class="mega-item"><div class="mi-ico mi-ico-blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div><h5>CDL Celular</h5><p>Consultas e proteção mobile</p></div></a>
                         <a href="/central-de-cobrancas/" class="mega-item"><div class="mi-ico mi-ico-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div><h5>Central de Cobranças</h5><p>Recuperação de crédito</p></div></a>
                         <a href="/nfe-nfce/" class="mega-item"><div class="mi-ico mi-ico-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><h5>NF-e / NFC-e</h5><p>Notas fiscais eletrônicas</p></div></a>
@@ -144,7 +143,6 @@
         <div class="mobile-section">
             <button class="mobile-accordion">Serviços <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
             <div class="mobile-sub">
-                <a href="/cdl-agencia/">CDL Agência</a>
                 <a href="/cdl-celular/">CDL Celular</a>
                 <a href="/central-de-cobrancas/">Central de Cobranças</a>
                 <a href="/nfe-nfce/">NF-e/NFC-e</a>

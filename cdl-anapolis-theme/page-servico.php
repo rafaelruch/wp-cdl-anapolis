@@ -10,14 +10,6 @@ if ($slug === 'certificado-digital-cdl') $slug = 'certificado-digital';
 
 // ─── SVG icon library for varied icons per slug ───
 $icon_sets = [
-    'cdl-agencia' => [
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>',
-    ],
     'cdl-celular' => [
         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>',
         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
@@ -70,38 +62,6 @@ $icon_sets = [
 
 // Fallback data per slug
 $fallbacks = [
-    'cdl-agencia' => [
-        'tag'      => 'Serviço',
-        'subtitle' => 'O impulso que seu negócio precisa — uma house completa de marketing à sua disposição.',
-        'intro'    => '<p>Com a CDL Agência, você encontra uma solução completa de marketing para sua empresa. Com serviços de publicidade e propaganda, marketing digital, tráfego pago e muito mais, nossa equipe promove seu negócio no ambiente online e offline, tudo por um custo acessível para associados CDL.</p><p>Uma house completa de talentos, incluindo designers gráficos criativos, jornalistas experientes e programadores habilidosos — transformando sua comunicação em resultados concretos.</p>',
-        'split_img' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-        'split_highlights' => [
-            'Estratégias de publicidade digital e offline',
-            'Tráfego pago para resultados rápidos e escaláveis',
-            'Suporte completo exclusivo para associados CDL',
-            'Equipe de designers, jornalistas e programadores',
-        ],
-        'features' => [
-            ['title' => 'Marketing Completo', 'description' => 'Acesso a soluções de publicidade, conteúdo, redes sociais e tráfego pago com preços acessíveis para associados CDL.'],
-            ['title' => 'Gestão de Redes Sociais', 'description' => 'Gestão completa de Instagram, Facebook e outras plataformas com conteúdo estratégico e autopost.'],
-            ['title' => 'Design Gráfico', 'description' => 'Criação de materiais impressos e digitais de alta qualidade por designers profissionais.'],
-            ['title' => 'Visibilidade Digital e Local', 'description' => 'Fortaleça a presença da marca nas redes sociais, Google e mídia local combinando abordagens online e offline.'],
-            ['title' => 'Desenvolvimento Web', 'description' => 'Sites, landing pages e soluções digitais criadas por programadores especializados.'],
-            ['title' => 'Resultados Concretos', 'description' => 'Campanhas criativas e estratégias inteligentes com foco em atrair clientes, fortalecer sua imagem e aumentar vendas.'],
-        ],
-        'has_pricing' => true,
-        'faqs' => [
-            ['q' => 'Quem pode contratar os serviços da CDL Agência?', 'a' => 'Serviços são exclusivos para associados CDL Anápolis. Não associados podem entrar em contato para conhecer os benefícios da associação.'],
-            ['q' => 'Os serviços são personalizados para cada empresa?', 'a' => 'Sim, cada cliente recebe estratégia exclusiva desenvolvida de acordo com o perfil da empresa, objetivos e público-alvo.'],
-            ['q' => 'Quanto custa contratar a CDL Agência?', 'a' => 'Preços acessíveis projetados para associados CDL. Planos anuais a partir de R$ 253/mês (Starter), R$ 527/mês (Essencial) e R$ 628/mês (Premium).'],
-            ['q' => 'Qual é o prazo para ver resultados?', 'a' => 'Campanhas de tráfego pago geram resultados em aproximadamente 3 meses. SEO e fortalecimento de marca requerem trabalho contínuo com retornos de médio a longo prazo.'],
-        ],
-        'cta_title' => 'Quer impulsionar a comunicação<br>do seu negócio?',
-        'cta_text' => 'Contrate a CDL Agência e tenha uma equipe completa ao seu lado.',
-        'cta_link' => '/fale-conosco/',
-        'external_url' => '',
-        'hero_img' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
-    ],
     'cdl-celular' => [
         'tag'      => 'Serviço',
         'subtitle' => 'Conecte-se ao Melhor em Telefonia — planos exclusivos para empreendedores.',
@@ -297,8 +257,8 @@ $fallbacks = [
     ],
 ];
 
-$fb = $fallbacks[$slug] ?? $fallbacks['cdl-agencia'];
-$icons = $icon_sets[$slug] ?? $icon_sets['cdl-agencia'];
+$fb = $fallbacks[$slug] ?? $fallbacks['spc'];
+$icons = $icon_sets[$slug] ?? $icon_sets['spc'];
 
 // ACF fields with fallbacks
 $hero_image   = get_field('servico_hero_image');
@@ -316,7 +276,6 @@ $split_img = $fb['split_img'] ?? $fb['hero_img'];
 $all_services = [
     'spc'                   => ['title' => 'SPC Brasil',           'desc' => 'Consultas CPF/CNPJ, monitoramento e análise de crédito.'],
     'cdl-celular'           => ['title' => 'CDL Celular',          'desc' => 'Telefonia com menor custo para empreendedores.'],
-    'cdl-agencia'           => ['title' => 'CDL Agência',          'desc' => 'House completa de marketing e comunicação.'],
     'certificado-digital'   => ['title' => 'Certificado Digital',  'desc' => 'e-CPF e e-CNPJ (A1/A3) com condições especiais.'],
     'central-de-cobrancas'  => ['title' => 'Central de Cobranças', 'desc' => 'Recuperação de dívidas com abordagem ética.'],
     'nfe-nfce'              => ['title' => 'NF-e / NFC-e',        'desc' => 'Agilidade, economia e conformidade fiscal.'],
@@ -345,11 +304,7 @@ $all_services = [
 <section class="conv-social-strip">
     <div class="wrap">
         <div class="conv-social-strip__grid">
-            <?php if ($slug === 'cdl-agencia'): ?>
-                <div class="ao"><span class="conv-social-strip__number">3 planos</span><span class="conv-social-strip__label">Starter, Essencial, Premium</span></div>
-                <div class="ao ao-d1"><span class="conv-social-strip__number">R$ 253</span><span class="conv-social-strip__label">A partir de / mês</span></div>
-                <div class="ao ao-d2"><span class="conv-social-strip__number">House</span><span class="conv-social-strip__label">Completa de marketing</span></div>
-            <?php elseif ($slug === 'cdl-celular'): ?>
+            <?php if ($slug === 'cdl-celular'): ?>
                 <div class="ao"><span class="conv-social-strip__number">50K+</span><span class="conv-social-strip__label">Usuários no Brasil</span></div>
                 <div class="ao ao-d1"><span class="conv-social-strip__number">Menor</span><span class="conv-social-strip__label">Custo do mercado</span></div>
                 <div class="ao ao-d2"><span class="conv-social-strip__number">Nacional</span><span class="conv-social-strip__label">Cobertura completa</span></div>
@@ -413,58 +368,6 @@ $all_services = [
 </section>
 <?php endif; ?>
 
-<!-- Pricing Cards (CDL Agência) -->
-<?php if ($slug === 'cdl-agencia' && !empty($fb['has_pricing'])): ?>
-<section class="sec" style="background:var(--light)">
-    <div class="wrap" style="text-align:center">
-        <div class="sec-tag ao">Planos e preços</div>
-        <h2 class="sec-title ao ao-d1">Escolha o plano ideal</h2>
-        <p class="sec-desc ao ao-d2" style="margin:0 auto">Contratos anuais com preços acessíveis para associados CDL.</p>
-
-        <div class="pricing-grid">
-            <div class="pricing-card ao">
-                <div class="pricing-card__name">Starter</div>
-                <div class="pricing-card__price">R$ 253</div>
-                <div class="pricing-card__period">/mês (contrato anual)</div>
-                <ul class="pricing-card__features">
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 8 Artes Feed</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 8 Artes Story</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Copywriting</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Gestão e Autopost</li>
-                </ul>
-                <a href="/fale-conosco/" class="btn btn-dark" style="width:100%">Contratar</a>
-            </div>
-            <div class="pricing-card pricing-card--featured ao ao-d1">
-                <div class="pricing-card__name">Essencial</div>
-                <div class="pricing-card__price">R$ 527</div>
-                <div class="pricing-card__period">/mês (contrato anual)</div>
-                <ul class="pricing-card__features">
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 8 Artes Feed</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 8 Artes Story</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Copywriting</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Gestão e Autopost</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Estratégias avançadas</li>
-                </ul>
-                <a href="/fale-conosco/" class="btn btn-dark" style="width:100%">Contratar</a>
-            </div>
-            <div class="pricing-card ao ao-d2">
-                <div class="pricing-card__name">Premium</div>
-                <div class="pricing-card__price">R$ 628</div>
-                <div class="pricing-card__period">/mês (contrato anual)</div>
-                <ul class="pricing-card__features">
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 8 Artes Feed</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 8 Artes Story</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Copywriting</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Gestão e Autopost</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Pacote completo</li>
-                </ul>
-                <a href="/fale-conosco/" class="btn btn-dark" style="width:100%">Contratar</a>
-            </div>
-        </div>
-    </div>
-</section>
-<?php endif; ?>
-
 <!-- Pricing Cards (Tempo & Saúde) -->
 <?php if ($slug === 'tempo-saude' && !empty($fb['has_pricing'])): ?>
 <section class="sec" style="background:var(--light)">
@@ -507,7 +410,7 @@ $all_services = [
 
 <!-- Features with varied icons -->
 <?php if ($features): ?>
-<section class="sec page-features"<?php echo ($slug !== 'cdl-agencia' && $slug !== 'tempo-saude') ? ' style="background:var(--light)"' : ''; ?>>
+<section class="sec page-features"<?php echo ($slug !== 'tempo-saude') ? ' style="background:var(--light)"' : ''; ?>>
     <div class="wrap" style="text-align:center">
         <div class="sec-tag ao">Como funciona</div>
         <h2 class="sec-title ao ao-d1">Recursos e funcionalidades</h2>

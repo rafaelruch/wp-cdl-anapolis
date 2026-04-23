@@ -70,7 +70,7 @@ $hero_img_url = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/
                 </div>
                 <h4>Finalidades</h4>
                 <ul>
-                    <li>Prestação de serviços (SPC, Certificado Digital, Cobranças, CDL Saúde, CDL Celular, CDL Agência)</li>
+                    <li>Prestação de serviços (SPC, Certificado Digital, Cobranças, CDL Saúde, CDL Celular)</li>
                     <li>Gestão de filiações e relacionamento</li>
                     <li>Comunicação sobre eventos e benefícios</li>
                     <li>Operação do app CDL Mais Você</li>
