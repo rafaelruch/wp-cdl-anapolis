@@ -9,12 +9,12 @@ $hero_img_url = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/
 
 $img_base = CDL_THEME_URI . '/assets/img/cdl-jovem/';
 $diretoria = [
-    ['nome' => 'Luan Samuel Mendes',  'cargo' => 'Presidente',                  'foto' => $img_base . 'LUAN-SAMUEL.png'],
-    ['nome' => 'Isabella Perenne',     'cargo' => 'Vice-Presidente',             'foto' => $img_base . 'ISABELLA-PERENNE.png'],
-    ['nome' => 'Wesley Venâncio',      'cargo' => 'Dir. Empreendedorismo',       'foto' => $img_base . 'WESLEY-VENANCIO.png'],
-    ['nome' => 'Vinícius Corrêa',      'cargo' => 'Dir. Eventos',               'foto' => $img_base . 'VINICIUS-CORREA.png'],
-    ['nome' => 'Rafael Vilela',        'cargo' => 'Dir. Marketing',              'foto' => $img_base . 'RAFAEL-VILELA.png'],
-    ['nome' => 'Vinícius Ribeiro',     'cargo' => 'Dir. Responsabilidade Social','foto' => $img_base . 'VINICIUS-DARIE1024x1024.png'],
+    ['nome' => 'Luan Samuel Mendes',  'cargo' => 'Presidente',                  'foto' => $img_base . 'LUAN-SAMUEL.webp'],
+    ['nome' => 'Isabella Perenne',     'cargo' => 'Vice-Presidente',             'foto' => $img_base . 'ISABELLA-PERENNE.webp'],
+    ['nome' => 'Wesley Venâncio',      'cargo' => 'Dir. Empreendedorismo',       'foto' => $img_base . 'WESLEY-VENANCIO.webp'],
+    ['nome' => 'Vinícius Corrêa',      'cargo' => 'Dir. Eventos',               'foto' => $img_base . 'VINICIUS-CORREA.webp'],
+    ['nome' => 'Rafael Vilela',        'cargo' => 'Dir. Marketing',              'foto' => $img_base . 'RAFAEL-VILELA.webp'],
+    ['nome' => 'Vinícius Ribeiro',     'cargo' => 'Dir. Responsabilidade Social','foto' => $img_base . 'VINICIUS-DARIE1024x1024.webp'],
 ];
 ?>
 
@@ -51,7 +51,7 @@ $diretoria = [
             </div>
         </div>
         <div class="ao ao-d1">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=640&h=480&fit=crop" alt="CDL Jovem" style="border-radius:var(--radius-xl);box-shadow:0 32px 80px rgba(0,0,0,.08);width:100%">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=640&h=480&fit=crop" alt="CDL Jovem" style="border-radius:var(--radius-xl);box-shadow:0 32px 80px rgba(0,0,0,.08);width:100%" loading="lazy" decoding="async">
         </div>
     </div>
 </section>
@@ -113,7 +113,7 @@ $diretoria = [
         </div>
         <div class="people-scroll__photo">
             <?php foreach ($diretoria as $i => $m): ?>
-            <img src="<?php echo esc_url($m['foto']); ?>" alt="<?php echo esc_attr($m['nome']); ?>"<?php echo $i === 0 ? ' class="active"' : ''; ?>>
+            <img src="<?php echo esc_url($m['foto']); ?>" alt="<?php echo esc_attr($m['nome']); ?>"<?php echo $i === 0 ? ' class="active" fetchpriority="high"' : ' loading="lazy" decoding="async"'; ?>>
             <?php endforeach; ?>
         </div>
     </div>

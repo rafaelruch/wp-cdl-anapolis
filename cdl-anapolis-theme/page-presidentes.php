@@ -65,7 +65,7 @@ if (!$presidentes) {
                 $has_photo = !empty($p['photo']) && is_array($p['photo']) && !empty($p['photo']['url']);
             ?>
                 <?php if ($has_photo): ?>
-                    <img src="<?php echo esc_url($p['photo']['url']); ?>" alt="<?php echo esc_attr($p['name']); ?>"<?php echo $i === 0 ? ' class="active"' : ''; ?>>
+                    <img src="<?php echo esc_url($p['photo']['url']); ?>" alt="<?php echo esc_attr($p['name']); ?>"<?php echo $i === 0 ? ' class="active" fetchpriority="high"' : ' loading="lazy" decoding="async"'; ?>>
                 <?php else: ?>
                     <div class="people-scroll__photo-placeholder<?php echo $i === 0 ? ' active' : ''; ?>">
                         <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>

@@ -33,7 +33,7 @@ $hero_img_url = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/
 <section class="sec text-left">
     <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:center">
         <div class="ao">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=640&h=480&fit=crop" alt="Mérito Empresarial" style="border-radius:var(--radius-xl);box-shadow:0 32px 80px rgba(0,0,0,.08);width:100%">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=640&h=480&fit=crop" alt="Mérito Empresarial" style="border-radius:var(--radius-xl);box-shadow:0 32px 80px rgba(0,0,0,.08);width:100%" loading="lazy" decoding="async">
         </div>
         <div>
             <div class="sec-tag ao">O que é</div>

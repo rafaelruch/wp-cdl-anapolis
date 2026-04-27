@@ -18,7 +18,7 @@ $youtube = get_field('social_youtube', 'option') ?: '#';
         <div>
             <div class="f-logo">
                 <a href="<?php echo home_url(); ?>">
-                    <img src="<?php echo CDL_THEME_URI; ?>/assets/img/logo-branca.svg" alt="CDL Anápolis" style="height:36px;width:auto">
+                    <img src="<?php echo CDL_THEME_URI; ?>/assets/img/logo-branca.svg" alt="CDL Anápolis" style="height:36px;width:auto" loading="lazy" decoding="async">
                 </a>
             </div>
             <p class="f-desc"><?php echo esc_html($footer_desc); ?></p>

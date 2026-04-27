@@ -12,27 +12,27 @@ $img_base = CDL_THEME_URI . '/assets/img/diretoria/';
 $diretores = get_field('diretoria_membros');
 if (!$diretores) {
     $diretores = [
-        ['name' => 'Luis Miguel Mendes',       'role' => 'Presidente',                    'photo' => ['url' => $img_base . 'Luis-Miguel-Mendes.png']],
-        ['name' => 'Ian Moreira Silva',         'role' => '1º Vice-Presidente',            'photo' => ['url' => $img_base . 'Ian-Moreira-Silva.png']],
-        ['name' => 'Wilmar Carvalho',           'role' => '2º Vice-Presidente',            'photo' => ['url' => $img_base . 'Wilmar-Carvalho.png']],
-        ['name' => 'Ana Paula Perenne',         'role' => '1ª Diretora Financeira',        'photo' => ['url' => $img_base . 'Ana-Paula-Perenne.png']],
-        ['name' => 'Marcos Aurélio Rodovalho',  'role' => '2º Vice Dir. Financeiro',       'photo' => ['url' => $img_base . 'Marcos-Aurélio-Rodovalho.png']],
-        ['name' => 'Kedima Barbosa',            'role' => 'Dir. Secr. Administrativo',     'photo' => ['url' => $img_base . 'Kedima-Barbosa.png']],
-        ['name' => 'Edson Debona',              'role' => 'Dir. Desen. Neg. e Inovação',   'photo' => ['url' => $img_base . 'Edson-Debona.png']],
-        ['name' => 'Allan Peixoto',             'role' => 'Dir. Eventos e Promoções',      'photo' => ['url' => $img_base . 'Allan-Peixoto.png']],
-        ['name' => 'Enival Ferreira de Souza',  'role' => 'Dir. Infraestrutura',           'photo' => ['url' => $img_base . 'Enival-Ferreira-de-Souza.png']],
-        ['name' => 'Louise Ramiro da Costa',    'role' => 'Dir. Jur. e Rel. Institucionais','photo' => ['url' => $img_base . 'Louise-Costa.png']],
-        ['name' => 'Christian Kleber Lisboa',   'role' => 'Dir. Capacitação Empresarial',  'photo' => ['url' => $img_base . 'Christian-Kleber-Lisboa.png']],
-        ['name' => 'Jaime Neto Alves Matos',   'role' => 'Dir. SPC',                      'photo' => ['url' => $img_base . 'Jaime-Matos.png']],
-        ['name' => 'Maurício de Oliveira',      'role' => 'Dir. Suplente',                 'photo' => ['url' => $img_base . 'Maurício-Oliveira.png']],
+        ['name' => 'Luis Miguel Mendes',       'role' => 'Presidente',                    'photo' => ['url' => $img_base . 'Luis-Miguel-Mendes.webp']],
+        ['name' => 'Ian Moreira Silva',         'role' => '1º Vice-Presidente',            'photo' => ['url' => $img_base . 'Ian-Moreira-Silva.webp']],
+        ['name' => 'Wilmar Carvalho',           'role' => '2º Vice-Presidente',            'photo' => ['url' => $img_base . 'Wilmar-Carvalho.webp']],
+        ['name' => 'Ana Paula Perenne',         'role' => '1ª Diretora Financeira',        'photo' => ['url' => $img_base . 'Ana-Paula-Perenne.webp']],
+        ['name' => 'Marcos Aurélio Rodovalho',  'role' => '2º Vice Dir. Financeiro',       'photo' => ['url' => $img_base . 'Marcos-Aurélio-Rodovalho.webp']],
+        ['name' => 'Kedima Barbosa',            'role' => 'Dir. Secr. Administrativo',     'photo' => ['url' => $img_base . 'Kedima-Barbosa.webp']],
+        ['name' => 'Edson Debona',              'role' => 'Dir. Desen. Neg. e Inovação',   'photo' => ['url' => $img_base . 'Edson-Debona.webp']],
+        ['name' => 'Allan Peixoto',             'role' => 'Dir. Eventos e Promoções',      'photo' => ['url' => $img_base . 'Allan-Peixoto.webp']],
+        ['name' => 'Enival Ferreira de Souza',  'role' => 'Dir. Infraestrutura',           'photo' => ['url' => $img_base . 'Enival-Ferreira-de-Souza.webp']],
+        ['name' => 'Louise Ramiro da Costa',    'role' => 'Dir. Jur. e Rel. Institucionais','photo' => ['url' => $img_base . 'Louise-Costa.webp']],
+        ['name' => 'Christian Kleber Lisboa',   'role' => 'Dir. Capacitação Empresarial',  'photo' => ['url' => $img_base . 'Christian-Kleber-Lisboa.webp']],
+        ['name' => 'Jaime Neto Alves Matos',   'role' => 'Dir. SPC',                      'photo' => ['url' => $img_base . 'Jaime-Matos.webp']],
+        ['name' => 'Maurício de Oliveira',      'role' => 'Dir. Suplente',                 'photo' => ['url' => $img_base . 'Maurício-Oliveira.webp']],
     ];
 }
 
 $conselho = [
-    ['nome' => 'João Soares da Silva',     'foto' => $img_base . 'João-Silva.png'],
-    ['nome' => 'Munir Caixe',              'foto' => $img_base . 'Munir-Caixe.png'],
-    ['nome' => 'Geraldo Pereira Braga',    'foto' => $img_base . 'Geraldo-Pereira-Braga.png'],
-    ['nome' => 'Air Vasconcelos Ganzarolli','foto' => $img_base . 'Air-Ganzaroli-F.png'],
+    ['nome' => 'João Soares da Silva',     'foto' => $img_base . 'João-Silva.webp'],
+    ['nome' => 'Munir Caixe',              'foto' => $img_base . 'Munir-Caixe.webp'],
+    ['nome' => 'Geraldo Pereira Braga',    'foto' => $img_base . 'Geraldo-Pereira-Braga.webp'],
+    ['nome' => 'Air Vasconcelos Ganzarolli','foto' => $img_base . 'Air-Ganzaroli-F.webp'],
 ];
 ?>
 
@@ -83,7 +83,7 @@ $conselho = [
                 $has_photo = !empty($d['photo']) && is_array($d['photo']) && !empty($d['photo']['url']);
             ?>
                 <?php if ($has_photo): ?>
-                    <img src="<?php echo esc_url($d['photo']['url']); ?>" alt="<?php echo esc_attr($d['name']); ?>"<?php echo $i === 0 ? ' class="active"' : ''; ?>>
+                    <img src="<?php echo esc_url($d['photo']['url']); ?>" alt="<?php echo esc_attr($d['name']); ?>"<?php echo $i === 0 ? ' class="active" fetchpriority="high"' : ' loading="lazy" decoding="async"'; ?>>
                 <?php else: ?>
                     <div class="people-scroll__photo-placeholder<?php echo $i === 0 ? ' active' : ''; ?>">
                         <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -103,7 +103,7 @@ $conselho = [
             <?php foreach ($conselho as $i => $c): ?>
             <div class="sobre-mvv__card ao ao-d<?php echo $i % 4; ?>">
                 <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto 16px">
-                    <img src="<?php echo esc_url($c['foto']); ?>" alt="<?php echo esc_attr($c['nome']); ?>" style="width:100%;height:100%;object-fit:cover">
+                    <img src="<?php echo esc_url($c['foto']); ?>" alt="<?php echo esc_attr($c['nome']); ?>" style="width:100%;height:100%;object-fit:cover" loading="lazy" decoding="async">
                 </div>
                 <h3 style="font-size:.88rem"><?php echo esc_html($c['nome']); ?></h3>
                 <p>Conselheiro Fiscal</p>

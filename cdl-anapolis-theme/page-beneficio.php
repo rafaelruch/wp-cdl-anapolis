@@ -692,7 +692,7 @@ $all_benefits = [
             <div class="sobre-mvv__card ao ao-d<?php echo $i % 3; ?>">
                 <div class="sobre-mvv__ico">
                     <?php if (!empty($feat['icon']) && is_array($feat['icon'])): ?>
-                        <img src="<?php echo esc_url($feat['icon']['url']); ?>" alt="" style="width:28px;height:28px">
+                        <img src="<?php echo esc_url($feat['icon']['url']); ?>" alt="" style="width:28px;height:28px" loading="lazy" decoding="async">
                     <?php else: ?>
                         <?php echo $icons[$i % count($icons)]; ?>
                     <?php endif; ?>

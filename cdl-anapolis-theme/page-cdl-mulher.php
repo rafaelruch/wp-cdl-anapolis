@@ -9,13 +9,13 @@ $hero_img_url = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/
 
 $img_base = CDL_THEME_URI . '/assets/img/cdl-mulher/';
 $diretoria = [
-    ['nome' => 'Danielly Mendes',                           'cargo' => 'Presidente',                  'foto' => $img_base . 'Danielly-Mendes-Presidente-CDL-Mulher2.png'],
-    ['nome' => 'Cristiane Eunice Elias de Souza',            'cargo' => 'Vice-Presidente',             'foto' => $img_base . 'Cristiane-Eunice-Elias-de-Souza-Vice-presidente-CDL-Mulher.png'],
-    ['nome' => 'Érica Cristian Batista do Nascimento',       'cargo' => 'Dir. Empreendedorismo',       'foto' => $img_base . 'Erica-Cristian-Batista-do-Nascimento-Diretora-de-Empreendedorismo.png'],
-    ['nome' => 'Caroline do Nascimento Silva',               'cargo' => 'Dir. Captação de Recursos',   'foto' => $img_base . 'Caroline-do-Nascimento-Silva-Diretora-de-Captacao.png'],
-    ['nome' => 'Luciana Nery Moisés Seixas',                 'cargo' => 'Dir. Sustentabilidade Social', 'foto' => $img_base . 'Luciana-Nery-Moises-Seixas-Diretora-de-Sustentabilidade-Social.png'],
-    ['nome' => 'Emanuelle Carolinne do Nascimento',          'cargo' => 'Dir. Eventos',                'foto' => $img_base . 'Emanuelle-Carolinne-do-Nascimento-Diretora-de-Eventos.png'],
-    ['nome' => 'Amanda Prometti',                            'cargo' => 'Dir. Marketing',              'foto' => $img_base . 'Amanda-Prometti-Diretora-de-Marketing.png'],
+    ['nome' => 'Danielly Mendes',                           'cargo' => 'Presidente',                  'foto' => $img_base . 'Danielly-Mendes-Presidente-CDL-Mulher2.webp'],
+    ['nome' => 'Cristiane Eunice Elias de Souza',            'cargo' => 'Vice-Presidente',             'foto' => $img_base . 'Cristiane-Eunice-Elias-de-Souza-Vice-presidente-CDL-Mulher.webp'],
+    ['nome' => 'Érica Cristian Batista do Nascimento',       'cargo' => 'Dir. Empreendedorismo',       'foto' => $img_base . 'Erica-Cristian-Batista-do-Nascimento-Diretora-de-Empreendedorismo.webp'],
+    ['nome' => 'Caroline do Nascimento Silva',               'cargo' => 'Dir. Captação de Recursos',   'foto' => $img_base . 'Caroline-do-Nascimento-Silva-Diretora-de-Captacao.webp'],
+    ['nome' => 'Luciana Nery Moisés Seixas',                 'cargo' => 'Dir. Sustentabilidade Social', 'foto' => $img_base . 'Luciana-Nery-Moises-Seixas-Diretora-de-Sustentabilidade-Social.webp'],
+    ['nome' => 'Emanuelle Carolinne do Nascimento',          'cargo' => 'Dir. Eventos',                'foto' => $img_base . 'Emanuelle-Carolinne-do-Nascimento-Diretora-de-Eventos.webp'],
+    ['nome' => 'Amanda Prometti',                            'cargo' => 'Dir. Marketing',              'foto' => $img_base . 'Amanda-Prometti-Diretora-de-Marketing.webp'],
 ];
 ?>
 
@@ -44,7 +44,7 @@ $diretoria = [
 <section class="sec text-left">
     <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:center">
         <div class="ao">
-            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=640&h=480&fit=crop" alt="CDL Mulher" style="border-radius:var(--radius-xl);box-shadow:0 32px 80px rgba(0,0,0,.08);width:100%">
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=640&h=480&fit=crop" alt="CDL Mulher" style="border-radius:var(--radius-xl);box-shadow:0 32px 80px rgba(0,0,0,.08);width:100%" loading="lazy" decoding="async">
         </div>
         <div>
             <div class="sec-tag ao">Quem somos</div>
@@ -130,7 +130,7 @@ $diretoria = [
         </div>
         <div class="people-scroll__photo">
             <?php foreach ($diretoria as $i => $m): ?>
-            <img src="<?php echo esc_url($m['foto']); ?>" alt="<?php echo esc_attr($m['nome']); ?>"<?php echo $i === 0 ? ' class="active"' : ''; ?>>
+            <img src="<?php echo esc_url($m['foto']); ?>" alt="<?php echo esc_attr($m['nome']); ?>"<?php echo $i === 0 ? ' class="active" fetchpriority="high"' : ' loading="lazy" decoding="async"'; ?>>
             <?php endforeach; ?>
         </div>
     </div>

@@ -71,7 +71,7 @@ if (!$timeline) {
 <section class="sec text-left" id="historia">
     <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:center">
         <div class="ao">
-            <img src="<?php echo esc_url($historia_img_url); ?>" alt="CDL Anápolis" style="border-radius:var(--radius-xl);box-shadow:0 32px 80px rgba(0,0,0,.08);width:100%">
+            <img src="<?php echo esc_url($historia_img_url); ?>" alt="CDL Anápolis" style="border-radius:var(--radius-xl);box-shadow:0 32px 80px rgba(0,0,0,.08);width:100%" loading="lazy" decoding="async">
         </div>
         <div>
             <div class="sec-tag ao"><?php echo esc_html($historia_title); ?></div>
