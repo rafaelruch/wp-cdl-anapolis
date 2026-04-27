@@ -1,39 +1,30 @@
 <?php
 /**
  * Enqueue CSS and JS assets
+ *
+ * Estratégia:
+ * - Fontes locais (Inter + Sora) via fonts.css com font-display: swap
+ * - CSS global (sempre carrega): variables, base, header, footer, whatsapp, fonts
+ * - CSS de home (só na home): hero, features-band, marquee, benefits, informativo,
+ *   showcase, cta, services, steps, quick-access, economy, testimonials
+ * - CSS de páginas internas (não-home): pages.css
+ * - CSS específico por slug: planos, impostometro, associados
  */
 
 function cdl_enqueue_assets() {
-    // Google Fonts
-    wp_enqueue_style(
-        'cdl-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap',
-        [],
-        null
-    );
-
-    // Theme CSS
-    $css_files = [
-        'variables',
-        'base',
-        'header',
-        'hero',
-        'features-band',
-        'marquee',
-        'benefits',
-        'informativo',
-        'showcase',
-        'cta',
-        'services',
-        'steps',
-        'quick-access',
-        'economy',
-        'whatsapp',
-        'footer',
-        'pages',
+    // -----------------------------------------------------------------
+    // CSS GLOBAL — carrega em toda página
+    // -----------------------------------------------------------------
+    $global_css = [
+        'fonts',      // @font-face Inter + Sora (self-hosted)
+        'variables',  // design tokens
+        'base',       // reset, .sec, .btn
+        'header',     // nav, mega-menu
+        'footer',     // footer grid
+        'whatsapp',   // FAB widget
     ];
 
-    foreach ($css_files as $file) {
+    foreach ($global_css as $file) {
         wp_enqueue_style(
             "cdl-{$file}",
             CDL_THEME_URI . "/assets/css/{$file}.css",
@@ -42,37 +33,73 @@ function cdl_enqueue_assets() {
         );
     }
 
-    // Planos CSS (only on associe-se page)
+    // -----------------------------------------------------------------
+    // CSS DA HOMEPAGE — só carrega no front-page
+    // -----------------------------------------------------------------
+    if (is_front_page()) {
+        $home_css = [
+            'hero',
+            'features-band',
+            'marquee',
+            'benefits',
+            'informativo',
+            'showcase',
+            'cta',
+            'services',
+            'steps',
+            'quick-access',
+            'economy',
+            'testimonials',
+        ];
+        foreach ($home_css as $file) {
+            wp_enqueue_style(
+                "cdl-{$file}",
+                CDL_THEME_URI . "/assets/css/{$file}.css",
+                [],
+                CDL_THEME_VERSION
+            );
+        }
+    } else {
+        // Páginas internas / arquivos / singles
+        wp_enqueue_style(
+            'cdl-pages',
+            CDL_THEME_URI . '/assets/css/pages.css',
+            [],
+            CDL_THEME_VERSION
+        );
+
+        // Notícias (informativo) também usa o card de informativo + cta
+        if (is_singular('informativo') || is_post_type_archive('informativo')) {
+            wp_enqueue_style('cdl-informativo', CDL_THEME_URI . '/assets/css/informativo.css', [], CDL_THEME_VERSION);
+            wp_enqueue_style('cdl-cta',         CDL_THEME_URI . '/assets/css/cta.css',         [], CDL_THEME_VERSION);
+        }
+    }
+
+    // -----------------------------------------------------------------
+    // CSS POR SLUG ESPECÍFICO
+    // -----------------------------------------------------------------
     if (is_page('associe-se')) {
-        wp_enqueue_style(
-            'cdl-planos',
-            CDL_THEME_URI . '/assets/css/planos.css',
+        wp_enqueue_style('cdl-planos', CDL_THEME_URI . '/assets/css/planos.css', [], CDL_THEME_VERSION);
+        wp_enqueue_script(
+            'cdl-associe-se',
+            CDL_THEME_URI . '/assets/js/associe-se.js',
             [],
-            CDL_THEME_VERSION
+            CDL_THEME_VERSION,
+            true
         );
     }
 
-    // Impostômetro CSS (only on impostometro page)
     if (is_page('impostometro')) {
-        wp_enqueue_style(
-            'cdl-impostometro',
-            CDL_THEME_URI . '/assets/css/impostometro.css',
-            [],
-            CDL_THEME_VERSION
-        );
+        wp_enqueue_style('cdl-impostometro', CDL_THEME_URI . '/assets/css/impostometro.css', [], CDL_THEME_VERSION);
     }
 
-    // Associados CSS (only on quem-faz-parte page)
     if (is_page('quem-faz-parte')) {
-        wp_enqueue_style(
-            'cdl-associados',
-            CDL_THEME_URI . '/assets/css/associados.css',
-            [],
-            CDL_THEME_VERSION
-        );
+        wp_enqueue_style('cdl-associados', CDL_THEME_URI . '/assets/css/associados.css', [], CDL_THEME_VERSION);
     }
 
-    // Theme JS
+    // -----------------------------------------------------------------
+    // JS GLOBAL
+    // -----------------------------------------------------------------
     wp_enqueue_script(
         'cdl-main',
         CDL_THEME_URI . '/assets/js/main.js',
@@ -81,7 +108,9 @@ function cdl_enqueue_assets() {
         true
     );
 
-    // Associados JS + Google Maps (only on quem-faz-parte page)
+    // -----------------------------------------------------------------
+    // JS POR SLUG
+    // -----------------------------------------------------------------
     if (is_page('quem-faz-parte')) {
         wp_enqueue_script(
             'cdl-associados',
@@ -90,7 +119,17 @@ function cdl_enqueue_assets() {
             CDL_THEME_VERSION,
             true
         );
-        $gmaps_key = get_field('google_maps_api_key', 'option') ?: '';
+
+        // Dados dos associados (movidos do <script> inline do template).
+        // Usa o mesmo nome global `cdlAssociados` que associados.js já espera.
+        $assoc_payload = cdl_get_associados_data();
+        wp_add_inline_script(
+            'cdl-associados',
+            'var cdlAssociados = ' . wp_json_encode($assoc_payload['data']) . ';',
+            'before'
+        );
+
+        $gmaps_key = function_exists('get_field') ? (get_field('google_maps_api_key', 'option') ?: '') : '';
         if ($gmaps_key) {
             wp_enqueue_script(
                 'google-maps',
@@ -103,3 +142,24 @@ function cdl_enqueue_assets() {
     }
 }
 add_action('wp_enqueue_scripts', 'cdl_enqueue_assets');
+
+/**
+ * Preconnect/preload helpers no <head> para performance.
+ * - Preload das fontes mais usadas (Inter regular + 600, Sora 600 + 700)
+ *   acelera FCP/LCP.
+ */
+function cdl_resource_hints() {
+    $fonts_to_preload = [
+        'inter/inter-v20-latin-regular.woff2',
+        'inter/inter-v20-latin-600.woff2',
+        'sora/sora-v17-latin-600.woff2',
+        'sora/sora-v17-latin-700.woff2',
+    ];
+    foreach ($fonts_to_preload as $font) {
+        printf(
+            '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+            esc_url(CDL_THEME_URI . '/assets/fonts/' . $font)
+        );
+    }
+}
+add_action('wp_head', 'cdl_resource_hints', 1);

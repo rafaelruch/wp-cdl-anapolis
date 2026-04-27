@@ -1,13 +1,8 @@
 <?php
 /**
- * Informativo CDL Section - Latest 4 posts
+ * Informativo CDL Section - Latest 4 posts (cacheado via transient — 1h)
  */
-$posts = new WP_Query([
-    'post_type'      => 'informativo',
-    'posts_per_page' => 4,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-]);
+$posts = cdl_get_home_informativos(4);
 ?>
 
 <section class="info-sec" id="informativo" style="background:var(--light)" aria-label="Informativo CDL">

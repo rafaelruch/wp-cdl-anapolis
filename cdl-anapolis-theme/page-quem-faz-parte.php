@@ -2,55 +2,16 @@
 /**
  * Template Name: Quem Faz Parte
  * Página de associados com mapa interativo + lista lateral + filtro por categoria
+ *
+ * Os dados vêm de cdl_get_associados_data() (cacheado via transient — 6h).
+ * O JS recebe `cdlAssociados` injetado via wp_add_inline_script no enqueue.
  */
 get_header();
 
-// Buscar todos os associados
-$associados_query = new WP_Query([
-    'post_type'      => 'associado',
-    'posts_per_page' => -1,
-    'orderby'        => 'title',
-    'order'          => 'ASC',
-]);
+$assoc_payload   = cdl_get_associados_data();
+$associados_data = $assoc_payload['data'];
 
-// Montar array de dados para JS
-$associados_data = [];
-if ($associados_query->have_posts()) {
-    while ($associados_query->have_posts()) {
-        $associados_query->the_post();
-        $id   = get_the_ID();
-        $cats = get_the_terms($id, 'categoria_associado');
-        $cat_slug = '';
-        $cat_name = '';
-        if ($cats && !is_wp_error($cats)) {
-            $cat_slug = $cats[0]->slug;
-            $cat_name = $cats[0]->name;
-        }
-
-        $lat = get_field('associado_latitude', $id);
-        $lng = get_field('associado_longitude', $id);
-
-        $associados_data[] = [
-            'id'        => $id,
-            'nome'      => get_the_title(),
-            'cnpj'      => get_field('associado_cnpj', $id) ?: '',
-            'endereco'  => get_field('associado_endereco', $id) ?: '',
-            'bairro'    => get_field('associado_bairro', $id) ?: '',
-            'cep'       => get_field('associado_cep', $id) ?: '',
-            'cidade'    => get_field('associado_cidade', $id) ?: 'Anápolis',
-            'estado'    => get_field('associado_estado', $id) ?: 'GO',
-            'telefone'  => get_field('associado_telefone', $id) ?: '',
-            'lat'       => $lat ? floatval($lat) : null,
-            'lng'       => $lng ? floatval($lng) : null,
-            'categoria' => $cat_slug,
-            'categoria_nome' => $cat_name,
-            'inicial'   => mb_strtoupper(mb_substr(get_the_title(), 0, 1)),
-        ];
-    }
-    wp_reset_postdata();
-}
-
-// Buscar categorias existentes
+// Categorias existentes (cacheadas pelo WP via update_term_cache no helper)
 $categorias = get_terms([
     'taxonomy'   => 'categoria_associado',
     'hide_empty' => true,
@@ -130,9 +91,5 @@ $categorias = get_terms([
         </div>
     </div>
 </section>
-
-<script>
-    var cdlAssociados = <?php echo json_encode($associados_data, JSON_UNESCAPED_UNICODE); ?>;
-</script>
 
 <?php get_footer(); ?>

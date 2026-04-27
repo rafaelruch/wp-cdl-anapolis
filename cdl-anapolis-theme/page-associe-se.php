@@ -313,47 +313,4 @@ $planos = [
     </div>
 </div>
 
-<script>
-(function(){
-    const modal        = document.getElementById('planoModal');
-    const planoInput   = document.getElementById('planoInput');
-    const planoNameEl  = document.getElementById('planoSelectedName');
-    const form         = document.getElementById('planoForm');
-    const whatsapp     = form.dataset.whatsapp;
-    const ctaButtons   = document.querySelectorAll('[data-plano]');
-    const closeEls     = document.querySelectorAll('[data-close-modal]');
-
-    function openModal(plano){
-        planoInput.value = plano;
-        planoNameEl.textContent = plano;
-        modal.classList.add('is-open');
-        document.body.classList.add('modal-open');
-    }
-    function closeModal(){
-        modal.classList.remove('is-open');
-        document.body.classList.remove('modal-open');
-    }
-
-    ctaButtons.forEach(btn => btn.addEventListener('click', () => openModal(btn.dataset.plano)));
-    closeEls.forEach(el => el.addEventListener('click', closeModal));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
-
-    form.addEventListener('submit', function(e){
-        e.preventDefault();
-        const data = new FormData(form);
-        const msg =
-            '*Nova solicitação de associação — CDL Anápolis*\n\n' +
-            '*Plano escolhido:* ' + data.get('plano') + '\n' +
-            '*Razão Social:* ' + data.get('razao_social') + '\n' +
-            '*CNPJ:* ' + data.get('cnpj') + '\n' +
-            '*Responsável:* ' + data.get('nome_responsavel') + '\n' +
-            '*CPF:* ' + data.get('cpf_responsavel') + '\n' +
-            '*Telefone:* ' + data.get('telefone') + '\n' +
-            (data.get('email') ? '*E-mail:* ' + data.get('email') + '\n' : '');
-        const url = 'https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(msg);
-        window.open(url, '_blank');
-    });
-})();
-</script>
-
 <?php get_footer(); ?>

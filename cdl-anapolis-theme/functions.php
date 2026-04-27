@@ -16,6 +16,7 @@ if (!function_exists('get_field')) {
 
 // Theme setup
 require_once CDL_THEME_DIR . '/inc/theme-setup.php';
+require_once CDL_THEME_DIR . '/inc/perf-helpers.php';
 require_once CDL_THEME_DIR . '/inc/enqueue.php';
 
 // Custom Post Types
@@ -25,11 +26,6 @@ require_once CDL_THEME_DIR . '/inc/cpt-associados.php';
 
 // ACF Configuration
 require_once CDL_THEME_DIR . '/inc/acf-fields.php';
-
-// Seed Associados (DELETAR APÓS EXECUÇÃO)
-if (file_exists(CDL_THEME_DIR . '/seed-associados.php')) {
-    require_once CDL_THEME_DIR . '/seed-associados.php';
-}
 
 // Contact form handler (fallback when CF7 is not active)
 if (!shortcode_exists('contact-form-7')) {

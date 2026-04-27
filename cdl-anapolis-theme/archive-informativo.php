@@ -6,10 +6,14 @@
 get_header();
 
 $sidebar_posts = new WP_Query([
-    'post_type'      => 'informativo',
-    'posts_per_page' => 5,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'post_type'              => 'informativo',
+    'posts_per_page'         => 5,
+    'orderby'                => 'date',
+    'order'                  => 'DESC',
+    'no_found_rows'          => true,
+    'update_post_meta_cache' => false,
+    'update_post_term_cache' => false,
+    'ignore_sticky_posts'    => true,
 ]);
 ?>
 

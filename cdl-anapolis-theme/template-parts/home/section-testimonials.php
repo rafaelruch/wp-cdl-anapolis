@@ -1,13 +1,8 @@
 <?php
 /**
- * Testimonials Carousel Section
+ * Testimonials Carousel Section (cacheado via transient — 6h)
  */
-$depoimentos = new WP_Query([
-    'post_type'      => 'depoimento',
-    'posts_per_page' => 10,
-    'orderby'        => 'menu_order',
-    'order'          => 'ASC',
-]);
+$depoimentos = cdl_get_home_depoimentos(10);
 ?>
 
 <?php if ($depoimentos->have_posts()): ?>
