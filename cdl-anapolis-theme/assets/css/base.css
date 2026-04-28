@@ -47,6 +47,9 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .btn-blue:hover{background:#02367a;box-shadow:0 12px 32px rgba(3,66,142,.35)}
 .btn-dark{background:var(--dark);color:#fff;border-color:var(--dark)}
 .btn-dark:hover{background:#000}
+.btn-whatsapp{background:#25d366;color:#fff;border-color:#25d366;gap:10px}
+.btn-whatsapp:hover{background:#1ebe57;border-color:#1ebe57;box-shadow:0 12px 32px rgba(37,211,102,.35)}
+.btn-whatsapp svg{width:16px;height:16px;flex-shrink:0}
 
 /* Legacy button classes for backward compat */
 .btn--primary{background:var(--gold);color:var(--dark);border-color:var(--gold);box-shadow:0 8px 40px rgba(255,214,0,.25)}

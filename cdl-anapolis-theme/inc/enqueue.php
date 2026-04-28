@@ -109,6 +109,21 @@ function cdl_enqueue_assets() {
     );
 
     // -----------------------------------------------------------------
+    // SWIPER (CDN) + carousel.js — só na home (depoimentos + benefícios)
+    // -----------------------------------------------------------------
+    if (is_front_page()) {
+        wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11');
+        wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], '11', true);
+        wp_enqueue_script(
+            'cdl-carousel',
+            CDL_THEME_URI . '/assets/js/carousel.js',
+            ['swiper'],
+            CDL_THEME_VERSION,
+            true
+        );
+    }
+
+    // -----------------------------------------------------------------
     // JS POR SLUG
     // -----------------------------------------------------------------
     if (is_page('quem-faz-parte')) {

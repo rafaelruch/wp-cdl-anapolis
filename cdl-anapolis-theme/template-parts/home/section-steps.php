@@ -25,7 +25,7 @@
                 <p>Acesse serviços e vantagens exclusivas</p>
             </div>
         </div>
-        <a href="/associe-se/" class="btn btn-gold ao ao-d3" style="margin-top:48px">
+        <a href="/associe-se/#planos" class="btn btn-gold ao ao-d3" style="margin-top:48px">
             Começar agora
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>

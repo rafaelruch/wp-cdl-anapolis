@@ -1,6 +1,6 @@
 <?php
 /**
- * Benefits Grid Section — todos os benefícios da CDL Anápolis
+ * Benefits Carousel Section — todos os benefícios da CDL Anápolis (Swiper)
  */
 $tag      = get_field('benefits_tag', 'option') ?: 'Para quem faz parte';
 $title    = get_field('benefits_title', 'option') ?: 'Benefícios que fazem a diferença';
@@ -23,8 +23,6 @@ $benefits = [
     ['title' => 'Recrutamento',             'link' => '/recrutamento/',             'icon' => '<path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>'],
     ['title' => 'Exames Admissionais',      'link' => '/exames-admissionais/',      'icon' => '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/>'],
     ['title' => 'Gestão E-social',          'link' => '/gestao-esocial/',           'icon' => '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/>'],
-    ['title' => 'Certificado Digital',      'link' => '/certificado-digital-cdl/',  'icon' => '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>'],
-    ['title' => 'CDL Mais Você',            'link' => '/cdl-mais-voce/',            'icon' => '<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>'],
 ];
 ?>
 
@@ -34,18 +32,28 @@ $benefits = [
         <h2 class="sec-title ao"><?php echo wp_kses_post($title); ?></h2>
         <p class="sec-desc ao" style="margin-left:auto;margin-right:auto"><?php echo esc_html($subtitle); ?></p>
 
-        <div class="benefits-grid">
-            <?php foreach ($benefits as $i => $b):
-                $delay = ' ao-d' . min(($i % 5), 4);
-            ?>
-            <a href="<?php echo esc_url($b['link']); ?>" class="benefit-card ao<?php echo $delay; ?>">
-                <div class="benefit-card__ico">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><?php echo $b['icon']; ?></svg>
+        <div class="benefits-carousel ao">
+            <button class="benefits-carousel__btn benefits-carousel__btn--prev" type="button" aria-label="Benefício anterior">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+
+            <div class="swiper benefits-swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach ($benefits as $b): ?>
+                    <a href="<?php echo esc_url($b['link']); ?>" class="swiper-slide benefit-card">
+                        <div class="benefit-card__ico">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><?php echo $b['icon']; ?></svg>
+                        </div>
+                        <h3 class="benefit-card__title"><?php echo esc_html($b['title']); ?></h3>
+                        <svg class="benefit-card__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <?php endforeach; ?>
                 </div>
-                <h3 class="benefit-card__title"><?php echo esc_html($b['title']); ?></h3>
-                <svg class="benefit-card__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <?php endforeach; ?>
+            </div>
+
+            <button class="benefits-carousel__btn benefits-carousel__btn--next" type="button" aria-label="Próximo benefício">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
         </div>
 
         <div class="benefits-footer ao">
