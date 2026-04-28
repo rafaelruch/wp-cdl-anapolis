@@ -240,18 +240,13 @@ $planos = [
 </section>
 
 <!-- 6. CTA WHATSAPP -->
-<section class="cta-gold">
+<section class="cta-gold" aria-label="Atendimento pelo WhatsApp">
     <h2 class="ao">Prefere falar<br>pelo WhatsApp?</h2>
     <p class="ao ao-d1">Tire suas dúvidas e faça seu cadastro direto com nossa equipe.</p>
-    <div class="ao ao-d2" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
-        <a href="https://wa.me/<?php echo esc_attr($whatsapp); ?>?text=<?php echo rawurlencode('Olá! Quero fazer parte da CDL Anápolis.'); ?>" class="btn btn-dark" target="_blank" rel="noopener" style="background:#25d366;border-color:#25d366">
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor" style="margin-right:6px"><path d="M16 0C7.2 0 0 7.2 0 16c0 3.5 1.1 6.7 3 9.4L1 31.2l6-2A15.9 15.9 0 0016 32c8.8 0 16-7.2 16-16S24.8 0 16 0zm9.3 22.6c-.4 1.1-2.3 2.1-3.2 2.2-.9.1-1.7.4-5.7-1.2-4.8-1.9-7.8-6.8-8.1-7.1-.2-.3-1.9-2.6-1.9-4.9 0-2.3 1.2-3.5 1.6-3.9.4-.5.9-.6 1.3-.6.3 0 .6 0 .9 0 .3 0 .7-.1 1 .7.3.9 1.1 2.9 1.1 3.1.1.2.2.5 0 .7-.1.3-.2.5-.4.7-.2.2-.4.6-.6.7-.2.2-.4.4-.2.9.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.2.8-.1.2-.2.9-1.1 1.2-1.5.2-.4.5-.3.8-.2.3.1 2.2 1 2.6 1.2.4.2.6.3.7.4.1.2.1.9-.3 2z"/></svg>
-            Abrir WhatsApp
-        </a>
-        <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone)); ?>" class="btn" style="background:rgba(255,255,255,.15);color:#fff;backdrop-filter:blur(8px)">
-            Ligar agora
-        </a>
-    </div>
+    <a href="https://wa.me/<?php echo esc_attr($whatsapp); ?>?text=<?php echo rawurlencode('Olá! Quero fazer parte da CDL Anápolis.'); ?>" class="btn btn-dark ao ao-d2" target="_blank" rel="noopener">
+        Abrir WhatsApp
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
 </section>
 
 <!-- ═══ MODAL DE CONTRATAÇÃO ═══ -->
