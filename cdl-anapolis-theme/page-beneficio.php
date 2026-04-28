@@ -16,14 +16,6 @@ $icon_sets = [
         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
     ],
-    'cdl-mais-voce' => [
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
-        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
-    ],
     'cdl-saude' => [
         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>',
@@ -101,38 +93,6 @@ $fallbacks = [
         'cta_text' => 'Fale com nossa equipe e proteja seu negócio.',
         'cta_link' => '/fale-conosco/',
         'hero_img' => 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80',
-    ],
-    'cdl-mais-voce' => [
-        'tag'      => 'Benefício',
-        'subtitle' => 'Ganhe prêmios avaliando as empresas de Anápolis — app gratuito para Android e iOS.',
-        'intro'    => '<p>O aplicativo CDL Mais Você foi criado para transformar a forma como os anapolinos se conectam com a cidade. Um app que gera engajamento, fideliza clientes e ainda traz vantagens reais para você!</p><p>Avalie empresas, participe de pesquisas, concorra a prêmios exclusivos, retire cupons de desconto e fique por dentro das principais notícias e vagas de emprego de Anápolis.</p>',
-        'highlights' => [
-            'Avalie empresas da cidade e contribua com a reputação delas',
-            'Participe de pesquisas e concorra a prêmios exclusivos',
-            'Retire cupons para descontos em estabelecimentos locais',
-            'Acompanhe notícias e vagas de emprego em tempo real',
-            'Totalmente gratuito para o público em geral',
-            'Disponível para Android e iOS',
-        ],
-        'highlight_img' => 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
-        'features' => [
-            ['title' => 'Concorra a Prêmios', 'description' => 'Avalie empresas, participe de ações e esteja sempre concorrendo a sorteios e campanhas especiais exclusivas do app.'],
-            ['title' => 'Cupons e Descontos', 'description' => 'Resgate cupons direto no app e aproveite descontos imperdíveis em lojas, serviços e parceiros.'],
-            ['title' => 'Notícias e Vagas', 'description' => 'Fique por dentro das principais notícias da cidade, eventos e novas vagas de emprego em tempo real.'],
-            ['title' => 'App Fácil e Intuitivo', 'description' => 'Disponível para Android e iOS, o app é leve, fácil de navegar e foi feito para o dia a dia de Anápolis.'],
-            ['title' => 'Avaliação de Empresas', 'description' => 'Contribua avaliando os estabelecimentos da cidade e ajude a melhorar o atendimento ao consumidor.'],
-            ['title' => 'Totalmente Gratuito', 'description' => 'O aplicativo é gratuito para todos. Você não precisa ser membro da CDL para utilizar o app.'],
-        ],
-        'faqs' => [
-            ['q' => 'O que é o aplicativo CDL Mais Você?', 'a' => 'O CDL Mais Você é um aplicativo gratuito, disponível para Android e iOS, que permite avaliar estabelecimentos, participar de pesquisas, concorrer a prêmios, resgatar cupons de desconto e acompanhar notícias e vagas.'],
-            ['q' => 'Como posso ganhar prêmios pelo app?', 'a' => 'Ao se cadastrar, usuários podem participar de pesquisas de opinião e campanhas de empresas locais. Cada participação gera pontos ou chances em sorteios.'],
-            ['q' => 'Como funcionam os cupons de desconto?', 'a' => 'Os cupons são oferecidos por empresas parceiras da CDL. Basta acessar a seção de cupons no app, selecionar a promoção e apresentar o cupom no estabelecimento participante.'],
-            ['q' => 'O aplicativo é gratuito? Preciso ser associado?', 'a' => 'Sim, o aplicativo é totalmente gratuito. Você não precisa ser associado da CDL para utilizar o app, porém associados recebem benefícios adicionais.'],
-        ],
-        'cta_title' => 'Baixe o CDL Mais Você<br>e comece a ganhar prêmios',
-        'cta_text' => 'Disponível gratuitamente para Android e iOS.',
-        'cta_link' => '/fale-conosco/',
-        'hero_img' => 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&q=80',
     ],
     'cdl-saude' => [
         'tag'      => 'Benefício',
@@ -617,7 +577,6 @@ $all_benefits = [
     'recrutamento'             => 'Recrutamento',
     'exames-admissionais'      => 'Exames Admissionais',
     'gestao-esocial'           => 'Gestão E-social',
-    'cdl-mais-voce'            => 'CDL Mais Você',
 ];
 ?>
 
@@ -639,10 +598,6 @@ $all_benefits = [
                 <div class="ao"><span class="conv-social-strip__number">3</span><span class="conv-social-strip__label">Áreas do Direito</span></div>
                 <div class="ao ao-d1"><span class="conv-social-strip__number">R$ 0</span><span class="conv-social-strip__label">Custo adicional</span></div>
                 <div class="ao ao-d2"><span class="conv-social-strip__number">100%</span><span class="conv-social-strip__label">Preventiva</span></div>
-            <?php elseif ($slug === 'cdl-mais-voce'): ?>
-                <div class="ao"><span class="conv-social-strip__number">1,7M+</span><span class="conv-social-strip__label">Avaliações realizadas</span></div>
-                <div class="ao ao-d1"><span class="conv-social-strip__number">Gratuito</span><span class="conv-social-strip__label">Para todos</span></div>
-                <div class="ao ao-d2"><span class="conv-social-strip__number">Android & iOS</span><span class="conv-social-strip__label">Disponível</span></div>
             <?php elseif ($slug === 'cdl-saude'): ?>
                 <div class="ao"><span class="conv-social-strip__number">Sem</span><span class="conv-social-strip__label">Carência</span></div>
                 <div class="ao ao-d1"><span class="conv-social-strip__number">100%</span><span class="conv-social-strip__label">Guias digitais online</span></div>

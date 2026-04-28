@@ -145,11 +145,13 @@ add_action('init', function() {
 
 /**
  * Remove páginas descontinuadas (rodará uma vez via option flag).
+ * Bumpe o número da option (`cdl_removed_pages_vN`) sempre que adicionar
+ * novos slugs para que o hook execute em sites já atualizados.
  */
 add_action('init', function() {
-    if (get_option('cdl_removed_pages_v1')) return;
+    if (get_option('cdl_removed_pages_v2')) return;
 
-    $removed_slugs = ['cdl-agencia'];
+    $removed_slugs = ['cdl-agencia', 'cdl-mais-voce'];
     foreach ($removed_slugs as $slug) {
         $page = get_page_by_path($slug);
         if ($page) {
@@ -157,7 +159,7 @@ add_action('init', function() {
         }
     }
 
-    update_option('cdl_removed_pages_v1', true);
+    update_option('cdl_removed_pages_v2', true);
     flush_rewrite_rules(true);
 }, 15);
 

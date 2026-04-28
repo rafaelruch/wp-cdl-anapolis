@@ -189,7 +189,6 @@ function cdl_render_contact_form($email) {
                 <option value="Filiações">Filiações</option>
                 <option value="CDL Celular">CDL Celular</option>
                 <option value="CDL Jovem">CDL Jovem</option>
-                <option value="CDL Mais Você">CDL Mais Você</option>
                 <option value="CDL Mulher">CDL Mulher</option>
                 <option value="CDL Saúde">CDL Saúde</option>
                 <option value="Central de Cobranças">Central de Cobranças</option>

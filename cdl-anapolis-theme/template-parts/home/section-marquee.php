@@ -5,14 +5,13 @@
 
 $services = [
     'SPC Brasil',
-    'Assessoria Juridica',
-    'CDL Saude',
+    'Assessoria Jurídica',
+    'CDL Saúde',
     'Certificado Digital',
     'CDL Celular',
     'Sede Campestre',
     'NF-e / NFC-e',
-    'Central de Cobrancas',
-    'CDL Mais Voce',
+    'Central de Cobranças',
 ];
 ?>
 
