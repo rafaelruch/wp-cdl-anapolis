@@ -6,43 +6,21 @@
 
 $title    = get_field('features_band_title', 'option') ?: 'Todas as vantagens, <em>em um só lugar</em>';
 $subtitle = get_field('features_band_subtitle', 'option') ?: 'Serviços essenciais para quem empreende — do crédito à assessoria jurídica, tudo pensado para você focar no que importa.';
+$items    = get_field('features_band_items', 'option');
 
-// Lista fixa dos 6 serviços, pareada com o mega-menu de Serviços do header.php.
-// Hardcoded de propósito: o ACF Options estava com 3 itens antigos sobrescrevendo
-// a lista correta. Para reabilitar a edição via admin no futuro, basta voltar a
-// usar get_field('features_band_items', 'option') aqui.
-$items = [
-    [
-        'item_title'       => 'CDL Celular',
-        'item_description' => 'Consultas e proteção mobile para o seu negócio.',
-        'item_link'        => '/cdl-celular/',
-    ],
-    [
-        'item_title'       => 'Central de Cobranças',
-        'item_description' => 'Recuperação de crédito profissional e segura.',
-        'item_link'        => '/central-de-cobrancas/',
-    ],
-    [
-        'item_title'       => 'Certificado Digital',
-        'item_description' => 'e-CPF e e-CNPJ nos formatos A1 e A3, com agendamento facilitado.',
-        'item_link'        => '/certificado-digital-cdl/',
-    ],
-    [
-        'item_title'       => 'NF-e / NFC-e',
-        'item_description' => 'Emissão de notas fiscais eletrônicas sem complicação.',
-        'item_link'        => '/nfe-nfce/',
-    ],
-    [
-        'item_title'       => 'SPC Brasil',
-        'item_description' => 'Consultas e proteção ao crédito com a maior base do país.',
-        'item_link'        => '/spc/',
-    ],
-    [
-        'item_title'       => 'Tempo & Saúde',
-        'item_description' => 'Saúde ocupacional e segurança do trabalho para sua equipe.',
-        'item_link'        => '/tempo-saude/',
-    ],
-];
+// Fallback: 6 serviços do mega-menu (caso o admin não tenha cadastrado nada).
+// O seed em functions.php popula esses mesmos itens no ACF Options na primeira
+// execução, então normalmente o cliente vê e edita pelo admin.
+if (!$items) {
+    $items = [
+        ['item_title' => 'CDL Celular',          'item_description' => 'Consultas e proteção mobile para o seu negócio.',                  'item_link' => '/cdl-celular/'],
+        ['item_title' => 'Central de Cobranças', 'item_description' => 'Recuperação de crédito profissional e segura.',                     'item_link' => '/central-de-cobrancas/'],
+        ['item_title' => 'Certificado Digital',  'item_description' => 'e-CPF e e-CNPJ nos formatos A1 e A3, com agendamento facilitado.',  'item_link' => '/certificado-digital-cdl/'],
+        ['item_title' => 'NF-e / NFC-e',         'item_description' => 'Emissão de notas fiscais eletrônicas sem complicação.',             'item_link' => '/nfe-nfce/'],
+        ['item_title' => 'SPC Brasil',           'item_description' => 'Consultas e proteção ao crédito com a maior base do país.',         'item_link' => '/spc/'],
+        ['item_title' => 'Tempo & Saúde',        'item_description' => 'Saúde ocupacional e segurança do trabalho para sua equipe.',        'item_link' => '/tempo-saude/'],
+    ];
+}
 
 // Ícones SVG por slug — usados quando não há ícone via ACF
 $icon_by_slug = [

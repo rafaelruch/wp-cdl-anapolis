@@ -251,3 +251,59 @@ add_filter('acf/settings/load_json', function ($paths) {
     $paths[] = CDL_THEME_DIR . '/acf-json';
     return $paths;
 });
+
+/**
+ * Popula o repeater `features_band_items` no ACF Options com os 6 serviços
+ * do mega-menu (sobrescreve qualquer conteúdo antigo). Roda uma vez por
+ * versão da flag `cdl_seed_features_band_vN` — bumpe o número quando
+ * quiser repropagar.
+ *
+ * Usa hook `acf/init` para garantir que ACF esteja pronto antes de
+ * chamar update_field.
+ */
+add_action('acf/init', function () {
+    if (!function_exists('update_field')) return;
+    if (get_option('cdl_seed_features_band_v1')) return;
+
+    $items = [
+        [
+            'item_title'       => 'CDL Celular',
+            'item_link'        => '/cdl-celular/',
+            'item_description' => 'Consultas e proteção mobile para o seu negócio.',
+            'item_icon'        => false,
+        ],
+        [
+            'item_title'       => 'Central de Cobranças',
+            'item_link'        => '/central-de-cobrancas/',
+            'item_description' => 'Recuperação de crédito profissional e segura.',
+            'item_icon'        => false,
+        ],
+        [
+            'item_title'       => 'Certificado Digital',
+            'item_link'        => '/certificado-digital-cdl/',
+            'item_description' => 'e-CPF e e-CNPJ nos formatos A1 e A3, com agendamento facilitado.',
+            'item_icon'        => false,
+        ],
+        [
+            'item_title'       => 'NF-e / NFC-e',
+            'item_link'        => '/nfe-nfce/',
+            'item_description' => 'Emissão de notas fiscais eletrônicas sem complicação.',
+            'item_icon'        => false,
+        ],
+        [
+            'item_title'       => 'SPC Brasil',
+            'item_link'        => '/spc/',
+            'item_description' => 'Consultas e proteção ao crédito com a maior base do país.',
+            'item_icon'        => false,
+        ],
+        [
+            'item_title'       => 'Tempo & Saúde',
+            'item_link'        => '/tempo-saude/',
+            'item_description' => 'Saúde ocupacional e segurança do trabalho para sua equipe.',
+            'item_icon'        => false,
+        ],
+    ];
+
+    update_field('features_band_items', $items, 'option');
+    update_option('cdl_seed_features_band_v1', true);
+});
