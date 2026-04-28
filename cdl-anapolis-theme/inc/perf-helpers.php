@@ -98,25 +98,41 @@ add_action('edited_categoria_associado', function () {
 // Informativos (CPT `informativo`) — usado em section-informativo (home)
 // =====================================================================
 function cdl_get_home_informativos($limit = 4) {
-    $cache_key = 'cdl_home_informativos_v1_' . intval($limit);
-    $cached    = get_transient($cache_key);
-    if ($cached !== false) {
-        return $cached;
+    $cache_key = 'cdl_home_informativos_v2_' . intval($limit);
+    $post_ids  = get_transient($cache_key);
+
+    if ($post_ids === false) {
+        // Query leve só para IDs — não busca campos completos do post.
+        $id_q = new WP_Query([
+            'post_type'              => 'informativo',
+            'posts_per_page'         => intval($limit),
+            'orderby'                => 'date',
+            'order'                  => 'DESC',
+            'fields'                 => 'ids',
+            'no_found_rows'          => true,
+            'update_post_meta_cache' => false,
+            'update_post_term_cache' => false,
+            'ignore_sticky_posts'    => true,
+        ]);
+        $post_ids = $id_q->posts;
+        set_transient($cache_key, $post_ids, HOUR_IN_SECONDS);
     }
 
-    $q = new WP_Query([
-        'post_type'              => 'informativo',
-        'posts_per_page'         => intval($limit),
-        'orderby'                => 'date',
-        'order'                  => 'DESC',
-        'no_found_rows'          => true,
-        'update_post_meta_cache' => true,
-        'update_post_term_cache' => false,
-        'ignore_sticky_posts'    => true,
-    ]);
+    // Reconstrói o WP_Query "fresco" a cada request.
+    // Não cacheamos o WP_Query inteiro porque a serialização perde estado
+    // interno e quebra get_the_date() / setup_postdata() no loop.
+    if (empty($post_ids)) {
+        return new WP_Query(['post__in' => [0]]); // query vazia
+    }
 
-    set_transient($cache_key, $q, HOUR_IN_SECONDS);
-    return $q;
+    return new WP_Query([
+        'post_type'           => 'informativo',
+        'post__in'            => $post_ids,
+        'posts_per_page'      => count($post_ids),
+        'orderby'             => 'post__in',
+        'no_found_rows'       => true,
+        'ignore_sticky_posts' => true,
+    ]);
 }
 
 add_action('save_post_informativo', function () {
@@ -135,25 +151,37 @@ add_action('before_delete_post', function ($post_id) {
 // Depoimentos (CPT `depoimento`) — usado em section-testimonials (home)
 // =====================================================================
 function cdl_get_home_depoimentos($limit = 10) {
-    $cache_key = 'cdl_home_depoimentos_v1_' . intval($limit);
-    $cached    = get_transient($cache_key);
-    if ($cached !== false) {
-        return $cached;
+    $cache_key = 'cdl_home_depoimentos_v2_' . intval($limit);
+    $post_ids  = get_transient($cache_key);
+
+    if ($post_ids === false) {
+        $id_q = new WP_Query([
+            'post_type'              => 'depoimento',
+            'posts_per_page'         => intval($limit),
+            'orderby'                => 'menu_order',
+            'order'                  => 'ASC',
+            'fields'                 => 'ids',
+            'no_found_rows'          => true,
+            'update_post_meta_cache' => false,
+            'update_post_term_cache' => false,
+            'ignore_sticky_posts'    => true,
+        ]);
+        $post_ids = $id_q->posts;
+        set_transient($cache_key, $post_ids, 6 * HOUR_IN_SECONDS);
     }
 
-    $q = new WP_Query([
-        'post_type'              => 'depoimento',
-        'posts_per_page'         => intval($limit),
-        'orderby'                => 'menu_order',
-        'order'                  => 'ASC',
-        'no_found_rows'          => true,
-        'update_post_meta_cache' => true,
-        'update_post_term_cache' => false,
-        'ignore_sticky_posts'    => true,
-    ]);
+    if (empty($post_ids)) {
+        return new WP_Query(['post__in' => [0]]);
+    }
 
-    set_transient($cache_key, $q, 6 * HOUR_IN_SECONDS);
-    return $q;
+    return new WP_Query([
+        'post_type'           => 'depoimento',
+        'post__in'            => $post_ids,
+        'posts_per_page'      => count($post_ids),
+        'orderby'             => 'post__in',
+        'no_found_rows'       => true,
+        'ignore_sticky_posts' => true,
+    ]);
 }
 
 add_action('save_post_depoimento', function () {
