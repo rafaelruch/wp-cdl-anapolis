@@ -1,4 +1,4 @@
-/* Features Band — Gold background, blue typography */
+/* Features Band — Carrossel Swiper sobre fundo gold, mesmo design dos cards */
 .features-band{
   background:#ffd600;padding:80px 0;position:relative;
   border-top:1px solid rgba(3,66,142,.08);
@@ -14,16 +14,28 @@
 }
 .features-sub{
   color:rgba(3,66,142,.75);font-size:.95rem;line-height:1.7;
-  max-width:560px;margin:0 auto 56px;font-weight:400;
+  max-width:560px;margin:0 auto 40px;font-weight:400;
 }
-.features-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
-  border-radius:var(--radius-lg);overflow:hidden;
+
+/* Container do carrossel — espaço para as setas laterais */
+.features-band-carousel{
+  position:relative;
+  padding:0 clamp(56px,7vw,80px);
 }
+
+.features-band-swiper{
+  overflow:hidden;
+  border-radius:var(--radius-lg);
+}
+
+/* Card — mantido o design original (fundo translúcido, hover branco) */
 .feature-card{
   background:rgba(255,255,255,.45);padding:clamp(28px,3vw,40px);
   text-align:left;position:relative;overflow:hidden;
   transition:all .5s cubic-bezier(.16,1,.3,1);cursor:pointer;
+  height:auto;display:flex !important;flex-direction:column;
+  color:inherit;text-decoration:none;
+  box-sizing:border-box;
 }
 .feature-card:hover{background:rgba(255,255,255,.75)}
 .feature-card::before{
@@ -36,15 +48,49 @@
   width:48px;height:48px;border-radius:var(--radius-md);
   background:rgba(3,66,142,.12);color:#03428e;
   display:flex;align-items:center;justify-content:center;margin-bottom:20px;
-  transition:.4s;
+  transition:.4s;flex-shrink:0;
 }
 .feature-card:hover .feature-ico{background:#03428e;color:#ffd600}
 .feature-card h3{
   font-family:'Sora';font-size:1.05rem;font-weight:700;color:#03428e;
   margin-bottom:8px;letter-spacing:-.01em;
 }
-.feature-card p{color:rgba(3,66,142,.75);font-size:.82rem;line-height:1.65}
+.feature-card p{color:rgba(3,66,142,.75);font-size:.82rem;line-height:1.65;margin:0}
 
+/* Setas laterais — azul institucional sobre fundo amarelo */
+.features-band-carousel__btn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+  width:48px;height:48px;border-radius:50%;
+  background:#03428e;color:#ffd600;
+  border:none;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(3,66,142,.25);
+  transition:all .3s cubic-bezier(.16,1,.3,1);
+}
+.features-band-carousel__btn:hover{
+  background:#02367a;color:#fff;
+  box-shadow:0 12px 32px rgba(3,66,142,.4);
+  transform:translateY(-50%) scale(1.06);
+}
+.features-band-carousel__btn:focus-visible{
+  outline:2px solid #fff;outline-offset:3px;
+}
+.features-band-carousel__btn--prev{left:0}
+.features-band-carousel__btn--next{right:0}
+.features-band-carousel__btn.swiper-button-disabled{
+  opacity:.35;cursor:not-allowed;pointer-events:none;
+}
+
+/* Responsivo */
 @media(max-width:1024px){
-  .features-grid{grid-template-columns:1fr}
+  .features-band-carousel{padding:0 clamp(48px,6vw,64px)}
+}
+@media(max-width:768px){
+  .features-band{padding:64px 0}
+  .features-band-carousel__btn{width:40px;height:40px}
+}
+@media(max-width:600px){
+  .features-band-carousel{padding:0 44px}
+  .features-band-carousel__btn{width:36px;height:36px}
 }

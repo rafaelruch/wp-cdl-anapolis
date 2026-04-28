@@ -1,6 +1,6 @@
 <?php
 /**
- * Benefits Carousel Section — todos os benefícios da CDL Anápolis (Swiper)
+ * Benefits Grid Section — todos os benefícios da CDL Anápolis
  */
 $tag      = get_field('benefits_tag', 'option') ?: 'Para quem faz parte';
 $title    = get_field('benefits_title', 'option') ?: 'Benefícios que fazem a diferença';
@@ -32,28 +32,18 @@ $benefits = [
         <h2 class="sec-title ao"><?php echo wp_kses_post($title); ?></h2>
         <p class="sec-desc ao" style="margin-left:auto;margin-right:auto"><?php echo esc_html($subtitle); ?></p>
 
-        <div class="benefits-carousel ao">
-            <button class="benefits-carousel__btn benefits-carousel__btn--prev" type="button" aria-label="Benefício anterior">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-
-            <div class="swiper benefits-swiper">
-                <div class="swiper-wrapper">
-                    <?php foreach ($benefits as $b): ?>
-                    <a href="<?php echo esc_url($b['link']); ?>" class="swiper-slide benefit-card">
-                        <div class="benefit-card__ico">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><?php echo $b['icon']; ?></svg>
-                        </div>
-                        <h3 class="benefit-card__title"><?php echo esc_html($b['title']); ?></h3>
-                        <svg class="benefit-card__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
-                    <?php endforeach; ?>
+        <div class="benefits-grid">
+            <?php foreach ($benefits as $i => $b):
+                $delay = ' ao-d' . min(($i % 5), 4);
+            ?>
+            <a href="<?php echo esc_url($b['link']); ?>" class="benefit-card ao<?php echo $delay; ?>">
+                <div class="benefit-card__ico">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><?php echo $b['icon']; ?></svg>
                 </div>
-            </div>
-
-            <button class="benefits-carousel__btn benefits-carousel__btn--next" type="button" aria-label="Próximo benefício">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
+                <h3 class="benefit-card__title"><?php echo esc_html($b['title']); ?></h3>
+                <svg class="benefit-card__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <?php endforeach; ?>
         </div>
 
         <div class="benefits-footer ao">

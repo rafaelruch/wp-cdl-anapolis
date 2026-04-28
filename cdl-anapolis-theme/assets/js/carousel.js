@@ -34,29 +34,27 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ── Carrossel de Benefícios ─────────────────────────────────
-    var benefitsEl = document.querySelector('.benefits-swiper');
-    if (benefitsEl) {
-        new Swiper(benefitsEl, {
+    // ── Carrossel de Vantagens / Serviços (Features Band) ───────
+    var featuresEl = document.querySelector('.features-band-swiper');
+    if (featuresEl) {
+        new Swiper(featuresEl, {
             slidesPerView: 1,
-            spaceBetween: 14,
+            spaceBetween: 2,
             grabCursor: true,
             breakpoints: {
-                480:  { slidesPerView: 2, spaceBetween: 14 },
-                768:  { slidesPerView: 3, spaceBetween: 14 },
-                1024: { slidesPerView: 4, spaceBetween: 14 },
-                1280: { slidesPerView: 5, spaceBetween: 14 },
+                640:  { slidesPerView: 2, spaceBetween: 2 },
+                1024: { slidesPerView: 3, spaceBetween: 2 },
             },
             navigation: {
-                prevEl: '.benefits-carousel__btn--prev',
-                nextEl: '.benefits-carousel__btn--next',
+                prevEl: '.features-band-carousel__btn--prev',
+                nextEl: '.features-band-carousel__btn--next',
             },
             keyboard: { enabled: true },
             a11y: {
-                prevSlideMessage: 'Benefício anterior',
-                nextSlideMessage: 'Próximo benefício',
-                firstSlideMessage: 'Primeiro benefício',
-                lastSlideMessage: 'Último benefício',
+                prevSlideMessage: 'Vantagem anterior',
+                nextSlideMessage: 'Próxima vantagem',
+                firstSlideMessage: 'Primeira vantagem',
+                lastSlideMessage: 'Última vantagem',
             },
         });
     }

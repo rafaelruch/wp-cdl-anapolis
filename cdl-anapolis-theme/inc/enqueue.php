@@ -22,6 +22,7 @@ function cdl_enqueue_assets() {
         'header',     // nav, mega-menu
         'footer',     // footer grid
         'whatsapp',   // FAB widget
+        'cta',        // .cta-gold + .cta-dark — usados em 12 templates (home + internas)
     ];
 
     foreach ($global_css as $file) {
@@ -44,7 +45,6 @@ function cdl_enqueue_assets() {
             'benefits',
             'informativo',
             'showcase',
-            'cta',
             'services',
             'steps',
             'quick-access',
@@ -68,10 +68,9 @@ function cdl_enqueue_assets() {
             CDL_THEME_VERSION
         );
 
-        // Notícias (informativo) também usa o card de informativo + cta
+        // Notícias (informativo) usa o card de informativo
         if (is_singular('informativo') || is_post_type_archive('informativo')) {
             wp_enqueue_style('cdl-informativo', CDL_THEME_URI . '/assets/css/informativo.css', [], CDL_THEME_VERSION);
-            wp_enqueue_style('cdl-cta',         CDL_THEME_URI . '/assets/css/cta.css',         [], CDL_THEME_VERSION);
         }
     }
 
