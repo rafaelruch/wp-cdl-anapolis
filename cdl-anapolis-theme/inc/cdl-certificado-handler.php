@@ -72,32 +72,72 @@ function cdl_is_cnpj_associado($cnpj) {
 }
 
 /**
- * Endpoint AJAX (público, com nonce).
+ * Rate limit simples por IP — 10 requisições por minuto.
+ * Suficiente pra evitar abuso de força bruta sem prejudicar uso legítimo.
  */
-function cdl_check_associado_ajax() {
-    check_ajax_referer('cdl_check_associado', '_wpnonce');
+function cdl_check_associado_rate_limited() {
+    $ip = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : 'unknown';
+    $key   = 'cdl_chk_rate_' . md5($ip);
+    $count = (int) get_transient($key);
+    if ($count >= 10) {
+        return true;
+    }
+    set_transient($key, $count + 1, MINUTE_IN_SECONDS);
+    return false;
+}
 
-    $cnpj_raw = isset($_POST['cnpj']) ? sanitize_text_field(wp_unslash($_POST['cnpj'])) : '';
+/**
+ * Endpoint REST público — registrado em rest_api_init.
+ *
+ * Não usa nonce porque o site fica atrás de plugin de cache de página
+ * (LiteSpeed/WP Rocket) que serve HTML cacheado com nonces expirados,
+ * o que faz check_ajax_referer falhar mesmo com chamadas legítimas.
+ *
+ * A resposta é binária (is_associado true/false) sem dados pessoais —
+ * não há risco em deixar público. Rate limit cobre abuso.
+ */
+function cdl_check_associado_rest($request) {
+    if (cdl_check_associado_rate_limited()) {
+        return new WP_REST_Response([
+            'code'    => 'rate_limited',
+            'message' => 'Muitas tentativas. Aguarde um instante e tente novamente.',
+        ], 429);
+    }
+
+    $cnpj_raw = $request->get_param('cnpj');
     $cnpj     = cdl_cnpj_only_digits($cnpj_raw);
 
     if (!cdl_cnpj_is_valid($cnpj)) {
-        wp_send_json_error([
+        return new WP_REST_Response([
             'code'    => 'invalid_cnpj',
             'message' => 'CNPJ inválido. Confira o número e tente novamente.',
         ], 400);
     }
 
     if (cdl_is_cnpj_associado($cnpj)) {
-        wp_send_json_success([
+        return new WP_REST_Response([
             'is_associado' => true,
             'message'      => 'Você é associado da CDL Anápolis e tem direito a 1 Certificado Digital A1 gratuitamente. Fale com nossa equipe pelo WhatsApp para agendar sua emissão.',
-        ]);
-    } else {
-        wp_send_json_success([
-            'is_associado' => false,
-            'redirect_url' => CDL_CERTIFICADO_COMPRA_URL,
-        ]);
+        ], 200);
     }
+
+    return new WP_REST_Response([
+        'is_associado' => false,
+        'redirect_url' => CDL_CERTIFICADO_COMPRA_URL,
+    ], 200);
 }
-add_action('wp_ajax_cdl_check_associado',        'cdl_check_associado_ajax');
-add_action('wp_ajax_nopriv_cdl_check_associado', 'cdl_check_associado_ajax');
+
+add_action('rest_api_init', function () {
+    register_rest_route('cdl/v1', '/check-associado', [
+        'methods'             => 'POST',
+        'callback'            => 'cdl_check_associado_rest',
+        'permission_callback' => '__return_true',
+        'args'                => [
+            'cnpj' => [
+                'required'          => true,
+                'type'              => 'string',
+                'sanitize_callback' => 'sanitize_text_field',
+            ],
+        ],
+    ]);
+});

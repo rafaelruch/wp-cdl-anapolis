@@ -106,8 +106,7 @@ function cdl_enqueue_assets() {
             true
         );
         wp_localize_script('cdl-certificado-digital', 'CDL_CERTIFICADO', [
-            'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce'    => wp_create_nonce('cdl_check_associado'),
+            'rest_url' => esc_url_raw(rest_url('cdl/v1/check-associado')),
         ]);
     }
 

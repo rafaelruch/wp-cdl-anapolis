@@ -6,7 +6,7 @@
  * - Senão: redireciona para o site externo de compra
  *
  * Variáveis globais expostas via wp_localize_script (`CDL_CERTIFICADO`):
- *   - ajax_url, nonce, whatsapp_url (com mensagem do associado já pronta)
+ *   - rest_url (endpoint REST público — sem nonce para funcionar com page cache)
  */
 (function () {
     'use strict';
@@ -69,38 +69,36 @@
             clearStatus(status);
             if (success) success.hidden = true;
 
-            var body = new URLSearchParams();
-            body.set('action',  'cdl_check_associado');
-            body.set('_wpnonce', CDL_CERTIFICADO.nonce);
-            body.set('cnpj',     cnpj);
-
-            fetch(CDL_CERTIFICADO.ajax_url, {
+            fetch(CDL_CERTIFICADO.rest_url, {
                 method:      'POST',
                 credentials: 'same-origin',
-                headers:     { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-                body:        body.toString(),
+                headers:     { 'Content-Type': 'application/json' },
+                body:        JSON.stringify({ cnpj: cnpj }),
             })
-            .then(function (res) { return res.json(); })
-            .then(function (data) {
+            .then(function (res) {
+                return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+            })
+            .then(function (resp) {
                 submit.disabled  = false;
                 submit.innerHTML = originalLabel;
 
-                if (data && data.success === false) {
-                    setStatus(status, 'error', (data.data && data.data.message) || 'Não foi possível verificar agora. Tente novamente.');
+                var data = resp.data || {};
+
+                if (!resp.ok || data.code === 'invalid_cnpj' || data.code === 'rate_limited') {
+                    setStatus(status, 'error', data.message || 'Não foi possível verificar agora. Tente novamente.');
                     return;
                 }
 
-                var payload = (data && data.data) || {};
-                if (payload.is_associado) {
+                if (data.is_associado) {
                     if (success) {
-                        if (successMsg) successMsg.textContent = payload.message || '';
+                        if (successMsg) successMsg.textContent = data.message || '';
                         success.hidden = false;
                         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     } else {
-                        setStatus(status, 'success', payload.message || 'Você é associado.');
+                        setStatus(status, 'success', data.message || 'Você é associado.');
                     }
-                } else if (payload.redirect_url) {
-                    window.location.href = payload.redirect_url;
+                } else if (data.redirect_url) {
+                    window.location.href = data.redirect_url;
                 } else {
                     setStatus(status, 'error', 'Resposta inesperada. Recarregue a página e tente novamente.');
                 }
