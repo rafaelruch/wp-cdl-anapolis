@@ -214,32 +214,7 @@ $planos = [
     </div>
 </section>
 
-<!-- 5. STEPS -->
-<section class="sec" style="background:var(--light)">
-    <div class="wrap" style="text-align:center">
-        <div class="sec-tag ao">Como funciona</div>
-        <h2 class="sec-title ao ao-d1">Fazer parte é simples</h2>
-        <div class="sobre-mvv" style="margin-top:clamp(40px,5vw,56px)">
-            <div class="sobre-mvv__card ao">
-                <div class="sobre-mvv__ico" style="background:rgba(3,66,142,.07);color:var(--blue);font-family:'Sora';font-size:1.2rem;font-weight:800">1</div>
-                <h3>Escolha seu plano</h3>
-                <p>Identifique o plano que melhor se adapta ao porte do seu negócio.</p>
-            </div>
-            <div class="sobre-mvv__card ao ao-d1">
-                <div class="sobre-mvv__ico" style="background:rgba(255,214,0,.1);color:#b89a00;font-family:'Sora';font-size:1.2rem;font-weight:800">2</div>
-                <h3>Envie seus dados</h3>
-                <p>Preencha o formulário rápido e envie direto pelo WhatsApp para nossa equipe.</p>
-            </div>
-            <div class="sobre-mvv__card ao ao-d2">
-                <div class="sobre-mvv__ico" style="background:rgba(0,135,67,.07);color:#008743;font-family:'Sora';font-size:1.2rem;font-weight:800">3</div>
-                <h3>Aproveite os benefícios</h3>
-                <p>Com o cadastro ativo, acesso imediato a todos os serviços e benefícios da CDL.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 6. CTA WHATSAPP -->
+<!-- 5. CTA WHATSAPP -->
 <section class="cta-gold" aria-label="Atendimento pelo WhatsApp">
     <h2 class="ao">Prefere falar<br>pelo WhatsApp?</h2>
     <p class="ao ao-d1">Tire suas dúvidas e faça seu cadastro direto com nossa equipe.</p>
