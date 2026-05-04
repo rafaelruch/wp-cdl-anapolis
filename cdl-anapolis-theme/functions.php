@@ -17,7 +17,6 @@ if (!function_exists('get_field')) {
 // Theme setup
 require_once CDL_THEME_DIR . '/inc/theme-setup.php';
 require_once CDL_THEME_DIR . '/inc/perf-helpers.php';
-require_once CDL_THEME_DIR . '/inc/cdl-certificado-handler.php';
 require_once CDL_THEME_DIR . '/inc/enqueue.php';
 
 // Custom Post Types

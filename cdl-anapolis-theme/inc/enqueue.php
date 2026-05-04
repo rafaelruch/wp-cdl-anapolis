@@ -105,9 +105,6 @@ function cdl_enqueue_assets() {
             CDL_THEME_VERSION,
             true
         );
-        wp_localize_script('cdl-certificado-digital', 'CDL_CERTIFICADO', [
-            'rest_url' => esc_url_raw(rest_url('cdl/v1/check-associado')),
-        ]);
     }
 
     // -----------------------------------------------------------------
