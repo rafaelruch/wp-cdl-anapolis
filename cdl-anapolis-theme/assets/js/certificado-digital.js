@@ -97,8 +97,13 @@
                     } else {
                         setStatus(status, 'success', data.message || 'Você é associado.');
                     }
-                } else if (data.redirect_url) {
-                    window.location.href = data.redirect_url;
+                } else if (data.redirect_action === 'compra_certificado_cdl') {
+                    // URL montada em pedaços para evitar o filtro de domínio
+                    // do staging Hostinger que reescreve `cdlanapolis.com.br`
+                    // em qualquer output do PHP. O JS estático não passa pelo
+                    // filtro e a URL final fica correta no cliente.
+                    var url = ['https://www.', 'certificado', 'cdl', 'anapolis', '.com', '.br/V1'].join('');
+                    window.location.href = url;
                 } else {
                     setStatus(status, 'error', 'Resposta inesperada. Recarregue a página e tente novamente.');
                 }

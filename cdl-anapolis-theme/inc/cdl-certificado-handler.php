@@ -14,7 +14,12 @@
 
 if (!defined('ABSPATH')) exit;
 
-const CDL_CERTIFICADO_COMPRA_URL = 'https://www.certificadocdlanapolis.com.br/V1';
+// URL externa de compra/agendamento — montada em pedaços porque a
+// Hostinger (em staging) tem um filtro que substitui o domínio
+// `cdlanapolis.com.br` pelo subdomínio do staging em qualquer string
+// que sai do PHP, quebrando URLs como `certificadocdlanapolis.com.br`.
+// O JS reconstrói a URL no cliente a partir do identificador retornado.
+const CDL_CERTIFICADO_COMPRA_ID = 'compra_certificado_cdl';
 
 /**
  * Normaliza CNPJ removendo todo caractere não numérico.
@@ -122,8 +127,8 @@ function cdl_check_associado_rest($request) {
     }
 
     return new WP_REST_Response([
-        'is_associado' => false,
-        'redirect_url' => CDL_CERTIFICADO_COMPRA_URL,
+        'is_associado'    => false,
+        'redirect_action' => CDL_CERTIFICADO_COMPRA_ID,
     ], 200);
 }
 
