@@ -42,3 +42,71 @@
   .cta-dark{padding:80px 0}
   .cta-gold{padding:64px 0}
 }
+
+/* ─── Form de verificação CNPJ (página /certificado-digital-cdl/) ─── */
+.cd-check{
+  max-width:560px;margin:0 auto;text-align:left;
+  position:relative;z-index:1;
+}
+.cd-check__label{
+  display:block;font-family:'Sora';font-weight:600;color:#021e50;
+  font-size:.95rem;margin-bottom:12px;text-align:center;letter-spacing:-.01em;
+}
+.cd-check__row{
+  display:flex;gap:8px;background:#fff;
+  border-radius:var(--radius-pill);padding:6px;
+  box-shadow:0 12px 36px rgba(3,66,142,.18);
+  border:1px solid rgba(3,66,142,.1);
+}
+.cd-check__input{
+  flex:1;border:0;outline:0;background:transparent;
+  padding:14px 18px;font-size:1rem;color:#021e50;
+  font-family:inherit;letter-spacing:.02em;min-width:0;
+}
+.cd-check__input::placeholder{color:rgba(2,30,80,.45)}
+.cd-check__input:focus-visible{outline:none}
+.cd-check__submit{
+  flex-shrink:0;padding:12px 24px;font-size:.85rem;
+}
+.cd-check__hint{
+  display:block;font-size:.78rem;color:rgba(3,66,142,.7);
+  margin:14px auto 0;text-align:center;max-width:480px;line-height:1.5;
+}
+.cd-check__status{
+  margin:14px auto 0;padding:12px 18px;border-radius:var(--radius-md);
+  font-size:.85rem;font-weight:500;text-align:center;max-width:480px;
+}
+.cd-check__status--error{
+  background:rgba(220,53,69,.1);color:#a02530;border:1px solid rgba(220,53,69,.25);
+}
+.cd-check__status--success{
+  background:rgba(0,135,67,.1);color:#005f30;border:1px solid rgba(0,135,67,.25);
+}
+
+/* Estado de sucesso (associado encontrado) */
+.cd-check-success{
+  max-width:560px;margin:32px auto 0;
+  background:#fff;border-radius:var(--radius-xl);padding:32px 28px;
+  text-align:center;box-shadow:0 24px 64px rgba(3,66,142,.15);
+  border:1px solid rgba(0,135,67,.15);position:relative;z-index:1;
+}
+.cd-check-success__ico{
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(0,135,67,.1);color:#008743;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+}
+.cd-check-success__title{
+  font-family:'Sora';font-size:1.25rem;font-weight:700;color:#021e50;
+  margin:0 0 12px;letter-spacing:-.01em;
+}
+.cd-check-success__msg{
+  color:rgba(3,66,142,.85);font-size:.92rem;line-height:1.6;
+  margin:0 0 24px;
+}
+
+@media(max-width:560px){
+  .cd-check__row{flex-direction:column;border-radius:var(--radius-lg);padding:10px}
+  .cd-check__input{padding:12px 14px}
+  .cd-check__submit{width:100%;justify-content:center}
+}

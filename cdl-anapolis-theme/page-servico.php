@@ -296,7 +296,13 @@ $all_services = [
         <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)"><?php echo esc_html($fb['tag']); ?></div>
         <h1 class="page-hero__title ao ao-d1"><?php the_title(); ?></h1>
         <p class="page-hero__sub ao ao-d2"><?php echo esc_html($subtitle); ?></p>
-        <?php if ($external_url): ?>
+        <?php if ($slug === 'certificado-digital'): ?>
+        <div class="ao ao-d3" style="margin-top:24px">
+            <a href="#cd-comprar" class="btn btn-gold">
+                Adquirir Certificado Digital <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+        <?php elseif ($external_url): ?>
         <div class="ao ao-d3" style="margin-top:24px">
             <a href="<?php echo esc_url($external_url); ?>" class="btn btn-gold" target="_blank" rel="noopener">
                 Acessar plataforma <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
@@ -484,20 +490,58 @@ if ($other_services):
 <?php endif; ?>
 
 <!-- CTA Gold -->
-<section class="cta-gold">
-    <h2 class="ao"><?php echo wp_kses_post($fb['cta_title']); ?></h2>
-    <p class="ao ao-d1"><?php echo esc_html($fb['cta_text']); ?></p>
-    <?php if ($cta_whatsapp_msg): ?>
-        <a href="https://wa.me/<?php echo esc_attr($whatsapp_number); ?>?text=<?php echo rawurlencode($cta_whatsapp_msg); ?>"
-           class="btn btn-whatsapp ao ao-d2"
-           target="_blank"
-           rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Adquirir Certificado Digital pelo WhatsApp
-        </a>
-    <?php else: ?>
+<?php if ($slug === 'certificado-digital'): ?>
+    <?php
+    // CTA específico do Certificado Digital: verifica CNPJ contra a base de
+    // associados. Associado vê mensagem do A1 gratuito + botão WhatsApp.
+    // Não associado é redirecionado para certificadocdlanapolis.com.br/V1.
+    $assoc_msg = 'Olá! Sou associado da CDL Anápolis e gostaria de agendar a emissão do meu Certificado Digital A1 gratuito.';
+    $whatsapp_url_associado = 'https://wa.me/' . esc_attr($whatsapp_number) . '?text=' . rawurlencode($assoc_msg);
+    ?>
+    <section class="cta-gold cd-check-section" id="cd-comprar" aria-label="Adquirir Certificado Digital" style="scroll-margin-top:90px">
+        <h2 class="ao"><?php echo wp_kses_post($fb['cta_title']); ?></h2>
+        <p class="ao ao-d1"><?php echo esc_html($fb['cta_text']); ?></p>
+
+        <form id="cdCheckForm" class="cd-check ao ao-d2" novalidate>
+            <label for="cdCheckCnpj" class="cd-check__label">Informe o CNPJ da sua empresa para continuar</label>
+            <div class="cd-check__row">
+                <input
+                    type="text"
+                    id="cdCheckCnpj"
+                    name="cnpj"
+                    class="cd-check__input"
+                    placeholder="00.000.000/0000-00"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    maxlength="18"
+                    required>
+                <button type="submit" class="btn btn-dark cd-check__submit">
+                    Continuar
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+            <small class="cd-check__hint">Verificamos se você já é associado da CDL Anápolis. Associados têm direito a 1 Certificado A1 gratuito.</small>
+            <div id="cdCheckStatus" class="cd-check__status" role="alert" hidden></div>
+        </form>
+
+        <div id="cdCheckSuccess" class="cd-check-success ao" hidden>
+            <div class="cd-check-success__ico" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h3 class="cd-check-success__title">Você é associado da CDL Anápolis!</h3>
+            <p id="cdCheckSuccessMsg" class="cd-check-success__msg"></p>
+            <a href="<?php echo $whatsapp_url_associado; ?>" target="_blank" rel="noopener" class="btn btn-whatsapp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Falar com a CDL pelo WhatsApp
+            </a>
+        </div>
+    </section>
+<?php else: ?>
+    <section class="cta-gold">
+        <h2 class="ao"><?php echo wp_kses_post($fb['cta_title']); ?></h2>
+        <p class="ao ao-d1"><?php echo esc_html($fb['cta_text']); ?></p>
         <a href="<?php echo esc_url($cta_link); ?>" class="btn btn-dark ao ao-d2">Fale conosco <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    <?php endif; ?>
-</section>
+    </section>
+<?php endif; ?>
 
 <?php get_footer(); ?>
