@@ -13,7 +13,6 @@ get_header(); ?>
 <?php get_template_part('template-parts/home/section', 'showcase'); ?>
 <?php get_template_part('template-parts/home/section', 'cta'); ?>
 <?php get_template_part('template-parts/home/section', 'services'); ?>
-<?php get_template_part('template-parts/home/section', 'steps'); ?>
 <?php get_template_part('template-parts/home/section', 'quick-access'); ?>
 <?php get_template_part('template-parts/home/section', 'economy'); ?>
 <?php get_template_part('template-parts/home/section', 'cta-gold'); ?>
