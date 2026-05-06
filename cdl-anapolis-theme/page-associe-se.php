@@ -150,7 +150,7 @@ $planos = [
 </section>
 
 <!-- 3. COMO FAZER PARTE -->
-<section class="sec steps-sec" style="text-align:center">
+<section class="sec steps-sec" style="background:#fff;text-align:center">
     <div class="wrap">
         <div class="sec-tag ao">Simples e rápido</div>
         <h2 class="sec-title ao">Como fazer parte</h2>
