@@ -1,6 +1,6 @@
 <?php
 /**
- * Archive Template: Informativo CDL
+ * Archive Template: Notícias CDL (CPT slug interno: informativo)
  * Layout: Breadcrumb + Grid with sidebar
  */
 get_header();
@@ -80,7 +80,7 @@ $sidebar_posts = new WP_Query([
 
                 <?php else: ?>
                 <div style="text-align:center;padding:80px 0">
-                    <h2 class="sec-title">Nenhum informativo encontrado</h2>
+                    <h2 class="sec-title">Nenhuma notícia encontrada</h2>
                     <p class="sec-desc" style="margin:16px auto">Em breve publicaremos novidades da CDL Anápolis.</p>
                     <a href="<?php echo home_url(); ?>" class="btn btn-gold" style="margin-top:24px">Voltar para a home</a>
                 </div>

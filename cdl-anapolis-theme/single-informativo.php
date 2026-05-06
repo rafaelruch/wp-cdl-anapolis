@@ -1,6 +1,6 @@
 <?php
 /**
- * Single Template: Informativo CDL
+ * Single Template: Notícias CDL (CPT slug interno: informativo)
  * Layout: Breadcrumb + Article with sidebar (CTA + últimas notícias)
  */
 get_header();
