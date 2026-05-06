@@ -17,7 +17,6 @@
         <img src="<?php echo CDL_THEME_URI; ?>/assets/img/logo.svg" alt="CDL Anapolis" class="nav-logo-img nav-logo-color">
     </a>
     <div class="nav-links">
-        <a href="<?php echo home_url(); ?>">Início</a>
         <div class="nav-dropdown">
             <a href="#" class="nav-drop-trigger">A CDL <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
             <div class="nav-drop-menu">
@@ -88,10 +87,19 @@
             </div>
         </div>
         <a href="/quem-faz-parte/">Quem Faz Parte</a>
-        <a href="/informativo/">Informativos</a>
+        <a href="/informativo/">Notícias</a>
         <a href="/fale-conosco/">Fale Conosco</a>
     </div>
     <div class="nav-actions">
+        <?php
+        $area_associado_url = function_exists('get_field') ? (get_field('area_associado_url', 'option') ?: '') : '';
+        if ($area_associado_url):
+        ?>
+            <a href="<?php echo esc_url($area_associado_url); ?>" class="btn-nav btn-nav-outline" target="_blank" rel="noopener">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Área do associado
+            </a>
+        <?php endif; ?>
         <a href="/associe-se/" class="btn-nav btn-nav-fill">Seja um associado</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -102,9 +110,6 @@
 <!-- Mobile menu overlay -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-inner">
-        <div class="mobile-section">
-            <a href="<?php echo home_url(); ?>" class="mobile-link">Início</a>
-        </div>
         <div class="mobile-section">
             <button class="mobile-accordion">A CDL <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
             <div class="mobile-sub">
@@ -152,12 +157,18 @@
             <a href="/quem-faz-parte/" class="mobile-link">Quem Faz Parte</a>
         </div>
         <div class="mobile-section">
-            <a href="/informativo/" class="mobile-link">Informativos</a>
+            <a href="/informativo/" class="mobile-link">Notícias</a>
         </div>
         <div class="mobile-section">
             <a href="/fale-conosco/" class="mobile-link">Fale Conosco</a>
         </div>
-        <div class="mobile-section" style="margin-top:20px">
+        <div class="mobile-section" style="margin-top:20px;display:flex;flex-direction:column;gap:10px">
+            <?php if (!empty($area_associado_url)): ?>
+            <a href="<?php echo esc_url($area_associado_url); ?>" class="btn-nav btn-nav-outline" target="_blank" rel="noopener" style="width:100%;justify-content:center;text-align:center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Área do associado
+            </a>
+            <?php endif; ?>
             <a href="/associe-se/" class="btn-nav btn-nav-fill" style="width:100%;justify-content:center;text-align:center">Seja um associado</a>
         </div>
     </div>

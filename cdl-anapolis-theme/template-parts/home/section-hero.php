@@ -44,7 +44,7 @@ if (!$slides) {
             'slide_subtitle'       => 'Eventos, capacitações, networking e uma comunidade de empreendedores que se apoiam. Juntos, o comércio de Anápolis vai mais longe.',
             'slide_cta_primary_text'  => 'Entrar para a comunidade',
             'slide_cta_primary_link'  => '/associe-se/',
-            'slide_cta_secondary_text' => 'Ver informativos',
+            'slide_cta_secondary_text' => 'Ver notícias',
             'slide_cta_secondary_link' => '#informativo',
             'slide_images'         => null,
         ],

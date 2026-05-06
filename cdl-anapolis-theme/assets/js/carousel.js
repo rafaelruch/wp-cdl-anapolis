@@ -58,4 +58,30 @@ document.addEventListener('DOMContentLoaded', function () {
             },
         });
     }
+
+    // ── Carrossel de Notícias (home) ────────────────────────────
+    var newsEl = document.querySelector('.info-swiper');
+    if (newsEl) {
+        new Swiper(newsEl, {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            grabCursor: true,
+            breakpoints: {
+                640:  { slidesPerView: 2, spaceBetween: 16 },
+                1024: { slidesPerView: 3, spaceBetween: 18 },
+                1280: { slidesPerView: 4, spaceBetween: 20 },
+            },
+            navigation: {
+                prevEl: '.info-carousel__btn--prev',
+                nextEl: '.info-carousel__btn--next',
+            },
+            keyboard: { enabled: true },
+            a11y: {
+                prevSlideMessage: 'Notícia anterior',
+                nextSlideMessage: 'Próxima notícia',
+                firstSlideMessage: 'Primeira notícia',
+                lastSlideMessage: 'Última notícia',
+            },
+        });
+    }
 });

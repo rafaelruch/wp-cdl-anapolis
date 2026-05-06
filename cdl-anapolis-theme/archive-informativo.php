@@ -22,7 +22,7 @@ $sidebar_posts = new WP_Query([
     <div class="page-hero__overlay"></div>
     <div class="wrap page-hero__content">
         <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)">Eventos e Notícias</div>
-        <h1 class="page-hero__title ao ao-d1">Informativos CDL</h1>
+        <h1 class="page-hero__title ao ao-d1">Notícias CDL</h1>
         <p class="page-hero__sub ao ao-d2">Fique por dentro de tudo que acontece no comércio de Anápolis e na nossa comunidade.</p>
     </div>
 </section>
@@ -33,7 +33,7 @@ $sidebar_posts = new WP_Query([
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="<?php echo home_url(); ?>">Início</a>
             <span class="breadcrumb__sep">/</span>
-            <span class="breadcrumb__current">Informativos</span>
+            <span class="breadcrumb__current">Notícias</span>
         </nav>
     </div>
 </div>

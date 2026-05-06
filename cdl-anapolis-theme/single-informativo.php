@@ -36,7 +36,7 @@ $sidebar_posts = new WP_Query([
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="<?php echo home_url(); ?>">Início</a>
             <span class="breadcrumb__sep">/</span>
-            <a href="<?php echo get_post_type_archive_link('informativo'); ?>">Informativos</a>
+            <a href="<?php echo get_post_type_archive_link('informativo'); ?>">Notícias</a>
             <span class="breadcrumb__sep">/</span>
             <span class="breadcrumb__current"><?php echo wp_trim_words(get_the_title(), 8, '...'); ?></span>
         </nav>
@@ -94,7 +94,7 @@ $sidebar_posts = new WP_Query([
                 <!-- Back link -->
                 <div class="single-article__footer">
                     <a href="<?php echo get_post_type_archive_link('informativo'); ?>" class="btn btn-ghost" style="color:var(--blue);border-color:rgba(3,66,142,.15)">
-                        &larr; Todos os informativos
+                        &larr; Todas as notícias
                     </a>
                 </div>
             </article>

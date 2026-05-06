@@ -160,6 +160,21 @@
                 "class": "",
                 "id": ""
             }
+        },
+        {
+            "key": "field_hf_area_associado_url",
+            "label": "URL da Área do Associado (Header)",
+            "name": "area_associado_url",
+            "type": "url",
+            "instructions": "URL externa para login do associado. Quando preenchida, exibe o botão \"Área do associado\" no menu, ao lado de \"Seja um associado\". Deixe vazio para esconder o botão.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://sistema.cdlanapolis.com.br/login",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
         }
     ],
     "location": [
@@ -180,5 +195,5 @@
     "active": true,
     "description": "Configurações de contato, redes sociais e footer",
     "show_in_rest": 0,
-    "modified": 1743292800
+    "modified": 1778092630
 }
