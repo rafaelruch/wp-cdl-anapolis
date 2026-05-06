@@ -23,6 +23,7 @@ $benefits = [
     ['title' => 'Recrutamento',             'link' => '/recrutamento/',             'icon' => '<path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>'],
     ['title' => 'Exames Admissionais',      'link' => '/exames-admissionais/',      'icon' => '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/>'],
     ['title' => 'Gestão E-social',          'link' => '/gestao-esocial/',           'icon' => '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/>'],
+    ['title' => 'Certificado Digital',      'link' => '/certificado-digital-cdl/',  'icon' => '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>'],
 ];
 ?>
 
