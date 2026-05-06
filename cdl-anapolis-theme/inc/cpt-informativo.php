@@ -1,21 +1,23 @@
 <?php
 /**
- * Custom Post Type: Informativo CDL
+ * Custom Post Type: Notícias (slug interno mantido como "informativo"
+ * para não quebrar URLs já indexadas e meta keys existentes).
  */
 
 function cdl_register_informativo_cpt() {
     register_post_type('informativo', [
         'labels' => [
-            'name'               => 'Informativo CDL',
-            'singular_name'      => 'Publicacao',
-            'add_new'            => 'Nova Publicacao',
-            'add_new_item'       => 'Nova Publicacao',
-            'edit_item'          => 'Editar Publicacao',
-            'view_item'          => 'Ver Publicacao',
-            'all_items'          => 'Todas as Publicacoes',
-            'search_items'       => 'Buscar Publicacoes',
-            'not_found'          => 'Nenhuma publicacao encontrada',
-            'not_found_in_trash' => 'Nenhuma publicacao na lixeira',
+            'name'               => 'Notícias',
+            'singular_name'      => 'Notícia',
+            'add_new'            => 'Nova Notícia',
+            'add_new_item'       => 'Adicionar Nova Notícia',
+            'edit_item'          => 'Editar Notícia',
+            'view_item'          => 'Ver Notícia',
+            'all_items'          => 'Todas as Notícias',
+            'search_items'       => 'Buscar Notícias',
+            'not_found'          => 'Nenhuma notícia encontrada',
+            'not_found_in_trash' => 'Nenhuma notícia na lixeira',
+            'menu_name'          => 'Notícias',
         ],
         'public'       => true,
         'has_archive'  => true,
