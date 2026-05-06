@@ -81,17 +81,51 @@ $diretoria = [
     </div>
 </section>
 
-<!-- Ofertas — Service cards -->
+<!-- Ofertas — Cards (mesmo padrão da page-cdl-mulher: .sobre-mvv) -->
 <section class="sec">
     <div class="wrap" style="text-align:center">
         <div class="sec-tag ao">Oportunidades</div>
         <h2 class="sec-title ao ao-d1">O que o CDL Jovem oferece</h2>
-        <div class="svc-grid" style="margin-top:clamp(40px,5vw,56px)">
-            <div class="svc ao"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div><h4>Networking</h4><p>Conecte-se com jovens empreendedores e líderes de mercado.</p></div></div>
-            <div class="svc ao ao-d1"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div><div><h4>Capacitação</h4><p>Workshops, palestras e cursos de desenvolvimento pessoal e profissional.</p></div></div>
-            <div class="svc ao ao-d2"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div><div><h4>Mentoria</h4><p>Orientação de empresários experientes que compartilham conhecimento.</p></div></div>
-            <div class="svc ao"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><h4>Eventos Exclusivos</h4><p>Feiras, rodadas de negócios e visitas técnicas para expandir sua rede.</p></div></div>
-            <div class="svc ao ao-d1"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4>Representação</h4><p>Defesa dos interesses dos jovens empreendedores junto ao poder público.</p></div></div>
+
+        <div class="sobre-mvv" style="margin-top:clamp(40px,5vw,56px)">
+            <div class="sobre-mvv__card ao">
+                <div class="sobre-mvv__ico">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <h3>Networking</h3>
+                <p>Conecte-se com jovens empreendedores e líderes de mercado.</p>
+            </div>
+            <div class="sobre-mvv__card ao ao-d1">
+                <div class="sobre-mvv__ico">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                </div>
+                <h3>Capacitação</h3>
+                <p>Workshops, palestras e cursos de desenvolvimento pessoal e profissional.</p>
+            </div>
+            <div class="sobre-mvv__card ao ao-d2">
+                <div class="sobre-mvv__ico">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                </div>
+                <h3>Mentoria</h3>
+                <p>Orientação de empresários experientes que compartilham conhecimento.</p>
+            </div>
+        </div>
+
+        <div class="sobre-mvv" style="margin-top:20px">
+            <div class="sobre-mvv__card ao">
+                <div class="sobre-mvv__ico">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3>Eventos Exclusivos</h3>
+                <p>Feiras, rodadas de negócios e visitas técnicas para expandir sua rede.</p>
+            </div>
+            <div class="sobre-mvv__card ao ao-d1">
+                <div class="sobre-mvv__ico">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Representação</h3>
+                <p>Defesa dos interesses dos jovens empreendedores junto ao poder público.</p>
+            </div>
         </div>
     </div>
 </section>
