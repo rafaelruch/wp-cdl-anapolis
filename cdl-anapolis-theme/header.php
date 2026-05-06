@@ -93,13 +93,13 @@
     <div class="nav-actions">
         <?php
         $area_associado_url = function_exists('get_field') ? (get_field('area_associado_url', 'option') ?: '') : '';
-        if ($area_associado_url):
+        $area_href = $area_associado_url ?: '#';
+        $area_target = $area_associado_url ? ' target="_blank" rel="noopener"' : '';
         ?>
-            <a href="<?php echo esc_url($area_associado_url); ?>" class="btn-nav btn-nav-outline" target="_blank" rel="noopener">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                Área do associado
-            </a>
-        <?php endif; ?>
+        <a href="<?php echo esc_url($area_href); ?>" class="btn-nav btn-nav-outline"<?php echo $area_target; ?>>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Área do associado
+        </a>
         <a href="/associe-se/" class="btn-nav btn-nav-fill">Seja um associado</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -163,12 +163,10 @@
             <a href="/fale-conosco/" class="mobile-link">Fale Conosco</a>
         </div>
         <div class="mobile-section" style="margin-top:20px;display:flex;flex-direction:column;gap:10px">
-            <?php if (!empty($area_associado_url)): ?>
-            <a href="<?php echo esc_url($area_associado_url); ?>" class="btn-nav btn-nav-outline" target="_blank" rel="noopener" style="width:100%;justify-content:center;text-align:center">
+            <a href="<?php echo esc_url($area_href); ?>" class="btn-nav btn-nav-outline"<?php echo $area_target; ?> style="width:100%;justify-content:center;text-align:center">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 Área do associado
             </a>
-            <?php endif; ?>
             <a href="/associe-se/" class="btn-nav btn-nav-fill" style="width:100%;justify-content:center;text-align:center">Seja um associado</a>
         </div>
     </div>
