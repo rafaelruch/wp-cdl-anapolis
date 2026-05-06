@@ -79,6 +79,9 @@ function cdl_enqueue_assets() {
     // -----------------------------------------------------------------
     if (is_page('associe-se')) {
         wp_enqueue_style('cdl-planos', CDL_THEME_URI . '/assets/css/planos.css', [], CDL_THEME_VERSION);
+        // A section "Como fazer parte" agora vive nesta página — usa o
+        // mesmo CSS dos steps que originalmente era só da home.
+        wp_enqueue_style('cdl-steps',  CDL_THEME_URI . '/assets/css/steps.css',  [], CDL_THEME_VERSION);
         wp_enqueue_script(
             'cdl-associe-se',
             CDL_THEME_URI . '/assets/js/associe-se.js',
