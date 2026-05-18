@@ -1,0 +1,101 @@
+/* ===================================================================
+   Área do Associado — box de login centralizado
+   =================================================================== */
+
+/* Page hero compacto (variante do .page-hero padrão) */
+.page-hero--compact{padding:clamp(80px,12vw,140px) 0 clamp(60px,8vw,100px)}
+
+.aa-login-card{
+  background:#fff;border-radius:var(--radius-xl);
+  padding:clamp(28px,4vw,40px);
+  box-shadow:0 24px 64px rgba(3,66,142,.12);
+  border:1px solid rgba(3,66,142,.06);
+}
+
+.aa-login-card__head{text-align:center;margin-bottom:28px}
+.aa-login-card__ico{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(3,66,142,.08);color:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+}
+.aa-login-card__title{
+  font-family:'Sora';font-size:1.35rem;font-weight:700;
+  color:#021e50;margin:0 0 6px;letter-spacing:-.02em;line-height:1.2;
+}
+.aa-login-card__sub{
+  color:var(--gray);font-size:.88rem;line-height:1.5;margin:0;
+}
+
+.aa-login-form{display:flex;flex-direction:column;gap:18px}
+
+.aa-field{display:flex;flex-direction:column;gap:6px}
+.aa-field__label{
+  font-family:'Sora';font-weight:600;font-size:.82rem;
+  color:#021e50;letter-spacing:.01em;
+}
+.aa-field__input{
+  width:100%;border:1px solid rgba(3,66,142,.15);
+  border-radius:var(--radius-md);
+  padding:13px 16px;font-size:.95rem;color:#021e50;
+  font-family:inherit;background:#fff;
+  transition:border-color .2s,box-shadow .2s;box-sizing:border-box;
+}
+.aa-field__input::placeholder{color:rgba(2,30,80,.4)}
+.aa-field__input:focus{
+  outline:none;border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(3,66,142,.12);
+}
+
+/* Wrapper do campo de senha com botão de mostrar/ocultar */
+.aa-field__password{position:relative}
+.aa-field__password .aa-field__input{padding-right:48px}
+.aa-field__toggle{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  width:32px;height:32px;border:0;background:transparent;
+  color:rgba(3,66,142,.55);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:background .2s,color .2s;
+}
+.aa-field__toggle:hover{background:rgba(3,66,142,.08);color:var(--blue)}
+
+/* Status messages */
+.aa-status{
+  padding:11px 14px;border-radius:var(--radius-md);
+  font-size:.85rem;font-weight:500;line-height:1.45;
+  text-align:center;
+}
+.aa-status--error{
+  background:rgba(220,53,69,.1);color:#a02530;
+  border:1px solid rgba(220,53,69,.22);
+}
+.aa-status--success{
+  background:rgba(0,135,67,.1);color:#005f30;
+  border:1px solid rgba(0,135,67,.22);
+}
+
+/* Botão submit ocupando largura do form */
+.aa-submit{
+  width:100%;justify-content:center;padding:14px 24px;
+  font-size:.92rem;
+}
+.aa-submit:disabled{opacity:.6;cursor:wait}
+
+.aa-login-card__foot{
+  margin-top:24px;padding-top:20px;
+  border-top:1px solid rgba(3,66,142,.08);
+  text-align:center;
+}
+.aa-login-card__foot p{
+  font-size:.85rem;color:var(--gray);margin:0 0 4px;
+}
+.aa-login-card__foot .link{
+  font-size:.85rem;font-weight:600;color:var(--blue);
+  transition:color .2s;
+}
+.aa-login-card__foot .link:hover{color:var(--blue-light)}
+
+@media(max-width:480px){
+  .aa-login-card{padding:24px 20px}
+  .aa-login-card__title{font-size:1.2rem}
+}

@@ -175,6 +175,36 @@
                 "class": "",
                 "id": ""
             }
+        },
+        {
+            "key": "field_hf_area_associado_api_url",
+            "label": "URL da API de Login (Área do Associado)",
+            "name": "area_associado_api_url",
+            "type": "url",
+            "instructions": "URL base da API de login centralizado (sem barra no final). Ex: https://api.cdlanapolis.com.br. O JS adiciona /auth/login automaticamente.",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://api.cdlanapolis.com.br",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_hf_area_associado_redirect_url",
+            "label": "URL de redirect após login (Sistema do Associado)",
+            "name": "area_associado_redirect_url",
+            "type": "url",
+            "instructions": "Após o login bem-sucedido, o associado é redirecionado para esta URL com ?token=JWT na query string. Ex: https://sistema.cdlanapolis.com.br/sso",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "https://sistema.cdlanapolis.com.br/sso",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
         }
     ],
     "location": [
@@ -195,5 +225,5 @@
     "active": true,
     "description": "Configurações de contato, redes sociais e footer",
     "show_in_rest": 0,
-    "modified": 1778092630
+    "modified": 1779130378
 }

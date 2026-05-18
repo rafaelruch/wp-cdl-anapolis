@@ -167,12 +167,16 @@ add_action('init', function() {
  * Cria páginas obrigatórias do tema se não existirem.
  */
 add_action('init', function() {
-    if (get_option('cdl_pages_created_v2')) return;
+    if (get_option('cdl_pages_created_v3')) return;
 
     $pages = [
         'impostometro' => [
             'post_title'    => 'Impostômetro',
             'page_template' => 'page-impostometro.php',
+        ],
+        'area-associado' => [
+            'post_title'    => 'Área do Associado',
+            'page_template' => 'page-area-associado.php',
         ],
         // Novos benefícios (template page-beneficio.php)
         'planejamento-estrategico' => [
@@ -238,7 +242,7 @@ add_action('init', function() {
         }
     }
 
-    update_option('cdl_pages_created_v2', true);
+    update_option('cdl_pages_created_v3', true);
     flush_rewrite_rules(true);
 }, 20);
 

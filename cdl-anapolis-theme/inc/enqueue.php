@@ -99,6 +99,27 @@ function cdl_enqueue_assets() {
         wp_enqueue_style('cdl-associados', CDL_THEME_URI . '/assets/css/associados.css', [], CDL_THEME_VERSION);
     }
 
+    // Área do Associado — box de login centralizado
+    if (is_page('area-associado')) {
+        wp_enqueue_style(
+            'cdl-area-associado',
+            CDL_THEME_URI . '/assets/css/area-associado.css',
+            [],
+            CDL_THEME_VERSION
+        );
+        wp_enqueue_script(
+            'cdl-area-associado',
+            CDL_THEME_URI . '/assets/js/area-associado.js',
+            [],
+            CDL_THEME_VERSION,
+            true
+        );
+        wp_localize_script('cdl-area-associado', 'CDL_AREA_ASSOCIADO', [
+            'api_url'      => function_exists('get_field') ? (get_field('area_associado_api_url', 'option') ?: '') : '',
+            'redirect_url' => function_exists('get_field') ? (get_field('area_associado_redirect_url', 'option') ?: '') : '',
+        ]);
+    }
+
     // Verificação de CNPJ na página /certificado-digital-cdl/
     if (is_page('certificado-digital-cdl') || is_page('certificado-digital')) {
         wp_enqueue_script(
