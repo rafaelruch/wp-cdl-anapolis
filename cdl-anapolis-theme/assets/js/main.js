@@ -7,6 +7,18 @@ document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ─── Link "Área do associado" ─────────────────────────────────
+    // URL montada em pedaços porque a Hostinger (em staging) tem um
+    // filtro de output que substitui `cdlanapolis.com.br` pelo
+    // subdomínio do staging em qualquer string que sai do PHP. JS
+    // estático não passa pelo filtro, então a URL final fica correta.
+    // Quando o site migrar pro domínio definitivo, este código segue
+    // funcionando — a URL é a mesma.
+    const areaLoginUrl = ['https://', 'associado.', 'cdl', 'anapolis', '.com', '.br/login'].join('');
+    document.querySelectorAll('[data-cdl-area-login]').forEach(link => {
+        link.setAttribute('href', areaLoginUrl);
+    });
+
     // ─── Nav scroll effect ───
     const nav = document.getElementById('nav');
     if (nav) {
