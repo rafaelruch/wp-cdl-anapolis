@@ -144,6 +144,35 @@ add_action('init', function() {
 }, 5);
 
 /**
+ * Garante que /sobre-nos/ exista e tenha o template page-sobre-nos.php
+ * selecionado. Sem isso, o field group ACF "Página - Sobre Nós" (com
+ * location `page_template == page-sobre-nos.php`) não aparece no admin,
+ * o cliente edita o Gutenberg achando que vai aparecer no frontend, mas
+ * o template não chama the_content() — tudo vem de ACF. Sem ACF, sem
+ * edição possível.
+ */
+add_action('init', function() {
+    if (get_option('cdl_fix_sobre_nos_v1')) return;
+
+    $page = get_page_by_path('sobre-nos');
+    if (!$page) {
+        wp_insert_post([
+            'post_type'     => 'page',
+            'post_title'    => 'Sobre Nós',
+            'post_name'     => 'sobre-nos',
+            'post_status'   => 'publish',
+            'page_template' => 'page-sobre-nos.php',
+        ]);
+    } else {
+        // Força o template correto mesmo se a página já existia com outro.
+        update_post_meta($page->ID, '_wp_page_template', 'page-sobre-nos.php');
+    }
+
+    flush_rewrite_rules(true);
+    update_option('cdl_fix_sobre_nos_v1', true);
+}, 5);
+
+/**
  * Mesmo problema de slug conflitando com attachment, mas para os
  * demais serviços do mega-menu (spc.png, cdl-celular.png, etc.). O WP
  * por padrão prioriza o attachment quando os dois existem, fazendo a
