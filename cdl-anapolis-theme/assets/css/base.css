@@ -41,8 +41,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .btn:hover{transform:translateY(-2px)}
 .btn-gold{background:var(--gold);color:var(--dark);border-color:var(--gold)}
 .btn-gold:hover{background:#ffe44d;box-shadow:0 12px 32px rgba(255,214,0,.25)}
-.btn-ghost{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.12)}
-.btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.04)}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-ghost:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.08)}
 .btn-blue{background:var(--blue);color:#fff;border-color:var(--blue)}
 .btn-blue:hover{background:#02367a;box-shadow:0 12px 32px rgba(3,66,142,.35)}
 .btn-dark{background:var(--dark);color:#fff;border-color:var(--dark)}
