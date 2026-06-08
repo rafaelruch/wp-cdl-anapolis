@@ -144,6 +144,32 @@ add_action('init', function() {
 }, 5);
 
 /**
+ * Mesmo problema de slug conflitando com attachment, mas para os
+ * demais serviços do mega-menu (spc.png, cdl-celular.png, etc.). O WP
+ * por padrão prioriza o attachment quando os dois existem, fazendo a
+ * URL /spc/ abrir a imagem em vez da página. Renomeamos o attachment
+ * para liberar o slug — a página propriamente dita é criada pelo hook
+ * `cdl_pages_created_v4` mais adiante.
+ *
+ * Bumpe o número (`cdl_fix_service_slugs_vN`) sempre que adicionar
+ * novos slugs aqui para que execute em sites já atualizados.
+ */
+add_action('init', function() {
+    if (get_option('cdl_fix_service_slugs_v1')) return;
+
+    $slugs = ['spc', 'cdl-celular', 'central-de-cobrancas', 'nfe-nfce', 'tempo-saude'];
+    foreach ($slugs as $slug) {
+        $att = get_posts(['post_type' => 'attachment', 'name' => $slug, 'numberposts' => 1, 'post_status' => 'inherit']);
+        if ($att) {
+            wp_update_post(['ID' => $att[0]->ID, 'post_name' => $slug . '-img']);
+        }
+    }
+
+    flush_rewrite_rules(true);
+    update_option('cdl_fix_service_slugs_v1', true);
+}, 5);
+
+/**
  * Remove páginas descontinuadas (rodará uma vez via option flag).
  * Bumpe o número da option (`cdl_removed_pages_vN`) sempre que adicionar
  * novos slugs para que o hook execute em sites já atualizados.
