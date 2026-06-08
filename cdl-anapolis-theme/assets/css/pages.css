@@ -355,7 +355,7 @@ body:not(.home) .sec:not(.text-left) .sec-tag{margin-left:auto;margin-right:auto
 .conv-hero__title{
   font-family:'Sora',sans-serif;font-size:clamp(2rem,4.5vw,3.6rem);font-weight:700;
   color:#fff;line-height:1.1;letter-spacing:-.04em;
-  max-width:800px;margin:0 auto 20px;
+  max-width:none;margin:0 auto 20px;
 }
 .conv-hero__sub{
   font-size:clamp(.9rem,1.2vw,1.1rem);color:rgba(255,255,255,.55);
