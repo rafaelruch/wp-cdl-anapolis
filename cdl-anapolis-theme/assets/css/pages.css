@@ -533,14 +533,25 @@ body:not(.home) .sec:not(.text-left) .sec-tag{margin-left:auto;margin-right:auto
 }
 .pricing-card:hover{box-shadow:0 24px 64px rgba(3,66,142,.12);transform:translateY(-4px)}
 
-/* Ribbon "Melhor custo-benefício" */
+/* Ribbon "Melhor custo-benefício" — destaque horizontal no topo */
 .pricing-card__ribbon{
   position:absolute;top:0;left:0;right:0;
-  background:linear-gradient(135deg,var(--gold),#ffaa00);
-  color:var(--dark);font-family:'Sora';font-size:.7rem;font-weight:800;
-  letter-spacing:.12em;text-transform:uppercase;padding:8px 0;
+  background:linear-gradient(135deg,var(--gold) 0%,#ffaa00 100%);
+  color:#021e50;
+  font-family:'Sora';font-size:.82rem;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase;
+  padding:12px 14px;text-align:center;
+  box-shadow:0 6px 20px rgba(255,170,0,.3);
+  z-index:2;
 }
-.pricing-card--featured{border:2px solid var(--gold);padding-top:clamp(56px,5vw,68px)}
+.pricing-card--featured{
+  border:2px solid var(--gold);
+  padding-top:clamp(72px,7vw,84px);
+  box-shadow:0 16px 48px rgba(255,170,0,.18);
+}
+.pricing-card--featured:hover{
+  box-shadow:0 28px 72px rgba(255,170,0,.28);
+}
 
 /* Nome do plano */
 .pricing-card__name{
@@ -567,11 +578,11 @@ body:not(.home) .sec:not(.text-left) .sec-tag{margin-left:auto;margin-right:auto
 
 /* Bloco do preço — destaque final antes do botão */
 .pricing-card__deal{
-  margin-top:auto;padding:18px 16px 20px;
+  margin-top:auto;padding:20px 16px 22px;
   background:linear-gradient(135deg,rgba(3,66,142,.04),rgba(255,214,0,.06));
   border:1px solid rgba(3,66,142,.08);
   border-radius:var(--radius-lg);
-  margin-bottom:16px;
+  margin-bottom:28px;
 }
 .pricing-card--featured .pricing-card__deal{
   background:linear-gradient(135deg,rgba(255,214,0,.12),rgba(255,170,0,.08));
