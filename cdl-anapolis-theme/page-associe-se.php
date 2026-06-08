@@ -19,6 +19,12 @@ $planos = function_exists('get_field') ? get_field('planos') : null;
 if (!$planos) {
     $planos = [
     [
+        'plano_key'      => 'bronze',
+        'plano_name'     => 'BRONZE',
+        'plano_desc'     => 'Para associados<br><strong>MEI</strong>',
+        'plano_features' => "CDL Saúde\nBalcão do MEI",
+    ],
+    [
         'plano_key'      => 'essencial',
         'plano_name'     => 'ESSENCIAL',
         'plano_desc'     => 'Para associados com até<br><strong>10 funcionários</strong>',

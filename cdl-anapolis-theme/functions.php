@@ -422,12 +422,18 @@ add_action('acf/init', function () {
  */
 add_action('acf/init', function () {
     if (!function_exists('update_field')) return;
-    if (get_option('cdl_seed_associe_planos_v2')) return;
+    if (get_option('cdl_seed_associe_planos_v3')) return;
 
     $page = get_page_by_path('associe-se');
     if (!$page) return;
 
     $planos = [
+        [
+            'plano_key'      => 'bronze',
+            'plano_name'     => 'BRONZE',
+            'plano_desc'     => 'Para associados<br><strong>MEI</strong>',
+            'plano_features' => "CDL Saúde\nBalcão do MEI",
+        ],
         [
             'plano_key'      => 'essencial',
             'plano_name'     => 'ESSENCIAL',
@@ -456,5 +462,5 @@ add_action('acf/init', function () {
     ];
 
     update_field('planos', $planos, $page->ID);
-    update_option('cdl_seed_associe_planos_v2', true);
+    update_option('cdl_seed_associe_planos_v3', true);
 });
