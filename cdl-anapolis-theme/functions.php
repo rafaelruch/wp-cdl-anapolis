@@ -422,50 +422,39 @@ add_action('acf/init', function () {
  */
 add_action('acf/init', function () {
     if (!function_exists('update_field')) return;
-    if (get_option('cdl_seed_associe_planos_v1')) return;
+    if (get_option('cdl_seed_associe_planos_v2')) return;
 
     $page = get_page_by_path('associe-se');
     if (!$page) return;
 
     $planos = [
         [
-            'plano_key'      => 'bronze',
-            'plano_name'     => 'BRONZE',
-            'plano_badge'    => 'MEI',
-            'plano_desc'     => 'Para <strong>MEI</strong> associados',
-            'plano_features' => "CDL Saúde\nBalcão do MEI",
-        ],
-        [
             'plano_key'      => 'essencial',
             'plano_name'     => 'ESSENCIAL',
-            'plano_badge'    => '10',
-            'plano_desc'     => 'Para associados com até <strong>10 funcionários</strong>',
+            'plano_desc'     => 'Para associados com até<br><strong>10 funcionários</strong>',
             'plano_features' => "CDL Saúde\nAssessoria Jurídica\nAssessoria Contábil\nAssessoria de Apoio Estratégico\nRede de descontos\nCertificado digital A1 PJ\nEventos corporativos\nParticipação dos Núcleos\nRecrutamento e Seleção\nExames Admissionais e Demissionais\nGestão de E-SOCIAL",
         ],
         [
             'plano_key'       => 'prata',
             'plano_name'      => 'PRATA',
-            'plano_badge'     => '30',
-            'plano_desc'      => 'Para associados com até <strong>30 funcionários</strong>',
+            'plano_desc'      => 'Para associados com até<br><strong>30 funcionários</strong>',
             'plano_highlight' => true,
             'plano_features'  => "CDL Saúde\nAssessoria Jurídica\nAssessoria Contábil\nAssessoria de Apoio Estratégico\nTreinamentos e Consultorias\nRede de descontos\nCertificado digital A1 PJ\nEventos corporativos (1)\nParticipação dos Núcleos\nRecrutamento e Seleção\nExames Admissionais e Demissionais\nGestão de E-SOCIAL\nEspaços Corporativos (1)\nMídia sites e redes sociais (1)\nEspaço de lazer e eventos (1)",
         ],
         [
             'plano_key'      => 'ouro',
             'plano_name'     => 'OURO',
-            'plano_badge'    => '50',
-            'plano_desc'     => 'Para associados com até <strong>50 funcionários</strong>',
+            'plano_desc'     => 'Para associados com até<br><strong>50 funcionários</strong>',
             'plano_features' => "CDL Saúde\nAssessoria Jurídica\nAssessoria Contábil\nAssessoria de Apoio Estratégico\nTreinamentos e Consultorias\nRede de descontos\nCertificado digital A1 PJ\nEventos corporativos (2)\nParticipação dos Núcleos\nRecrutamento e Seleção\nExames Admissionais e Demissionais\nGestão de E-SOCIAL\nEspaços Corporativos (2)\nMídia sites e redes sociais (2)\nEspaço de lazer e eventos (2)",
         ],
         [
             'plano_key'      => 'diamante',
             'plano_name'     => 'DIAMANTE',
-            'plano_badge'    => '+50',
-            'plano_desc'     => 'Para associados com <strong>mais de 50 funcionários</strong>',
+            'plano_desc'     => 'Para associados com<br><strong>mais de 50 funcionários</strong>',
             'plano_features' => "CDL Saúde\nAssessoria Jurídica\nAssessoria Contábil\nAssessoria de Apoio Estratégico\nTreinamentos e Consultorias\nRede de descontos\nCertificado digital A1 PJ\nEventos corporativos\nParticipação dos Núcleos\nRecrutamento e Seleção\nExames Admissionais e Demissionais\nGestão de E-SOCIAL\nEspaços Corporativos\nMídia sites e redes sociais\nEspaço de lazer e eventos",
         ],
     ];
 
     update_field('planos', $planos, $page->ID);
-    update_option('cdl_seed_associe_planos_v1', true);
+    update_option('cdl_seed_associe_planos_v2', true);
 });
