@@ -57,23 +57,16 @@
   transition:all .3s ease;width:100%;
 }
 
-/* Valor — bloco destacado abaixo do botão Contratar plano.
-   Cada plano herda a paleta pastel + cor sólida do próprio plano.
-   Acima do valor aparece a label "A PARTIR DE" gerada via ::before. */
+/* Valor — pílula colorida do mesmo tamanho/forma do botão Contratar plano.
+   Cada plano herda a paleta pastel + cor sólida do próprio plano. */
 .plano-card__valor{
-  margin-top:14px;text-align:center;
-  font-family:'Sora';font-size:1.3rem;font-weight:800;
-  letter-spacing:-.02em;line-height:1.15;
-  padding:14px 18px 16px;border-radius:var(--radius-md);
+  margin-top:12px;width:100%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:'Sora';font-size:1rem;font-weight:800;
+  letter-spacing:-.01em;line-height:1.2;
+  padding:14px 20px;border-radius:var(--radius-pill);
   background:rgba(3,66,142,.06);color:var(--blue);
-  border:1px solid rgba(3,66,142,.1);
-  position:relative;
-}
-.plano-card__valor::before{
-  content:'A partir de';display:block;
-  font-family:'Sora';font-size:.66rem;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;
-  opacity:.7;margin-bottom:6px;
+  border:1.5px solid rgba(3,66,142,.1);
 }
 
 /* Cores por plano — pastel de fundo + cor sólida do plano no texto */
