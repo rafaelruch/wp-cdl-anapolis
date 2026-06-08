@@ -44,7 +44,7 @@ $youtube = get_field('social_youtube', 'option') ?: '#';
         </div>
         <div>
             <div class="f-head">Contato</div>
-            <p style="color:rgba(255,255,255,.3);font-size:.78rem;line-height:1.6;margin-bottom:8px">
+            <p style="color:#fff;font-size:.78rem;line-height:1.6;margin-bottom:8px">
                 <?php echo esc_html($address); ?>
             </p>
             <div class="f-links">
