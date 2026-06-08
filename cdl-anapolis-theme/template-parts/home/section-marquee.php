@@ -9,7 +9,7 @@ $services = [
     'CDL Saúde',
     'Certificado Digital',
     'CDL Celular',
-    'Sede Campestre',
+    'Balcão do MEI',
     'NF-e / NFC-e',
     'Central de Cobranças',
 ];
