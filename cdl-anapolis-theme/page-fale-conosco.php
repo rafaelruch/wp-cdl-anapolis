@@ -15,7 +15,8 @@ $address  = get_field('footer_address', 'option') ?: 'Rua Conde Afonso Celso, 43
 $whatsapp = get_field('whatsapp_number', 'option') ?: '5562991933275';
 $whatsapp_display = get_field('whatsapp_display', 'option') ?: '(62) 99193-3275';
 $horario  = get_field('contato_horario', 'option') ?: 'Seg a Sex, 8h às 18h';
-$maps_embed = get_field('contato_maps_embed', 'option') ?: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.5!2d-48.9536!3d-16.3281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCDL+An%C3%A1polis!5e0!3m2!1spt-BR!2sbr!4v1';
+// Localização exata da CDL Anápolis (coordenadas reais do Google Maps).
+$maps_embed = get_field('contato_maps_embed', 'option') ?: 'https://www.google.com/maps?q=-16.331571,-48.9558733+(C%C3%A2mara+de+Dirigentes+Lojistas+de+An%C3%A1polis)&hl=pt-BR&z=17&output=embed';
 
 // Check if form was submitted
 $form_sent = isset($_GET['contato']) && $_GET['contato'] === 'enviado';
@@ -91,10 +92,28 @@ $form_sent = isset($_GET['contato']) && $_GET['contato'] === 'enviado';
                         </div>
                     </div>
                 </div>
+
+                <!-- Mapa abaixo das informações de contato -->
+                <div class="contact-grid__map ao ao-d4" aria-label="Mapa com a localização da CDL Anápolis">
+                    <iframe
+                        src="<?php echo esc_url($maps_embed); ?>"
+                        width="100%"
+                        height="100%"
+                        style="border:0;display:block;min-height:280px;width:100%"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Localização da CDL Anápolis">
+                    </iframe>
+                </div>
             </div>
 
             <!-- RIGHT: Contact Form -->
             <div class="contact-grid__form ao ao-d2">
+                <div class="sec-tag ao">Vamos conversar</div>
+                <h2 class="sec-title ao ao-d1" style="font-size:clamp(1.4rem,2.5vw,2rem);text-align:left">Envie sua mensagem</h2>
+                <p class="contact-form__intro ao ao-d2">Preencha o formulário abaixo e nossa equipe retorna em até 24 horas úteis. Para assuntos urgentes, prefira o WhatsApp.</p>
+
                 <?php if ($form_sent): ?>
                 <div class="contact-form-success">
                     <div class="contact-form-success__ico">
@@ -119,25 +138,6 @@ $form_sent = isset($_GET['contato']) && $_GET['contato'] === 'enviado';
                 ?>
                 <?php endif; ?>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Google Maps -->
-<section class="sec" style="background:var(--light)">
-    <div class="wrap">
-        <div class="sec-tag ao" style="text-align:center">Localização</div>
-        <h2 class="sec-title ao ao-d1" style="text-align:center">Onde estamos</h2>
-        <div class="contact-map ao ao-d2" style="margin-top:clamp(32px,4vw,48px)">
-            <iframe
-                src="<?php echo esc_url($maps_embed); ?>"
-                width="100%"
-                height="450"
-                style="border:0;border-radius:var(--radius-xl);display:block"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
         </div>
     </div>
 </section>
