@@ -28,9 +28,11 @@
             form.hidden = true;
         }
 
-        function openModal(plano) {
-            planoInput.value = plano;
-            planoNameEl.textContent = plano;
+        function openModal(plano, valor) {
+            // Plano + valor (quando preenchido no ACF) — ex.: "BRONZE — R$ 99,90/mês"
+            var display = valor ? (plano + ' — ' + valor) : plano;
+            planoInput.value = display;
+            planoNameEl.textContent = display;
             modal.classList.add('is-open');
             document.body.classList.add('modal-open');
 
@@ -55,7 +57,9 @@
         }
 
         ctaButtons.forEach(function (btn) {
-            btn.addEventListener('click', function () { openModal(btn.dataset.plano); });
+            btn.addEventListener('click', function () {
+                openModal(btn.dataset.plano, btn.dataset.planoValor || '');
+            });
         });
         closeEls.forEach(function (el) {
             el.addEventListener('click', closeModal);

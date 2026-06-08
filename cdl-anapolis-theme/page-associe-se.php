@@ -125,7 +125,10 @@ if (!$planos) {
                     <?php endforeach; ?>
                 </ul>
                 <?php endif; ?>
-                <button type="button" class="plano-card__cta" data-plano="<?php echo esc_attr($p_name); ?>">
+                <button type="button"
+                        class="plano-card__cta"
+                        data-plano="<?php echo esc_attr($p_name); ?>"
+                        <?php if ($p_valor): ?>data-plano-valor="<?php echo esc_attr($p_valor); ?>"<?php endif; ?>>
                     Contratar plano
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
