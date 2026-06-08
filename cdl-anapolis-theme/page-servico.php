@@ -380,40 +380,71 @@ $all_services = [
 </section>
 <?php endif; ?>
 
-<!-- Pricing Cards (Tempo & Saúde) -->
+<!-- Pricing Cards (Tempo & Saúde) — preço com marketing reposicionado pro final, antes do botão -->
 <?php if ($slug === 'tempo-saude' && !empty($fb['has_pricing'])): ?>
+<?php
+$check_svg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+?>
 <section class="sec" style="background:var(--light)">
     <div class="wrap" style="text-align:center">
         <div class="sec-tag ao">Planos e preços</div>
         <h2 class="sec-title ao ao-d1">Escolha o plano ideal</h2>
-        <p class="sec-desc ao ao-d2" style="margin:0 auto">Assinaturas anuais com acesso imediato e sem carência.</p>
+        <p class="sec-desc ao ao-d2" style="margin:0 auto">Assinaturas anuais com acesso imediato, sem carência e sem restrição de idade.</p>
 
-        <div class="pricing-grid" style="max-width:700px;margin-left:auto;margin-right:auto;grid-template-columns:repeat(2,1fr)">
+        <div class="pricing-grid" style="max-width:760px;margin-left:auto;margin-right:auto;grid-template-columns:repeat(2,1fr)">
+            <!-- Individual -->
             <div class="pricing-card ao">
                 <div class="pricing-card__name">Individual</div>
-                <div class="pricing-card__price">R$ 20</div>
-                <div class="pricing-card__period">/mês (assinatura anual)</div>
+                <p class="pricing-card__subtitle">Para uma pessoa cuidar da própria saúde com economia.</p>
+
                 <ul class="pricing-card__features">
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Cartão para o titular</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 50+ especialidades</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Telemedicina 24/7</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Até 35% off medicamentos</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Sem carência</li>
+                    <li><?php echo $check_svg; ?> Cartão para o titular</li>
+                    <li><?php echo $check_svg; ?> 50+ especialidades médicas</li>
+                    <li><?php echo $check_svg; ?> Telemedicina 24/7</li>
+                    <li><?php echo $check_svg; ?> Até 35% off em medicamentos</li>
+                    <li><?php echo $check_svg; ?> Sem carência — uso imediato</li>
                 </ul>
-                <a href="/fale-conosco/" class="btn btn-dark" style="width:100%">Ativar plano</a>
+
+                <div class="pricing-card__deal">
+                    <div class="pricing-card__deal-label">A partir de</div>
+                    <div class="pricing-card__price-row">
+                        <span class="pricing-card__currency">R$</span>
+                        <span class="pricing-card__price">20</span>
+                        <span class="pricing-card__period">/mês</span>
+                    </div>
+                    <div class="pricing-card__perday">Menos de <strong>R$ 0,67 por dia</strong></div>
+                    <div class="pricing-card__fine">Assinatura anual · acesso imediato</div>
+                </div>
+
+                <a href="/fale-conosco/" class="btn btn-dark pricing-card__cta">Ativar plano</a>
             </div>
+
+            <!-- Família (destaque) -->
             <div class="pricing-card pricing-card--featured ao ao-d1">
+                <div class="pricing-card__ribbon">Melhor custo-benefício</div>
                 <div class="pricing-card__name">Família</div>
-                <div class="pricing-card__price">R$ 24,90</div>
-                <div class="pricing-card__period">/mês (assinatura anual)</div>
+                <p class="pricing-card__subtitle">Proteção para você e até 3 dependentes. O mais escolhido.</p>
+
                 <ul class="pricing-card__features">
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Titular + até 3 dependentes</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 50+ especialidades</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Telemedicina 24/7</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Até 35% off medicamentos</li>
-                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Sem carência</li>
+                    <li><?php echo $check_svg; ?> Titular + até 3 dependentes</li>
+                    <li><?php echo $check_svg; ?> 50+ especialidades médicas</li>
+                    <li><?php echo $check_svg; ?> Telemedicina 24/7</li>
+                    <li><?php echo $check_svg; ?> Até 35% off em medicamentos</li>
+                    <li><?php echo $check_svg; ?> Sem carência — uso imediato</li>
                 </ul>
-                <a href="/fale-conosco/" class="btn btn-dark" style="width:100%">Ativar plano</a>
+
+                <div class="pricing-card__deal">
+                    <div class="pricing-card__deal-label">A partir de</div>
+                    <div class="pricing-card__price-row">
+                        <span class="pricing-card__currency">R$</span>
+                        <span class="pricing-card__price">24,90</span>
+                        <span class="pricing-card__period">/mês</span>
+                    </div>
+                    <div class="pricing-card__perday">Menos de <strong>R$ 0,21 por pessoa por dia</strong></div>
+                    <div class="pricing-card__fine">Assinatura anual · cobre até 4 pessoas</div>
+                </div>
+
+                <a href="/fale-conosco/" class="btn btn-gold pricing-card__cta">Ativar plano</a>
             </div>
         </div>
     </div>

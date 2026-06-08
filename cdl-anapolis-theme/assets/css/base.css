@@ -54,7 +54,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 /* Legacy button classes for backward compat */
 .btn--primary{background:var(--gold);color:var(--dark);border-color:var(--gold);box-shadow:0 8px 40px rgba(255,214,0,.25)}
 .btn--primary:hover{background:#ffe44d;box-shadow:0 12px 48px rgba(255,214,0,.35)}
-.btn--outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.btn--outline{background:transparent;color:#fff;border-color:rgba(255,255,255,1)}
 .btn--outline:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
 .btn--outline-blue{background:transparent;color:var(--blue);border-color:var(--blue)}
 .btn--outline-blue:hover{background:var(--blue);color:#fff}
