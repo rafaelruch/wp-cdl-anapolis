@@ -217,10 +217,10 @@ $fallbacks = [
             ['q' => 'O serviço é exclusivo para associados?', 'a' => 'Voltado para associados, mas empresas interessadas podem entrar em contato para verificar condições de acesso.'],
             ['q' => 'Posso monitorar meus clientes?', 'a' => 'Sim, o SPC oferece ferramentas de monitoramento que alertam sobre mudanças nos dados de clientes e parceiros comerciais.'],
         ],
-        'cta_title' => 'Proteja seu negócio<br>com o SPC Brasil',
-        'cta_text' => 'Acesse informações confiáveis para decisões seguras de crédito.',
+        'cta_title' => 'A hora de crescer<br>é agora!',
+        'cta_text' => 'Networking exclusivo, recursos e serviços especializados para seu negócio prosperar.',
         'cta_link' => '/fale-conosco/',
-        'external_url' => 'https://sistema.spc.org.br/',
+        'external_url' => 'https://sistema.spc.org.br/spc/controleacesso/autenticacao/entry.action',
         'hero_img' => 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80',
     ],
     'tempo-saude' => [

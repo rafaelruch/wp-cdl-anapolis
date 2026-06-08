@@ -167,7 +167,7 @@ add_action('init', function() {
  * Cria páginas obrigatórias do tema se não existirem.
  */
 add_action('init', function() {
-    if (get_option('cdl_pages_created_v3')) return;
+    if (get_option('cdl_pages_created_v4')) return;
 
     $pages = [
         'impostometro' => [
@@ -177,6 +177,29 @@ add_action('init', function() {
         'area-associado' => [
             'post_title'    => 'Área do Associado',
             'page_template' => 'page-area-associado.php',
+        ],
+        // Serviços (template page-servico.php) — slugs pareados com o
+        // mega-menu de Serviços do header. certificado-digital-cdl já
+        // é criado por outro hook (cdl_fix_certificado_slug).
+        'spc' => [
+            'post_title'    => 'SPC Brasil',
+            'page_template' => 'page-servico.php',
+        ],
+        'cdl-celular' => [
+            'post_title'    => 'CDL Celular',
+            'page_template' => 'page-servico.php',
+        ],
+        'central-de-cobrancas' => [
+            'post_title'    => 'Central de Cobranças',
+            'page_template' => 'page-servico.php',
+        ],
+        'nfe-nfce' => [
+            'post_title'    => 'NF-e / NFC-e',
+            'page_template' => 'page-servico.php',
+        ],
+        'tempo-saude' => [
+            'post_title'    => 'Tempo & Saúde',
+            'page_template' => 'page-servico.php',
         ],
         // Novos benefícios (template page-beneficio.php)
         'planejamento-estrategico' => [
@@ -242,7 +265,7 @@ add_action('init', function() {
         }
     }
 
-    update_option('cdl_pages_created_v3', true);
+    update_option('cdl_pages_created_v4', true);
     flush_rewrite_rules(true);
 }, 20);
 
