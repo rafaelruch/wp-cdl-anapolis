@@ -11,107 +11,51 @@ $whatsapp_display = get_field('whatsapp_display', 'option') ?: '(62) 99193-3275'
 $phone       = get_field('top_bar_phone', 'option') ?: '(62) 3328-0008';
 $email       = get_field('top_bar_email', 'option') ?: 'contato@cdlanapolis.com.br';
 
-$planos = [
+// Planos: lê do ACF (repeater `planos`) se preenchido; caso contrário,
+// usa o fallback hardcoded abaixo (também usado como seed inicial no
+// hook `cdl_seed_associe_planos_v1` em functions.php).
+$planos = function_exists('get_field') ? get_field('planos') : null;
+
+if (!$planos) {
+    $planos = [
     [
-        'key'      => 'bronze',
-        'name'     => 'BRONZE',
-        'badge'    => 'MEI',
-        'desc'     => 'Para <strong>MEI</strong> associados',
-        'features' => [
-            'CDL Saúde',
-            'Balcão do MEI',
-        ],
+        'plano_key'      => 'bronze',
+        'plano_name'     => 'BRONZE',
+        'plano_badge'    => 'MEI',
+        'plano_desc'     => 'Para <strong>MEI</strong> associados',
+        'plano_features' => "CDL Saúde\nBalcão do MEI",
     ],
     [
-        'key'      => 'essencial',
-        'name'     => 'ESSENCIAL',
-        'badge'    => '10',
-        'desc'     => 'Para associados com até <strong>10 funcionários</strong>',
-        'features' => [
-            'CDL Saúde',
-            'Assessoria Jurídica',
-            'Assessoria Contábil',
-            'Assessoria de Apoio Estratégico',
-            'Rede de descontos',
-            'Certificado digital A1 PJ',
-            'Eventos corporativos',
-            'Participação dos Núcleos',
-            'Recrutamento e Seleção',
-            'Exames Admissionais e Demissionais',
-            'Gestão de E-SOCIAL',
-        ],
+        'plano_key'      => 'essencial',
+        'plano_name'     => 'ESSENCIAL',
+        'plano_badge'    => '10',
+        'plano_desc'     => 'Para associados com até <strong>10 funcionários</strong>',
+        'plano_features' => "CDL Saúde\nAssessoria Jurídica\nAssessoria Contábil\nAssessoria de Apoio Estratégico\nRede de descontos\nCertificado digital A1 PJ\nEventos corporativos\nParticipação dos Núcleos\nRecrutamento e Seleção\nExames Admissionais e Demissionais\nGestão de E-SOCIAL",
     ],
     [
-        'key'      => 'prata',
-        'name'     => 'PRATA',
-        'badge'    => '30',
-        'desc'     => 'Para associados com até <strong>30 funcionários</strong>',
-        'highlight'=> true,
-        'features' => [
-            'CDL Saúde',
-            'Assessoria Jurídica',
-            'Assessoria Contábil',
-            'Assessoria de Apoio Estratégico',
-            'Treinamentos e Consultorias',
-            'Rede de descontos',
-            'Certificado digital A1 PJ',
-            'Eventos corporativos (1)',
-            'Participação dos Núcleos',
-            'Recrutamento e Seleção',
-            'Exames Admissionais e Demissionais',
-            'Gestão de E-SOCIAL',
-            'Espaços Corporativos (1)',
-            'Mídia sites e redes sociais (1)',
-            'Espaço de lazer e eventos (1)',
-        ],
+        'plano_key'       => 'prata',
+        'plano_name'      => 'PRATA',
+        'plano_badge'     => '30',
+        'plano_desc'      => 'Para associados com até <strong>30 funcionários</strong>',
+        'plano_highlight' => true,
+        'plano_features'  => "CDL Saúde\nAssessoria Jurídica\nAssessoria Contábil\nAssessoria de Apoio Estratégico\nTreinamentos e Consultorias\nRede de descontos\nCertificado digital A1 PJ\nEventos corporativos (1)\nParticipação dos Núcleos\nRecrutamento e Seleção\nExames Admissionais e Demissionais\nGestão de E-SOCIAL\nEspaços Corporativos (1)\nMídia sites e redes sociais (1)\nEspaço de lazer e eventos (1)",
     ],
     [
-        'key'      => 'ouro',
-        'name'     => 'OURO',
-        'badge'    => '50',
-        'desc'     => 'Para associados com até <strong>50 funcionários</strong>',
-        'features' => [
-            'CDL Saúde',
-            'Assessoria Jurídica',
-            'Assessoria Contábil',
-            'Assessoria de Apoio Estratégico',
-            'Treinamentos e Consultorias',
-            'Rede de descontos',
-            'Certificado digital A1 PJ',
-            'Eventos corporativos (2)',
-            'Participação dos Núcleos',
-            'Recrutamento e Seleção',
-            'Exames Admissionais e Demissionais',
-            'Gestão de E-SOCIAL',
-            'Espaços Corporativos (2)',
-            'Mídia sites e redes sociais (2)',
-            'Espaço de lazer e eventos (2)',
-        ],
+        'plano_key'      => 'ouro',
+        'plano_name'     => 'OURO',
+        'plano_badge'    => '50',
+        'plano_desc'     => 'Para associados com até <strong>50 funcionários</strong>',
+        'plano_features' => "CDL Saúde\nAssessoria Jurídica\nAssessoria Contábil\nAssessoria de Apoio Estratégico\nTreinamentos e Consultorias\nRede de descontos\nCertificado digital A1 PJ\nEventos corporativos (2)\nParticipação dos Núcleos\nRecrutamento e Seleção\nExames Admissionais e Demissionais\nGestão de E-SOCIAL\nEspaços Corporativos (2)\nMídia sites e redes sociais (2)\nEspaço de lazer e eventos (2)",
     ],
     [
-        'key'      => 'diamante',
-        'name'     => 'DIAMANTE',
-        'badge'    => '+50',
-        'desc'     => 'Para associados com <strong>mais de 50 funcionários</strong>',
-        'features' => [
-            'CDL Saúde',
-            'Assessoria Jurídica',
-            'Assessoria Contábil',
-            'Assessoria de Apoio Estratégico',
-            'Treinamentos e Consultorias',
-            'Rede de descontos',
-            'Certificado digital A1 PJ',
-            'Eventos corporativos',
-            'Participação dos Núcleos',
-            'Recrutamento e Seleção',
-            'Exames Admissionais e Demissionais',
-            'Gestão de E-SOCIAL',
-            'Espaços Corporativos',
-            'Mídia sites e redes sociais',
-            'Espaço de lazer e eventos',
-        ],
+        'plano_key'      => 'diamante',
+        'plano_name'     => 'DIAMANTE',
+        'plano_badge'    => '+50',
+        'plano_desc'     => 'Para associados com <strong>mais de 50 funcionários</strong>',
+        'plano_features' => "CDL Saúde\nAssessoria Jurídica\nAssessoria Contábil\nAssessoria de Apoio Estratégico\nTreinamentos e Consultorias\nRede de descontos\nCertificado digital A1 PJ\nEventos corporativos\nParticipação dos Núcleos\nRecrutamento e Seleção\nExames Admissionais e Demissionais\nGestão de E-SOCIAL\nEspaços Corporativos\nMídia sites e redes sociais\nEspaço de lazer e eventos",
     ],
-];
+    ];
+}
 ?>
 
 <!-- 1. HERO -->
@@ -160,20 +104,39 @@ $planos = [
 
         <div class="planos-grid">
             <?php foreach ($planos as $i => $plano):
-                $classes = 'plano-card plano-card--' . $plano['key'] . ' ao';
+                // Suporta tanto a estrutura nova (campos `plano_*`) quanto a
+                // antiga (sem prefixo) — útil enquanto o cliente não preenche
+                // o ACF, evitando warnings.
+                $p_key   = $plano['plano_key']   ?? $plano['key']   ?? 'plano';
+                $p_name  = $plano['plano_name']  ?? $plano['name']  ?? '';
+                $p_badge = $plano['plano_badge'] ?? $plano['badge'] ?? '';
+                $p_desc  = $plano['plano_desc']  ?? $plano['desc']  ?? '';
+                $p_hi    = !empty($plano['plano_highlight']) || !empty($plano['highlight']);
+                $p_feats = $plano['plano_features'] ?? $plano['features'] ?? [];
+                if (is_string($p_feats)) {
+                    $p_feats = array_filter(array_map('trim', preg_split('/\r?\n/', $p_feats)));
+                }
+
+                $classes = 'plano-card plano-card--' . sanitize_html_class($p_key) . ' ao';
                 if ($i > 0) $classes .= ' ao-d' . min($i, 4);
-                $is_highlight = !empty($plano['highlight']);
+                if ($p_hi) $classes .= ' plano-card--highlight';
             ?>
             <div class="<?php echo esc_attr($classes); ?>">
-                <div class="plano-card__badge"><?php echo esc_html($plano['badge']); ?></div>
-                <h3 class="plano-card__name"><?php echo esc_html($plano['name']); ?></h3>
-                <p class="plano-card__desc"><?php echo wp_kses($plano['desc'], ['strong' => []]); ?></p>
+                <?php if ($p_badge): ?>
+                <div class="plano-card__badge"><?php echo esc_html($p_badge); ?></div>
+                <?php endif; ?>
+                <h3 class="plano-card__name"><?php echo esc_html($p_name); ?></h3>
+                <?php if ($p_desc): ?>
+                <p class="plano-card__desc"><?php echo wp_kses($p_desc, ['strong' => [], 'em' => [], 'br' => []]); ?></p>
+                <?php endif; ?>
+                <?php if (!empty($p_feats)): ?>
                 <ul class="plano-card__features">
-                    <?php foreach ($plano['features'] as $f): ?>
+                    <?php foreach ($p_feats as $f): ?>
                     <li><?php echo esc_html($f); ?></li>
                     <?php endforeach; ?>
                 </ul>
-                <button type="button" class="plano-card__cta" data-plano="<?php echo esc_attr($plano['name']); ?>">
+                <?php endif; ?>
+                <button type="button" class="plano-card__cta" data-plano="<?php echo esc_attr($p_name); ?>">
                     Contratar plano
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>

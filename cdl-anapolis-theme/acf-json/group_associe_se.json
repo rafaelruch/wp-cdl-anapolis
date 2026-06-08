@@ -94,6 +94,102 @@
                 "class": "",
                 "id": ""
             }
+        },
+        {
+            "key": "field_associe_planos",
+            "label": "Planos de associação",
+            "name": "planos",
+            "type": "repeater",
+            "instructions": "Cada item é um card da seção \"Escolha o plano ideal\". Você pode adicionar, remover ou reordenar livremente.",
+            "required": 0,
+            "min": 1,
+            "max": 8,
+            "layout": "block",
+            "button_label": "Adicionar plano",
+            "sub_fields": [
+                {
+                    "key": "field_plano_key",
+                    "label": "Identificador interno (slug)",
+                    "name": "plano_key",
+                    "type": "text",
+                    "instructions": "Use letras minúsculas e hífen. Ex: \"bronze\", \"essencial\", \"prata\", \"ouro\", \"diamante\". Usado apenas para diferenciar visualmente os cards no CSS.",
+                    "required": 1,
+                    "placeholder": "bronze",
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_plano_name",
+                    "label": "Nome do plano (exibido)",
+                    "name": "plano_name",
+                    "type": "text",
+                    "instructions": "Ex: \"BRONZE\", \"ESSENCIAL\", \"PRATA\".",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_plano_badge",
+                    "label": "Etiqueta (número de funcionários)",
+                    "name": "plano_badge",
+                    "type": "text",
+                    "instructions": "Pequena etiqueta no topo do card. Ex: \"MEI\", \"10\", \"30\", \"+50\".",
+                    "required": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_plano_desc",
+                    "label": "Descrição curta",
+                    "name": "plano_desc",
+                    "type": "text",
+                    "instructions": "Linha abaixo do nome. Aceita <strong>negrito</strong>. Ex: \"Para <strong>MEI</strong> associados\".",
+                    "required": 0,
+                    "wrapper": {
+                        "width": "80",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_plano_highlight",
+                    "label": "Destacar este plano?",
+                    "name": "plano_highlight",
+                    "type": "true_false",
+                    "instructions": "Marque para deixar o plano com destaque visual (geralmente o plano \"recomendado\").",
+                    "required": 0,
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_plano_features",
+                    "label": "Lista de benefícios incluídos",
+                    "name": "plano_features",
+                    "type": "textarea",
+                    "instructions": "Um benefício por linha. Ex:\\n\\nCDL Saúde\\nAssessoria Jurídica\\nRede de descontos",
+                    "required": 0,
+                    "rows": 12,
+                    "new_lines": "",
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
         }
     ],
     "location": [
@@ -114,5 +210,5 @@
     "active": true,
     "description": "Campos da página Quero Fazer Parte",
     "show_in_rest": 0,
-    "modified": 1743292800
+    "modified": 1780944905
 }
