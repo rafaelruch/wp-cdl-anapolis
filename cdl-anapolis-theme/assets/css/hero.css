@@ -83,7 +83,7 @@
   background:var(--gold);opacity:.25;border-radius:4px;z-index:-1;
 }
 .hero-sub{
-  font-size:clamp(.95rem,1.2vw,1.1rem);color:rgba(255,255,255,.4);
+  font-size:clamp(.95rem,1.2vw,1.1rem);color:#fff;
   line-height:1.75;max-width:420px;margin-bottom:40px;font-weight:300;
 }
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:0}
