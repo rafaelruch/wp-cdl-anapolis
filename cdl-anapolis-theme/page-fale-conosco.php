@@ -97,9 +97,7 @@ $form_sent = isset($_GET['contato']) && $_GET['contato'] === 'enviado';
                 <div class="contact-grid__map ao ao-d4" aria-label="Mapa com a localização da CDL Anápolis">
                     <iframe
                         src="<?php echo esc_url($maps_embed); ?>"
-                        width="100%"
-                        height="100%"
-                        style="border:0;display:block;min-height:280px;width:100%"
+                        style="border:0;display:block;width:100%;height:100%"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
