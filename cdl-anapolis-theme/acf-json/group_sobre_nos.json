@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_sobre_hero_title",
-            "label": "Hero - Título",
+            "label": "1. Hero — Título",
             "name": "sobre_hero_title",
             "type": "text",
             "required": 0,
@@ -14,11 +14,12 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Texto principal que aparece em cima da imagem grande do topo da página. Padrão atual: \"Um Legado de Realizações\"."
         },
         {
             "key": "field_sobre_hero_subtitle",
-            "label": "Hero - Subtítulo",
+            "label": "2. Hero — Subtítulo",
             "name": "sobre_hero_subtitle",
             "type": "textarea",
             "required": 0,
@@ -30,11 +31,12 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Frase abaixo do título do hero (parte de cima da página)."
         },
         {
             "key": "field_sobre_hero_image",
-            "label": "Hero - Imagem",
+            "label": "3. Hero — Imagem de fundo (TOPO da página)",
             "name": "sobre_hero_image",
             "type": "image",
             "required": 0,
@@ -45,11 +47,12 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Imagem grande do TOPO da página, atrás do título \"Sobre Nós\". Tamanho recomendado: 1920×800 pixels (paisagem)."
         },
         {
             "key": "field_sobre_historia_title",
-            "label": "História - Título",
+            "label": "4. História — Título da seção",
             "name": "sobre_historia_title",
             "type": "text",
             "required": 0,
@@ -59,11 +62,12 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Texto da pequena etiqueta acima do título \"De um grupo de lojistas a uma comunidade\". Padrão: \"Nossa História\"."
         },
         {
             "key": "field_sobre_historia_text",
-            "label": "História - Texto",
+            "label": "5. História — Texto descritivo",
             "name": "sobre_historia_text",
             "type": "wysiwyg",
             "required": 0,
@@ -75,11 +79,12 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Parágrafos institucionais da seção \"Nossa História\" — abaixo do título."
         },
         {
             "key": "field_sobre_historia_image",
-            "label": "História - Imagem",
+            "label": "6. História — Imagem (ao LADO do título \"De um grupo de lojistas\")",
             "name": "sobre_historia_image",
             "type": "image",
             "required": 0,
@@ -90,11 +95,12 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Imagem que aparece AO LADO do título \"Nossa História / De um grupo de lojistas a uma comunidade\" na seção do meio da página. Tamanho recomendado: 800×600 pixels."
         },
         {
             "key": "field_sobre_missao",
-            "label": "Missão",
+            "label": "7. Missão",
             "name": "sobre_missao",
             "type": "textarea",
             "required": 0,
@@ -106,11 +112,12 @@
                 "width": "33",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Card \"Missão\" da seção Missão / Visão / Valores."
         },
         {
             "key": "field_sobre_visao",
-            "label": "Visão",
+            "label": "8. Visão",
             "name": "sobre_visao",
             "type": "textarea",
             "required": 0,
@@ -122,11 +129,12 @@
                 "width": "33",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Card \"Visão\" da seção Missão / Visão / Valores."
         },
         {
             "key": "field_sobre_valores",
-            "label": "Valores",
+            "label": "9. Valores",
             "name": "sobre_valores",
             "type": "textarea",
             "required": 0,
@@ -138,11 +146,12 @@
                 "width": "33",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Card \"Valores\" da seção Missão / Visão / Valores."
         },
         {
             "key": "field_sobre_numeros",
-            "label": "Números",
+            "label": "10. Números (faixa de estatísticas)",
             "name": "sobre_numeros",
             "type": "repeater",
             "required": 0,
@@ -184,11 +193,12 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Faixa com números em destaque (ex: \"60+ anos\", \"2.000+ empreendedores\"). Adicione, remova ou reordene livremente."
         },
         {
             "key": "field_sobre_timeline",
-            "label": "Timeline",
+            "label": "11. Linha do Tempo (Timeline)",
             "name": "sobre_timeline",
             "type": "repeater",
             "required": 0,
@@ -246,7 +256,8 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Linha do tempo com marcos históricos da CDL Anápolis. Adicione, remova ou reordene livremente."
         }
     ],
     "location": [
@@ -267,5 +278,5 @@
     "active": true,
     "description": "Campos da página Sobre Nós",
     "show_in_rest": 0,
-    "modified": 1743292800
+    "modified": 1780944012
 }
