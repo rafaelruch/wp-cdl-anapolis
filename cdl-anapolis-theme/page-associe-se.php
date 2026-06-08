@@ -199,7 +199,7 @@ $balcao_mei_url = function_exists('get_field') ? (get_field('balcao_mei_url') ?:
         </div>
 
         <div class="plano-modal__selected">
-            <span class="plano-modal__selected-label">Plano escolhido</span>
+            <span class="plano-modal__selected-label" id="planoSelectedLabel">Plano escolhido</span>
             <span class="plano-modal__selected-name" id="planoSelectedName">—</span>
         </div>
 

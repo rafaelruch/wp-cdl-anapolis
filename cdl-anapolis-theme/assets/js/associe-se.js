@@ -6,12 +6,13 @@
     'use strict';
 
     document.addEventListener('DOMContentLoaded', function () {
-        var modal       = document.getElementById('planoModal');
-        var planoInput  = document.getElementById('planoInput');
-        var planoNameEl = document.getElementById('planoSelectedName');
-        var form        = document.getElementById('planoForm');
-        var meiGate     = document.getElementById('planoModalMeiGate');
-        var meiYesBtn   = document.getElementById('planoModalMeiYes');
+        var modal        = document.getElementById('planoModal');
+        var planoInput   = document.getElementById('planoInput');
+        var planoNameEl  = document.getElementById('planoSelectedName');
+        var planoLabelEl = document.getElementById('planoSelectedLabel');
+        var form         = document.getElementById('planoForm');
+        var meiGate      = document.getElementById('planoModalMeiGate');
+        var meiYesBtn    = document.getElementById('planoModalMeiYes');
         if (!modal || !form) return;
 
         var whatsapp   = form.dataset.whatsapp;
@@ -29,10 +30,14 @@
         }
 
         function openModal(plano, valor) {
-            // Plano + valor (quando preenchido no ACF) — ex.: "BRONZE — R$ 99,90/mês"
-            var display = valor ? (plano + ' — ' + valor) : plano;
-            planoInput.value = display;
-            planoNameEl.textContent = display;
+            // Label do topo recebe o valor; nome do plano fica em destaque sozinho.
+            // Ex.: label "Plano escolhido — R$ 99,90/mês" e nome "BRONZE".
+            if (planoLabelEl) {
+                planoLabelEl.textContent = valor ? ('Plano escolhido — ' + valor) : 'Plano escolhido';
+            }
+            planoNameEl.textContent  = plano;
+            // O hidden input carrega tudo pra mensagem do WhatsApp ficar completa.
+            planoInput.value = valor ? (plano + ' — ' + valor) : plano;
             modal.classList.add('is-open');
             document.body.classList.add('modal-open');
 
