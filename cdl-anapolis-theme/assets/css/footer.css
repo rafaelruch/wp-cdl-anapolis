@@ -5,8 +5,8 @@
 .f-logo a{display:inline-block}
 .f-desc{color:rgba(255,255,255,.3);font-size:.8rem;line-height:1.7}
 .f-head{font-size:.6rem;font-weight:700;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.2em;margin-bottom:16px}
-.f-links a{color:rgba(255,255,255,.4);font-size:.8rem;display:block;padding:4px 0;transition:.3s}
-.f-links a:hover{color:#fff;transform:translateX(4px)}
+.f-links a{color:#fff;font-size:.8rem;display:block;padding:4px 0;transition:.3s}
+.f-links a:hover{color:var(--gold);transform:translateX(4px)}
 .f-social{display:flex;gap:8px;justify-content:center;margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.04)}
 .f-social a{
   width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.06);
