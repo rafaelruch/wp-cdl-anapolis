@@ -300,7 +300,7 @@ $planos = [
                 </div>
                 <div class="contact-form__group">
                     <label class="contact-form__label" for="pf-email">E-mail</label>
-                    <input class="contact-form__input" type="email" id="pf-email" name="email" placeholder="seu@email.com.br">
+                    <input class="contact-form__input" type="email" id="pf-email" name="email" placeholder="nome@cdlanapolis.com.br">
                 </div>
             </div>
 

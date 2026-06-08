@@ -175,7 +175,7 @@ function cdl_render_contact_form($email) {
 
         <div class="contact-form__group">
             <label class="contact-form__label" for="cf-email">E-mail <span class="contact-form__req">*</span></label>
-            <input class="contact-form__input" type="email" id="cf-email" name="email" required placeholder="seu@email.com.br">
+            <input class="contact-form__input" type="email" id="cf-email" name="email" required placeholder="nome@cdlanapolis.com.br">
         </div>
 
         <div class="contact-form__group">
