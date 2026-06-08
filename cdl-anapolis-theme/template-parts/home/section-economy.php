@@ -1,32 +1,31 @@
 <?php
 /**
- * Economia Local em Números
+ * Economia Local em Números — widget do Impostômetro de Anápolis.
+ * URL configurável via ACF Options (CDL Config → Homepage) com fallback
+ * para o widget oficial.
  */
-$iframe_url = get_field('impostometro_iframe_url', 'option');
-$gasto_url  = get_field('gastobrasil_url', 'option') ?: 'https://gastobrasil.com.br/municipios';
+$iframe_url = function_exists('get_field')
+    ? (get_field('impostometro_iframe_url', 'option')
+        ?: 'https://impostometro.com.br/widget/contador/go?municipio=anapolis')
+    : 'https://impostometro.com.br/widget/contador/go?municipio=anapolis';
 ?>
 
-<section class="sec" style="text-align:center;background:var(--light)">
+<section class="sec eco-sec" style="text-align:center;background:var(--light)">
     <div class="wrap">
         <div class="sec-tag ao">Anápolis - GO</div>
         <h2 class="sec-title ao">Economia Local<br>em Números</h2>
-        <div class="eco-grid">
-            <div class="eco-card ao">
-                <h4>Impostômetro</h4>
-                <?php if ($iframe_url): ?>
-                    <div style="margin:12px 0">
-                        <iframe src="<?php echo esc_url($iframe_url); ?>" width="100%" height="120" scrolling="no" frameborder="0" title="Impostômetro" loading="lazy"></iframe>
-                    </div>
-                <?php else: ?>
-                    <p>Acompanhe quanto os brasileiros já pagaram em impostos neste ano.</p>
-                <?php endif; ?>
-                <a href="<?php echo esc_url(home_url('/impostometro/')); ?>" class="link">Acessar &rarr;</a>
-            </div>
-            <div class="eco-card ao ao-d1">
-                <h4>Gastos do Município</h4>
-                <p>Dados sobre despesas públicas de Anápolis-GO.</p>
-                <a href="<?php echo esc_url(home_url('/impostometro/')); ?>" class="link">Ver painel &rarr;</a>
-            </div>
+        <p class="sec-desc ao" style="margin:16px auto 0;max-width:560px">Acompanhe em tempo real a arrecadação tributária do município de Anápolis. Dados fornecidos pela ACSP — Associação Comercial de São Paulo.</p>
+
+        <div class="eco-iframe ao ao-d1">
+            <iframe
+                src="<?php echo esc_url($iframe_url); ?>"
+                width="728"
+                height="228"
+                scrolling="no"
+                frameborder="0"
+                title="Impostômetro de Anápolis"
+                loading="lazy">
+            </iframe>
         </div>
     </div>
 </section>

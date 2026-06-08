@@ -1,16 +1,17 @@
-/* Economy */
-.eco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:800px;margin:clamp(40px,5vw,56px) auto 0}
-.eco-card{
-  background:#fff;border-radius:var(--radius-xl);padding:clamp(24px,3vw,36px);
-  box-shadow:0 1px 3px rgba(0,0,0,.03);cursor:pointer;
-  transition:all .5s cubic-bezier(.16,1,.3,1);
+/* Economy — só o widget do Impostômetro centralizado */
+.eco-iframe{
+  margin:clamp(40px,5vw,56px) auto 0;
+  max-width:768px;
+  background:#fff;
+  border-radius:var(--radius-xl);
+  padding:clamp(16px,2vw,24px);
+  box-shadow:0 16px 48px rgba(3,66,142,.08);
+  display:flex;justify-content:center;
 }
-.eco-card:hover{box-shadow:0 20px 48px rgba(0,0,0,.06);transform:translateY(-6px)}
-.eco-card h4{font-family:'Sora';font-size:.95rem;font-weight:600;margin-bottom:8px}
-.eco-card p{color:var(--gray);font-size:.82rem;line-height:1.6;margin-bottom:14px}
-.eco-card .link{font-size:.75rem;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
-.eco-card:hover .link{gap:12px}
+.eco-iframe iframe{
+  display:block;width:100%;max-width:728px;border:0;
+}
 
 @media(max-width:768px){
-  .eco-grid{grid-template-columns:1fr}
+  .eco-iframe{padding:12px}
 }

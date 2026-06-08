@@ -232,9 +232,9 @@ add_action('init', function() {
  * novos slugs para que o hook execute em sites já atualizados.
  */
 add_action('init', function() {
-    if (get_option('cdl_removed_pages_v2')) return;
+    if (get_option('cdl_removed_pages_v3')) return;
 
-    $removed_slugs = ['cdl-agencia', 'cdl-mais-voce'];
+    $removed_slugs = ['cdl-agencia', 'cdl-mais-voce', 'impostometro'];
     foreach ($removed_slugs as $slug) {
         $page = get_page_by_path($slug);
         if ($page) {
@@ -242,7 +242,7 @@ add_action('init', function() {
         }
     }
 
-    update_option('cdl_removed_pages_v2', true);
+    update_option('cdl_removed_pages_v3', true);
     flush_rewrite_rules(true);
 }, 15);
 
@@ -253,10 +253,6 @@ add_action('init', function() {
     if (get_option('cdl_pages_created_v4')) return;
 
     $pages = [
-        'impostometro' => [
-            'post_title'    => 'Impostômetro',
-            'page_template' => 'page-impostometro.php',
-        ],
         'area-associado' => [
             'post_title'    => 'Área do Associado',
             'page_template' => 'page-area-associado.php',

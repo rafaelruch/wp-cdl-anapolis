@@ -8,7 +8,7 @@
  * - CSS de home (só na home): hero, features-band, marquee, benefits, informativo,
  *   showcase, cta, services, steps, quick-access, economy, testimonials
  * - CSS de páginas internas (não-home): pages.css
- * - CSS específico por slug: planos, impostometro, associados
+ * - CSS específico por slug: planos, associados
  */
 
 function cdl_enqueue_assets() {
@@ -91,9 +91,6 @@ function cdl_enqueue_assets() {
         );
     }
 
-    if (is_page('impostometro')) {
-        wp_enqueue_style('cdl-impostometro', CDL_THEME_URI . '/assets/css/impostometro.css', [], CDL_THEME_VERSION);
-    }
 
     if (is_page('quem-faz-parte')) {
         wp_enqueue_style('cdl-associados', CDL_THEME_URI . '/assets/css/associados.css', [], CDL_THEME_VERSION);
