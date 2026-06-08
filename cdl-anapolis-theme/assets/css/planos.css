@@ -57,6 +57,13 @@
   transition:all .3s ease;width:100%;
 }
 
+/* Valor — opcional, exibido abaixo do botão Contratar plano */
+.plano-card__valor{
+  margin-top:12px;text-align:center;
+  font-family:'Sora';font-size:.92rem;font-weight:700;
+  color:var(--blue);letter-spacing:-.01em;line-height:1.3;
+}
+
 /* BRONZE */
 .plano-card--bronze .plano-card__badge{background:#fff4e6;color:#b87333}
 .plano-card--bronze .plano-card__name{color:#b87333}

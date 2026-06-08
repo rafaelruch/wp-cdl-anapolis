@@ -99,13 +99,10 @@ if (!$planos) {
 
         <div class="planos-grid">
             <?php foreach ($planos as $i => $plano):
-                // Suporta tanto a estrutura nova (campos `plano_*`) quanto a
-                // antiga (sem prefixo) — útil enquanto o cliente não preenche
-                // o ACF, evitando warnings.
                 $p_key   = $plano['plano_key']   ?? $plano['key']   ?? 'plano';
                 $p_name  = $plano['plano_name']  ?? $plano['name']  ?? '';
-                $p_badge = $plano['plano_badge'] ?? $plano['badge'] ?? '';
                 $p_desc  = $plano['plano_desc']  ?? $plano['desc']  ?? '';
+                $p_valor = $plano['plano_valor'] ?? '';
                 $p_hi    = !empty($plano['plano_highlight']) || !empty($plano['highlight']);
                 $p_feats = $plano['plano_features'] ?? $plano['features'] ?? [];
                 if (is_string($p_feats)) {
@@ -117,9 +114,6 @@ if (!$planos) {
                 if ($p_hi) $classes .= ' plano-card--highlight';
             ?>
             <div class="<?php echo esc_attr($classes); ?>">
-                <?php if ($p_badge): ?>
-                <div class="plano-card__badge"><?php echo esc_html($p_badge); ?></div>
-                <?php endif; ?>
                 <h3 class="plano-card__name"><?php echo esc_html($p_name); ?></h3>
                 <?php if ($p_desc): ?>
                 <p class="plano-card__desc"><?php echo wp_kses($p_desc, ['strong' => [], 'em' => [], 'br' => []]); ?></p>
@@ -135,6 +129,9 @@ if (!$planos) {
                     Contratar plano
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
+                <?php if ($p_valor): ?>
+                <div class="plano-card__valor"><?php echo esc_html($p_valor); ?></div>
+                <?php endif; ?>
             </div>
             <?php endforeach; ?>
         </div>

@@ -422,7 +422,7 @@ add_action('acf/init', function () {
  */
 add_action('acf/init', function () {
     if (!function_exists('update_field')) return;
-    if (get_option('cdl_seed_associe_planos_v3')) return;
+    if (get_option('cdl_seed_associe_planos_v4')) return;
 
     $page = get_page_by_path('associe-se');
     if (!$page) return;
@@ -462,5 +462,5 @@ add_action('acf/init', function () {
     ];
 
     update_field('planos', $planos, $page->ID);
-    update_option('cdl_seed_associe_planos_v3', true);
+    update_option('cdl_seed_associe_planos_v4', true);
 });

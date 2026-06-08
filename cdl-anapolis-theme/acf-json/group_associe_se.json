@@ -135,19 +135,6 @@
                     }
                 },
                 {
-                    "key": "field_plano_badge",
-                    "label": "Etiqueta (número de funcionários)",
-                    "name": "plano_badge",
-                    "type": "text",
-                    "instructions": "Pequena etiqueta no topo do card. Ex: \"MEI\", \"10\", \"30\", \"+50\".",
-                    "required": 0,
-                    "wrapper": {
-                        "width": "20",
-                        "class": "",
-                        "id": ""
-                    }
-                },
-                {
                     "key": "field_plano_desc",
                     "label": "Descrição curta",
                     "name": "plano_desc",
@@ -170,6 +157,20 @@
                     "ui": 1,
                     "wrapper": {
                         "width": "20",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_plano_valor",
+                    "label": "Valor do plano",
+                    "name": "plano_valor",
+                    "type": "text",
+                    "instructions": "Texto exibido abaixo do botão \"Contratar plano\". Ex: \"R$ 99,90/mês\", \"A partir de R$ 199/mês\" ou \"Sob consulta\". Deixe vazio para não exibir.",
+                    "required": 0,
+                    "placeholder": "R$ 99,90/mês",
+                    "wrapper": {
+                        "width": "100",
                         "class": "",
                         "id": ""
                     }
@@ -210,5 +211,5 @@
     "active": true,
     "description": "Campos da página Quero Fazer Parte",
     "show_in_rest": 0,
-    "modified": 1780944905
+    "modified": 1780945791
 }
