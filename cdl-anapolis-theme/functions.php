@@ -173,6 +173,34 @@ add_action('init', function() {
 }, 5);
 
 /**
+ * Garante que /spc/ exista com o template page-servico.php.
+ * O hook `cdl_pages_created_v4` deveria criar essa página, mas em sites
+ * onde a flag v4 já estava marcada (deploy passado), o WP pulou a
+ * criação. Esse hook dedicado força a criação independente da flag
+ * anterior. Após o attachment com slug `spc` ter sido renomeado por
+ * `cdl_fix_service_slugs_v1`, o slug agora está livre para a page.
+ */
+add_action('init', function() {
+    if (get_option('cdl_fix_spc_page_v1')) return;
+
+    $page = get_page_by_path('spc');
+    if (!$page) {
+        wp_insert_post([
+            'post_type'     => 'page',
+            'post_title'    => 'SPC Brasil',
+            'post_name'     => 'spc',
+            'post_status'   => 'publish',
+            'page_template' => 'page-servico.php',
+        ]);
+    } else {
+        update_post_meta($page->ID, '_wp_page_template', 'page-servico.php');
+    }
+
+    flush_rewrite_rules(true);
+    update_option('cdl_fix_spc_page_v1', true);
+}, 6); // depois do fix dos slugs (prioridade 5)
+
+/**
  * Mesmo problema de slug conflitando com attachment, mas para os
  * demais serviços do mega-menu (spc.png, cdl-celular.png, etc.). O WP
  * por padrão prioriza o attachment quando os dois existem, fazendo a
