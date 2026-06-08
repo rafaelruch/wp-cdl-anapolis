@@ -182,6 +182,37 @@
   margin-left:auto;
 }
 
+/* MEI gate — pergunta de CNPJ exibida só quando o plano BRONZE é escolhido */
+.plano-modal__mei-gate{
+  text-align:center;padding:12px 0 4px;
+}
+.plano-modal__mei-ico{
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(3,66,142,.08);color:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+}
+.plano-modal__mei-title{
+  font-family:'Sora';font-size:1.15rem;font-weight:700;color:#021e50;
+  margin:0 0 8px;letter-spacing:-.01em;
+}
+.plano-modal__mei-desc{
+  font-size:.86rem;color:var(--gray);line-height:1.55;
+  margin:0 auto 24px;max-width:380px;
+}
+.plano-modal__mei-desc strong{color:var(--dark);font-weight:700}
+.plano-modal__mei-actions{
+  display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto;
+}
+.plano-modal__mei-actions .btn{justify-content:center;padding:13px 22px;font-size:.88rem}
+.plano-modal__mei-no{
+  background:transparent;color:var(--blue);
+  border:1.5px solid rgba(3,66,142,.2);
+}
+.plano-modal__mei-no:hover{
+  background:rgba(3,66,142,.04);border-color:var(--blue);
+}
+
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 

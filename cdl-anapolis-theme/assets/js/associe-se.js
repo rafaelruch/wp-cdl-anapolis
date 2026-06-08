@@ -10,22 +10,48 @@
         var planoInput  = document.getElementById('planoInput');
         var planoNameEl = document.getElementById('planoSelectedName');
         var form        = document.getElementById('planoForm');
+        var meiGate     = document.getElementById('planoModalMeiGate');
+        var meiYesBtn   = document.getElementById('planoModalMeiYes');
         if (!modal || !form) return;
 
         var whatsapp   = form.dataset.whatsapp;
         var ctaButtons = document.querySelectorAll('[data-plano]');
         var closeEls   = document.querySelectorAll('[data-close-modal]');
 
+        function showForm() {
+            if (meiGate) meiGate.hidden = true;
+            form.hidden = false;
+        }
+
+        function showMeiGate() {
+            if (meiGate) meiGate.hidden = false;
+            form.hidden = true;
+        }
+
         function openModal(plano) {
             planoInput.value = plano;
             planoNameEl.textContent = plano;
             modal.classList.add('is-open');
             document.body.classList.add('modal-open');
+
+            // BRONZE → mostra a pergunta sobre CNPJ antes do form.
+            // Demais planos → vai direto pro form.
+            if (meiGate && (plano || '').toUpperCase().indexOf('BRONZE') !== -1) {
+                showMeiGate();
+            } else {
+                showForm();
+            }
         }
 
         function closeModal() {
             modal.classList.remove('is-open');
             document.body.classList.remove('modal-open');
+            // Reseta gate pra próxima abertura
+            showForm();
+        }
+
+        if (meiYesBtn) {
+            meiYesBtn.addEventListener('click', showForm);
         }
 
         ctaButtons.forEach(function (btn) {

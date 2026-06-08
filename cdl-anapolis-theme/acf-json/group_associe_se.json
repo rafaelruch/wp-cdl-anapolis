@@ -191,6 +191,21 @@
                     }
                 }
             ]
+        },
+        {
+            "key": "field_balcao_mei_url",
+            "label": "URL do Balcão do MEI",
+            "name": "balcao_mei_url",
+            "type": "text",
+            "instructions": "Quando o visitante clicar em \"Contratar plano\" no BRONZE, o modal pergunta se ele já tem CNPJ. Se ele responder \"Não\", é redirecionado para esta URL — uma página/serviço que ajude na abertura do MEI. Pode ser interna (/apoio-mei/) ou externa (ex: sebrae.com.br/...). Deixe vazio para usar /apoio-mei/.",
+            "required": 0,
+            "default_value": "/apoio-mei/",
+            "placeholder": "/apoio-mei/",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
         }
     ],
     "location": [
@@ -211,5 +226,5 @@
     "active": true,
     "description": "Campos da página Quero Fazer Parte",
     "show_in_rest": 0,
-    "modified": 1780945791
+    "modified": 1780945954
 }

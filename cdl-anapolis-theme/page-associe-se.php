@@ -179,6 +179,11 @@ if (!$planos) {
     </a>
 </section>
 
+<?php
+// Link do "Balcão do MEI" — configurável via ACF, com fallback interno.
+$balcao_mei_url = function_exists('get_field') ? (get_field('balcao_mei_url') ?: '/apoio-mei/') : '/apoio-mei/';
+?>
+
 <!-- ═══ MODAL DE CONTRATAÇÃO ═══ -->
 <div class="plano-modal" id="planoModal" role="dialog" aria-modal="true" aria-labelledby="planoModalTitle">
     <div class="plano-modal__overlay" data-close-modal></div>
@@ -193,6 +198,24 @@ if (!$planos) {
         <div class="plano-modal__selected">
             <span class="plano-modal__selected-label">Plano escolhido</span>
             <span class="plano-modal__selected-name" id="planoSelectedName">—</span>
+        </div>
+
+        <!-- MEI gate — só aparece quando o plano selecionado é BRONZE -->
+        <div class="plano-modal__mei-gate" id="planoModalMeiGate" hidden>
+            <div class="plano-modal__mei-ico" aria-hidden="true">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h4 class="plano-modal__mei-title">Você já possui CNPJ?</h4>
+            <p class="plano-modal__mei-desc">O plano <strong>BRONZE</strong> é para empreendedores cadastrados como MEI. Você precisa ter um CNPJ ativo para continuar.</p>
+            <div class="plano-modal__mei-actions">
+                <button type="button" class="btn btn-blue" id="planoModalMeiYes">
+                    Sim, já tenho CNPJ
+                </button>
+                <a href="<?php echo esc_url($balcao_mei_url); ?>" class="btn plano-modal__mei-no" target="_blank" rel="noopener">
+                    Ainda não tenho — Acessar Balcão do MEI
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
         </div>
 
         <form class="contact-form" id="planoForm" data-whatsapp="<?php echo esc_attr($whatsapp); ?>">
