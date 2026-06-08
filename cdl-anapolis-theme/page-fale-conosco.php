@@ -15,8 +15,9 @@ $address  = get_field('footer_address', 'option') ?: 'Rua Conde Afonso Celso, 43
 $whatsapp = get_field('whatsapp_number', 'option') ?: '5562991933275';
 $whatsapp_display = get_field('whatsapp_display', 'option') ?: '(62) 99193-3275';
 $horario  = get_field('contato_horario', 'option') ?: 'Seg a Sex, 8h às 18h';
-// Localização exata da CDL Anápolis (coordenadas reais do Google Maps).
-$maps_embed = get_field('contato_maps_embed', 'option') ?: 'https://www.google.com/maps?q=-16.331571,-48.9558733+(C%C3%A2mara+de+Dirigentes+Lojistas+de+An%C3%A1polis)&hl=pt-BR&z=17&output=embed';
+// Embed oficial do Google Maps com place_id da CDL Anápolis — abre o pin
+// com o popup "Câmara de Dirigentes Lojistas de Anápolis" ao ser clicado.
+$maps_embed = get_field('contato_maps_embed', 'option') ?: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3828.831121972749!2d-48.9584482248586!3d-16.331570984386573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ea478d32b8d87%3A0xd510418a62440c63!2sC%C3%A2mara%20de%20Dirigentes%20Lojistas%20de%20An%C3%A1polis!5e0!3m2!1spt-BR!2sbr!4v1780941013542!5m2!1spt-BR!2sbr';
 
 // Check if form was submitted
 $form_sent = isset($_GET['contato']) && $_GET['contato'] === 'enviado';
