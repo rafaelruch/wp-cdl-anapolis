@@ -2,15 +2,22 @@
 /**
  * Notícias CDL — carrossel Swiper das últimas publicações (home).
  * Cache via transient em cdl_get_home_informativos (1h).
+ * Textos da seção (etiqueta/título/descrição/link) administráveis via ACF.
  */
 $posts = cdl_get_home_informativos(12);
+
+$has_acf = function_exists('get_field');
+$nt_tag  = ($has_acf ? get_field('noticias_tag', 'option')        : '') ?: 'Eventos e Notícias';
+$nt_ttl  = ($has_acf ? get_field('noticias_title', 'option')      : '') ?: 'Notícias CDL';
+$nt_dsc  = ($has_acf ? get_field('noticias_desc', 'option')       : '') ?: 'Fique por dentro do que acontece no comércio de Anápolis.';
+$nt_lnk  = ($has_acf ? get_field('noticias_link_text', 'option')  : '') ?: 'Ver todas as notícias';
 ?>
 
 <section class="info-sec" id="informativo" style="background:var(--light)" aria-label="Notícias CDL">
     <div class="wrap">
-        <div class="sec-tag ao">Eventos e Notícias</div>
-        <h2 class="sec-title ao">Notícias CDL</h2>
-        <p class="sec-desc ao">Fique por dentro do que acontece no comércio de Anápolis.</p>
+        <div class="sec-tag ao"><?php echo esc_html($nt_tag); ?></div>
+        <h2 class="sec-title ao"><?php echo esc_html($nt_ttl); ?></h2>
+        <p class="sec-desc ao"><?php echo esc_html($nt_dsc); ?></p>
 
         <?php if ($posts->have_posts()): ?>
         <div class="info-carousel ao">
@@ -46,7 +53,7 @@ $posts = cdl_get_home_informativos(12);
         </div>
 
         <div class="info-footer ao">
-            <a href="<?php echo esc_url(get_post_type_archive_link('informativo')); ?>" class="link">Ver todas as notícias &rarr;</a>
+            <a href="<?php echo esc_url(get_post_type_archive_link('informativo')); ?>" class="link"><?php echo esc_html($nt_lnk); ?> &rarr;</a>
         </div>
         <?php else: ?>
         <!-- Placeholder card when no posts exist -->

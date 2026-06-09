@@ -8,9 +8,14 @@ $depoimentos = cdl_get_home_depoimentos(10);
 <?php if ($depoimentos->have_posts()): ?>
 <section class="testimonials section-padding" aria-label="Depoimentos de associados">
     <div class="container">
+        <?php
+        $has_acf = function_exists('get_field');
+        $dep_tag = ($has_acf ? get_field('depoimentos_tag',   'option') : '') ?: 'O que dizem nossos associados';
+        $dep_ttl = ($has_acf ? get_field('depoimentos_title', 'option') : '') ?: 'Depoimentos';
+        ?>
         <div class="testimonials__header text-center">
-            <span class="label fade-up">O que dizem nossos associados</span>
-            <h2 class="testimonials__title fade-up">Depoimentos</h2>
+            <span class="label fade-up"><?php echo esc_html($dep_tag); ?></span>
+            <h2 class="testimonials__title fade-up"><?php echo esc_html($dep_ttl); ?></h2>
         </div>
 
         <div class="testimonials__quote-deco fade-up" aria-hidden="true">&ldquo;</div>

@@ -1,0 +1,108 @@
+{
+    "key": "group_home_sections_extra",
+    "title": "Homepage — Sections extras (Marquee, Notícias, Depoimentos)",
+    "fields": [
+        {
+            "key": "field_marquee_items",
+            "label": "Marquee — Lista de serviços/textos rolando",
+            "name": "marquee_items",
+            "type": "repeater",
+            "instructions": "Textos que aparecem rolando na faixa preta acima da seção de Benefícios. 1 entrada = 1 item rolando.",
+            "required": 0,
+            "min": 1,
+            "max": 30,
+            "layout": "table",
+            "button_label": "Adicionar item",
+            "sub_fields": [
+                {
+                    "key": "field_marquee_text",
+                    "label": "Texto",
+                    "name": "texto",
+                    "type": "text",
+                    "required": 1
+                }
+            ]
+        },
+        {
+            "key": "field_noticias_tag",
+            "label": "Notícias (home) — Etiqueta",
+            "name": "noticias_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Eventos e Notícias\".",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_noticias_title",
+            "label": "Notícias — Título",
+            "name": "noticias_title",
+            "type": "text",
+            "instructions": "Padrão: \"Notícias CDL\".",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_noticias_desc",
+            "label": "Notícias — Subtítulo",
+            "name": "noticias_desc",
+            "type": "text",
+            "instructions": "Padrão: \"Fique por dentro do que acontece no comércio de Anápolis.\""
+        },
+        {
+            "key": "field_noticias_link_text",
+            "label": "Notícias — Texto do link \"Ver todas\"",
+            "name": "noticias_link_text",
+            "type": "text",
+            "instructions": "Padrão: \"Ver todas as notícias\"."
+        },
+        {
+            "key": "field_depoimentos_tag",
+            "label": "Depoimentos — Etiqueta",
+            "name": "depoimentos_tag",
+            "type": "text",
+            "instructions": "Padrão: \"O que dizem nossos associados\".",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_depoimentos_title",
+            "label": "Depoimentos — Título",
+            "name": "depoimentos_title",
+            "type": "text",
+            "instructions": "Padrão: \"Depoimentos\".",
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-homepage"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Textos institucionais das sections menores da home que antes estavam hardcoded.",
+    "show_in_rest": 0,
+    "modified": 1781033483
+}

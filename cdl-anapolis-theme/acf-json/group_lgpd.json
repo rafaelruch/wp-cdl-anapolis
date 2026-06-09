@@ -3,11 +3,11 @@
     "title": "Página - LGPD",
     "fields": [
         {
-            "key": "field_lgpd_hero_image",
+            "key": "field_lg_hero_img",
             "label": "1. Hero — Imagem de fundo (TOPO da página)",
             "name": "lgpd_hero_image",
             "type": "image",
-            "instructions": "Imagem grande do TOPO da página, atrás do título \"LGPD\". Tamanho recomendado: 1920×800 pixels.",
+            "instructions": "",
             "required": 0,
             "return_format": "array",
             "preview_size": "medium",
@@ -19,59 +19,338 @@
             }
         },
         {
-            "key": "field_lgpd_content",
-            "label": "Conteúdo LGPD",
-            "name": "lgpd_content",
-            "type": "wysiwyg",
+            "key": "field_lg_hero_tag",
+            "label": "2. Hero — Etiqueta",
+            "name": "lgpd_hero_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Institucional\".",
             "required": 0,
-            "default_value": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_hero_title",
+            "label": "3. Hero — Título",
+            "name": "lgpd_hero_title",
+            "type": "textarea",
+            "instructions": "Aceita quebra de linha.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_hero_sub",
+            "label": "4. Hero — Subtítulo",
+            "name": "lgpd_hero_subtitle",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_strip_ent_n",
+            "label": "5. Strip — Entidade (título)",
+            "name": "lgpd_strip_entidade_titulo",
+            "type": "text",
+            "instructions": "Ex.: \"CDL Anápolis\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_strip_ent_l",
+            "label": "6. Strip — Entidade (legenda)",
+            "name": "lgpd_strip_entidade_label",
+            "type": "text",
+            "instructions": "Ex.: \"CNPJ 01.064.674/0001-12\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_strip_lei_n",
+            "label": "7. Strip — Lei (título)",
+            "name": "lgpd_strip_lei_titulo",
+            "type": "text",
+            "instructions": "Ex.: \"Lei nº 13.709/2018\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_strip_lei_l",
+            "label": "8. Strip — Lei (legenda)",
+            "name": "lgpd_strip_lei_label",
+            "type": "text",
+            "instructions": "Ex.: \"LGPD — Lei Geral de Proteção de Dados\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_strip_dpo_n",
+            "label": "9. Strip — DPO (título)",
+            "name": "lgpd_strip_dpo_titulo",
+            "type": "text",
+            "instructions": "Ex.: \"Dra. Louise Ramiro\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_strip_dpo_l",
+            "label": "10. Strip — DPO (legenda)",
+            "name": "lgpd_strip_dpo_label",
+            "type": "text",
+            "instructions": "Ex.: \"Encarregada de Proteção de Dados (DPO)\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_intro",
+            "label": "11. Intro — Parágrafo de abertura",
+            "name": "lgpd_intro_html",
+            "type": "wysiwyg",
+            "instructions": "Texto institucional logo após o info strip.",
+            "required": 0,
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1,
+            "media_upload": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             }
         },
         {
-            "key": "field_lgpd_dpo_name",
-            "label": "Nome do DPO",
-            "name": "lgpd_dpo_name",
+            "key": "field_lg_pol_tag",
+            "label": "12. Política — Etiqueta",
+            "name": "lgpd_policy_tag",
             "type": "text",
+            "instructions": "Padrão: \"Política de Privacidade\".",
             "required": 0,
-            "default_value": "Dra. Louise Ramiro da Costa",
-            "placeholder": "",
             "wrapper": {
-                "width": "33",
+                "width": "100",
                 "class": "",
                 "id": ""
             }
         },
         {
-            "key": "field_lgpd_dpo_email",
-            "label": "E-mail do DPO",
+            "key": "field_lg_pol_title",
+            "label": "13. Política — Título",
+            "name": "lgpd_policy_title",
+            "type": "text",
+            "instructions": "Padrão: \"Como tratamos seus dados\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_pol_sub",
+            "label": "14. Política — Subtítulo",
+            "name": "lgpd_policy_subtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_corpo",
+            "label": "15. Corpo da política — Conteúdo completo (HTML)",
+            "name": "lgpd_corpo_html",
+            "type": "wysiwyg",
+            "instructions": "Editor completo: títulos, listas, parágrafos. Quando preenchido, substitui os cards padrão atuais. Quando vazio, o template mantém os cards visuais já existentes como fallback.",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_dpo_title",
+            "label": "16. DPO — Título da seção",
+            "name": "lgpd_dpo_title",
+            "type": "text",
+            "instructions": "Padrão: \"Encarregado de Proteção de Dados (DPO)\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_dpo_sub",
+            "label": "17. DPO — Subtítulo",
+            "name": "lgpd_dpo_subtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_dpo_nome",
+            "label": "18. DPO — Nome completo",
+            "name": "lgpd_dpo_nome",
+            "type": "text",
+            "instructions": "Padrão: \"Advogada Dra. Louise Ramiro da Costa\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_dpo_email",
+            "label": "19. DPO — E-mail",
             "name": "lgpd_dpo_email",
             "type": "text",
+            "instructions": "Padrão: \"lgpd@cdlanapolis.com.br\".",
             "required": 0,
-            "default_value": "lgpd@cdlanapolis.com.br",
-            "placeholder": "",
             "wrapper": {
-                "width": "33",
+                "width": "100",
                 "class": "",
                 "id": ""
             }
         },
         {
-            "key": "field_lgpd_cnpj",
-            "label": "CNPJ",
-            "name": "lgpd_cnpj",
+            "key": "field_lg_dpo_tel",
+            "label": "20. DPO — Telefone",
+            "name": "lgpd_dpo_telefone",
             "type": "text",
+            "instructions": "Padrão: \"(62) 3328-0008\".",
             "required": 0,
-            "default_value": "01.064.674/0001-12",
-            "placeholder": "",
             "wrapper": {
-                "width": "33",
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_dpo_end",
+            "label": "21. DPO — Endereço",
+            "name": "lgpd_dpo_endereco",
+            "type": "text",
+            "instructions": "Padrão: \"Rua Conde Afonso Celso, 43 — Centro, Anápolis — GO, CEP 75025-030\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_versao",
+            "label": "22. Versão da política",
+            "name": "lgpd_versao_texto",
+            "type": "text",
+            "instructions": "Padrão: \"Versão da política: 01/08/2021 — Esta política pode ser atualizada periodicamente.\"",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_cta_title",
+            "label": "23. CTA — Título",
+            "name": "lgpd_cta_title",
+            "type": "textarea",
+            "instructions": "Aceita quebra de linha.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_cta_sub",
+            "label": "24. CTA — Subtítulo",
+            "name": "lgpd_cta_subtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_cta_btn",
+            "label": "25. CTA — Texto do botão",
+            "name": "lgpd_cta_btn_text",
+            "type": "text",
+            "instructions": "Padrão: \"Fale conosco\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_lg_cta_lk",
+            "label": "26. CTA — Link do botão",
+            "name": "lgpd_cta_btn_link",
+            "type": "text",
+            "instructions": "Padrão: \"/fale-conosco/\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             }
@@ -95,5 +374,5 @@
     "active": true,
     "description": "Campos da página LGPD",
     "show_in_rest": 0,
-    "modified": 1781032958
+    "modified": 1781033614
 }
