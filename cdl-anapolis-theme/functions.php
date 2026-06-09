@@ -464,3 +464,37 @@ add_action('acf/init', function () {
     update_field('planos', $planos, $page->ID);
     update_option('cdl_seed_associe_planos_v4', true);
 });
+
+/**
+ * Migração one-time dos campos renomeados em group_header_footer.json.
+ * O ACF Options grava cada field em wp_options como `options_{name}`.
+ * Quando renomeamos `phone → top_bar_phone` (e similares) os dados que
+ * o cliente já preencheu ficariam órfãos na chave antiga, e os
+ * templates que leem o nome novo encontrariam vazio.
+ *
+ * Este hook copia, uma única vez, o valor antigo para a nova chave
+ * se ela ainda estiver vazia, preservando a configuração existente.
+ * Bumpe a flag (`cdl_migrate_hf_options_vN`) sempre que precisar
+ * repetir a operação em sites já atualizados.
+ */
+add_action('init', function () {
+    if (get_option('cdl_migrate_hf_options_v1')) return;
+
+    $map = [
+        'options_phone'   => 'options_top_bar_phone',
+        'options__phone'  => 'options__top_bar_phone',   // ACF reference key
+        'options_email'   => 'options_top_bar_email',
+        'options__email'  => 'options__top_bar_email',
+        'options_address' => 'options_footer_address',
+        'options__address'=> 'options__footer_address',
+    ];
+
+    foreach ($map as $old => $new) {
+        $old_val = get_option($old);
+        if ($old_val !== false && $old_val !== '' && get_option($new) === false) {
+            update_option($new, $old_val);
+        }
+    }
+
+    update_option('cdl_migrate_hf_options_v1', true);
+}, 8);

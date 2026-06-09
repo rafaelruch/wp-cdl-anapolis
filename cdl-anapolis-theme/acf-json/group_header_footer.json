@@ -5,7 +5,7 @@
         {
             "key": "field_hf_phone",
             "label": "Telefone",
-            "name": "phone",
+            "name": "top_bar_phone",
             "type": "text",
             "required": 0,
             "default_value": "(62) 3328-0008",
@@ -14,7 +14,8 @@
                 "width": "50",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Telefone — exibido em topo, footer, fale conosco, associe-se"
         },
         {
             "key": "field_hf_whatsapp_number",
@@ -47,7 +48,7 @@
         {
             "key": "field_hf_email",
             "label": "E-mail",
-            "name": "email",
+            "name": "top_bar_email",
             "type": "text",
             "required": 0,
             "default_value": "contato@cdlanapolis.com.br",
@@ -56,12 +57,13 @@
                 "width": "50",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "E-mail institucional — exibido em topo, footer, fale conosco"
         },
         {
             "key": "field_hf_address",
             "label": "Endereço",
-            "name": "address",
+            "name": "footer_address",
             "type": "textarea",
             "required": 0,
             "default_value": "Rua Conde Afonso Celso, 43 - Centro, Anápolis - GO, CEP 75025-030",
@@ -72,7 +74,8 @@
                 "width": "50",
                 "class": "",
                 "id": ""
-            }
+            },
+            "instructions": "Endereço — exibido no footer e em fale conosco"
         },
         {
             "key": "field_hf_social_instagram",
@@ -225,5 +228,5 @@
     "active": true,
     "description": "Configurações de contato, redes sociais e footer",
     "show_in_rest": 0,
-    "modified": 1779130378
+    "modified": 1781032958
 }

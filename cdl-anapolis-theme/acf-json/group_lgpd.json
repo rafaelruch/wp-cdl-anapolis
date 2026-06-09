@@ -3,6 +3,22 @@
     "title": "Página - LGPD",
     "fields": [
         {
+            "key": "field_lgpd_hero_image",
+            "label": "1. Hero — Imagem de fundo (TOPO da página)",
+            "name": "lgpd_hero_image",
+            "type": "image",
+            "instructions": "Imagem grande do TOPO da página, atrás do título \"LGPD\". Tamanho recomendado: 1920×800 pixels.",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "key": "field_lgpd_content",
             "label": "Conteúdo LGPD",
             "name": "lgpd_content",
@@ -79,5 +95,5 @@
     "active": true,
     "description": "Campos da página LGPD",
     "show_in_rest": 0,
-    "modified": 1743292800
+    "modified": 1781032958
 }
