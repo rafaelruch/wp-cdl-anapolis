@@ -3,141 +3,418 @@
     "title": "Página - CDL Mulher",
     "fields": [
         {
-            "key": "field_cdl_mulher_hero_image",
-            "label": "Hero - Imagem",
+            "key": "field_cdlm_hero_tag",
+            "label": "1. Hero — Etiqueta",
+            "name": "cdl_mulher_hero_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Institucional\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_hero_title",
+            "label": "2. Hero — Título",
+            "name": "cdl_mulher_hero_title",
+            "type": "textarea",
+            "instructions": "Aceita quebra de linha.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_hero_sub",
+            "label": "3. Hero — Subtítulo",
+            "name": "cdl_mulher_hero_subtitle",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_hero_img",
+            "label": "4. Hero — Imagem de fundo (TOPO da página)",
             "name": "cdl_mulher_hero_image",
             "type": "image",
+            "instructions": "",
             "required": 0,
             "return_format": "array",
             "preview_size": "medium",
             "library": "all",
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             }
         },
         {
-            "key": "field_cdl_mulher_intro",
-            "label": "Introdução",
-            "name": "cdl_mulher_intro",
-            "type": "wysiwyg",
-            "required": 0,
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "key": "field_cdl_mulher_diretoria",
-            "label": "Diretoria CDL Mulher",
-            "name": "cdl_mulher_diretoria",
+            "key": "field_cdlm_stats",
+            "label": "5. Stats strip — Números em destaque",
+            "name": "cdl_mulher_stats",
             "type": "repeater",
+            "instructions": "Faixa de números abaixo do hero.",
             "required": 0,
             "min": 0,
-            "max": 0,
+            "max": 6,
             "layout": "block",
-            "button_label": "Adicionar Membro",
+            "button_label": "Adicionar estatística",
             "sub_fields": [
                 {
-                    "key": "field_cdl_mulher_diretoria_nome",
-                    "label": "Nome",
-                    "name": "nome",
+                    "key": "field_cdlm_stat_num",
+                    "label": "Número/Texto destaque",
+                    "name": "stat_numero",
                     "type": "text",
+                    "instructions": "",
                     "required": 0,
-                    "default_value": "",
-                    "placeholder": "",
-                    "wrapper": {
-                        "width": "35",
-                        "class": "",
-                        "id": ""
-                    }
-                },
-                {
-                    "key": "field_cdl_mulher_diretoria_cargo",
-                    "label": "Cargo",
-                    "name": "cargo",
-                    "type": "text",
-                    "required": 0,
-                    "default_value": "",
-                    "placeholder": "",
-                    "wrapper": {
-                        "width": "35",
-                        "class": "",
-                        "id": ""
-                    }
-                },
-                {
-                    "key": "field_cdl_mulher_diretoria_foto",
-                    "label": "Foto",
-                    "name": "foto",
-                    "type": "image",
-                    "required": 0,
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
                     "wrapper": {
                         "width": "30",
                         "class": "",
                         "id": ""
                     }
+                },
+                {
+                    "key": "field_cdlm_stat_lab",
+                    "label": "Legenda",
+                    "name": "stat_label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    }
                 }
-            ],
+            ]
+        },
+        {
+            "key": "field_cdlm_sobre_tag",
+            "label": "6. Sobre — Etiqueta",
+            "name": "cdl_mulher_sobre_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Quem somos\".",
+            "required": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             }
         },
         {
-            "key": "field_cdl_mulher_objetivos",
-            "label": "Objetivos",
-            "name": "cdl_mulher_objetivos",
+            "key": "field_cdlm_sobre_title",
+            "label": "7. Sobre — Título",
+            "name": "cdl_mulher_sobre_title",
+            "type": "textarea",
+            "instructions": "Aceita quebra de linha.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_sobre_text",
+            "label": "8. Sobre — Texto descritivo",
+            "name": "cdl_mulher_sobre_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_sobre_img",
+            "label": "9. Sobre — Imagem ao lado do texto",
+            "name": "cdl_mulher_sobre_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_of_tag",
+            "label": "10. Oferecimentos — Etiqueta",
+            "name": "cdl_mulher_oferecimentos_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Oportunidades\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_of_title",
+            "label": "11. Oferecimentos — Título",
+            "name": "cdl_mulher_oferecimentos_title",
+            "type": "text",
+            "instructions": "Padrão: \"O que o CDL Mulher oferece\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_of_sub",
+            "label": "12. Oferecimentos — Subtítulo",
+            "name": "cdl_mulher_oferecimentos_sub",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_oferec",
+            "label": "13. Oferecimentos — Cards",
+            "name": "cdl_mulher_oferecimentos",
             "type": "repeater",
+            "instructions": "",
             "required": 0,
             "min": 0,
-            "max": 0,
+            "max": 12,
             "layout": "block",
-            "button_label": "Adicionar Objetivo",
+            "button_label": "Adicionar oferta",
             "sub_fields": [
                 {
-                    "key": "field_cdl_mulher_objetivos_title",
+                    "key": "field_cdlm_of_t",
                     "label": "Título",
-                    "name": "title",
+                    "name": "titulo",
                     "type": "text",
-                    "required": 0,
-                    "default_value": "",
-                    "placeholder": "",
+                    "instructions": "",
+                    "required": 1,
                     "wrapper": {
-                        "width": "50",
+                        "width": "35",
                         "class": "",
                         "id": ""
                     }
                 },
                 {
-                    "key": "field_cdl_mulher_objetivos_description",
+                    "key": "field_cdlm_of_d",
                     "label": "Descrição",
-                    "name": "description",
+                    "name": "descricao",
                     "type": "textarea",
+                    "instructions": "",
                     "required": 0,
-                    "default_value": "",
-                    "placeholder": "",
                     "rows": 3,
-                    "new_lines": "br",
+                    "new_lines": "",
                     "wrapper": {
-                        "width": "50",
+                        "width": "65",
                         "class": "",
                         "id": ""
                     }
                 }
-            ],
+            ]
+        },
+        {
+            "key": "field_cdlm_dir_tag",
+            "label": "14. Diretoria — Etiqueta",
+            "name": "cdl_mulher_diretoria_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Quem lidera\".",
+            "required": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_dir_title",
+            "label": "15. Diretoria — Título",
+            "name": "cdl_mulher_diretoria_title",
+            "type": "text",
+            "instructions": "Padrão: \"Diretoria CDL Mulher\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_diret",
+            "label": "16. Diretoria — Membros",
+            "name": "cdl_mulher_diretoria",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "min": 0,
+            "max": 20,
+            "layout": "block",
+            "button_label": "Adicionar membro",
+            "sub_fields": [
+                {
+                    "key": "field_cdlm_dir_n",
+                    "label": "Nome completo",
+                    "name": "nome",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_cdlm_dir_c",
+                    "label": "Cargo",
+                    "name": "cargo",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_cdlm_dir_f",
+                    "label": "Foto",
+                    "name": "foto",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_cdlm_quote_tag",
+            "label": "17. Quote (faixa escura) — Etiqueta",
+            "name": "cdl_mulher_quote_tag",
+            "type": "text",
+            "instructions": "Texto pequeno acima da citação. Padrão vazio.",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_quote_txt",
+            "label": "18. Quote — Texto da citação",
+            "name": "cdl_mulher_quote_texto",
+            "type": "textarea",
+            "instructions": "Frase em destaque na faixa escura. Aspas \" já são adicionadas no design.",
+            "required": 0,
+            "rows": 4,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_quote_aut",
+            "label": "19. Quote — Autor",
+            "name": "cdl_mulher_quote_autor",
+            "type": "text",
+            "instructions": "Padrão: \"— CDL Mulher Anápolis\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_cta_title",
+            "label": "20. CTA — Título",
+            "name": "cdl_mulher_cta_title",
+            "type": "textarea",
+            "instructions": "Aceita quebra de linha.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_cta_sub",
+            "label": "21. CTA — Subtítulo",
+            "name": "cdl_mulher_cta_subtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_cta_btn",
+            "label": "22. CTA — Texto do botão",
+            "name": "cdl_mulher_cta_btn_text",
+            "type": "text",
+            "instructions": "Padrão: \"Quero participar\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlm_cta_lk",
+            "label": "23. CTA — Link do botão",
+            "name": "cdl_mulher_cta_btn_link",
+            "type": "text",
+            "instructions": "Padrão: \"/associe-se/\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             }
@@ -161,5 +438,5 @@
     "active": true,
     "description": "Campos da página CDL Mulher",
     "show_in_rest": 0,
-    "modified": 1743292800
+    "modified": 1781033223
 }

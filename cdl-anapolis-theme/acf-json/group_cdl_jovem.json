@@ -3,141 +3,460 @@
     "title": "Página - CDL Jovem",
     "fields": [
         {
-            "key": "field_cdl_jovem_hero_image",
-            "label": "Hero - Imagem",
+            "key": "field_cdlj_hero_tag",
+            "label": "1. Hero — Etiqueta",
+            "name": "cdl_jovem_hero_tag",
+            "type": "text",
+            "instructions": "Pequena etiqueta acima do título. Padrão: \"Institucional\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_hero_title",
+            "label": "2. Hero — Título",
+            "name": "cdl_jovem_hero_title",
+            "type": "textarea",
+            "instructions": "Título grande do hero. Use Enter para quebrar linha. Padrão: \"O Futuro do Comércio\\nComeça Aqui\".",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_hero_sub",
+            "label": "3. Hero — Subtítulo",
+            "name": "cdl_jovem_hero_subtitle",
+            "type": "textarea",
+            "instructions": "Frase abaixo do título.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_hero_img",
+            "label": "4. Hero — Imagem de fundo (TOPO da página)",
             "name": "cdl_jovem_hero_image",
             "type": "image",
+            "instructions": "",
             "required": 0,
             "return_format": "array",
             "preview_size": "medium",
             "library": "all",
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             }
         },
         {
-            "key": "field_cdl_jovem_intro",
-            "label": "Introdução",
-            "name": "cdl_jovem_intro",
-            "type": "wysiwyg",
-            "required": 0,
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "key": "field_cdl_jovem_diretoria",
-            "label": "Diretoria CDL Jovem",
-            "name": "cdl_jovem_diretoria",
+            "key": "field_cdlj_stats",
+            "label": "5. Stats strip — Números em destaque",
+            "name": "cdl_jovem_stats",
             "type": "repeater",
+            "instructions": "Faixa de números abaixo do hero. Padrão: 6 Diretores · FCDL Representação estadual · CNDL Representação nacional.",
             "required": 0,
             "min": 0,
-            "max": 0,
+            "max": 6,
             "layout": "block",
-            "button_label": "Adicionar Membro",
+            "button_label": "Adicionar estatística",
             "sub_fields": [
                 {
-                    "key": "field_cdl_jovem_diretoria_nome",
-                    "label": "Nome",
-                    "name": "nome",
+                    "key": "field_cdlj_stat_num",
+                    "label": "Número/Texto destaque",
+                    "name": "stat_numero",
                     "type": "text",
+                    "instructions": "Ex.: \"6\", \"FCDL\", \"100+\".",
                     "required": 0,
-                    "default_value": "",
-                    "placeholder": "",
-                    "wrapper": {
-                        "width": "35",
-                        "class": "",
-                        "id": ""
-                    }
-                },
-                {
-                    "key": "field_cdl_jovem_diretoria_cargo",
-                    "label": "Cargo",
-                    "name": "cargo",
-                    "type": "text",
-                    "required": 0,
-                    "default_value": "",
-                    "placeholder": "",
-                    "wrapper": {
-                        "width": "35",
-                        "class": "",
-                        "id": ""
-                    }
-                },
-                {
-                    "key": "field_cdl_jovem_diretoria_foto",
-                    "label": "Foto",
-                    "name": "foto",
-                    "type": "image",
-                    "required": 0,
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
                     "wrapper": {
                         "width": "30",
                         "class": "",
                         "id": ""
                     }
+                },
+                {
+                    "key": "field_cdlj_stat_lab",
+                    "label": "Legenda",
+                    "name": "stat_label",
+                    "type": "text",
+                    "instructions": "Ex.: \"Diretores\", \"Representação estadual\".",
+                    "required": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    }
                 }
-            ],
+            ]
+        },
+        {
+            "key": "field_cdlj_sobre_tag",
+            "label": "6. Sobre — Etiqueta",
+            "name": "cdl_jovem_sobre_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Quem somos\".",
+            "required": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             }
         },
         {
-            "key": "field_cdl_jovem_objetivos",
-            "label": "Objetivos",
-            "name": "cdl_jovem_objetivos",
+            "key": "field_cdlj_sobre_title",
+            "label": "7. Sobre — Título",
+            "name": "cdl_jovem_sobre_title",
+            "type": "textarea",
+            "instructions": "Aceita quebra de linha.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_sobre_text",
+            "label": "8. Sobre — Texto descritivo",
+            "name": "cdl_jovem_sobre_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_sobre_img",
+            "label": "9. Sobre — Imagem ao lado do texto",
+            "name": "cdl_jovem_sobre_image",
+            "type": "image",
+            "instructions": "Tamanho recomendado: 640×480 pixels.",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_val_tag",
+            "label": "10. Valores — Etiqueta",
+            "name": "cdl_jovem_valores_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Nossos valores\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_val_title",
+            "label": "11. Valores — Título",
+            "name": "cdl_jovem_valores_title",
+            "type": "text",
+            "instructions": "Padrão: \"O que nos move\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_valores",
+            "label": "12. Valores — Cards",
+            "name": "cdl_jovem_valores",
             "type": "repeater",
+            "instructions": "Cards dos valores institucionais. Padrão: Paixão · Respeito · Profissionalismo.",
             "required": 0,
             "min": 0,
-            "max": 0,
+            "max": 6,
             "layout": "block",
-            "button_label": "Adicionar Objetivo",
+            "button_label": "Adicionar valor",
             "sub_fields": [
                 {
-                    "key": "field_cdl_jovem_objetivos_title",
-                    "label": "Título",
-                    "name": "title",
+                    "key": "field_cdlj_val_t",
+                    "label": "Título do valor",
+                    "name": "titulo",
                     "type": "text",
-                    "required": 0,
-                    "default_value": "",
-                    "placeholder": "",
+                    "instructions": "",
+                    "required": 1,
                     "wrapper": {
-                        "width": "50",
+                        "width": "35",
                         "class": "",
                         "id": ""
                     }
                 },
                 {
-                    "key": "field_cdl_jovem_objetivos_description",
+                    "key": "field_cdlj_val_d",
                     "label": "Descrição",
-                    "name": "description",
+                    "name": "descricao",
                     "type": "textarea",
+                    "instructions": "",
                     "required": 0,
-                    "default_value": "",
-                    "placeholder": "",
-                    "rows": 3,
-                    "new_lines": "br",
+                    "rows": 4,
+                    "new_lines": "",
                     "wrapper": {
-                        "width": "50",
+                        "width": "65",
                         "class": "",
                         "id": ""
                     }
                 }
-            ],
+            ]
+        },
+        {
+            "key": "field_cdlj_of_tag",
+            "label": "13. Oferecimentos — Etiqueta",
+            "name": "cdl_jovem_oferecimentos_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Oportunidades\".",
+            "required": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_of_title",
+            "label": "14. Oferecimentos — Título",
+            "name": "cdl_jovem_oferecimentos_title",
+            "type": "text",
+            "instructions": "Padrão: \"O que o CDL Jovem oferece\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_oferec",
+            "label": "15. Oferecimentos — Cards",
+            "name": "cdl_jovem_oferecimentos",
+            "type": "repeater",
+            "instructions": "Cards do que o programa oferece. Padrão: Networking, Capacitação, Mentoria, Eventos, Representação.",
+            "required": 0,
+            "min": 0,
+            "max": 10,
+            "layout": "block",
+            "button_label": "Adicionar oferta",
+            "sub_fields": [
+                {
+                    "key": "field_cdlj_of_t",
+                    "label": "Título",
+                    "name": "titulo",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_cdlj_of_d",
+                    "label": "Descrição",
+                    "name": "descricao",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "rows": 3,
+                    "new_lines": "",
+                    "wrapper": {
+                        "width": "65",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_cdlj_dir_tag",
+            "label": "16. Diretoria — Etiqueta",
+            "name": "cdl_jovem_diretoria_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Quem lidera\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_dir_title",
+            "label": "17. Diretoria — Título",
+            "name": "cdl_jovem_diretoria_title",
+            "type": "text",
+            "instructions": "Padrão: \"Diretoria CDL Jovem\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_diret",
+            "label": "18. Diretoria — Membros",
+            "name": "cdl_jovem_diretoria",
+            "type": "repeater",
+            "instructions": "Lista de membros da diretoria. Foto sticky scrollável aparece ao lado.",
+            "required": 0,
+            "min": 0,
+            "max": 20,
+            "layout": "block",
+            "button_label": "Adicionar membro",
+            "sub_fields": [
+                {
+                    "key": "field_cdlj_dir_n",
+                    "label": "Nome completo",
+                    "name": "nome",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_cdlj_dir_c",
+                    "label": "Cargo",
+                    "name": "cargo",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "key": "field_cdlj_dir_f",
+                    "label": "Foto",
+                    "name": "foto",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_cdlj_mis_tag",
+            "label": "19. Missão — Etiqueta",
+            "name": "cdl_jovem_missao_tag",
+            "type": "text",
+            "instructions": "Padrão: \"Missão\".",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_mis_txt",
+            "label": "20. Missão — Texto",
+            "name": "cdl_jovem_missao_texto",
+            "type": "textarea",
+            "instructions": "Frase central da seção Missão (faixa escura).",
+            "required": 0,
+            "rows": 4,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_cta_title",
+            "label": "21. CTA — Título",
+            "name": "cdl_jovem_cta_title",
+            "type": "textarea",
+            "instructions": "Texto grande do call-to-action gold. Aceita quebra de linha.",
+            "required": 0,
+            "rows": 2,
+            "new_lines": "",
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_cta_sub",
+            "label": "22. CTA — Subtítulo",
+            "name": "cdl_jovem_cta_subtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_cta_btn",
+            "label": "23. CTA — Texto do botão",
+            "name": "cdl_jovem_cta_btn_text",
+            "type": "text",
+            "instructions": "Padrão: \"Quero participar\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "key": "field_cdlj_cta_lk",
+            "label": "24. CTA — Link do botão",
+            "name": "cdl_jovem_cta_btn_link",
+            "type": "text",
+            "instructions": "Padrão: \"/associe-se/\".",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             }
@@ -161,5 +480,5 @@
     "active": true,
     "description": "Campos da página CDL Jovem",
     "show_in_rest": 0,
-    "modified": 1743292800
+    "modified": 1781033095
 }
