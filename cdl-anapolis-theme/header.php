@@ -61,6 +61,7 @@
                         <a href="/recrutamento/" class="mega-item"><div class="mi-ico mi-ico-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div><div><h5>Recrutamento</h5><p>Triagem de candidatos</p></div></a>
                         <a href="/exames-admissionais/" class="mega-item"><div class="mi-ico mi-ico-green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div><div><h5>Exames Admissionais</h5><p>Admissão, demissão e periódicos</p></div></a>
                         <a href="/gestao-esocial/" class="mega-item"><div class="mi-ico mi-ico-gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div><div><h5>Gestão E-social</h5><p>Envio correto sem multas</p></div></a>
+                        <a href="/certificado-digital-cdl/" class="mega-item"><div class="mi-ico mi-ico--img"><img src="<?php echo CDL_THEME_URI; ?>/assets/img/menu-icons/certificado-digital.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></div><div><h5>Certificado Digital</h5><p>A1 e A3 para PF e PJ</p></div></a>
                     </div>
                 </div>
                 <div class="mega-footer"><span>Quer acessar todos os benefícios?</span><a href="/associe-se/">Seja um associado &rarr;</a></div>
@@ -81,12 +82,13 @@
                         <a href="/nfe-nfce/" class="mega-item"><div class="mi-ico mi-ico--img"><img src="<?php echo CDL_THEME_URI; ?>/assets/img/menu-icons/nfe-nfce.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></div><div><h5>NF-e / NFC-e</h5><p>Notas fiscais eletrônicas</p></div></a>
                         <a href="/spc/" class="mega-item"><div class="mi-ico mi-ico--img"><img src="<?php echo CDL_THEME_URI; ?>/assets/img/menu-icons/spc.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></div><div><h5>SPC Brasil</h5><p>Proteção ao crédito</p></div></a>
                         <a href="/tempo-saude/" class="mega-item"><div class="mi-ico mi-ico--img"><img src="<?php echo CDL_THEME_URI; ?>/assets/img/menu-icons/tempo-saude.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></div><div><h5>Tempo &amp; Saúde</h5><p>Saúde ocupacional</p></div></a>
+                        <a href="/cdl-locacoes/" class="mega-item"><div class="mi-ico mi-ico--img"><img src="<?php echo CDL_THEME_URI; ?>/assets/img/menu-icons/espacos-corporativos.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></div><div><h5>CDL Locações</h5><p>Espaços corporativos para eventos</p></div></a>
                     </div>
                 </div>
                 <div class="mega-footer"><span>Precisa de ajuda para escolher?</span><a href="/fale-conosco/">Fale conosco &rarr;</a></div>
             </div>
         </div>
-        <a href="/quem-faz-parte/">Quem Faz Parte</a>
+        <a href="/balcao-do-mei/">Balcão do MEI</a>
         <a href="/informativo/">Notícias</a>
         <a href="/fale-conosco/">Fale Conosco</a>
     </div>
@@ -135,6 +137,7 @@
                 <a href="/recrutamento/">Recrutamento</a>
                 <a href="/exames-admissionais/">Exames Admissionais</a>
                 <a href="/gestao-esocial/">Gestão E-social</a>
+                <a href="/certificado-digital-cdl/">Certificado Digital</a>
             </div>
         </div>
         <div class="mobile-section">
@@ -146,10 +149,11 @@
                 <a href="/nfe-nfce/">NF-e / NFC-e</a>
                 <a href="/spc/">SPC Brasil</a>
                 <a href="/tempo-saude/">Tempo &amp; Saúde</a>
+                <a href="/cdl-locacoes/">CDL Locações</a>
             </div>
         </div>
         <div class="mobile-section">
-            <a href="/quem-faz-parte/" class="mobile-link">Quem Faz Parte</a>
+            <a href="/balcao-do-mei/" class="mobile-link">Balcão do MEI</a>
         </div>
         <div class="mobile-section">
             <a href="/informativo/" class="mobile-link">Notícias</a>

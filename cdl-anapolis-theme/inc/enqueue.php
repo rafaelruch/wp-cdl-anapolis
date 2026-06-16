@@ -92,8 +92,17 @@ function cdl_enqueue_assets() {
     }
 
 
-    if (is_page('quem-faz-parte')) {
-        wp_enqueue_style('cdl-associados', CDL_THEME_URI . '/assets/css/associados.css', [], CDL_THEME_VERSION);
+    // Balcão do MEI — reutiliza CSS planos.css (modal e botões) + JS dedicado
+    if (is_page('balcao-do-mei')) {
+        wp_enqueue_style('cdl-planos',     CDL_THEME_URI . '/assets/css/planos.css',     [], CDL_THEME_VERSION);
+        wp_enqueue_style('cdl-balcao-mei', CDL_THEME_URI . '/assets/css/balcao-mei.css', [], CDL_THEME_VERSION);
+        wp_enqueue_script(
+            'cdl-balcao-mei',
+            CDL_THEME_URI . '/assets/js/balcao-mei.js',
+            [],
+            CDL_THEME_VERSION,
+            true
+        );
     }
 
     // Área do Associado — box de login centralizado

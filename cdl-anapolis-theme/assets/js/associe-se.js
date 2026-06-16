@@ -66,6 +66,21 @@
                 openModal(btn.dataset.plano, btn.dataset.planoValor || '');
             });
         });
+
+        // Deep-link: /associe-se/?abrir=bronze → auto-clica no botão do BRONZE
+        // (vem do Balcão do MEI → "Já sou MEI"). Aceita qualquer plano_key.
+        var qs = new URLSearchParams(window.location.search);
+        var abrir = (qs.get('abrir') || '').toUpperCase();
+        if (abrir) {
+            var target = null;
+            ctaButtons.forEach(function (btn) {
+                if (!target && (btn.dataset.plano || '').toUpperCase() === abrir) target = btn;
+            });
+            if (target) {
+                // Aguarda um tick pra que outras inits terminem.
+                setTimeout(function () { target.click(); }, 80);
+            }
+        }
         closeEls.forEach(function (el) {
             el.addEventListener('click', closeModal);
         });

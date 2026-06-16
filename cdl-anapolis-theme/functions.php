@@ -213,9 +213,9 @@ add_action('init', function() {
  * novos slugs aqui para que execute em sites já atualizados.
  */
 add_action('init', function() {
-    if (get_option('cdl_fix_service_slugs_v1')) return;
+    if (get_option('cdl_fix_service_slugs_v2')) return;
 
-    $slugs = ['spc', 'cdl-celular', 'central-de-cobrancas', 'nfe-nfce', 'tempo-saude'];
+    $slugs = ['spc', 'cdl-celular', 'central-de-cobrancas', 'nfe-nfce', 'tempo-saude', 'cdl-locacoes', 'balcao-do-mei'];
     foreach ($slugs as $slug) {
         $att = get_posts(['post_type' => 'attachment', 'name' => $slug, 'numberposts' => 1, 'post_status' => 'inherit']);
         if ($att) {
@@ -224,7 +224,7 @@ add_action('init', function() {
     }
 
     flush_rewrite_rules(true);
-    update_option('cdl_fix_service_slugs_v1', true);
+    update_option('cdl_fix_service_slugs_v2', true);
 }, 5);
 
 /**
@@ -233,9 +233,9 @@ add_action('init', function() {
  * novos slugs para que o hook execute em sites já atualizados.
  */
 add_action('init', function() {
-    if (get_option('cdl_removed_pages_v3')) return;
+    if (get_option('cdl_removed_pages_v4')) return;
 
-    $removed_slugs = ['cdl-agencia', 'cdl-mais-voce', 'impostometro'];
+    $removed_slugs = ['cdl-agencia', 'cdl-mais-voce', 'impostometro', 'quem-faz-parte'];
     foreach ($removed_slugs as $slug) {
         $page = get_page_by_path($slug);
         if ($page) {
@@ -243,7 +243,7 @@ add_action('init', function() {
         }
     }
 
-    update_option('cdl_removed_pages_v3', true);
+    update_option('cdl_removed_pages_v4', true);
     flush_rewrite_rules(true);
 }, 15);
 
@@ -251,12 +251,16 @@ add_action('init', function() {
  * Cria páginas obrigatórias do tema se não existirem.
  */
 add_action('init', function() {
-    if (get_option('cdl_pages_created_v4')) return;
+    if (get_option('cdl_pages_created_v5')) return;
 
     $pages = [
         'area-associado' => [
             'post_title'    => 'Área do Associado',
             'page_template' => 'page-area-associado.php',
+        ],
+        'balcao-do-mei' => [
+            'post_title'    => 'Balcão do MEI',
+            'page_template' => 'page-balcao-do-mei.php',
         ],
         // Serviços (template page-servico.php) — slugs pareados com o
         // mega-menu de Serviços do header. certificado-digital-cdl já
@@ -279,6 +283,10 @@ add_action('init', function() {
         ],
         'tempo-saude' => [
             'post_title'    => 'Tempo & Saúde',
+            'page_template' => 'page-servico.php',
+        ],
+        'cdl-locacoes' => [
+            'post_title'    => 'CDL Locações',
             'page_template' => 'page-servico.php',
         ],
         // Novos benefícios (template page-beneficio.php)
@@ -345,7 +353,7 @@ add_action('init', function() {
         }
     }
 
-    update_option('cdl_pages_created_v4', true);
+    update_option('cdl_pages_created_v5', true);
     flush_rewrite_rules(true);
 }, 20);
 

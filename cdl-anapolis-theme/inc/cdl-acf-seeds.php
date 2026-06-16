@@ -829,6 +829,28 @@ function cdl_seed_servicos_data() {
             'cta_text'     => 'Networking exclusivo, recursos e serviços especializados para seu negócio prosperar.',
             'cta_link'     => '/fale-conosco/',
         ],
+        'cdl-locacoes' => [
+            'intro' => '<p>A CDL Anápolis oferece ambientes preparados para empresas, profissionais, entidades e instituições que buscam realizar reuniões, treinamentos, palestras, eventos corporativos e encontros estratégicos com conforto e credibilidade.</p><p>Nossos espaços contam com estrutura adequada para diferentes formatos de eventos, localização privilegiada e suporte especializado para garantir uma excelente experiência aos participantes.</p>',
+            'features' => [
+                ['title' => 'Sala de Reuniões',               'description' => 'Espaço ideal para reuniões empresariais, apresentações comerciais, entrevistas e encontros corporativos.'],
+                ['title' => 'Auditório para Eventos',         'description' => 'Estrutura preparada para palestras, workshops, treinamentos, assembleias e eventos institucionais.'],
+                ['title' => 'Equipamentos para Apresentação', 'description' => 'Disponibilidade de recursos audiovisuais para apresentações profissionais.'],
+                ['title' => 'Ambiente Climatizado',           'description' => 'Mais conforto para participantes durante todo o período do evento.'],
+                ['title' => 'Localização Estratégica',        'description' => 'Facilidade de acesso para empresas, parceiros e convidados.'],
+                ['title' => 'Suporte da Equipe CDL',          'description' => 'Atendimento dedicado para auxiliar na organização e realização do evento.'],
+            ],
+            'faqs' => [
+                ['question' => 'Quais espaços estão disponíveis para locação?',     'answer' => 'A CDL Anápolis disponibiliza salas de reunião, salas corporativas e auditório para eventos empresariais, treinamentos, palestras e encontros institucionais.'],
+                ['question' => 'Posso alugar o espaço por algumas horas?',           'answer' => 'Sim. Os espaços podem ser locados por hora, turno ou diária, conforme a necessidade do evento.'],
+                ['question' => 'Os espaços possuem equipamentos para apresentação?', 'answer' => 'Sim. Dependendo do ambiente escolhido, estão disponíveis equipamentos audiovisuais para apoio às apresentações.'],
+                ['question' => 'Qual a capacidade dos espaços?',                     'answer' => 'A capacidade varia conforme o ambiente contratado. Nossa equipe poderá indicar o espaço ideal de acordo com o número de participantes.'],
+                ['question' => 'Como solicitar um orçamento?',                       'answer' => 'Basta preencher o formulário de interesse ou entrar em contato com a CDL Anápolis para receber uma proposta personalizada.'],
+                ['question' => 'Posso realizar treinamentos e cursos no espaço?',    'answer' => 'Sim. Os ambientes foram preparados para receber treinamentos, workshops, cursos, reuniões empresariais e diversos formatos de eventos corporativos.'],
+            ],
+            'external_url' => '',
+            'cta_text'     => 'Fale com nossa equipe e receba uma proposta personalizada para o seu evento.',
+            'cta_link'     => '/fale-conosco/',
+        ],
         'tempo-saude' => [
             'intro' => '<p>Com o Tempo &amp; Saúde, você e seus dependentes têm acesso a consultas médicas, exames laboratoriais e de imagem a preços acessíveis, sem comprometer a qualidade. Sem carência, com telemedicina 24 horas por dia, 7 dias por semana, e descontos de até 35% em medicamentos.</p><p>Uma ampla rede privada de saúde com mais de 50 especialidades médicas, milhares de farmácias credenciadas em todo o país e parceria com Saúde iD e Hospital Oswaldo Cruz.</p>',
             'features' => [
@@ -853,7 +875,7 @@ function cdl_seed_servicos_data() {
 }
 
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_servicos_v1', function () {
+    cdl_seed_run('cdl_seed_servicos_v2', function () {
         foreach (cdl_seed_servicos_data() as $slug => $fb) {
             // Tenta o slug direto e também a variação certificado-digital-cdl
             $page = get_page_by_path($slug);
@@ -869,5 +891,45 @@ add_action('acf/init', function () {
             update_field('servico_cta_text',     $fb['cta_text'],     $page->ID);
             update_field('servico_cta_link',     $fb['cta_link'],     $page->ID);
         }
+    });
+});
+
+// =====================================================================
+// BALCÃO DO MEI — popula admin com o conteúdo institucional
+// =====================================================================
+add_action('acf/init', function () {
+    cdl_seed_run('cdl_seed_balcao_mei_v1', function () {
+        $page = get_page_by_path('balcao-do-mei');
+        if (!$page) return;
+
+        update_field('balcao_hero_tag',      'Serviço CDL', $page->ID);
+        update_field('balcao_hero_title',    'Balcão do MEI CDL Anápolis', $page->ID);
+        update_field('balcao_hero_subtitle', 'Formalize seu negócio com segurança, orientação e apoio de quem entende de empreendedorismo.', $page->ID);
+
+        update_field('balcao_intro', 'Com o Balcão do MEI da CDL Anápolis, você conta com suporte para abrir seu MEI, regularizar sua empresa e dar o próximo passo com mais tranquilidade.', $page->ID);
+
+        update_field('balcao_opt1_title', 'Quero abrir meu MEI', $page->ID);
+        update_field('balcao_opt1_desc',  'Preencha o formulário com seus dados e nossa equipe irá analisar as informações para iniciar o processo de abertura do seu MEI com segurança.', $page->ID);
+        update_field('balcao_opt1_cta',   'Cadastrar meu MEI', $page->ID);
+
+        update_field('balcao_opt2_title', 'Já sou MEI', $page->ID);
+        update_field('balcao_opt2_desc',  'Se você já possui MEI, conheça o Plano MEI da CDL Anápolis e tenha acesso a soluções, benefícios e suporte para fortalecer o seu negócio.', $page->ID);
+        update_field('balcao_opt2_cta',   'Conhecer Plano MEI', $page->ID);
+        update_field('balcao_opt2_link',  '/associe-se/?abrir=bronze#planos', $page->ID);
+
+        update_field('balcao_porque_title', 'Por que abrir seu MEI pela CDL Anápolis?', $page->ID);
+        update_field('balcao_porque_text',  'Abrir seu MEI com a CDL é contar com orientação especializada desde o primeiro passo. Nossa equipe auxilia no processo de formalização, evita erros no cadastro e ajuda você a entender melhor suas obrigações como empreendedor.', $page->ID);
+
+        update_field('balcao_beneficios', [
+            ['titulo' => 'Atendimento orientado',                        'descricao' => 'Suporte para preencher corretamente as informações necessárias.'],
+            ['titulo' => 'Mais segurança no cadastro',                   'descricao' => 'Evite erros na atividade, dados da empresa e informações obrigatórias.'],
+            ['titulo' => 'Apoio após a formalização',                    'descricao' => 'Você não fica sozinho depois de abrir o MEI.'],
+            ['titulo' => 'Acesso ao Plano MEI CDL',                      'descricao' => 'Benefícios exclusivos para quem quer crescer com mais estrutura.'],
+            ['titulo' => 'Facilidade para emitir notas e se regularizar', 'descricao' => 'Orientação para deixar sua empresa pronta para vender mais.'],
+        ], $page->ID);
+
+        update_field('balcao_cta_title', 'Comece seu negócio do jeito certo.', $page->ID);
+        update_field('balcao_cta_text',  'A CDL Anápolis está pronta para ajudar você a transformar sua ideia em uma empresa formalizada, regular e preparada para crescer.', $page->ID);
+        update_field('balcao_cta_btn',   'Cadastrar meu MEI', $page->ID);
     });
 });

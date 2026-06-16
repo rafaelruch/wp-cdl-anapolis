@@ -58,6 +58,14 @@ $icon_sets = [
         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
         '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
     ],
+    'cdl-locacoes' => [
+        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
+        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+        '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+    ],
 ];
 
 // Fallback data per slug
@@ -223,6 +231,40 @@ $fallbacks = [
         'external_url' => 'https://sistema.spc.org.br/spc/controleacesso/autenticacao/entry.action',
         'hero_img' => 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80',
     ],
+    'cdl-locacoes' => [
+        'tag'      => 'Serviço',
+        'subtitle' => 'Espaços corporativos completos para reuniões, treinamentos, palestras, eventos empresariais e encontros estratégicos.',
+        'intro'    => '<p>A CDL Anápolis oferece ambientes preparados para empresas, profissionais, entidades e instituições que buscam realizar reuniões, treinamentos, palestras, eventos corporativos e encontros estratégicos com conforto e credibilidade.</p><p>Nossos espaços contam com estrutura adequada para diferentes formatos de eventos, localização privilegiada e suporte especializado para garantir uma excelente experiência aos participantes.</p>',
+        'split_img' => 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+        'split_highlights' => [
+            'Salas comerciais para reuniões e atendimentos',
+            'Auditório para palestras, treinamentos e eventos',
+            'Espaços climatizados e confortáveis',
+            'Localização estratégica e fácil acesso',
+        ],
+        'features' => [
+            ['title' => 'Sala de Reuniões',           'description' => 'Espaço ideal para reuniões empresariais, apresentações comerciais, entrevistas e encontros corporativos.'],
+            ['title' => 'Auditório para Eventos',     'description' => 'Estrutura preparada para palestras, workshops, treinamentos, assembleias e eventos institucionais.'],
+            ['title' => 'Equipamentos para Apresentação', 'description' => 'Disponibilidade de recursos audiovisuais para apresentações profissionais.'],
+            ['title' => 'Ambiente Climatizado',       'description' => 'Mais conforto para participantes durante todo o período do evento.'],
+            ['title' => 'Localização Estratégica',    'description' => 'Facilidade de acesso para empresas, parceiros e convidados.'],
+            ['title' => 'Suporte da Equipe CDL',      'description' => 'Atendimento dedicado para auxiliar na organização e realização do evento.'],
+        ],
+        'has_pricing' => false,
+        'faqs' => [
+            ['q' => 'Quais espaços estão disponíveis para locação?', 'a' => 'A CDL Anápolis disponibiliza salas de reunião, salas corporativas e auditório para eventos empresariais, treinamentos, palestras e encontros institucionais.'],
+            ['q' => 'Posso alugar o espaço por algumas horas?',       'a' => 'Sim. Os espaços podem ser locados por hora, turno ou diária, conforme a necessidade do evento.'],
+            ['q' => 'Os espaços possuem equipamentos para apresentação?', 'a' => 'Sim. Dependendo do ambiente escolhido, estão disponíveis equipamentos audiovisuais para apoio às apresentações.'],
+            ['q' => 'Qual a capacidade dos espaços?',                  'a' => 'A capacidade varia conforme o ambiente contratado. Nossa equipe poderá indicar o espaço ideal de acordo com o número de participantes.'],
+            ['q' => 'Como solicitar um orçamento?',                    'a' => 'Basta preencher o formulário de interesse ou entrar em contato com a CDL Anápolis para receber uma proposta personalizada.'],
+            ['q' => 'Posso realizar treinamentos e cursos no espaço?', 'a' => 'Sim. Os ambientes foram preparados para receber treinamentos, workshops, cursos, reuniões empresariais e diversos formatos de eventos corporativos.'],
+        ],
+        'cta_title' => 'Quer reservar um espaço<br>na CDL Anápolis?',
+        'cta_text' => 'Fale com nossa equipe e receba uma proposta personalizada para o seu evento.',
+        'cta_link' => '/fale-conosco/',
+        'external_url' => '',
+        'hero_img' => 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80',
+    ],
     'tempo-saude' => [
         'tag'      => 'Serviço',
         'subtitle' => 'Cuidar da saúde ficou mais fácil — planos a partir de R$ 20/mês com 50+ especialidades.',
@@ -286,6 +328,7 @@ $all_services = [
     'central-de-cobrancas'  => ['title' => 'Central de Cobranças', 'desc' => 'Recuperação de dívidas com abordagem ética.'],
     'nfe-nfce'              => ['title' => 'NF-e / NFC-e',        'desc' => 'Agilidade, economia e conformidade fiscal.'],
     'tempo-saude'           => ['title' => 'Tempo & Saúde',       'desc' => 'Saúde a partir de R$ 20/mês, 50+ especialidades.'],
+    'cdl-locacoes'          => ['title' => 'CDL Locações',         'desc' => 'Espaços corporativos para reuniões e eventos.'],
 ];
 ?>
 
@@ -340,6 +383,10 @@ $all_services = [
                 <div class="ao"><span class="conv-social-strip__number">R$ 20</span><span class="conv-social-strip__label">A partir de / mês</span></div>
                 <div class="ao ao-d1"><span class="conv-social-strip__number">50+</span><span class="conv-social-strip__label">Especialidades médicas</span></div>
                 <div class="ao ao-d2"><span class="conv-social-strip__number">35%</span><span class="conv-social-strip__label">Desconto em medicamentos</span></div>
+            <?php elseif ($slug === 'cdl-locacoes'): ?>
+                <div class="ao"><span class="conv-social-strip__number">+500</span><span class="conv-social-strip__label">Eventos realizados</span></div>
+                <div class="ao ao-d1"><span class="conv-social-strip__number">Ambientes</span><span class="conv-social-strip__label">Climatizados</span></div>
+                <div class="ao ao-d2"><span class="conv-social-strip__number">Localização</span><span class="conv-social-strip__label">Privilegiada</span></div>
             <?php endif; ?>
         </div>
     </div>

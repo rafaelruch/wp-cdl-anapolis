@@ -1,0 +1,187 @@
+{
+    "key": "group_balcao_mei",
+    "title": "Página - Balcão do MEI",
+    "fields": [
+        {
+            "key": "field_balcao_hero_image",
+            "label": "1. Hero - Imagem de fundo",
+            "name": "balcao_hero_image",
+            "type": "image",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_balcao_hero_tag",
+            "label": "2. Hero - Tag (etiqueta acima do título)",
+            "name": "balcao_hero_tag",
+            "type": "text",
+            "default_value": "Serviço CDL"
+        },
+        {
+            "key": "field_balcao_hero_title",
+            "label": "3. Hero - Título",
+            "name": "balcao_hero_title",
+            "type": "text",
+            "default_value": "Balcão do MEI CDL Anápolis"
+        },
+        {
+            "key": "field_balcao_hero_subtitle",
+            "label": "4. Hero - Subtítulo",
+            "name": "balcao_hero_subtitle",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": "",
+            "default_value": "Formalize seu negócio com segurança, orientação e apoio de quem entende de empreendedorismo."
+        },
+        {
+            "key": "field_balcao_intro",
+            "label": "5. Introdução (texto central abaixo do hero)",
+            "name": "balcao_intro",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "Com o Balcão do MEI da CDL Anápolis, você conta com suporte para abrir seu MEI, regularizar sua empresa e dar o próximo passo com mais tranquilidade."
+        },
+        {
+            "key": "field_balcao_opt1_title",
+            "label": "6. Opção 1 - Título (Quero abrir meu MEI)",
+            "name": "balcao_opt1_title",
+            "type": "text",
+            "default_value": "Quero abrir meu MEI"
+        },
+        {
+            "key": "field_balcao_opt1_desc",
+            "label": "7. Opção 1 - Descrição",
+            "name": "balcao_opt1_desc",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "Preencha o formulário com seus dados e nossa equipe irá analisar as informações para iniciar o processo de abertura do seu MEI com segurança."
+        },
+        {
+            "key": "field_balcao_opt1_cta",
+            "label": "8. Opção 1 - Texto do botão",
+            "name": "balcao_opt1_cta",
+            "type": "text",
+            "default_value": "Cadastrar meu MEI"
+        },
+        {
+            "key": "field_balcao_opt2_title",
+            "label": "9. Opção 2 - Título (Já sou MEI)",
+            "name": "balcao_opt2_title",
+            "type": "text",
+            "default_value": "Já sou MEI"
+        },
+        {
+            "key": "field_balcao_opt2_desc",
+            "label": "10. Opção 2 - Descrição",
+            "name": "balcao_opt2_desc",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "Se você já possui MEI, conheça o Plano MEI da CDL Anápolis e tenha acesso a soluções, benefícios e suporte para fortalecer o seu negócio."
+        },
+        {
+            "key": "field_balcao_opt2_cta",
+            "label": "11. Opção 2 - Texto do botão",
+            "name": "balcao_opt2_cta",
+            "type": "text",
+            "default_value": "Conhecer Plano MEI"
+        },
+        {
+            "key": "field_balcao_opt2_link",
+            "label": "12. Opção 2 - Link do botão",
+            "name": "balcao_opt2_link",
+            "type": "text",
+            "instructions": "Deixe /associe-se/?abrir=bronze#planos para abrir o modal do plano BRONZE automaticamente.",
+            "default_value": "/associe-se/?abrir=bronze#planos"
+        },
+        {
+            "key": "field_balcao_porque_title",
+            "label": "13. Por que abrir - Título",
+            "name": "balcao_porque_title",
+            "type": "text",
+            "default_value": "Por que abrir seu MEI pela CDL Anápolis?"
+        },
+        {
+            "key": "field_balcao_porque_text",
+            "label": "14. Por que abrir - Texto",
+            "name": "balcao_porque_text",
+            "type": "textarea",
+            "rows": 4,
+            "new_lines": "",
+            "default_value": "Abrir seu MEI com a CDL é contar com orientação especializada desde o primeiro passo. Nossa equipe auxilia no processo de formalização, evita erros no cadastro e ajuda você a entender melhor suas obrigações como empreendedor."
+        },
+        {
+            "key": "field_balcao_beneficios",
+            "label": "15. Benefícios (cards)",
+            "name": "balcao_beneficios",
+            "type": "repeater",
+            "instructions": "Cards de benefícios que aparecem na grade após \"Por que abrir\".",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Adicionar benefício",
+            "sub_fields": [
+                {
+                    "key": "field_balcao_beneficios_titulo",
+                    "label": "Título",
+                    "name": "titulo",
+                    "type": "text"
+                },
+                {
+                    "key": "field_balcao_beneficios_descricao",
+                    "label": "Descrição",
+                    "name": "descricao",
+                    "type": "textarea",
+                    "rows": 2,
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
+            "key": "field_balcao_cta_title",
+            "label": "16. CTA final - Título",
+            "name": "balcao_cta_title",
+            "type": "text",
+            "default_value": "Comece seu negócio do jeito certo."
+        },
+        {
+            "key": "field_balcao_cta_text",
+            "label": "17. CTA final - Texto",
+            "name": "balcao_cta_text",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": "",
+            "default_value": "A CDL Anápolis está pronta para ajudar você a transformar sua ideia em uma empresa formalizada, regular e preparada para crescer."
+        },
+        {
+            "key": "field_balcao_cta_btn",
+            "label": "18. CTA final - Texto do botão",
+            "name": "balcao_cta_btn",
+            "type": "text",
+            "default_value": "Cadastrar meu MEI"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-balcao-do-mei.php"
+            }
+        ]
+    ],
+    "menu_order": 22,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da página Balcão do MEI",
+    "show_in_rest": 0,
+    "modified": 1781265600
+}

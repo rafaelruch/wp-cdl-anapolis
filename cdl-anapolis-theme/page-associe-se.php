@@ -112,8 +112,10 @@ if (!$planos) {
                 $classes = 'plano-card plano-card--' . sanitize_html_class($p_key) . ' ao';
                 if ($i > 0) $classes .= ' ao-d' . min($i, 4);
                 if ($p_hi) $classes .= ' plano-card--highlight';
+                // id="plano-bronze" etc. permite deep-link e ancoragem direta.
+                $plano_id = 'plano-' . sanitize_html_class($p_key);
             ?>
-            <div class="<?php echo esc_attr($classes); ?>">
+            <div class="<?php echo esc_attr($classes); ?>" id="<?php echo esc_attr($plano_id); ?>">
                 <h3 class="plano-card__name"><?php echo esc_html($p_name); ?></h3>
                 <?php if ($p_desc): ?>
                 <p class="plano-card__desc"><?php echo wp_kses($p_desc, ['strong' => [], 'em' => [], 'br' => []]); ?></p>

@@ -1,0 +1,80 @@
+/**
+ * Página /balcao-do-mei/
+ * Cards de opção (abrir MEI / já sou MEI) — usam o modal compartilhado do
+ * planos.css. Aqui ficam só as regras específicas dos cards e do botão CTA.
+ */
+
+.balcao-opcoes__grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:clamp(20px,2.4vw,32px);
+    max-width:920px;
+    margin:0 auto;
+}
+
+.balcao-card{
+    background:#fff;
+    border:1px solid rgba(3,66,142,.08);
+    border-radius:var(--radius-xl,18px);
+    padding:clamp(24px,3vw,36px);
+    box-shadow:0 1px 2px rgba(0,0,0,.03), 0 8px 24px rgba(3,66,142,.05);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    transition:transform .25s, box-shadow .25s;
+}
+.balcao-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 4px 8px rgba(0,0,0,.04), 0 14px 36px rgba(3,66,142,.1);
+}
+
+.balcao-card__head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+.balcao-card__ico{
+    width:48px;height:48px;
+    border-radius:12px;
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(3,66,142,.07);
+    color:var(--blue);
+}
+.balcao-card__ico--gold{
+    background:rgba(255,180,0,.12);
+    color:#b89a00;
+}
+.balcao-card h3{
+    font-family:'Sora','Inter',system-ui,sans-serif;
+    font-size:clamp(1.05rem,1.6vw,1.25rem);
+    font-weight:700;
+    color:var(--dark,#0a0a0a);
+    line-height:1.25;
+    margin:0;
+}
+.balcao-card p{
+    color:var(--gray,#5f6368);
+    font-size:.92rem;
+    line-height:1.55;
+    margin:0;
+    flex:1;
+}
+.balcao-card__cta{
+    align-self:flex-start;
+    margin-top:6px;
+}
+
+@media (max-width:720px){
+    .balcao-opcoes__grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* Grade dos benefícios — herda .page-features__grid de pages.css quando
+   carregado; aqui garantimos o fallback caso o CSS não esteja presente. */
+.page-features__grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:clamp(16px,2vw,24px);
+}
