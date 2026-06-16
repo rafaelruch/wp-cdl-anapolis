@@ -91,6 +91,8 @@
 .mi-ico-blue{background:rgba(3,66,142,.07);color:var(--blue)}
 .mi-ico-gold{background:rgba(255,214,0,.12);color:#b89a00}
 .mi-ico-green{background:rgba(0,135,67,.07);color:#008743}
+.mi-ico--img{background:transparent;padding:0}
+.mi-ico--img img{width:100%;height:100%;object-fit:contain;display:block}
 .mega-item h5{font-family:'Sora';font-size:.82rem;font-weight:600;color:var(--dark);margin-bottom:2px}
 .mega-item p{font-size:.72rem;color:var(--gray);line-height:1.4}
 .mega-footer{
