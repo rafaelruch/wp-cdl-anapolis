@@ -1,4 +1,31 @@
-/* Economy — só o widget do Impostômetro centralizado */
+/* Economy — Impostômetro + Gastômetro lado a lado */
+.eco-contadores{
+  margin:clamp(40px,5vw,56px) auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:clamp(20px,2.5vw,32px);
+  max-width:1180px;
+  align-items:start;
+}
+.eco-contadores__item{
+  display:flex;
+  justify-content:center;
+}
+.eco-contadores__item > .impostometro-cdl,
+.eco-contadores__item > .gastometro-cdl{
+  width:100%;
+  max-width:560px;
+}
+
+@media (max-width:900px){
+  .eco-contadores{
+    grid-template-columns:1fr;
+    max-width:560px;
+  }
+}
+
+/* Mantém compat retroativa caso o iframe antigo ainda renderize em algum
+   cache HTML. Pode ser removido depois de uma rodada de purge. */
 .eco-iframe{
   margin:clamp(40px,5vw,56px) auto 0;
   max-width:768px;
@@ -8,10 +35,5 @@
   box-shadow:0 16px 48px rgba(3,66,142,.08);
   display:flex;justify-content:center;
 }
-.eco-iframe iframe{
-  display:block;width:100%;max-width:728px;border:0;
-}
-
-@media(max-width:768px){
-  .eco-iframe{padding:12px}
-}
+.eco-iframe iframe{display:block;width:100%;max-width:728px;border:0}
+@media(max-width:768px){.eco-iframe{padding:12px}}

@@ -25,6 +25,13 @@ require_once CDL_THEME_DIR . '/inc/cpt-informativo.php';
 require_once CDL_THEME_DIR . '/inc/cpt-depoimentos.php';
 require_once CDL_THEME_DIR . '/inc/cpt-associados.php';
 
+// Contadores (Impostômetro + Gastômetro) — código original dos plugins
+// "Impostômetro CDL Anápolis" e "Gastômetro CDL Anápolis" do Matheus
+// Rezende, embarcado no tema pra dispensar instalação manual de plugin.
+// Disponibiliza os shortcodes [impostometro_cdl] e [gastometro_cdl].
+require_once CDL_THEME_DIR . '/inc/contadores/impostometro.php';
+require_once CDL_THEME_DIR . '/inc/contadores/gastometro.php';
+
 // ACF Configuration
 require_once CDL_THEME_DIR . '/inc/acf-fields.php';
 
