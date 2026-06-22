@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_beneficio_hero_image",
-            "label": "Imagem do Hero",
+            "label": "1. Imagem do Hero (topo da página)",
             "name": "beneficio_hero_image",
             "type": "image",
             "return_format": "array",
@@ -12,13 +12,37 @@
             "wrapper": {"width": "50", "class": "", "id": ""}
         },
         {
+            "key": "field_beneficio_highlight_image",
+            "label": "2. Imagem da seção \"Por que escolher este benefício?\"",
+            "name": "beneficio_highlight_image",
+            "type": "image",
+            "instructions": "Imagem grande exibida ao lado da lista de vantagens. Recomendado 800x600px.",
+            "return_format": "array",
+            "preview_size": "medium",
+            "wrapper": {"width": "50", "class": "", "id": ""}
+        },
+        {
             "key": "field_beneficio_intro",
-            "label": "Texto de Introdução",
+            "label": "3. Texto de Introdução",
             "name": "beneficio_intro",
             "type": "wysiwyg",
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 1
+        },
+        {
+            "key": "field_beneficio_highlights",
+            "label": "4. Principais vantagens (lista da seção split)",
+            "name": "beneficio_highlights",
+            "type": "repeater",
+            "instructions": "Itens da lista mostrada ao lado da imagem na seção \"Por que escolher este benefício?\".",
+            "min": 0,
+            "max": 10,
+            "layout": "table",
+            "button_label": "Adicionar item",
+            "sub_fields": [
+                {"key": "field_beneficio_highlights_texto", "label": "Texto", "name": "texto", "type": "text"}
+            ]
         },
         {
             "key": "field_beneficio_features",

@@ -16,10 +16,19 @@ $sidebar_posts = new WP_Query([
     'update_post_term_cache' => false,
     'ignore_sticky_posts'    => true,
 ]);
+
+// Hero da notícia interna: featured image > ACF Options (fallback global) > URL hardcoded.
+$has_acf = function_exists('get_field');
+if (has_post_thumbnail()) {
+    $hero_img_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+} else {
+    $hero_field   = $has_acf ? get_field('informativo_single_hero_image', 'option') : null;
+    $hero_img_url = $hero_field ? $hero_field['url'] : 'https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=1920&q=80';
+}
 ?>
 
 <!-- Page Hero -->
-<section class="page-hero" style="<?php if (has_post_thumbnail()): ?>background-image:url('<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>')<?php else: ?>background-image:url('https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=1920&q=80')<?php endif; ?>">
+<section class="page-hero" style="background-image:url('<?php echo esc_url($hero_img_url); ?>')">
     <div class="page-hero__overlay"></div>
     <div class="wrap page-hero__content">
         <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)"><?php echo get_the_date('d M Y'); ?></div>

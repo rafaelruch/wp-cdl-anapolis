@@ -208,6 +208,15 @@
                 "class": "",
                 "id": ""
             }
+        },
+        {
+            "key": "field_hf_area_associado_hero_image",
+            "label": "Área do Associado — Imagem do Hero",
+            "name": "area_associado_hero_image",
+            "type": "image",
+            "instructions": "Imagem de fundo do hero da página /area-associado/. Recomendado 1920x720px.",
+            "return_format": "array",
+            "preview_size": "medium"
         }
     ],
     "location": [

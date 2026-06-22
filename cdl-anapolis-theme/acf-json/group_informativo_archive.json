@@ -1,0 +1,75 @@
+{
+    "key": "group_informativo_archive",
+    "title": "Notícias — Página de Arquivo e Notícia Interna",
+    "fields": [
+        {
+            "key": "field_inf_archive_hero_image",
+            "label": "1. Imagem do Hero (página /informativo/)",
+            "name": "informativo_archive_hero_image",
+            "type": "image",
+            "instructions": "Imagem de fundo do topo da listagem de notícias. Recomendado 1920x720px.",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_inf_archive_hero_tag",
+            "label": "2. Hero - Etiqueta (acima do título)",
+            "name": "informativo_archive_hero_tag",
+            "type": "text",
+            "default_value": "Eventos e Notícias"
+        },
+        {
+            "key": "field_inf_archive_hero_title",
+            "label": "3. Hero - Título",
+            "name": "informativo_archive_hero_title",
+            "type": "text",
+            "default_value": "Notícias CDL"
+        },
+        {
+            "key": "field_inf_archive_hero_subtitle",
+            "label": "4. Hero - Subtítulo",
+            "name": "informativo_archive_hero_subtitle",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": "",
+            "default_value": "Fique por dentro de tudo que acontece no comércio de Anápolis e na nossa comunidade."
+        },
+        {
+            "key": "field_inf_placeholder_image",
+            "label": "5. Imagem padrão de notícia (quando a notícia não tiver imagem destacada)",
+            "name": "informativo_placeholder_image",
+            "type": "image",
+            "instructions": "Usada como fallback nos cards do home, listagem e topo da notícia interna quando a notícia não tem imagem destacada própria.",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_inf_single_hero_image",
+            "label": "6. Imagem padrão do topo da notícia interna",
+            "name": "informativo_single_hero_image",
+            "type": "image",
+            "instructions": "Usada no hero de cada notícia individual quando a notícia não tem imagem destacada. Recomendado 1920x720px.",
+            "return_format": "array",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "cdl-config-homepage"
+            }
+        ]
+    ],
+    "menu_order": 23,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Imagens e textos das páginas de notícia (arquivo /informativo/ e notícia interna)",
+    "show_in_rest": 0,
+    "modified": 1781265600
+}

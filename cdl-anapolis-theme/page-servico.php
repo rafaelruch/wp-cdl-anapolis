@@ -312,13 +312,42 @@ $features     = get_field('servico_features') ?: $fb['features'];
 $cta_link     = get_field('servico_cta_link') ?: $fb['cta_link'];
 $external_url = get_field('servico_external_url') ?: $fb['external_url'];
 
+// Imagem e lista de destaques da seção "Por que escolher este serviço?".
+// Cliente sobe a imagem em ACF (servico_split_image); se vazia, cai no
+// fallback do array $fb. Mesmo padrão pros highlights — repeater ACF
+// (servico_split_highlights) > fallback.
+$split_img_field = get_field('servico_split_image');
+$split_img = $split_img_field ? $split_img_field['url'] : ($fb['split_img'] ?? $fb['hero_img']);
+
+$split_highlights_acf = get_field('servico_split_highlights');
+if ($split_highlights_acf && is_array($split_highlights_acf)) {
+    $split_highlights = array_map(function ($row) {
+        return is_array($row) ? ($row['texto'] ?? '') : $row;
+    }, $split_highlights_acf);
+    $split_highlights = array_values(array_filter($split_highlights, 'strlen'));
+} else {
+    $split_highlights = $fb['split_highlights'] ?? [];
+}
+
 // CTA via WhatsApp — quando a fallback do serviço definir uma mensagem,
 // o botão final aponta para wa.me com o texto pré-preenchido.
 $cta_whatsapp_msg = $fb['cta_whatsapp_message'] ?? '';
 $whatsapp_number  = function_exists('get_field') ? (get_field('whatsapp_number', 'option') ?: '5562991933275') : '5562991933275';
-$faqs = $fb['faqs'] ?? [];
-$split_highlights = $fb['split_highlights'] ?? [];
-$split_img = $fb['split_img'] ?? $fb['hero_img'];
+
+// FAQs: ACF (servico_faqs) > fallback. ACF usa keys question/answer; o
+// template usa q/a — normaliza pra um shape único antes de renderizar.
+$faqs_acf = get_field('servico_faqs');
+if ($faqs_acf && is_array($faqs_acf)) {
+    $faqs = array_map(function ($f) {
+        return [
+            'q' => $f['question'] ?? $f['q'] ?? '',
+            'a' => $f['answer']   ?? $f['a'] ?? '',
+        ];
+    }, $faqs_acf);
+    $faqs = array_values(array_filter($faqs, function ($f) { return $f['q'] !== ''; }));
+} else {
+    $faqs = $fb['faqs'] ?? [];
+}
 
 // All services for cross-linking
 $all_services = [

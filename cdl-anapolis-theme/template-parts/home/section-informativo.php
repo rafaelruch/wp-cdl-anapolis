@@ -11,6 +11,10 @@ $nt_tag  = ($has_acf ? get_field('noticias_tag', 'option')        : '') ?: 'Even
 $nt_ttl  = ($has_acf ? get_field('noticias_title', 'option')      : '') ?: 'Notícias CDL';
 $nt_dsc  = ($has_acf ? get_field('noticias_desc', 'option')       : '') ?: 'Fique por dentro do que acontece no comércio de Anápolis.';
 $nt_lnk  = ($has_acf ? get_field('noticias_link_text', 'option')  : '') ?: 'Ver todas as notícias';
+
+// Placeholder dos cards sem featured image — administrável via Options.
+$placeholder_field = $has_acf ? get_field('informativo_placeholder_image', 'option') : null;
+$placeholder_url   = $placeholder_field ? $placeholder_field['url'] : 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop';
 ?>
 
 <section class="info-sec" id="informativo" style="background:var(--light)" aria-label="Notícias CDL">
@@ -34,7 +38,7 @@ $nt_lnk  = ($has_acf ? get_field('noticias_link_text', 'option')  : '') ?: 'Ver 
                             <?php if (has_post_thumbnail()): ?>
                                 <?php the_post_thumbnail('medium_large', ['loading' => 'lazy', 'style' => 'width:100%;height:100%;object-fit:cover']); ?>
                             <?php else: ?>
-                                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop" alt="" loading="lazy">
+                                <img src="<?php echo esc_url($placeholder_url); ?>" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover">
                             <?php endif; ?>
                         </div>
                         <div class="info-card-body">

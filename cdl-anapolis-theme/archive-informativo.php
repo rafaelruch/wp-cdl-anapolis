@@ -15,15 +15,25 @@ $sidebar_posts = new WP_Query([
     'update_post_term_cache' => false,
     'ignore_sticky_posts'    => true,
 ]);
+
+// ACF Options (CDL Config → Homepage → Notícias)
+$has_acf       = function_exists('get_field');
+$hero_image    = $has_acf ? get_field('informativo_archive_hero_image', 'option') : null;
+$hero_img_url  = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=1920&q=80';
+$hero_tag      = ($has_acf ? get_field('informativo_archive_hero_tag',      'option') : '') ?: 'Eventos e Notícias';
+$hero_title    = ($has_acf ? get_field('informativo_archive_hero_title',    'option') : '') ?: 'Notícias CDL';
+$hero_subtitle = ($has_acf ? get_field('informativo_archive_hero_subtitle', 'option') : '') ?: 'Fique por dentro de tudo que acontece no comércio de Anápolis e na nossa comunidade.';
+$placeholder_field = $has_acf ? get_field('informativo_placeholder_image', 'option') : null;
+$placeholder_url   = $placeholder_field ? $placeholder_field['url'] : 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop';
 ?>
 
 <!-- Page Hero -->
-<section class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=1920&q=80')">
+<section class="page-hero" style="background-image:url('<?php echo esc_url($hero_img_url); ?>')">
     <div class="page-hero__overlay"></div>
     <div class="wrap page-hero__content">
-        <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)">Eventos e Notícias</div>
-        <h1 class="page-hero__title ao ao-d1">Notícias CDL</h1>
-        <p class="page-hero__sub ao ao-d2">Fique por dentro de tudo que acontece no comércio de Anápolis e na nossa comunidade.</p>
+        <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)"><?php echo esc_html($hero_tag); ?></div>
+        <h1 class="page-hero__title ao ao-d1"><?php echo esc_html($hero_title); ?></h1>
+        <p class="page-hero__sub ao ao-d2"><?php echo esc_html($hero_subtitle); ?></p>
     </div>
 </section>
 
@@ -55,7 +65,7 @@ $sidebar_posts = new WP_Query([
                             <?php if (has_post_thumbnail()): ?>
                                 <?php the_post_thumbnail('medium_large', ['loading' => 'lazy', 'style' => 'width:100%;height:100%;object-fit:cover']); ?>
                             <?php else: ?>
-                                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop" alt="" loading="lazy">
+                                <img src="<?php echo esc_url($placeholder_url); ?>" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover">
                             <?php endif; ?>
                         </div>
                         <div class="info-card-body">
