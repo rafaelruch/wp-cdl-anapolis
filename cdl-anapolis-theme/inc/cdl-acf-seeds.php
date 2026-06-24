@@ -180,48 +180,378 @@ add_action('acf/init', function () {
 });
 
 // =====================================================================
-// LGPD
+// LGPD — Política de Privacidade completa (texto oficial do cliente)
 // =====================================================================
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_lgpd_v1', function () {
+    cdl_seed_run('cdl_seed_lgpd_v2', function () {
         $page = get_page_by_path('lgpd');
         if (!$page) return;
 
         update_field('lgpd_hero_tag',      'Institucional', $page->ID);
-        update_field('lgpd_hero_title',    "Política de Privacidade\ne LGPD", $page->ID);
-        update_field('lgpd_hero_subtitle', 'Transparência e proteção de dados pessoais em conformidade com a Lei Geral de Proteção de Dados.', $page->ID);
+        update_field('lgpd_hero_title',    "Política de Privacidade\ne Proteção de Dados", $page->ID);
+        update_field('lgpd_hero_subtitle', 'A CDL Anápolis respeita sua privacidade e trata seus dados pessoais em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).', $page->ID);
 
         update_field('lgpd_strip_entidade_titulo', 'CDL Anápolis', $page->ID);
         update_field('lgpd_strip_entidade_label',  'CNPJ 01.064.674/0001-12', $page->ID);
         update_field('lgpd_strip_lei_titulo',      'Lei nº 13.709/2018', $page->ID);
         update_field('lgpd_strip_lei_label',       'LGPD — Lei Geral de Proteção de Dados', $page->ID);
-        update_field('lgpd_strip_dpo_titulo',      'Dra. Louise Ramiro', $page->ID);
-        update_field('lgpd_strip_dpo_label',       'Encarregada de Proteção de Dados (DPO)', $page->ID);
+        update_field('lgpd_strip_dpo_titulo',      'lgpd@cdlanapolis.com.br', $page->ID);
+        update_field('lgpd_strip_dpo_label',       'Canal oficial de atendimento LGPD', $page->ID);
 
-        update_field('lgpd_intro_html', '<p>A CDL Anápolis (Câmara de Dirigentes Lojistas de Anápolis), com sede na Rua Conde Afonso Celso, 43 — Centro, Anápolis — GO, CEP 75025-030, está comprometida com a proteção dos dados pessoais dos seus membros, parceiros, colaboradores e visitantes, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).</p>', $page->ID);
+        update_field('lgpd_intro_html', '<p>A <strong>Câmara de Dirigentes Lojistas de Anápolis — CDL Anápolis</strong>, pessoa jurídica de direito privado, sem fins lucrativos, inscrita no CNPJ nº 01.064.674/0001-12, com sede na Rua Conde Afonso Celso, nº 25, Centro, Anápolis/GO, CEP 75020-080, respeita a sua privacidade e está comprometida com a proteção dos dados pessoais tratados em suas atividades.</p><p>Esta Política de Privacidade estabelece as diretrizes para coleta, utilização, armazenamento, compartilhamento e proteção dos dados pessoais tratados pela CDL Anápolis, em conformidade com a Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD), Marco Civil da Internet e demais normas aplicáveis.</p>', $page->ID);
 
-        update_field('lgpd_policy_tag',      'Política de Privacidade', $page->ID);
-        update_field('lgpd_policy_title',    'Como tratamos seus dados', $page->ID);
-        update_field('lgpd_policy_subtitle', 'Conheça cada aspecto da nossa política de proteção de dados pessoais.', $page->ID);
-        // lgpd_corpo_html fica vazio de propósito — os cards visuais
-        // ficam como fallback. Cliente preenche o WYSIWYG só se quiser
-        // substituir os cards padrão por um texto contínuo.
+        update_field('lgpd_policy_tag',      'Política completa', $page->ID);
+        update_field('lgpd_policy_title',    'Política de Privacidade e Proteção de Dados', $page->ID);
+        update_field('lgpd_policy_subtitle', 'Versão completa — última atualização em junho de 2026.', $page->ID);
 
-        update_field('lgpd_dpo_title',    'Encarregada de Dados', $page->ID);
-        update_field('lgpd_dpo_subtitle', 'Para exercer seus direitos ou esclarecer dúvidas sobre o tratamento de dados pessoais.', $page->ID);
-        update_field('lgpd_dpo_nome',     'Advogada Dra. Louise Ramiro da Costa', $page->ID);
+        // Texto completo das 13 seções do PDF, em HTML estruturado pro WYSIWYG.
+        update_field('lgpd_corpo_html', cdl_seed_lgpd_corpo_html(), $page->ID);
+
+        update_field('lgpd_dpo_title',    'Canal de Atendimento LGPD', $page->ID);
+        update_field('lgpd_dpo_subtitle', 'As solicitações relacionadas à proteção de dados podem ser encaminhadas para o canal abaixo.', $page->ID);
+        update_field('lgpd_dpo_nome',     'CDL Anápolis — Encarregado(a) de Proteção de Dados', $page->ID);
         update_field('lgpd_dpo_email',    'lgpd@cdlanapolis.com.br', $page->ID);
         update_field('lgpd_dpo_telefone', '(62) 3328-0008', $page->ID);
         update_field('lgpd_dpo_endereco', 'Rua Conde Afonso Celso, 43 — Centro, Anápolis — GO, CEP 75025-030', $page->ID);
 
-        update_field('lgpd_versao_texto', 'Versão da política: 01/08/2021 — Esta política pode ser atualizada periodicamente.', $page->ID);
+        update_field('lgpd_versao_texto', 'Última atualização: junho de 2026 — Esta política pode ser alterada periodicamente para adequação às exigências legais, regulatórias ou operacionais.', $page->ID);
 
         update_field('lgpd_cta_title',    "Dúvidas sobre\nproteção de dados?", $page->ID);
-        update_field('lgpd_cta_subtitle', 'Entre em contato com nosso Encarregado de Proteção de Dados.', $page->ID);
+        update_field('lgpd_cta_subtitle', 'Entre em contato com o canal oficial LGPD da CDL Anápolis.', $page->ID);
         update_field('lgpd_cta_btn_text', 'Fale conosco', $page->ID);
         update_field('lgpd_cta_btn_link', '/fale-conosco/', $page->ID);
     });
 });
+
+// Texto completo da Política de Privacidade. Separado em função pra
+// não poluir o seed e facilitar futura edição.
+function cdl_seed_lgpd_corpo_html() {
+    return <<<'HTML'
+<h2>1. A quem esta Política se aplica</h2>
+<p>Esta Política aplica-se aos:</p>
+<ul>
+<li>Visitantes do site da CDL Anápolis;</li>
+<li>Associados e seus representantes;</li>
+<li>Participantes de eventos, cursos e treinamentos;</li>
+<li>Fornecedores e parceiros comerciais;</li>
+<li>Candidatos a vagas de emprego;</li>
+<li>Usuários dos serviços disponibilizados pela CDL Anápolis;</li>
+<li>Demais titulares de dados que mantenham relacionamento com a entidade.</li>
+</ul>
+
+<h2>2. Dados pessoais coletados</h2>
+<p>A CDL Anápolis poderá coletar os seguintes dados pessoais:</p>
+<h3>Dados de Identificação</h3>
+<ul>
+<li>Nome completo;</li>
+<li>CPF;</li>
+<li>RG;</li>
+<li>Data de nascimento;</li>
+<li>Cargo ou função;</li>
+<li>Empresa vinculada.</li>
+</ul>
+<h3>Dados de Contato</h3>
+<ul>
+<li>E-mail;</li>
+<li>Telefone;</li>
+<li>Endereço.</li>
+</ul>
+<h3>Dados de Navegação</h3>
+<ul>
+<li>Endereço IP;</li>
+<li>Data e hora de acesso;</li>
+<li>Navegador utilizado;</li>
+<li>Sistema operacional;</li>
+<li>Dispositivo utilizado;</li>
+<li>Cookies e tecnologias semelhantes.</li>
+</ul>
+<h3>Dados Relacionados aos Serviços</h3>
+<ul>
+<li>Informações fornecidas em formulários;</li>
+<li>Dados necessários para adesão a serviços;</li>
+<li>Histórico de participação em eventos e cursos;</li>
+<li>Informações relacionadas aos serviços de proteção ao crédito, quando aplicável.</li>
+</ul>
+
+<h2>3. Finalidades do tratamento</h2>
+<p>Os dados pessoais poderão ser tratados para:</p>
+<ul>
+<li>Atendimento de solicitações e contatos;</li>
+<li>Gestão do relacionamento com associados;</li>
+<li>Prestação dos serviços oferecidos pela CDL Anápolis;</li>
+<li>Organização de eventos, cursos e campanhas;</li>
+<li>Emissão de documentos e certificados;</li>
+<li>Comunicação institucional;</li>
+<li>Cumprimento de obrigações legais e regulatórias;</li>
+<li>Exercício regular de direitos;</li>
+<li>Segurança da informação;</li>
+<li>Prevenção a fraudes;</li>
+<li>Melhoria da experiência de navegação;</li>
+<li>Atendimento às solicitações dos titulares.</li>
+</ul>
+
+<h2>4. Bases legais do tratamento</h2>
+<p>A CDL Anápolis realizará o tratamento de dados pessoais com fundamento nas hipóteses previstas na LGPD, especialmente:</p>
+<ul>
+<li>Consentimento do titular;</li>
+<li>Cumprimento de obrigação legal ou regulatória;</li>
+<li>Execução de contrato;</li>
+<li>Exercício regular de direitos;</li>
+<li>Legítimo interesse;</li>
+<li>Proteção ao crédito, quando aplicável.</li>
+</ul>
+
+<h2>5. Compartilhamento de dados</h2>
+<p>Os dados pessoais poderão ser compartilhados apenas quando necessário para:</p>
+<ul>
+<li>Prestadores de serviços contratados pela CDL Anápolis;</li>
+<li>Empresas responsáveis pela hospedagem e manutenção dos sistemas;</li>
+<li>Instituições integrantes do Sistema CNDL/CDL, quando necessário para execução dos serviços;</li>
+<li>Órgãos públicos e autoridades competentes;</li>
+<li>Parceiros envolvidos na execução de projetos, eventos ou benefícios oferecidos aos associados.</li>
+</ul>
+<p><strong>A CDL Anápolis não comercializa dados pessoais.</strong></p>
+
+<h2>6. Cookies e tecnologias de rastreamento</h2>
+<p>O site poderá utilizar cookies necessários, estatísticos, funcionais e de marketing. Os cookies são utilizados para:</p>
+<ul>
+<li>Garantir o funcionamento do portal;</li>
+<li>Melhorar a experiência do usuário;</li>
+<li>Produzir estatísticas de acesso;</li>
+<li>Personalizar conteúdos e serviços.</li>
+</ul>
+<p>O usuário poderá gerenciar suas preferências por meio do banner de consentimento disponibilizado no portal. Para mais informações, consulte a nossa <a href="/politica-de-cookies/">Política de Cookies</a>.</p>
+
+<h2>7. Segurança da informação</h2>
+<p>A CDL Anápolis adota medidas técnicas e administrativas destinadas à proteção dos dados pessoais, incluindo:</p>
+<ul>
+<li>Controle de acesso aos sistemas;</li>
+<li>Monitoramento de ambientes tecnológicos;</li>
+<li>Políticas internas de segurança;</li>
+<li>Gestão de vulnerabilidades;</li>
+<li>Backups periódicos;</li>
+<li>Capacitação dos colaboradores.</li>
+</ul>
+
+<h2>8. Transferência internacional de dados</h2>
+<p>Alguns dados poderão ser armazenados em servidores localizados no exterior por provedores de tecnologia contratados pela CDL Anápolis. Nesses casos, serão observados os requisitos previstos na LGPD e regulamentações da Autoridade Nacional de Proteção de Dados — ANPD.</p>
+
+<h2>9. Prazo de retenção</h2>
+<p>Os dados pessoais serão armazenados pelo período necessário para:</p>
+<ul>
+<li>Cumprimento das finalidades informadas;</li>
+<li>Atendimento de obrigações legais;</li>
+<li>Exercício regular de direitos;</li>
+<li>Cumprimento de exigências regulatórias.</li>
+</ul>
+<p>Após o encerramento do tratamento, os dados serão eliminados, anonimizados ou armazenados nos termos permitidos pela legislação.</p>
+
+<h2>10. Direitos dos titulares</h2>
+<p>Nos termos do artigo 18 da LGPD, o titular poderá solicitar:</p>
+<ul>
+<li>Confirmação da existência de tratamento;</li>
+<li>Acesso aos dados pessoais;</li>
+<li>Correção de dados;</li>
+<li>Anonimização, bloqueio ou eliminação;</li>
+<li>Portabilidade;</li>
+<li>Informações sobre compartilhamentos realizados;</li>
+<li>Revogação do consentimento;</li>
+<li>Oposição ao tratamento realizado em desconformidade com a LGPD.</li>
+</ul>
+
+<h2>11. Canal de atendimento LGPD</h2>
+<p>As solicitações relacionadas à proteção de dados poderão ser encaminhadas para:</p>
+<ul>
+<li><strong>E-mail:</strong> <a href="mailto:lgpd@cdlanapolis.com.br">lgpd@cdlanapolis.com.br</a></li>
+<li><strong>Telefone:</strong> (62) 3328-0008</li>
+</ul>
+
+<h2>12. Alterações desta Política</h2>
+<p>Esta Política poderá ser alterada periodicamente para adequação às exigências legais, regulatórias ou operacionais. A versão vigente estará sempre disponível no portal da CDL Anápolis.</p>
+
+<h2>13. Disposições finais</h2>
+<p>Esta Política será interpretada de acordo com a legislação brasileira, especialmente a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018). Fica eleito o Foro da Comarca de Anápolis/GO para dirimir eventuais controvérsias relacionadas a esta Política, ressalvadas as hipóteses de competência legal específica.</p>
+HTML;
+}
+
+// =====================================================================
+// DOCUMENTOS LEGAIS — Termos de Uso + Política de Cookies
+// =====================================================================
+add_action('acf/init', function () {
+    cdl_seed_run('cdl_seed_legal_docs_v1', function () {
+        // ─── Termos de Uso ─────────────────────────────────────
+        $termos = get_page_by_path('termos-de-uso');
+        if ($termos) {
+            update_field('legal_hero_tag',      'Institucional', $termos->ID);
+            update_field('legal_hero_title',    'Termos de Uso do Portal', $termos->ID);
+            update_field('legal_hero_subtitle', 'Condições para acesso e utilização do portal da CDL Anápolis. Ao usar o site, você concorda com estes termos.', $termos->ID);
+            update_field('legal_last_update',   'Junho de 2026', $termos->ID);
+            update_field('legal_corpo_html',    cdl_seed_termos_corpo_html(), $termos->ID);
+            update_field('legal_cta_title',     'Dúvidas sobre estes termos?', $termos->ID);
+            update_field('legal_cta_subtitle',  'Entre em contato com a CDL Anápolis.', $termos->ID);
+            update_field('legal_cta_btn_text',  'Fale conosco', $termos->ID);
+            update_field('legal_cta_btn_link',  '/fale-conosco/', $termos->ID);
+        }
+
+        // ─── Política de Cookies ───────────────────────────────
+        $cookies = get_page_by_path('politica-de-cookies');
+        if ($cookies) {
+            update_field('legal_hero_tag',      'Institucional', $cookies->ID);
+            update_field('legal_hero_title',    'Política de Cookies', $cookies->ID);
+            update_field('legal_hero_subtitle', 'Como utilizamos cookies e tecnologias semelhantes para melhorar sua experiência de navegação.', $cookies->ID);
+            update_field('legal_last_update',   'Junho de 2026', $cookies->ID);
+            update_field('legal_corpo_html',    cdl_seed_cookies_corpo_html(), $cookies->ID);
+            update_field('legal_cta_title',     'Quer revisar suas preferências?', $cookies->ID);
+            update_field('legal_cta_subtitle',  'Você pode alterar suas escolhas de cookies a qualquer momento pelo banner ou pelo botão flutuante no canto da tela.', $cookies->ID);
+            update_field('legal_cta_btn_text',  'Fale conosco', $cookies->ID);
+            update_field('legal_cta_btn_link',  '/fale-conosco/', $cookies->ID);
+        }
+    });
+});
+
+function cdl_seed_termos_corpo_html() {
+    return <<<'HTML'
+<h2>1. Objeto</h2>
+<p>O presente Termo de Uso estabelece as condições para acesso e utilização do portal eletrônico da Câmara de Dirigentes Lojistas de Anápolis — CDL Anápolis, disponível em <a href="https://www.cdlanapolis.com.br" target="_blank" rel="noopener">www.cdlanapolis.com.br</a>, bem como dos serviços, conteúdos, formulários, sistemas e funcionalidades disponibilizados aos usuários.</p>
+<p>Ao acessar ou utilizar o portal, o usuário declara ter lido, compreendido e concordado com as disposições deste Termo.</p>
+
+<h2>2. Identificação da entidade</h2>
+<p>A <strong>Câmara de Dirigentes Lojistas de Anápolis — CDL Anápolis</strong>, inscrita no CNPJ nº 01.064.674/0001-12, possui sede na Rua Conde Afonso Celso, nº 25, Centro, Anápolis/GO.</p>
+
+<h2>3. Acesso ao portal</h2>
+<p>O acesso ao portal é gratuito, podendo determinadas áreas ou serviços exigir cadastro prévio, vínculo associativo ou contratação específica.</p>
+<p>O usuário compromete-se a fornecer informações verdadeiras, completas e atualizadas.</p>
+
+<h2>4. Responsabilidades do usuário</h2>
+<p>O usuário compromete-se a:</p>
+<ul>
+<li>Utilizar o portal de forma ética e lícita;</li>
+<li>Não praticar atos que comprometam a segurança do ambiente digital;</li>
+<li>Não utilizar robôs, softwares automatizados ou mecanismos destinados à extração indevida de informações;</li>
+<li>Não transmitir vírus, códigos maliciosos ou conteúdos ilícitos;</li>
+<li>Respeitar a legislação vigente e os direitos de terceiros.</li>
+</ul>
+
+<h2>5. Propriedade intelectual</h2>
+<p>Todo o conteúdo disponibilizado no portal, incluindo textos, imagens, logotipos, marcas, vídeos, materiais institucionais, documentos e demais elementos gráficos, pertence à CDL Anápolis ou a terceiros licenciantes.</p>
+<p>É proibida a reprodução, distribuição, alteração ou utilização comercial sem autorização prévia e expressa da CDL Anápolis.</p>
+
+<h2>6. Links de terceiros</h2>
+<p>O portal poderá conter links para páginas externas. A CDL Anápolis não se responsabiliza pelas práticas de privacidade, conteúdo ou disponibilidade desses ambientes externos.</p>
+
+<h2>7. Disponibilidade dos serviços</h2>
+<p>A CDL Anápolis envidará esforços para manter o portal disponível continuamente, porém não garante funcionamento ininterrupto, podendo ocorrer:</p>
+<ul>
+<li>Manutenções programadas;</li>
+<li>Atualizações de sistema;</li>
+<li>Falhas de comunicação;</li>
+<li>Eventos de força maior.</li>
+</ul>
+
+<h2>8. Proteção de dados</h2>
+<p>O tratamento de dados pessoais realizado por meio do portal observará a <a href="/lgpd/">Política de Privacidade</a> da CDL Anápolis e a legislação vigente de proteção de dados.</p>
+
+<h2>9. Limitação de responsabilidade</h2>
+<p>A CDL Anápolis não se responsabiliza por:</p>
+<ul>
+<li>Danos decorrentes do uso inadequado do portal;</li>
+<li>Falhas causadas por terceiros;</li>
+<li>Problemas decorrentes da conexão do usuário;</li>
+<li>Conteúdos disponibilizados por sites externos.</li>
+</ul>
+
+<h2>10. Alterações</h2>
+<p>A CDL Anápolis poderá alterar estes Termos de Uso a qualquer momento. A versão atualizada permanecerá disponível para consulta no portal.</p>
+
+<h2>11. Legislação e foro</h2>
+<p>Este Termo será regido pelas leis da República Federativa do Brasil. Fica eleito o Foro da Comarca de Anápolis/GO para dirimir eventuais controvérsias, observadas as disposições legais aplicáveis.</p>
+HTML;
+}
+
+function cdl_seed_cookies_corpo_html() {
+    return <<<'HTML'
+<p>A <strong>Câmara de Dirigentes Lojistas de Anápolis — CDL Anápolis</strong> utiliza cookies e tecnologias semelhantes para melhorar a experiência de navegação dos usuários em seu portal.</p>
+<p>Esta Política explica como essas tecnologias funcionam e como o usuário pode gerenciar suas preferências.</p>
+
+<h2>1. O que são cookies</h2>
+<p>Cookies são pequenos arquivos armazenados no navegador ou dispositivo do usuário durante a navegação em páginas da internet. Esses arquivos permitem reconhecer preferências, melhorar funcionalidades e gerar estatísticas de utilização do portal.</p>
+
+<h2>2. Tipos de cookies utilizados</h2>
+
+<h3>2.1 Cookies Necessários</h3>
+<p>São essenciais para o funcionamento adequado do portal.</p>
+<p><strong>Exemplos:</strong></p>
+<ul>
+<li>Controle de sessão;</li>
+<li>Segurança da navegação;</li>
+<li>Preferências básicas de funcionamento.</li>
+</ul>
+<p><em>Esses cookies não podem ser desativados.</em></p>
+
+<h3>2.2 Cookies Funcionais</h3>
+<p>Permitem memorizar escolhas realizadas pelo usuário.</p>
+<p><strong>Exemplos:</strong></p>
+<ul>
+<li>Idioma;</li>
+<li>Configurações de navegação;</li>
+<li>Preferências de exibição.</li>
+</ul>
+
+<h3>2.3 Cookies Analíticos</h3>
+<p>Utilizados para compreender como os usuários interagem com o portal.</p>
+<p><strong>Exemplos:</strong></p>
+<ul>
+<li>Número de acessos;</li>
+<li>Tempo de permanência;</li>
+<li>Páginas mais visitadas;</li>
+<li>Origem dos acessos.</li>
+</ul>
+<p>Os dados são tratados de forma agregada e estatística sempre que possível.</p>
+
+<h3>2.4 Cookies de Marketing</h3>
+<p>Podem ser utilizados para exibição de campanhas institucionais e mensuração de resultados de comunicação.</p>
+<p>Esses cookies dependem do consentimento do usuário quando exigido pela legislação aplicável.</p>
+
+<h2>3. Cookies de terceiros</h2>
+<p>O portal poderá utilizar ferramentas de terceiros, tais como:</p>
+<ul>
+<li>Google Analytics;</li>
+<li>Google Tag Manager;</li>
+<li>Google Maps;</li>
+<li>YouTube;</li>
+<li>Meta Pixel;</li>
+<li>Ferramentas de automação de marketing;</li>
+<li>Sistemas de atendimento e relacionamento.</li>
+</ul>
+<p>A utilização dessas ferramentas está sujeita às respectivas políticas de privacidade dos seus fornecedores.</p>
+
+<h2>4. Consentimento</h2>
+<p>Ao acessar o portal pela primeira vez, o usuário poderá visualizar um aviso de cookies e selecionar suas preferências. O consentimento poderá ser revogado a qualquer momento.</p>
+
+<h2>5. Gerenciamento dos cookies</h2>
+<p>O usuário poderá:</p>
+<ul>
+<li>Aceitar todos os cookies;</li>
+<li>Rejeitar cookies não essenciais;</li>
+<li>Configurar categorias específicas;</li>
+<li>Excluir cookies diretamente em seu navegador.</li>
+</ul>
+<p><em>A desativação de determinados cookies poderá afetar algumas funcionalidades do portal.</em></p>
+
+<h2>6. Prazo de armazenamento</h2>
+<p>Os cookies poderão permanecer armazenados durante a sessão de navegação ou por período determinado, conforme sua finalidade.</p>
+
+<h2>7. Alterações desta Política</h2>
+<p>Esta Política poderá ser atualizada periodicamente para refletir alterações legais, regulatórias ou operacionais.</p>
+
+<h2>8. Contato</h2>
+<p>Em caso de dúvidas relacionadas a esta Política de Cookies, o usuário poderá entrar em contato pelo e-mail:</p>
+<ul>
+<li><strong>E-mail:</strong> <a href="mailto:lgpd@cdlanapolis.com.br">lgpd@cdlanapolis.com.br</a></li>
+<li><strong>Telefone:</strong> (62) 3328-0008</li>
+</ul>
+HTML;
+}
 
 // =====================================================================
 // SECTIONS EXTRAS DA HOME (Options Page)

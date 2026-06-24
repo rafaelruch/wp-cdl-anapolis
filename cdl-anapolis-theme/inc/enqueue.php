@@ -23,6 +23,7 @@ function cdl_enqueue_assets() {
         'footer',     // footer grid
         'whatsapp',   // FAB widget
         'cta',        // .cta-gold + .cta-dark — usados em 12 templates (home + internas)
+        'cookies',    // banner LGPD + modal de prefs + links legais do footer
     ];
 
     foreach ($global_css as $file) {
@@ -33,6 +34,15 @@ function cdl_enqueue_assets() {
             CDL_THEME_VERSION
         );
     }
+
+    // JS global do banner de cookies — em todas as páginas, no rodapé.
+    wp_enqueue_script(
+        'cdl-cookies',
+        CDL_THEME_URI . '/assets/js/cookies.js',
+        [],
+        CDL_THEME_VERSION,
+        true
+    );
 
     // -----------------------------------------------------------------
     // CSS DA HOMEPAGE — só carrega no front-page

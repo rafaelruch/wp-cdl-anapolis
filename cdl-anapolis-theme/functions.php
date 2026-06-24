@@ -258,7 +258,7 @@ add_action('init', function() {
  * Cria páginas obrigatórias do tema se não existirem.
  */
 add_action('init', function() {
-    if (get_option('cdl_pages_created_v5')) return;
+    if (get_option('cdl_pages_created_v6')) return;
 
     $pages = [
         'area-associado' => [
@@ -268,6 +268,14 @@ add_action('init', function() {
         'balcao-do-mei' => [
             'post_title'    => 'Balcão do MEI',
             'page_template' => 'page-balcao-do-mei.php',
+        ],
+        'termos-de-uso' => [
+            'post_title'    => 'Termos de Uso',
+            'page_template' => 'page-documento-legal.php',
+        ],
+        'politica-de-cookies' => [
+            'post_title'    => 'Política de Cookies',
+            'page_template' => 'page-documento-legal.php',
         ],
         // Serviços (template page-servico.php) — slugs pareados com o
         // mega-menu de Serviços do header. certificado-digital-cdl já
@@ -360,7 +368,7 @@ add_action('init', function() {
         }
     }
 
-    update_option('cdl_pages_created_v5', true);
+    update_option('cdl_pages_created_v6', true);
     flush_rewrite_rules(true);
 }, 20);
 

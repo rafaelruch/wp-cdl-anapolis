@@ -67,7 +67,18 @@ $youtube = get_field('social_youtube', 'option') ?: '#';
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
     </div>
-    <div class="f-bottom"><p>&copy; <?php echo date('Y'); ?> CDL Anápolis. Todos os direitos reservados.</p></div>
+    <div class="f-bottom">
+        <p>&copy; <?php echo date('Y'); ?> CDL Anápolis. Todos os direitos reservados.</p>
+        <nav class="f-legal" aria-label="Documentos legais">
+            <a href="/lgpd/">Política de Privacidade</a>
+            <span aria-hidden="true">·</span>
+            <a href="/termos-de-uso/">Termos de Uso</a>
+            <span aria-hidden="true">·</span>
+            <a href="/politica-de-cookies/">Política de Cookies</a>
+            <span aria-hidden="true">·</span>
+            <button type="button" class="f-legal__btn" data-cdl-cookie-prefs>Gerenciar cookies</button>
+        </nav>
+    </div>
 </div></footer>
 
 <!-- WhatsApp Chat Widget -->
@@ -98,6 +109,100 @@ $youtube = get_field('social_youtube', 'option') ?: '#';
     <button class="wpp-fab" onclick="document.getElementById('wppWidget').classList.toggle('open')" aria-label="WhatsApp">
         <svg viewBox="0 0 32 32"><path d="M16 0C7.2 0 0 7.2 0 16c0 3.5 1.1 6.7 3 9.4L1 31.2l6-2A15.9 15.9 0 0016 32c8.8 0 16-7.2 16-16S24.8 0 16 0zm9.3 22.6c-.4 1.1-2.3 2.1-3.2 2.2-.9.1-1.7.4-5.7-1.2-4.8-1.9-7.8-6.8-8.1-7.1-.2-.3-1.9-2.6-1.9-4.9 0-2.3 1.2-3.5 1.6-3.9.4-.5.9-.6 1.3-.6.3 0 .6 0 .9 0 .3 0 .7-.1 1 .7.3.9 1.1 2.9 1.1 3.1.1.2.2.5 0 .7-.1.3-.2.5-.4.7-.2.2-.4.6-.6.7-.2.2-.4.4-.2.9.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.2.8-.1.2-.2.9-1.1 1.2-1.5.2-.4.5-.3.8-.2.3.1 2.2 1 2.6 1.2.4.2.6.3.7.4.1.2.1.9-.3 2z"/></svg>
     </button>
+</div>
+
+<!-- ═══ BANNER DE COOKIES (LGPD) ═══ -->
+<div class="cdl-cookies" id="cdlCookies" hidden role="region" aria-label="Aviso de cookies">
+    <div class="cdl-cookies__inner">
+        <div class="cdl-cookies__ico" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/>
+                <path d="M8.5 8.5h.01"/>
+                <path d="M15.5 13h.01"/>
+                <path d="M10 17h.01"/>
+                <path d="M14.5 17h.01"/>
+                <path d="M7 13.5h.01"/>
+            </svg>
+        </div>
+        <div class="cdl-cookies__content">
+            <h3 class="cdl-cookies__title">A gente respeita sua privacidade</h3>
+            <p class="cdl-cookies__text">
+                Usamos cookies para melhorar sua experiência, gerar estatísticas de uso e personalizar conteúdos. Os cookies necessários estão sempre ativos. Você pode aceitar todos, recusar os não essenciais ou personalizar suas preferências.
+                <a href="/politica-de-cookies/">Saiba mais na nossa Política de Cookies</a>.
+            </p>
+        </div>
+        <div class="cdl-cookies__actions">
+            <button type="button" class="cdl-cookies__btn cdl-cookies__btn--ghost" data-cdl-cookie-action="customize">Personalizar</button>
+            <button type="button" class="cdl-cookies__btn cdl-cookies__btn--ghost" data-cdl-cookie-action="reject">Apenas necessários</button>
+            <button type="button" class="cdl-cookies__btn cdl-cookies__btn--accept" data-cdl-cookie-action="accept">Aceitar todos</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de preferências granulares -->
+<div class="cdl-cookies-modal" id="cdlCookiesModal" hidden role="dialog" aria-modal="true" aria-labelledby="cdlCookiesModalTitle">
+    <div class="cdl-cookies-modal__overlay" data-cdl-cookie-action="close-modal"></div>
+    <div class="cdl-cookies-modal__card">
+        <button type="button" class="cdl-cookies-modal__close" data-cdl-cookie-action="close-modal" aria-label="Fechar">&times;</button>
+        <header class="cdl-cookies-modal__head">
+            <h3 id="cdlCookiesModalTitle">Preferências de cookies</h3>
+            <p>Escolha quais categorias deseja permitir. Os cookies necessários são essenciais para o funcionamento do site e não podem ser desativados.</p>
+        </header>
+
+        <div class="cdl-cookies-modal__categories">
+            <label class="cdl-cookies-cat">
+                <div class="cdl-cookies-cat__head">
+                    <div>
+                        <strong>Necessários</strong>
+                        <span class="cdl-cookies-cat__pill">Sempre ativos</span>
+                    </div>
+                    <span class="cdl-cookies-toggle cdl-cookies-toggle--locked" aria-hidden="true">
+                        <input type="checkbox" checked disabled data-cdl-cookie-cat="necessary">
+                        <span class="cdl-cookies-toggle__slider"></span>
+                    </span>
+                </div>
+                <p>Garantem o funcionamento básico do portal: controle de sessão, segurança da navegação e preferências essenciais.</p>
+            </label>
+
+            <label class="cdl-cookies-cat">
+                <div class="cdl-cookies-cat__head">
+                    <strong>Funcionais</strong>
+                    <span class="cdl-cookies-toggle">
+                        <input type="checkbox" data-cdl-cookie-cat="functional">
+                        <span class="cdl-cookies-toggle__slider"></span>
+                    </span>
+                </div>
+                <p>Memorizam escolhas feitas pelo usuário (idioma, configurações de navegação, preferências de exibição).</p>
+            </label>
+
+            <label class="cdl-cookies-cat">
+                <div class="cdl-cookies-cat__head">
+                    <strong>Analíticos</strong>
+                    <span class="cdl-cookies-toggle">
+                        <input type="checkbox" data-cdl-cookie-cat="analytics">
+                        <span class="cdl-cookies-toggle__slider"></span>
+                    </span>
+                </div>
+                <p>Permitem entender como os visitantes interagem com o portal (número de acessos, tempo de permanência, páginas mais visitadas).</p>
+            </label>
+
+            <label class="cdl-cookies-cat">
+                <div class="cdl-cookies-cat__head">
+                    <strong>Marketing</strong>
+                    <span class="cdl-cookies-toggle">
+                        <input type="checkbox" data-cdl-cookie-cat="marketing">
+                        <span class="cdl-cookies-toggle__slider"></span>
+                    </span>
+                </div>
+                <p>Permitem exibir campanhas institucionais e medir resultados de comunicação (Meta Pixel, ferramentas de remarketing).</p>
+            </label>
+        </div>
+
+        <footer class="cdl-cookies-modal__footer">
+            <button type="button" class="cdl-cookies__btn cdl-cookies__btn--ghost" data-cdl-cookie-action="save-prefs">Salvar preferências</button>
+            <button type="button" class="cdl-cookies__btn cdl-cookies__btn--accept" data-cdl-cookie-action="accept">Aceitar todos</button>
+        </footer>
+    </div>
 </div>
 
 <?php wp_footer(); ?>

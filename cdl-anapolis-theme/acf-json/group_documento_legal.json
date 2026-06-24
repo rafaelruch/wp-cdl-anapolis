@@ -1,0 +1,100 @@
+{
+    "key": "group_documento_legal",
+    "title": "Página - Documento Legal (Termos / Cookies)",
+    "fields": [
+        {
+            "key": "field_legal_hero_image",
+            "label": "1. Hero - Imagem de fundo",
+            "name": "legal_hero_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_legal_hero_tag",
+            "label": "2. Hero - Etiqueta",
+            "name": "legal_hero_tag",
+            "type": "text",
+            "default_value": "Institucional"
+        },
+        {
+            "key": "field_legal_hero_title",
+            "label": "3. Hero - Título (deixe vazio pra usar o título da página)",
+            "name": "legal_hero_title",
+            "type": "text"
+        },
+        {
+            "key": "field_legal_hero_subtitle",
+            "label": "4. Hero - Subtítulo",
+            "name": "legal_hero_subtitle",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": "",
+            "default_value": "Documento atualizado periodicamente para refletir alterações legais, regulatórias ou operacionais."
+        },
+        {
+            "key": "field_legal_last_update",
+            "label": "5. Última atualização (exibido abaixo do subtítulo)",
+            "name": "legal_last_update",
+            "type": "text",
+            "instructions": "Ex: Junho de 2026"
+        },
+        {
+            "key": "field_legal_corpo_html",
+            "label": "6. Conteúdo do documento",
+            "name": "legal_corpo_html",
+            "type": "wysiwyg",
+            "instructions": "Cole o texto completo do documento jurídico. Use títulos H2/H3 para organizar as seções.",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
+        },
+        {
+            "key": "field_legal_cta_title",
+            "label": "7. CTA final - Título",
+            "name": "legal_cta_title",
+            "type": "text",
+            "default_value": "Tem dúvidas sobre este documento?"
+        },
+        {
+            "key": "field_legal_cta_subtitle",
+            "label": "8. CTA final - Subtítulo",
+            "name": "legal_cta_subtitle",
+            "type": "text",
+            "default_value": "Entre em contato com a CDL Anápolis."
+        },
+        {
+            "key": "field_legal_cta_btn_text",
+            "label": "9. CTA final - Texto do botão",
+            "name": "legal_cta_btn_text",
+            "type": "text",
+            "default_value": "Fale conosco"
+        },
+        {
+            "key": "field_legal_cta_btn_link",
+            "label": "10. CTA final - Link do botão",
+            "name": "legal_cta_btn_link",
+            "type": "text",
+            "default_value": "/fale-conosco/"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-documento-legal.php"
+            }
+        ]
+    ],
+    "menu_order": 26,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos do template Documento Legal usado em Termos de Uso e Política de Cookies",
+    "show_in_rest": 0,
+    "modified": 1781265600
+}
