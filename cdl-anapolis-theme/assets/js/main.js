@@ -7,16 +7,29 @@ document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ─── Link "Área do associado" ─────────────────────────────────
-    // URL montada em pedaços porque a Hostinger (em staging) tem um
-    // filtro de output que substitui `cdlanapolis.com.br` pelo
-    // subdomínio do staging em qualquer string que sai do PHP. JS
-    // estático não passa pelo filtro, então a URL final fica correta.
-    // Quando o site migrar pro domínio definitivo, este código segue
-    // funcionando — a URL é a mesma.
-    const areaLoginUrl = ['https://', 'associado.', 'cdl', 'anapolis', '.com', '.br/login'].join('');
+    // ─── URLs em subdomínios cdlanapolis.com.br ───────────────────
+    // Hostinger (staging) tem um filtro que substitui `cdlanapolis.com.br`
+    // pelo domínio do staging em qualquer string que sai do PHP. JS estático
+    // não passa pelo filtro, então a URL final fica correta. Quando o site
+    // migrar pro domínio definitivo, este código segue funcionando — a URL
+    // é a mesma.
+    const cdlBaseDomain = ['cdl', 'anapolis', '.com', '.br'].join('');
+
+    // Link específico da Área do Associado (mantido pra compat retroativa).
+    const areaLoginUrl = 'https://' + 'associado.' + cdlBaseDomain + '/login';
     document.querySelectorAll('[data-cdl-area-login]').forEach(link => {
         link.setAttribute('href', areaLoginUrl);
+    });
+
+    // Padrão genérico: <a data-cdl-ext-url="cdlsaude" data-cdl-ext-path="/"> ...
+    // O JS monta https://cdlsaude.cdlanapolis.com.br/ e seta no href, driblando
+    // o filtro de output do staging.
+    document.querySelectorAll('[data-cdl-ext-url]').forEach(link => {
+        const sub = link.getAttribute('data-cdl-ext-url');
+        const path = link.getAttribute('data-cdl-ext-path') || '/';
+        if (sub) {
+            link.setAttribute('href', 'https://' + sub + '.' + cdlBaseDomain + path);
+        }
     });
 
     // ─── Nav scroll effect ───
