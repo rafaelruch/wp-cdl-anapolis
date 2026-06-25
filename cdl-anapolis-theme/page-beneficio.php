@@ -708,26 +708,56 @@ if ($other_benefits):
 
 <!-- CTA Gold -->
 <?php
-// Detecta CTA externo + se aponta pra subdomínio cdlanapolis.com.br.
-// Quando é subdomínio, marca com data-cdl-ext-url pra que o JS
-// (main.js) reconstrua o href no client, driblando o filtro de
-// output do Hostinger staging (que substitui cdlanapolis.com.br
-// pelo domínio temporário). Em produção, o JS apenas reseta o href
-// pra mesma URL — comportamento idempotente.
+// Detecta CTA externo. Quando aponta pra subdomínio cdlanapolis.com.br,
+// renderiza o <a> SEM href real + script inline que monta o href no
+// client em pedaços ("cdl"+"anapolis"+".com"+".br"). O filtro de output
+// do Hostinger staging só reescreve strings que CONTENHAM
+// "cdlanapolis.com.br" — como nenhum atributo carrega essa string
+// inteira, nada é reescrito. Em produção o comportamento é o mesmo.
 $cta_host        = parse_url($cta_link, PHP_URL_HOST);
 $site_host       = parse_url(home_url(), PHP_URL_HOST);
 $cta_is_external = $cta_host && $cta_host !== $site_host;
 $cta_target_attr = $cta_is_external ? ' target="_blank" rel="noopener"' : '';
 
+$cta_uses_js_assembly = false;
 $cta_ext_attrs = '';
+$cta_href_attr = ' href="' . esc_url($cta_link) . '"';
 if (preg_match('#^https?://([a-z0-9-]+)\.cdlanapolis\.com\.br(/.*)?$#i', $cta_link, $m)) {
-    $cta_ext_attrs = ' data-cdl-ext-url="' . esc_attr($m[1]) . '" data-cdl-ext-path="' . esc_attr($m[2] ?: '/') . '"';
+    $cta_uses_js_assembly = true;
+    $cta_ext_attrs  = ' data-cdl-ext-url="' . esc_attr($m[1]) . '" data-cdl-ext-path="' . esc_attr($m[2] ?: '/') . '"';
+    // Sem href real — JS abaixo monta. Evita totalmente o filtro do Hostinger.
+    $cta_href_attr  = ' href="#"';
 }
+
+// ID único pro link — usado pelo script inline pra setar o href antes do
+// usuário interagir e como fallback no onclick.
+$cta_uid = 'cdl-cta-' . substr(md5($slug . microtime()), 0, 8);
 ?>
 <section class="cta-gold">
     <h2 class="ao"><?php echo wp_kses_post($fb['cta_title']); ?></h2>
     <p class="ao ao-d1"><?php echo esc_html($fb['cta_text']); ?></p>
-    <a href="<?php echo esc_url($cta_link); ?>"<?php echo $cta_target_attr; ?><?php echo $cta_ext_attrs; ?> class="btn btn-dark ao ao-d2">Quero saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a id="<?php echo esc_attr($cta_uid); ?>"<?php echo $cta_href_attr; ?><?php echo $cta_target_attr; ?><?php echo $cta_ext_attrs; ?> class="btn btn-dark ao ao-d2">Quero saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </section>
+<?php if ($cta_uses_js_assembly): ?>
+<script>
+(function () {
+    var el = document.getElementById(<?php echo wp_json_encode($cta_uid); ?>);
+    if (!el) return;
+    var sub  = el.getAttribute('data-cdl-ext-url');
+    var path = el.getAttribute('data-cdl-ext-path') || '/';
+    // Domínio montado em pedaços pra escapar do filtro do Hostinger staging.
+    var domain = 'cdl' + 'anapolis' + '.com' + '.br';
+    var url = 'https://' + sub + '.' + domain + path;
+    el.setAttribute('href', url);
+    // Fallback: se algo recolocar o # depois, o clique ainda abre certo.
+    el.addEventListener('click', function (e) {
+        if (el.getAttribute('href') === '#' || el.getAttribute('href').indexOf('white-weasel') !== -1) {
+            e.preventDefault();
+            window.open(url, '_blank', 'noopener');
+        }
+    });
+})();
+</script>
+<?php endif; ?>
 
 <?php get_footer(); ?>
