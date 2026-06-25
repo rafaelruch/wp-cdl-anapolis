@@ -20,6 +20,89 @@ require_once CDL_THEME_DIR . '/inc/perf-helpers.php';
 require_once CDL_THEME_DIR . '/inc/cdl-acf-seeds.php';
 require_once CDL_THEME_DIR . '/inc/enqueue.php';
 
+/**
+ * Mapeamento canônico SLUG → page_template de TODAS as páginas
+ * controladas pelo tema. Usado tanto pra criação inicial quanto pro
+ * hook cdl_fix_all_page_templates_v1 (mais abaixo) que GARANTE que toda
+ * página criada (manualmente ou via outro mecanismo) tenha o template
+ * correto. Sem isso, o ACF group amarrado a `page_template == X.php`
+ * não aparece no admin e o cliente edita campos no vazio.
+ *
+ * Pra adicionar novas páginas controladas, basta acrescentar aqui +
+ * bumpar a versão do hook fix abaixo.
+ */
+function cdl_canonical_page_templates() {
+    return [
+        // Institucional
+        'sobre-nos'            => 'page-sobre-nos.php',
+        'diretoria'            => 'page-diretoria.php',
+        'presidentes'          => 'page-presidentes.php',
+        'cdl-jovem'            => 'page-cdl-jovem.php',
+        'cdl-mulher'           => 'page-cdl-mulher.php',
+        'merito-empresarial'   => 'page-merito-empresarial.php',
+        'lgpd'                 => 'page-lgpd.php',
+        'termos-de-uso'        => 'page-documento-legal.php',
+        'politica-de-cookies'  => 'page-documento-legal.php',
+        // Conversão / contato
+        'associe-se'           => 'page-associe-se.php',
+        'fale-conosco'         => 'page-fale-conosco.php',
+        'area-associado'       => 'page-area-associado.php',
+        'balcao-do-mei'        => 'page-balcao-do-mei.php',
+        // Serviços (template page-servico.php)
+        'spc'                   => 'page-servico.php',
+        'cdl-celular'           => 'page-servico.php',
+        'certificado-digital'   => 'page-servico.php',
+        'certificado-digital-cdl' => 'page-servico.php',
+        'central-de-cobrancas'  => 'page-servico.php',
+        'nfe-nfce'              => 'page-servico.php',
+        'tempo-saude'           => 'page-servico.php',
+        'cdl-locacoes'          => 'page-servico.php',
+        // Benefícios (template page-beneficio.php)
+        'cdl-saude'                 => 'page-beneficio.php',
+        'cdl-assessoria-juridica'   => 'page-beneficio.php',
+        'sede-campestre'            => 'page-beneficio.php',
+        'planejamento-estrategico'  => 'page-beneficio.php',
+        'assessoria-contabil'       => 'page-beneficio.php',
+        'apoio-mei'                 => 'page-beneficio.php',
+        'rede-de-descontos'         => 'page-beneficio.php',
+        'espacos-corporativos'      => 'page-beneficio.php',
+        'eventos-corporativos'      => 'page-beneficio.php',
+        'nucleos-empresariais'      => 'page-beneficio.php',
+        'treinamentos'              => 'page-beneficio.php',
+        'midia-divulgacao'          => 'page-beneficio.php',
+        'recrutamento'              => 'page-beneficio.php',
+        'exames-admissionais'       => 'page-beneficio.php',
+        'gestao-esocial'            => 'page-beneficio.php',
+    ];
+}
+
+/**
+ * Força o page_template correto em TODAS as páginas mapeadas em
+ * cdl_canonical_page_templates(). Idempotente: só atualiza se o template
+ * atual estiver diferente do esperado. Roda uma vez por bump de versão.
+ *
+ * Por que existe: várias páginas (cdl-saude, sede-campestre, etc.) podem
+ * já existir no banco SEM page_template configurado — ou com template
+ * antigo. Nesse caso, o WP renderiza com page.php padrão (que ignora
+ * todos os campos ACF), e o cliente editar fica inútil.
+ *
+ * Bumpe pra v2/v3/... sempre que adicionar slugs ou renomear templates.
+ */
+add_action('init', function () {
+    if (get_option('cdl_fix_all_page_templates_v1')) return;
+
+    foreach (cdl_canonical_page_templates() as $slug => $template) {
+        $page = get_page_by_path($slug);
+        if (!$page) continue;
+        $current = get_post_meta($page->ID, '_wp_page_template', true);
+        if ($current !== $template) {
+            update_post_meta($page->ID, '_wp_page_template', $template);
+        }
+    }
+
+    update_option('cdl_fix_all_page_templates_v1', true);
+}, 25);
+
 // Custom Post Types
 require_once CDL_THEME_DIR . '/inc/cpt-informativo.php';
 require_once CDL_THEME_DIR . '/inc/cpt-depoimentos.php';
@@ -258,7 +341,7 @@ add_action('init', function() {
  * Cria páginas obrigatórias do tema se não existirem.
  */
 add_action('init', function() {
-    if (get_option('cdl_pages_created_v6')) return;
+    if (get_option('cdl_pages_created_v7')) return;
 
     $pages = [
         'area-associado' => [
@@ -353,6 +436,22 @@ add_action('init', function() {
             'post_title'    => 'Gestão E-social',
             'page_template' => 'page-beneficio.php',
         ],
+        // Benefícios "antigos" — páginas que podem já existir no banco
+        // sem o template page-beneficio.php configurado. Listados aqui
+        // pra criar caso faltem; o hook cdl_fix_beneficio_templates_v1
+        // força o template em páginas que já existem.
+        'cdl-saude' => [
+            'post_title'    => 'CDL Saúde',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'cdl-assessoria-juridica' => [
+            'post_title'    => 'Assessoria Jurídica',
+            'page_template' => 'page-beneficio.php',
+        ],
+        'sede-campestre' => [
+            'post_title'    => 'Espaço de Lazer (Sede Campestre)',
+            'page_template' => 'page-beneficio.php',
+        ],
     ];
 
     foreach ($pages as $slug => $data) {
@@ -368,7 +467,7 @@ add_action('init', function() {
         }
     }
 
-    update_option('cdl_pages_created_v6', true);
+    update_option('cdl_pages_created_v7', true);
     flush_rewrite_rules(true);
 }, 20);
 

@@ -1042,7 +1042,7 @@ function cdl_seed_beneficios_data() {
 }
 
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_beneficios_v2', function () {
+    cdl_seed_run('cdl_seed_beneficios_v3', function () {
         foreach (cdl_seed_beneficios_data() as $slug => $fb) {
             $page = get_page_by_path($slug);
             if (!$page) continue;
