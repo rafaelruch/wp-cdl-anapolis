@@ -729,11 +729,11 @@ add_action('acf/init', function () {
 // DIRETORIA — intro + repeaters de membros e conselho fiscal
 // =====================================================================
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_diretoria_v1', function () {
+    cdl_seed_run('cdl_seed_diretoria_v2', function () {
         $page = get_page_by_path('diretoria');
         if (!$page) return;
 
-        update_field('diretoria_intro', '<p>A equipe de liderança da CDL Anápolis é composta por empresários que dedicam seu tempo, experiência e dedicação para fortalecer o comércio local. São líderes que trabalham voluntariamente, acreditando no poder da comunidade e na força de uma cidade que cresce com união e compromisso.</p>', $page->ID);
+        update_field('diretoria_intro', '<p>A liderança da CDL Anápolis é formada por empresários que oferecem tempo e experiência, de forma voluntária, para fortalecer o comércio local. São profissionais que acreditam no poder da comunidade e na força de uma cidade que cresce unida.</p>', $page->ID);
 
         update_field('diretoria_membros', [
             ['name' => 'Luis Miguel Mendes',         'role' => 'Presidente'],
@@ -867,7 +867,7 @@ function cdl_seed_beneficios_data() {
                 ['title' => 'Plataforma Online',         'description' => 'Acesse a plataforma, emita guias e gerencie tudo de forma digital, simples e rápida.'],
             ],
             'cta_text' => 'Ative seu CDL Saúde e comece a cuidar de quem importa.',
-            'cta_link' => '/fale-conosco/',
+            'cta_link' => 'https://cdlsaude.cdlanapolis.com.br/',
         ],
         'sede-campestre' => [
             'intro' => '<p>A Sede Campestre da CDL Anápolis é o lugar perfeito para a realização de festas, confraternizações e eventos especiais. Com um amplo salão de festas, churrasqueira, freezer, mesas e cadeiras, o local oferece total conforto e praticidade.</p><p>Celebre com conforto na Sede Campestre da CDL Anápolis. Com infraestrutura completa e uma localização privilegiada próxima ao Terras Alphaville, o local é ideal para festas e confraternizações em um ambiente tranquilo e seguro.</p>',
@@ -1042,7 +1042,7 @@ function cdl_seed_beneficios_data() {
 }
 
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_beneficios_v1', function () {
+    cdl_seed_run('cdl_seed_beneficios_v2', function () {
         foreach (cdl_seed_beneficios_data() as $slug => $fb) {
             $page = get_page_by_path($slug);
             if (!$page) continue;

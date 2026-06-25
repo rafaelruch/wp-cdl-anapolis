@@ -123,7 +123,7 @@ $fallbacks = [
         ],
         'cta_title' => 'Cuide da saúde<br>da sua equipe',
         'cta_text' => 'Ative seu CDL Saúde e comece a cuidar de quem importa.',
-        'cta_link' => '/fale-conosco/',
+        'cta_link' => 'https://cdlsaude.cdlanapolis.com.br/',
         'hero_img' => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80',
     ],
     'sede-campestre' => [
@@ -707,10 +707,18 @@ if ($other_benefits):
 <?php endif; ?>
 
 <!-- CTA Gold -->
+<?php
+// Quando o CTA aponta pra outro domínio (ex: cdlsaude.cdlanapolis.com.br),
+// abre em nova aba com rel noopener — comportamento esperado pra links externos.
+$cta_host        = parse_url($cta_link, PHP_URL_HOST);
+$site_host       = parse_url(home_url(), PHP_URL_HOST);
+$cta_is_external = $cta_host && $cta_host !== $site_host;
+$cta_target_attr = $cta_is_external ? ' target="_blank" rel="noopener"' : '';
+?>
 <section class="cta-gold">
     <h2 class="ao"><?php echo wp_kses_post($fb['cta_title']); ?></h2>
     <p class="ao ao-d1"><?php echo esc_html($fb['cta_text']); ?></p>
-    <a href="<?php echo esc_url($cta_link); ?>" class="btn btn-dark ao ao-d2">Quero saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="<?php echo esc_url($cta_link); ?>"<?php echo $cta_target_attr; ?> class="btn btn-dark ao ao-d2">Quero saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </section>
 
 <?php get_footer(); ?>
