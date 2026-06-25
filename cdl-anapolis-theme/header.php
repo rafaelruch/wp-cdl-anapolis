@@ -4,6 +4,71 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
+    <script>
+    /**
+     * Anti-filter Hostinger staging: o servidor reescreve qualquer string PHP
+     * com "cdlanapolis.com.br" pro domínio temporário do staging. Esse script
+     * detecta o staging em runtime e REVERTE a substituição em qualquer href
+     * de subdomínio. Em produção (quando o site rodar em cdlanapolis.com.br),
+     * o script é no-op automático — não tem o que substituir.
+     *
+     * Roda ASAP no <head> e de novo após DOM ready + MutationObserver pra
+     * pegar conteúdo lazy.
+     */
+    (function () {
+        var realDomain = ['cdl','anapolis','.com','.br'].join('');
+        var currentHost = window.location.hostname;
+        // No-op em produção (já estamos no domínio real ou subdomínio dele).
+        if (currentHost === realDomain || currentHost.indexOf('.' + realDomain) !== -1) return;
+
+        function fixHref(href) {
+            try {
+                var u = new URL(href, window.location.origin);
+                // Só mexe em hostnames que TERMINAM com o staging host e têm subdomínio
+                // (ex: cdlsaude.white-weasel-xxx.hostingersite.com).
+                if (u.hostname.length > currentHost.length && u.hostname.indexOf('.' + currentHost) === u.hostname.length - currentHost.length - 1) {
+                    var sub = u.hostname.slice(0, u.hostname.length - currentHost.length - 1);
+                    u.hostname = sub + '.' + realDomain;
+                    return u.toString();
+                }
+            } catch (e) {}
+            return null;
+        }
+
+        function sweep(root) {
+            (root || document).querySelectorAll('a[href]').forEach(function (a) {
+                var fixed = fixHref(a.getAttribute('href'));
+                if (fixed) a.setAttribute('href', fixed);
+            });
+        }
+
+        // Roda assim que possível
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () { sweep(); });
+        } else {
+            sweep();
+        }
+        // Reage a conteúdo carregado dinamicamente (carousels, modais, etc.)
+        if (typeof MutationObserver !== 'undefined') {
+            var observer = new MutationObserver(function (muts) {
+                muts.forEach(function (m) {
+                    m.addedNodes.forEach(function (n) {
+                        if (n.nodeType === 1) sweep(n);
+                    });
+                });
+            });
+            // Aguarda body existir pra anexar
+            var attachObs = function () {
+                if (document.body) {
+                    observer.observe(document.body, { childList: true, subtree: true });
+                } else {
+                    setTimeout(attachObs, 30);
+                }
+            };
+            attachObs();
+        }
+    })();
+    </script>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
