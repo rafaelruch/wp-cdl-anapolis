@@ -103,6 +103,26 @@ add_action('init', function () {
     update_option('cdl_fix_all_page_templates_v1', true);
 }, 25);
 
+/**
+ * Garantia em tempo de render: independente do que está salvo em
+ * _wp_page_template (que pode ter sido apagado/alterado por outro
+ * plugin), força o template correto baseado no slug a cada page load.
+ *
+ * Isso faz com que /cdl-saude/, /sede-campestre/, etc. SEMPRE rendam
+ * com page-beneficio.php — o ACF group amarrado a esse template fica
+ * sempre disponível, o cliente edita os campos e o frontend lê do
+ * mesmo lugar.
+ */
+add_filter('template_include', function ($template) {
+    if (!is_page()) return $template;
+    $slug = get_post_field('post_name', get_queried_object_id());
+    if (!$slug) return $template;
+    $map = cdl_canonical_page_templates();
+    if (!isset($map[$slug])) return $template;
+    $located = locate_template($map[$slug]);
+    return $located ?: $template;
+}, 99);
+
 // Custom Post Types
 require_once CDL_THEME_DIR . '/inc/cpt-informativo.php';
 require_once CDL_THEME_DIR . '/inc/cpt-depoimentos.php';

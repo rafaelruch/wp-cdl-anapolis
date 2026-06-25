@@ -708,56 +708,39 @@ if ($other_benefits):
 
 <!-- CTA Gold -->
 <?php
-// Detecta CTA externo. Quando aponta pra subdomínio cdlanapolis.com.br,
-// renderiza o <a> SEM href real + script inline que monta o href no
-// client em pedaços ("cdl"+"anapolis"+".com"+".br"). O filtro de output
-// do Hostinger staging só reescreve strings que CONTENHAM
-// "cdlanapolis.com.br" — como nenhum atributo carrega essa string
-// inteira, nada é reescrito. Em produção o comportamento é o mesmo.
+// Pega a URL EXATAMENTE como o cliente salvou (ACF) ou do fallback PHP.
+// SEM filtro, SEM transformação, SEM regex restritiva.
 $cta_host        = parse_url($cta_link, PHP_URL_HOST);
 $site_host       = parse_url(home_url(), PHP_URL_HOST);
 $cta_is_external = $cta_host && $cta_host !== $site_host;
 $cta_target_attr = $cta_is_external ? ' target="_blank" rel="noopener"' : '';
 
-$cta_uses_js_assembly = false;
-$cta_ext_attrs = '';
-$cta_href_attr = ' href="' . esc_url($cta_link) . '"';
-if (preg_match('#^https?://([a-z0-9-]+)\.cdlanapolis\.com\.br(/.*)?$#i', $cta_link, $m)) {
-    $cta_uses_js_assembly = true;
-    $cta_ext_attrs  = ' data-cdl-ext-url="' . esc_attr($m[1]) . '" data-cdl-ext-path="' . esc_attr($m[2] ?: '/') . '"';
-    // Sem href real — JS abaixo monta. Evita totalmente o filtro do Hostinger.
-    $cta_href_attr  = ' href="#"';
-}
-
-// ID único pro link — usado pelo script inline pra setar o href antes do
-// usuário interagir e como fallback no onclick.
-$cta_uid = 'cdl-cta-' . substr(md5($slug . microtime()), 0, 8);
+// Codifica "cdlanapolis.com.br" como placeholder antes de mandar pro
+// HTML. O filtro do Hostinger staging só reescreve strings que CONTÊM
+// "cdlanapolis.com.br" — com o placeholder, ele passa intocado. O JS
+// inline abaixo decodifica de volta no client. Em produção, o JS
+// também decodifica (no-op visual). Cliente pode salvar QUALQUER URL
+// no admin que vai sair EXATAMENTE como digitou.
+$placeholder        = '__CDLDOMAIN__';
+$cta_link_encoded   = str_replace('cdlanapolis.com.br', $placeholder, $cta_link);
+$cta_uid            = 'cdl-cta-' . wp_unique_id();
 ?>
 <section class="cta-gold">
     <h2 class="ao"><?php echo wp_kses_post($fb['cta_title']); ?></h2>
     <p class="ao ao-d1"><?php echo esc_html($fb['cta_text']); ?></p>
-    <a id="<?php echo esc_attr($cta_uid); ?>"<?php echo $cta_href_attr; ?><?php echo $cta_target_attr; ?><?php echo $cta_ext_attrs; ?> class="btn btn-dark ao ao-d2">Quero saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a id="<?php echo esc_attr($cta_uid); ?>" href="#" data-cdl-cta-link="<?php echo esc_attr($cta_link_encoded); ?>"<?php echo $cta_target_attr; ?> class="btn btn-dark ao ao-d2">Quero saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </section>
-<?php if ($cta_uses_js_assembly): ?>
 <script>
 (function () {
     var el = document.getElementById(<?php echo wp_json_encode($cta_uid); ?>);
     if (!el) return;
-    var sub  = el.getAttribute('data-cdl-ext-url');
-    var path = el.getAttribute('data-cdl-ext-path') || '/';
-    // Domínio montado em pedaços pra escapar do filtro do Hostinger staging.
-    var domain = 'cdl' + 'anapolis' + '.com' + '.br';
-    var url = 'https://' + sub + '.' + domain + path;
-    el.setAttribute('href', url);
-    // Fallback: se algo recolocar o # depois, o clique ainda abre certo.
-    el.addEventListener('click', function (e) {
-        if (el.getAttribute('href') === '#' || el.getAttribute('href').indexOf('white-weasel') !== -1) {
-            e.preventDefault();
-            window.open(url, '_blank', 'noopener');
-        }
-    });
+    // Decodifica o placeholder de volta pro domínio real, montado em
+    // pedaços (pra não ter "cdlanapolis.com.br" como string única que
+    // poderia ser pega por algum filtro adicional).
+    var encoded = el.getAttribute('data-cdl-cta-link') || '';
+    var real = encoded.split('__CDLDOMAIN__').join('cdl' + 'anapolis' + '.com' + '.br');
+    el.setAttribute('href', real);
 })();
 </script>
-<?php endif; ?>
 
 <?php get_footer(); ?>
