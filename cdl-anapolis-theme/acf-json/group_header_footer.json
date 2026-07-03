@@ -217,6 +217,21 @@
             "instructions": "Imagem de fundo do hero da página /area-associado/. Recomendado 1920x720px.",
             "return_format": "array",
             "preview_size": "medium"
+        },
+        {
+            "key": "field_hf_area_associado_hero_title",
+            "label": "Área do Associado — Título do Hero",
+            "name": "area_associado_hero_title",
+            "type": "text",
+            "default_value": "Área do Associado"
+        },
+        {
+            "key": "field_hf_area_associado_hero_subtitle",
+            "label": "Área do Associado — Subtítulo do Hero (texto abaixo do título)",
+            "name": "area_associado_hero_subtitle",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": ""
         }
     ],
     "location": [

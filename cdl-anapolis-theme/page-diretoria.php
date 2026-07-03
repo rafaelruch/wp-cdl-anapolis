@@ -7,6 +7,10 @@ get_header();
 $hero_image   = get_field('diretoria_hero_image');
 $hero_img_url = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&q=80';
 
+$hero_tag      = get_field('diretoria_hero_tag')      ?: 'Gestão atual';
+$hero_title    = get_field('diretoria_hero_title')    ?: 'Diretoria CDL Anápolis';
+$hero_subtitle = get_field('diretoria_hero_subtitle') ?: 'Liderança voluntária em prol do comércio e da comunidade.';
+
 $img_base = CDL_THEME_URI . '/assets/img/diretoria/';
 
 $diretores = get_field('diretoria_membros');
@@ -40,9 +44,9 @@ $conselho = [
 <section class="page-hero" style="background-image:url('<?php echo esc_url($hero_img_url); ?>')">
     <div class="page-hero__overlay"></div>
     <div class="wrap page-hero__content">
-        <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)">Gestão atual</div>
-        <h1 class="page-hero__title ao ao-d1">Diretoria<br>CDL Anápolis</h1>
-        <p class="page-hero__sub ao ao-d2">Liderança voluntária em prol do comércio e da comunidade.</p>
+        <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)"><?php echo esc_html($hero_tag); ?></div>
+        <h1 class="page-hero__title ao ao-d1"><?php echo wp_kses($hero_title, ['br' => []]); ?></h1>
+        <p class="page-hero__sub ao ao-d2"><?php echo esc_html($hero_subtitle); ?></p>
     </div>
 </section>
 

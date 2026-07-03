@@ -6,7 +6,8 @@ get_header();
 
 $hero_image  = get_field('contato_hero_image');
 $hero_img_url = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80';
-$subtitle    = get_the_excerpt() ?: 'Estamos aqui para ajudar. Entre em contato com a CDL Anápolis.';
+// Subtitle: campo ACF > excerpt nativo (compat) > fallback.
+$subtitle    = get_field('contato_hero_subtitle') ?: (get_the_excerpt() ?: 'Estamos aqui para ajudar. Entre em contato com a CDL Anápolis.');
 
 // Contact info from ACF options with fallbacks
 $phone    = get_field('top_bar_phone', 'option') ?: '(62) 3328-0008';

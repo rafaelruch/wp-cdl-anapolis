@@ -10,12 +10,16 @@
             "required": 0,
             "return_format": "array",
             "preview_size": "medium",
-            "library": "all",
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
+            "library": "all"
+        },
+        {
+            "key": "field_contato_hero_subtitle",
+            "label": "Hero - Subtítulo (texto abaixo do título)",
+            "name": "contato_hero_subtitle",
+            "type": "textarea",
+            "instructions": "Texto curto exibido logo abaixo do título \"Fale Conosco\".",
+            "rows": 2,
+            "new_lines": ""
         },
         {
             "key": "field_contato_intro",

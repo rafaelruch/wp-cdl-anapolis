@@ -10,12 +10,29 @@
             "required": 0,
             "return_format": "array",
             "preview_size": "medium",
-            "library": "all",
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
+            "library": "all"
+        },
+        {
+            "key": "field_presidentes_hero_tag",
+            "label": "Hero - Etiqueta (acima do título)",
+            "name": "presidentes_hero_tag",
+            "type": "text",
+            "default_value": "Institucional"
+        },
+        {
+            "key": "field_presidentes_hero_title",
+            "label": "Hero - Título",
+            "name": "presidentes_hero_title",
+            "type": "text",
+            "default_value": "Presidentes CDL Anápolis"
+        },
+        {
+            "key": "field_presidentes_hero_subtitle",
+            "label": "Hero - Subtítulo (texto abaixo do título)",
+            "name": "presidentes_hero_subtitle",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": ""
         },
         {
             "key": "field_presidentes_lista",

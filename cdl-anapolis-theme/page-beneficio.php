@@ -547,10 +547,11 @@ $fallbacks = [
 $fb = $fallbacks[$slug] ?? $fallbacks['cdl-assessoria-juridica'];
 $icons = $icon_sets[$slug] ?? $icon_sets['cdl-assessoria-juridica'];
 
-// ACF fields with fallbacks
+// ACF fields with fallbacks. Subtitle ordem: campo ACF novo > excerpt
+// nativo (compat) > fallback do array.
 $hero_image   = get_field('beneficio_hero_image');
 $hero_img_url = $hero_image ? $hero_image['url'] : $fb['hero_img'];
-$subtitle     = get_the_excerpt() ?: $fb['subtitle'];
+$subtitle     = get_field('beneficio_hero_subtitle') ?: (get_the_excerpt() ?: $fb['subtitle']);
 $intro        = get_field('beneficio_intro') ?: $fb['intro'];
 $features     = get_field('beneficio_features') ?: $fb['features'];
 $cta_link     = get_field('beneficio_cta_link') ?: $fb['cta_link'];

@@ -7,6 +7,10 @@ get_header();
 $hero_image   = get_field('presidentes_hero_image');
 $hero_img_url = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80';
 
+$hero_tag      = get_field('presidentes_hero_tag')      ?: 'Institucional';
+$hero_title    = get_field('presidentes_hero_title')    ?: 'Presidentes CDL Anápolis';
+$hero_subtitle = get_field('presidentes_hero_subtitle') ?: 'Os líderes que construíram a história da CDL Anápolis ao longo de mais de 60 anos.';
+
 $presidentes = get_field('presidentes_lista');
 if (!$presidentes) {
     $presidentes = [
@@ -38,9 +42,9 @@ if (!$presidentes) {
 <section class="page-hero" style="background-image:url('<?php echo esc_url($hero_img_url); ?>')">
     <div class="page-hero__overlay"></div>
     <div class="wrap page-hero__content">
-        <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)">Institucional</div>
-        <h1 class="page-hero__title ao ao-d1">Presidentes<br>CDL Anápolis</h1>
-        <p class="page-hero__sub ao ao-d2">Os líderes que construíram a história da CDL Anápolis ao longo de mais de 60 anos.</p>
+        <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)"><?php echo esc_html($hero_tag); ?></div>
+        <h1 class="page-hero__title ao ao-d1"><?php echo wp_kses($hero_title, ['br' => []]); ?></h1>
+        <p class="page-hero__sub ao ao-d2"><?php echo esc_html($hero_subtitle); ?></p>
     </div>
 </section>
 

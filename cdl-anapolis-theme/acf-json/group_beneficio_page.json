@@ -12,6 +12,15 @@
             "wrapper": {"width": "50", "class": "", "id": ""}
         },
         {
+            "key": "field_beneficio_hero_subtitle",
+            "label": "1b. Subtítulo do Hero (texto abaixo do título)",
+            "name": "beneficio_hero_subtitle",
+            "type": "textarea",
+            "instructions": "Texto curto exibido logo abaixo do título da página.",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
             "key": "field_beneficio_highlight_image",
             "label": "2. Imagem da seção \"Por que escolher este benefício?\"",
             "name": "beneficio_highlight_image",

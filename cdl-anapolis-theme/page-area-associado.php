@@ -15,8 +15,10 @@
  */
 get_header();
 
-$hero_image   = function_exists('get_field') ? get_field('area_associado_hero_image', 'option') : null;
-$hero_img_url = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1920&q=80';
+$hero_image    = function_exists('get_field') ? get_field('area_associado_hero_image', 'option') : null;
+$hero_img_url  = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1920&q=80';
+$hero_title    = (function_exists('get_field') ? get_field('area_associado_hero_title',    'option') : '') ?: 'Área do Associado';
+$hero_subtitle = (function_exists('get_field') ? get_field('area_associado_hero_subtitle', 'option') : '') ?: 'Acesse o sistema central com seu CNPJ e senha cadastrados.';
 ?>
 
 <!-- Hero -->
@@ -24,8 +26,8 @@ $hero_img_url = $hero_image ? $hero_image['url'] : 'https://images.unsplash.com/
     <div class="page-hero__overlay"></div>
     <div class="wrap page-hero__content" style="text-align:center">
         <div class="sec-tag ao" style="color:var(--gold);background:var(--gold-soft);border-color:rgba(255,180,0,.2)">Acesso exclusivo</div>
-        <h1 class="page-hero__title ao ao-d1">Área do Associado</h1>
-        <p class="page-hero__sub ao ao-d2">Acesse o sistema central com seu CNPJ e senha cadastrados.</p>
+        <h1 class="page-hero__title ao ao-d1"><?php echo esc_html($hero_title); ?></h1>
+        <p class="page-hero__sub ao ao-d2"><?php echo esc_html($hero_subtitle); ?></p>
     </div>
 </section>
 

@@ -12,6 +12,15 @@
             "wrapper": {"width": "50", "class": "", "id": ""}
         },
         {
+            "key": "field_servico_hero_subtitle",
+            "label": "1b. Subtítulo do Hero (texto abaixo do título)",
+            "name": "servico_hero_subtitle",
+            "type": "textarea",
+            "instructions": "Texto curto exibido logo abaixo do título da página. Ex: \"Consultas de crédito e proteção ao consumidor direto no celular.\"",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
             "key": "field_servico_split_image",
             "label": "2. Imagem da seção \"Por que escolher este serviço?\"",
             "name": "servico_split_image",

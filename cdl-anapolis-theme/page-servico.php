@@ -303,10 +303,12 @@ $fallbacks = [
 $fb = $fallbacks[$slug] ?? $fallbacks['spc'];
 $icons = $icon_sets[$slug] ?? $icon_sets['spc'];
 
-// ACF fields with fallbacks
+// ACF fields with fallbacks. Subtitle ordem: campo ACF novo > excerpt
+// nativo (compat) > fallback do array. Cliente edita o campo "Subtítulo
+// do Hero" no admin da página, sem precisar mexer no Resumo.
 $hero_image   = get_field('servico_hero_image');
 $hero_img_url = $hero_image ? $hero_image['url'] : $fb['hero_img'];
-$subtitle     = get_the_excerpt() ?: $fb['subtitle'];
+$subtitle     = get_field('servico_hero_subtitle') ?: (get_the_excerpt() ?: $fb['subtitle']);
 $intro        = get_field('servico_intro') ?: $fb['intro'];
 $features     = get_field('servico_features') ?: $fb['features'];
 $cta_link     = get_field('servico_cta_link') ?: $fb['cta_link'];

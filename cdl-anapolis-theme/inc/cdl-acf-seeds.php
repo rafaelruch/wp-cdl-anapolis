@@ -729,9 +729,13 @@ add_action('acf/init', function () {
 // DIRETORIA — intro + repeaters de membros e conselho fiscal
 // =====================================================================
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_diretoria_v2', function () {
+    cdl_seed_run('cdl_seed_diretoria_v3', function () {
         $page = get_page_by_path('diretoria');
         if (!$page) return;
+
+        update_field('diretoria_hero_tag',      'Gestão atual', $page->ID);
+        update_field('diretoria_hero_title',    'Diretoria<br>CDL Anápolis', $page->ID);
+        update_field('diretoria_hero_subtitle', 'Liderança voluntária em prol do comércio e da comunidade.', $page->ID);
 
         update_field('diretoria_intro', '<p>A liderança da CDL Anápolis é formada por empresários que oferecem tempo e experiência, de forma voluntária, para fortalecer o comércio local. São profissionais que acreditam no poder da comunidade e na força de uma cidade que cresce unida.</p>', $page->ID);
 
@@ -764,9 +768,13 @@ add_action('acf/init', function () {
 // PRESIDENTES — galeria histórica (1962 → 2025)
 // =====================================================================
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_presidentes_v1', function () {
+    cdl_seed_run('cdl_seed_presidentes_v2', function () {
         $page = get_page_by_path('presidentes');
         if (!$page) return;
+
+        update_field('presidentes_hero_tag',      'Institucional', $page->ID);
+        update_field('presidentes_hero_title',    'Presidentes<br>CDL Anápolis', $page->ID);
+        update_field('presidentes_hero_subtitle', 'Os líderes que construíram a história da CDL Anápolis ao longo de mais de 60 anos.', $page->ID);
 
         update_field('presidentes_lista', [
             ['name' => 'Dennison Batista',             'period' => '1962 – 1963'],
@@ -825,14 +833,25 @@ add_action('acf/init', function () {
 });
 
 // =====================================================================
+// ÁREA DO ASSOCIADO — hero title + subtitle (Options page)
+// =====================================================================
+add_action('acf/init', function () {
+    cdl_seed_run('cdl_seed_area_associado_hero_v1', function () {
+        update_field('area_associado_hero_title',    'Área do Associado', 'option');
+        update_field('area_associado_hero_subtitle', 'Acesse o sistema central com seu CNPJ e senha cadastrados.', 'option');
+    });
+});
+
+// =====================================================================
 // FALE CONOSCO — intro + horário + mapa
 // =====================================================================
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_fale_conosco_v1', function () {
+    cdl_seed_run('cdl_seed_fale_conosco_v2', function () {
         $page = get_page_by_path('fale-conosco');
         if (!$page) return;
 
-        update_field('contato_intro',   'Estamos aqui para ajudar. Entre em contato com a CDL Anápolis.', $page->ID);
+        update_field('contato_hero_subtitle', 'Estamos aqui para ajudar. Entre em contato com a CDL Anápolis.', $page->ID);
+        update_field('contato_intro',         'Estamos aqui para ajudar. Entre em contato com a CDL Anápolis.', $page->ID);
         update_field('contato_horario', 'Seg a Sex, 8h às 18h', $page->ID);
         update_field('contato_maps_embed', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3828.831121972749!2d-48.9584482248586!3d-16.331570984386573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ea478d32b8d87%3A0xd510418a62440c63!2sC%C3%A2mara%20de%20Dirigentes%20Lojistas%20de%20An%C3%A1polis!5e0!3m2!1spt-BR!2sbr!4v1780941013542!5m2!1spt-BR!2sbr', $page->ID);
     });
@@ -1041,8 +1060,30 @@ function cdl_seed_beneficios_data() {
     ];
 }
 
+// Subtítulos do hero por slug (usados em cdl_seed_beneficios_v4).
+function cdl_seed_beneficio_subtitles() {
+    return [
+        'cdl-assessoria-juridica'  => 'Sua Parceira Jurídica de Confiança — proteção jurídica para o seu negócio, sem custo adicional.',
+        'cdl-saude'                => 'Sua saúde sem gastar com plano! Um convênio inteligente para quem faz parte da CDL Anápolis.',
+        'sede-campestre'           => 'Seu evento merece um lugar especial — espaço exclusivo para quem faz parte da CDL Anápolis.',
+        'planejamento-estrategico' => 'Apoio especializado para analisar o momento da sua empresa, identificar oportunidades e estruturar ações eficientes para crescimento sustentável.',
+        'assessoria-contabil'      => 'Suporte técnico para compreender a realidade contábil e fiscal da empresa, com mais segurança e organização financeira.',
+        'apoio-mei'                => 'Facilita a formalização e manutenção do microempreendedor, com menos burocracia e mais agilidade.',
+        'rede-de-descontos'        => 'Economia contínua, maior poder de compra e fortalecimento do comércio local em um só benefício.',
+        'espacos-corporativos'     => 'Estrutura profissional para reuniões com clientes, parceiros e equipe — sem investir em espaço próprio.',
+        'eventos-corporativos'     => 'Networking qualificado, parcerias comerciais e fortalecimento de marca em ambientes empresariais ativos.',
+        'nucleos-empresariais'     => 'Grupos estratégicos voltados ao desenvolvimento empresarial, troca de experiências e geração de oportunidades.',
+        'treinamentos'             => 'Capacitação contínua e atualização de mercado para empresários e equipes.',
+        'midia-divulgacao'         => 'Valorização e fortalecimento da sua empresa através dos canais institucionais da CDL.',
+        'recrutamento'             => 'Apoio ágil e gratuito para encontrar profissionais qualificados para a sua empresa.',
+        'exames-admissionais'      => 'Exames obrigatórios com praticidade, agilidade e economia para o associado.',
+        'gestao-esocial'           => 'Gestão completa do eSocial com segurança, eficiência e conformidade legal.',
+    ];
+}
+
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_beneficios_v3', function () {
+    cdl_seed_run('cdl_seed_beneficios_v4', function () {
+        $subtitles = cdl_seed_beneficio_subtitles();
         foreach (cdl_seed_beneficios_data() as $slug => $fb) {
             $page = get_page_by_path($slug);
             if (!$page) continue;
@@ -1050,6 +1091,9 @@ add_action('acf/init', function () {
             update_field('beneficio_features', $fb['features'], $page->ID);
             update_field('beneficio_cta_text', $fb['cta_text'], $page->ID);
             update_field('beneficio_cta_link', $fb['cta_link'], $page->ID);
+            if (isset($subtitles[$slug])) {
+                update_field('beneficio_hero_subtitle', $subtitles[$slug], $page->ID);
+            }
         }
     });
 });
@@ -1204,8 +1248,21 @@ function cdl_seed_servicos_data() {
     ];
 }
 
+function cdl_seed_servico_subtitles() {
+    return [
+        'cdl-celular'          => 'Conecte-se ao Melhor em Telefonia — planos exclusivos para empreendedores.',
+        'certificado-digital'  => 'Seu certificado é com a CDL Anápolis — e-CPF e e-CNPJ com condições especiais.',
+        'central-de-cobrancas' => 'Recupere dívidas com segurança — assessoria especializada com abordagem ética e humanizada.',
+        'nfe-nfce'             => 'Agilidade, economia e conformidade — NF-e e NFC-e para o seu negócio.',
+        'spc'                  => 'Proteja seu negócio com o SPC — consultas, monitoramento e análise de crédito.',
+        'tempo-saude'          => 'Cuidar da saúde ficou mais fácil — planos a partir de R$ 20/mês com 50+ especialidades.',
+        'cdl-locacoes'         => 'Espaços corporativos completos para reuniões, treinamentos, palestras, eventos empresariais e encontros estratégicos.',
+    ];
+}
+
 add_action('acf/init', function () {
-    cdl_seed_run('cdl_seed_servicos_v2', function () {
+    cdl_seed_run('cdl_seed_servicos_v3', function () {
+        $subtitles = cdl_seed_servico_subtitles();
         foreach (cdl_seed_servicos_data() as $slug => $fb) {
             // Tenta o slug direto e também a variação certificado-digital-cdl
             $page = get_page_by_path($slug);
@@ -1220,6 +1277,9 @@ add_action('acf/init', function () {
             update_field('servico_external_url', $fb['external_url'], $page->ID);
             update_field('servico_cta_text',     $fb['cta_text'],     $page->ID);
             update_field('servico_cta_link',     $fb['cta_link'],     $page->ID);
+            if (isset($subtitles[$slug])) {
+                update_field('servico_hero_subtitle', $subtitles[$slug], $page->ID);
+            }
         }
     });
 });
